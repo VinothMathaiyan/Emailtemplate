@@ -5,62 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Template</title>
     <style>
-        /* Style your tables here */
+        /* Main table styles */
+        .maintable {
+            background-color: #f5f5f5;
+            width: 100%;
+        }
+        
+        /* Header table styles */
         .header-table {
             width: 100%;
             background-color: #f5f5f5;
+            border-collapse: collapse;
         }
-        .content-table {
+        .header-table td {
+            padding: 30px;
+        }
+        
+        /* Subtable styles */
+        .subtable {
             width: 100%;
             background-color: #ffffff;
+            border-collapse: collapse;
         }
+        .subtable td {
+            padding: 20px;
+        }
+        
+        /* Logo styles */
         .logo img {
             width: 100px; /* Adjust according to your logo size */
             height: auto;
         }
-        .date {
-            text-align: right;
+        
+        /* Banner styles */
+        .banner {
+            /* Add banner styles */
+        }
+        
+        /* Email content styles */
+        .email-content {
+            /* Add email content styles */
         }
     </style>
 </head>
 <body>
-    <!-- Header Table -->
-    <table class="header-table">
-        <tbody>
-            <tr>
-                <td>
-                    <!-- Logo -->
-                    <table class="logo">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="logo.png" alt="Logo">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-                <td class="date">
-                    Date: May 6, 2024
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <!-- Content Table -->
-    <table class="content-table">
-        <tbody>
-            <tr>
-                <td>
-                    <!-- Banner content here -->
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <!-- Email content here -->
-                </td>
-            </tr>
-        </tbody>
+    <!-- Main Table -->
+    <table class="maintable">
+        <tr>
+            <td>
+                <!-- Header Table -->
+                <table class="header-table">
+                    <tr>
+                        <td>
+                            <!-- Logo -->
+                            <table class="subtable">
+                                <tr>
+                                    <td class="logo">
+                                        <img src="logo.png" alt="Logo">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="banner">
+                                        <!-- Banner content here -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="email-content">
+                                        <!-- Email content here -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
 </body>
 </html>
