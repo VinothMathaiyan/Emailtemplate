@@ -6,12 +6,16 @@
     <title>Email Invite</title>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
-    <div style="width: 100%; max-width: 600px; position: relative; text-align: center; color: white; margin: auto;">
-        <img src="your-banner-image-url.jpg" alt="Banner" style="width: 100%; height: auto; display: block;">
-        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
-            <h1 style="margin: 0; font-size: 2em;">Welcome to Our Event!</h1>
-            <p style="margin: 0; font-size: 1em;">Join us for an amazing experience</p>
-        </div>
-    </div>
+    <table role="presentation" style="width: 100%; border-collapse: collapse; margin: auto;">
+        <tr>
+            <td style="position: relative; text-align: center; padding: 0; margin: 0;">
+                <img src="your-banner-image-url.jpg" alt="Banner" style="width: 100%; height: auto; display: block;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5); padding: 10px; color: white; text-align: center;">
+                    <h1 style="margin: 0; font-size: 2em;">Welcome to Our Event!</h1>
+                    <p style="margin: 0; font-size: 1em;">Join us for an amazing experience</p>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
