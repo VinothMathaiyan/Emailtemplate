@@ -1,55 +1,6 @@
-Existing Survey vs. New Survey:
-
-The first activity to tackle before Workday goes live involves your Qualtrics surveys. We need to decide whether to use your existing surveys or create new ones.
-Existing Surveys: This option keeps all your data in one place, but there's a potential downside. Due to the changes in Workday, some data points might appear twice with slightly different values.
-If you choose existing surveys, we'll need to work on combining this duplicate data into a single, clean record for each participant. This can be a bit complex within a single survey.
-New Surveys:
-
-New Surveys: This approach avoids duplicate data issues, making it easier to follow the changes from Workday.
-However, the drawback is that your historical data would be separate from the new data collected after Workday goes live. We'll need to find ways to combine this data in your dashboards or logic flows for comprehensive analysis."
-
-Both options have advantages and disadvantages. We recommend considering the complexity of your surveys, the importance of historical data, and the resources available for data cleaning.
-
-1. Removing Decommissioned System References:
-
-Moving on to the next recommended activity: We need to review the content within your Qualtrics surveys.
-Specifically, we'll be looking for references to any systems or data fields that are being decommissioned with Workday. This might include things like the 'SAP' system or the 'grad flag' field.
-Any references to these outdated elements in your surveys will need to be removed to ensure they function correctly after the Workday switch."
-2. Ensuring Logic Functionality:
-
-Another crucial step is verifying the logic within your surveys. Is to determine how questions or answer options are displayed based on participant responses.
-With the changes in Workday, some of your existing logic might not function as intended. We recommend reviewing all logic flows to ensure they still work correctly with the new data structure.
-
-3. Accessibility Check:
-
-Here's an optional, but highly recommended activity: Let's perform an accessibility check on your Qualtrics surveys.
-
-4. Look and Feel Update:
-
-Another optional activity involves the visual presentation of your surveys, also known as 'look and feel'.
-While not strictly necessary for functionality, keeping your surveys updated with the latest look and feel elements have better UX experience
-
-5. Review of Raising Concern and DP Statement:
-
-The final recommended activity focuses on your surveys' content related to data privacy and raising concerns.
-
-Next item is comms. Keeping users informed about the upcoming changes is crucial.
-One potential communication strategy is to implement banners across your Qualtrics dashboards.
-These banners would effectively communicate to users about the possible changes to Qualtrics projects due to the Workday implementation.
-The banners can also inform users about any upcoming downtime or maintenance periods related to the switch.
-
-Internal User Acceptance Testing (UAT):
-
-"The next recommended activity is to conduct internal User Acceptance Testing, or UAT, for your Qualtrics projects."
-"UAT essentially involves having a group of internal users test your surveys and dashboards after making adjustments for the Workday changes."
-"This testing helps identify any remaining issues or areas for improvement before the changes are rolled out to the broader user base."
-"The UAT process can involve activities like testing workflows, data accuracy, and overall functionality of your Qualtrics projects.
-
-Stakeholder Engagement:
-
-"Now let's talk about stakeholder engagement. Throughout this process, it's crucial to keep stakeholders informed and involved."
-"We recommend engaging with stakeholders early on, ideally from the beginning of these recommended activities."
-
-"Effort Estimation: 
-"Communication of Live Dates: 
-"Maintenance Mode for Surveys: 
+Summary: We'll begin with a brief overview of the HR data changes coming with Workday and their potential impact on your Qualtrics projects.
+Assessing Impact: We'll then dive deeper into a framework to help you assess the specific areas within your Qualtrics projects that might be affected by these data changes.
+Key Data Changes: Following that, we'll focus on some key data changes (excluding hierarchies) that you should be aware of and how they might influence your Qualtrics projects.
+Changes in Hierarchies: We'll dedicate a separate section to explore the changes happening to employee hierarchies in Workday and how they might impact your Qualtrics data.
+Remediation Activities: We'll then outline some recommended remediation activities you can take to prepare your Qualtrics projects for a smooth transition to Workday.
+Next Steps: Finally, we'll conclude by discussing the next steps and resources available to help you through this process.
