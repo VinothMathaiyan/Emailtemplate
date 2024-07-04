@@ -1,6 +1,1 @@
-Summary: We'll begin with a brief overview of the HR data changes coming with Workday and their potential impact on your Qualtrics projects.
-Assessing Impact: We'll then dive deeper into a framework to help you assess the specific areas within your Qualtrics projects that might be affected by these data changes.
-Key Data Changes: Following that, we'll focus on some key data changes (excluding hierarchies) that you should be aware of and how they might influence your Qualtrics projects.
-Changes in Hierarchies: We'll dedicate a separate section to explore the changes happening to employee hierarchies in Workday and how they might impact your Qualtrics data.
-Remediation Activities: We'll then outline some recommended remediation activities you can take to prepare your Qualtrics projects for a smooth transition to Workday.
-Next Steps: Finally, we'll conclude by discussing the next steps and resources available to help you through this process.
+
