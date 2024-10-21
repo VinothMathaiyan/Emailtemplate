@@ -13,3 +13,12 @@ Given that the Active file contains over 100,000 records, I developed a Python a
 3. Gen AI Hackathon Participation
 Contributed to the Gen AI Hackathon, focusing on enhancing colleague experience through AI-driven solutions for streamlining the survey preparation process.
 Explored the use of Generative AI in collaboration with Data scientists, stakeholders, to optimize surveys.
+
+
+4. HR ExperienceSurvey
+The HX Survey was one of the most complex projects, presenting challenges such as randomization, a dynamic progress bar, and a large volume of questions. I took the lead in developing these questions, exploring various approaches to ensure optimal functionality. Additionally, I made sure that Praveen was fully trained on the setup, enabling him to manage it independently moving forward.
+
+The next critical task was building eight different dashboards. Each dashboard initially took over 20 hours to create. However, by working on a solution to merge all eight into a single comprehensive dashboard, I was able to reduce the effort by 75%, significantly improving efficiency and time management.
+
+5. Supporting Sobers with Workday Survey Dashboard
+Collaborated with Sobers to create a comprehensive dashboard for the Workday survey within a tight two-day deadline. In addition, we implemented TextiQ for analyzing open-text responses. Worked effectively with various teams to generate relevant topics and keywords, ensuring the dashboard provided actionable insights for stakeholders.
