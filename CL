@@ -1,1 +1,22 @@
+Dear [Support Team/Qualtrics Support],
+
+I hope you are doing well.
+
+We are exploring several approaches to extract data directly from our Qualtrics surveys and would like your assistance in determining the best solution. We are considering the following approaches:
+
+Qualtrics API: We are interested in using the Qualtrics API for programmatic data extraction. Could you provide initial setup guidance, including any relevant API documentation, limitations, and best practices?
+
+API and Workflow Combination: We are also considering a combination of the API and Qualtrics workflows to automate the process of data extraction and transfer. Could you advise on how to set up such a system and the best way to trigger workflows based on survey responses?
+
+SFTP Setup: We are looking into automating data transfers using SFTP for secure and efficient data extraction. Could you guide us on how to configure SFTP transfers in Qualtrics?
+
+Data Integration with QlikSense: As we use QlikSense for data analysis, we would appreciate guidance on integrating Qualtrics data with QlikSense. Any documentation or examples on how to streamline this integration would be helpful.
+
+We would also appreciate any relevant knowledge base links or documentation to help us get started on these approaches. Your expertise and recommendations will be invaluable in guiding us through the initial steps.
+
+Thank you in advance for your support. We look forward to your response.
+
+
+Subject: Assistance Request for Qualtrics Data Extraction, SFTP, and API-Workflow Setup
+
 
