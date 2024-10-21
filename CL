@@ -1,11 +1,6 @@
-Throughout the year, I focused on proactively identifying and mitigating risks while enhancing controls to ensure data accuracy, process efficiency, and project success. Key actions included:
+I embraced a challenge-driven mindset, particularly in complex projects like the HR Experience Survey, where I explored innovative solutions to overcome obstacles such as randomization and dynamic progress bars. My drive to enhance efficiency led to developing a solution that merged eight dashboards into one, reducing effort by 75%. Additionally, I took the initiative to empower colleagues, such as training Praveen to manage the setup independently, ensuring team sustainability.
 
-Data Accuracy & Automation: Implemented automation across various tasks, including survey data validation and test case generation, significantly reducing the risk of human error and ensuring reliable outputs.
+I showed respect and integrity by working collaboratively across teams, particularly during the Post Pivot activities, where I ensured clear communication and collaboration with HRDP, UX, and data sourcing teams. I upheld service excellence by delivering high-quality dashboards, often under tight deadlines, such as the Workday Survey dashboard created within two days. My stewardship was demonstrated by documenting processes meticulously in Jira and Confluence, ensuring that future teams could build on the work effectively.
 
-Process Improvement & Documentation: Developed and documented clear processes in Jira and Confluence, ensuring that all projects—from survey creation to dashboard building—followed standardized, repeatable steps, strengthening overall control and knowledge sharing.
+I actively listened to colleagues and stakeholders, integrating their needs into deliverables, such as incorporating accessibility into the surveys. By inspiring and guiding others, such as mentoring S and helping other team members with automation tasks, I encouraged cross-functional collaboration. I worked to align efforts across the enterprise by coordinating with various teams, ensuring that all projects were in sync with organizational goals, and focused on developing others, empowering team members with the knowledge to manage tasks independently in the future.
 
-Collaboration & Knowledge Transfer: Worked closely with cross-functional teams and took initiative to train colleagues, ensuring they could manage complex setups independently, thus reducing the risk of single-point dependency.
-
-Efficiency Gains: Streamlined time-intensive tasks, such as consolidating multiple dashboards into one, reducing effort and resource use by 75%, thereby minimizing operational risks.
-
-By consistently applying these practices, I ensured that projects were delivered with a high degree of accuracy and efficiency, while establishing a foundation of controls that can be relied upon in future projects.
