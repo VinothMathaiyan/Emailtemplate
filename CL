@@ -1,2 +1,10 @@
-YourView Survey:
+1. YourView Survey:
 Successfully organized and led the YourView Survey project, creating a comprehensive checklist to ensure thorough analysis. Took the initiative to develop and manage a checklist in Jira, incorporating automation for detailed checks to guarantee the accuracy of participant data. Collaborated effectively with Jon to obtain precise headcount data, and coordinated with the UX and Data Sourcing teams to streamline and enhance the survey process. These efforts resulted in an improved and efficient workflow for the survey execution.
+
+2. Post Pivot Activities:
+2a. Surveys
+Rebuilt all surveys efficiently to ensure all field changes were properly incorporated. Implemented accessibility features in collaboration with Praveen and Nikits, while also taking steps to educate the team on how to manage these changes independently in the future. Despite a busy period, I ensured all documentation was meticulously completed and updated in both Jira and Confluence for future reference.
+
+2b. Automation and Field Changes
+Ensured that the LB/Active files were correctly updated with the new field changes by regularly coordinating with the HRDP team. Thorough documentation was maintained in Confluence to support future reference and ease of transition.
+Given that the Active file contains over 100,000 records, I developed a Python automation tool to validate the data efficiently each time the file was updated. Additionally, collaborated with other team members on automation initiatives, providing support and delivering faster outputs through streamlined processes. 
