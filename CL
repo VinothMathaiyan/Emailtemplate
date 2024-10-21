@@ -1,1 +1,2 @@
-
+YourView Survey:
+Successfully organized and led the YourView Survey project, creating a comprehensive checklist to ensure thorough analysis. Took the initiative to develop and manage a checklist in Jira, incorporating automation for detailed checks to guarantee the accuracy of participant data. Collaborated effectively with Jon to obtain precise headcount data, and coordinated with the UX and Data Sourcing teams to streamline and enhance the survey process. These efforts resulted in an improved and efficient workflow for the survey execution.
