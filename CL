@@ -8,3 +8,8 @@ Rebuilt all surveys efficiently to ensure all field changes were properly incorp
 2b. Automation and Field Changes
 Ensured that the LB/Active files were correctly updated with the new field changes by regularly coordinating with the HRDP team. Thorough documentation was maintained in Confluence to support future reference and ease of transition.
 Given that the Active file contains over 100,000 records, I developed a Python automation tool to validate the data efficiently each time the file was updated. Additionally, collaborated with other team members on automation initiatives, providing support and delivering faster outputs through streamlined processes. 
+
+
+3. Gen AI Hackathon Participation
+Contributed to the Gen AI Hackathon, focusing on enhancing colleague experience through AI-driven solutions for streamlining the survey preparation process.
+Explored the use of Generative AI in collaboration with Data scientists, stakeholders, to optimize surveys.
