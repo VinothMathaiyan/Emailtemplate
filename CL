@@ -1,28 +1,6 @@
-1. Qualtrics and ServiceNow Integration for HR Case Management
-Completely built the workflow from scratch, ensuring it aligned with both Qualtrics and ServiceNow requirements.
-Updated the design plan based on integration feasibility to accommodate system needs.
-Proactively identified and resolved issues caused by system updates and upgrades before Qualtrics was fully integrated. By exploring and troubleshooting the root causes, they provided timely solutions, ensuring the project remained on track for testing and delivery.
 
-2. Dashboard Management
-Effectively managed existing dashboards and built new ones, ensuring that data was visualized in a clear and accessible way for stakeholders.
-Took responsibility for user access management, ensuring that the right people had access to the necessary dashboards while maintaining security and privacy protocols.
+Your colleague exhibited a challenge-driven mindset by tackling complex projects like the Qualtrics and ServiceNow integration, building workflows from scratch and proactively addressing issues. Their drive to meet tight deadlines was evident in the successful transfer of data from MS Forms to Qualtrics and dashboard development. They also empowered team members by providing training on survey and dashboard building, enhancing overall team capabilities.
 
-3. Change Requests for Dashboard and Survey Access Management
-Collaborated with AB to raise and manage change requests for creating a separate queue dedicated to dashboard and survey access management.
-Developed the user case for the request form, ensuring the change request process was clear, efficient, and aligned with organizational needs.
+Demonstrating respect and integrity, they fostered open communication and collaboration with cross-functional teams, ensuring that all project requirements were met. Their commitment to service excellence was shown in their ability to deliver high-quality dashboards and user access management while maintaining a focus on security and privacy. They practiced stewardship by documenting processes and decisions, providing valuable resources for future reference.
 
-4. Identity Access Management
-Collaborated with the tech team to establish the connection necessary for managing Qualtrics user access requests, ensuring smooth and secure access to the survey tool.
-
-5. Supporting the Team with Learning and Dashboard Building
-Assisted the team with building surveys and dashboards, including the Leaving Survey Dashboard and CE Dashboard, while also managing user access.
-Faced and addressed challenges in integrating CX similar to EX, working within system limitations to find the best possible solutions.
-
-6. Ad-Hoc Requests Under Tight Deadlines
-Efficiently handled ad-hoc requests, specifically moving data from MS Forms to Qualtrics while developing the corresponding dashboard, all within tight deadlines to meet project demands.
-
-7. XM Discover Analysis
-Currently engaged in analyzing data through XM Discover, focusing on extracting insights and identifying trends to inform decision-making and enhance overall project outcomes.
-
-8. MLS Development with Qualtrics Team
-Collaborated with the Qualtrics team to assist in building the Managed Learning System (MLS), contributing to the development and implementation of effective learning solutions.
+Your colleague actively listened to team needs and stakeholder feedback, integrating those insights into project deliverables, such as the CE Dashboard. By inspiring others through knowledge sharing and mentorship, they helped cultivate a collaborative learning environment. Their efforts to align across the enterprise were evident in their work on identity access management, ensuring a cohesive approach to user access for the survey tool. Additionally, they focused on developing others by equipping team members with the skills necessary to manage tasks independently, thereby fostering a culture of growth and collaboration.
