@@ -22,3 +22,10 @@ The next critical task was building eight different dashboards. Each dashboard i
 
 5. Supporting Sobers with Workday Survey Dashboard
 Collaborated with Sobers to create a comprehensive dashboard for the Workday survey within a tight two-day deadline. In addition, we implemented TextiQ for analyzing open-text responses. Worked effectively with various teams to generate relevant topics and keywords, ensuring the dashboard provided actionable insights for stakeholders.
+
+6. Mandatory Training detailed Test Cases
+Automated the process of generating 27 CSV files for test cases by implementing a solution that dynamically adjusted values and created separate files for each test case.
+Successfully improved efficiency by automating the manual task of changing scenario values and generating corresponding output files.
+
+7. Collaboration on Recruitment Shortlisting
+Assisted in the recruitment process by helping to shortlist candidates, streamlining the evaluation process for key roles.
