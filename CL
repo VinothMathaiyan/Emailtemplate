@@ -1,6 +1,1 @@
 
-Memory updated
-Here’s the What for your additional point:
-
-Leaver Dashboard: Automating Role Assignment
-Developed and automated the process of assigning dashboard access roles for the Leaver Dashboard, overcoming initial challenges. This approach ensures that roles remain up to date, reducing the risk of unauthorized users gaining access to the dashboard and enhancing overall security.
