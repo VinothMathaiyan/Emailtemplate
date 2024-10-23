@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <p>Dear [Colleague’s Name],</p>
-    <p>We hope this message finds you well.</p>
-    <p>We are reaching out to request your consent for [specific purpose]. Please review the details provided below, and let us know your preference by clicking one of the buttons.</p>
-    <p><strong>[Details about the request]</strong></p>
-    <p><strong>Do you provide your consent?</strong></p>
-    <table border="0" cellspacing="0" cellpadding="0">
-        <tr>
-            <td align="center" style="border-radius: 5px;" bgcolor="green">
-                <a href="[link-for-yes]" style="padding: 10px 20px; font-family: Arial, sans-serif; font-size: 14px; color: white; text-decoration: none; display: inline-block;">
-                    Yes, I provide consent
-                </a>
-            </td>
-            <td align="center" style="border-radius: 5px;" bgcolor="red">
-                <a href="[link-for-no]" style="padding: 10px 20px; font-family: Arial, sans-serif; font-size: 14px; color: white; text-decoration: none; display: inline-block;">
-                    No, I do not provide consent
-                </a>
-            </td>
-        </tr>
-    </table>
-    <p>Thank you for your prompt response.</p>
-    <p>Best regards,</p>
-    <p>[Your Name]<br>[Your Position]</p>
-</body>
-</html>
+Subject: Update on Survey Automation and Remediation for Missed Learnings
+
+Dear [Stakeholder's Name],
+
+I hope you're doing well. I wanted to provide you with an update regarding the recent request to adjust the survey automation for learning feedback.
+
+As a remediation for the missed learnings due to the 7-day logic, we will proceed with a manual run to capture those missed entries. However, I’d like to clarify a few points:
+
+The file we received from the data team includes learning data from the last 6 months, excluding any learning already executed.
+To avoid overwhelming the system and hitting the API limit of 500 records per second, I recommend that we do not run all the learning from this file in one go. Instead, we will focus on the missed learnings that fall under the new 14-day window.
+While updating the logic to 14 days will help minimize the issue moving forward, there is still a risk of encountering API call failures. To mitigate this, I suggest increasing the frequency of the file updates to better manage the data and reduce the volume of records in each run.
+Please let me know if you agree with this approach or if you'd like to discuss any adjustments.
