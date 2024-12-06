@@ -1,38 +1,28 @@
-Here’s a professionally drafted escalation email based on your content:
+Here’s a draft for your email:  
 
 ---
 
-**Subject:** Urgent Escalation: Prolonged System Slowness Issue Impacting Deliverables  
+**Subject:** Request for Review: Qualtrics Dashboard Pages  
 
-Dear [Recipient's Name or Team],  
+Dear Team,  
 
-I am reaching out to escalate a system slowness issue that has persisted for over four months. Despite multiple checks and involvement from various teams, there has been no resolution to date, and the problem has only worsened. Below is a summary of the issue, its impact, and actions taken so far:  
+I hope this email finds you well. As part of our efforts to ensure the accuracy and quality of our Qualtrics dashboard, I would like to request your assistance in reviewing specific dashboard pages assigned to each of you.  
 
-### **Teams Involved**  
-[List of Teams]  
+Here’s what I need you to check for your assigned pages:  
+1. **Filters**: Verify that the filters are working correctly and displaying the right data.  
+2. **Numbers and Metrics**: Cross-check if the numbers and percentages are reflecting accurately based on the provided data.  
+3. **Titles and Descriptions**: Ensure the page titles and descriptions make sense, are aligned with the data being shown, and are easy to understand.  
 
-### **Current State**  
-- Initially, the system functioned in the office environment, but now the issue persists both at home and in the office.  
-- A recent suggestion to switch from IPv6 to IPv4 for home connectivity remains untested due to my office-based work last week. However, the issue persists in the office environment as well.  
-- Teams have confirmed my system health is good, and I have changed laptops thrice, reinstalling all necessary software each time, which has been time-consuming and inefficient.  
+To aid your review, [X] has created a pivot table in Excel with detailed data, which can be used for value checking. Let me know if you need access to the file or any assistance in understanding it.  
 
-### **Impact on Work**  
-- **Deliverables:** Significant delays in meeting deadlines due to the slowness.  
-- **Quality:** On a few occasions, such as with [X survey], system errors like a white screen in the participant view led to assumptions that tasks were complete, compromising quality.  
-- **Efficiency:** A substantial amount of time has been wasted on repetitive troubleshooting and system setup.  
+### Next Steps:  
+- I’ll assign specific pages to each of you shortly.  
+- Please document any discrepancies or suggestions for improvement in a shared document (link to be provided).  
 
-### **Escalation Request**  
-Most of the time, the issue has been handed off between teams without resolution. Given the ongoing impact, I kindly request immediate assistance in resolving this matter. Any further insights or actions your team can recommend would be highly appreciated.  
+**Deadline:** Kindly complete your review by [insert deadline].  
 
-Please let me know if additional details are required from my end to expedite the resolution process.  
-
-Thank you for your attention to this matter.  
+Thank you for your collaboration in making our dashboard as accurate and user-friendly as possible. Let me know if you have any questions or require clarification.  
 
 Best regards,  
-[Your Full Name]  
-[Your Job Title/Department]  
-[Your Contact Information]  
-
---- 
-
-Feel free to modify the recipient or team name and any additional specifics!
+[Your Name]  
+[Your Position]  
