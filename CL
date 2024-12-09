@@ -1,11 +1,16 @@
 import json
 import pandas as pd
-import re  # Import re for removing HTML tags
+import re  # Import re for removing HTML tags and &nbsp;
 
 def clean_html_tags(text):
-    """Removes HTML tags from a string."""
+    """Removes HTML tags and non-breaking spaces (&nbsp;) from a string."""
     if text:
-        return re.sub(r'<.*?>', '', text)
+        # Remove all HTML tags like <div>, <b>, <img>, etc.
+        text = re.sub(r'<.*?>', '', text)
+        # Remove non-breaking spaces (&nbsp;)
+        text = re.sub(r'&nbsp;', ' ', text)
+        # Remove extra whitespace caused by removing tags
+        text = re.sub(r'\s+', ' ', text).strip()
     return text
 
 def qsf_to_excel(qsf_path, excel_path):
@@ -30,7 +35,7 @@ def qsf_to_excel(qsf_path, excel_path):
             payload = element.get("Payload", {})
             
             question_id = payload.get("QuestionID", "N/A")
-            question_text = clean_html_tags(payload.get("QuestionText", "N/A"))  # Remove HTML tags from Question Text
+            question_text = clean_html_tags(payload.get("QuestionText", "N/A"))  # Clean HTML tags and &nbsp;
             question_type = payload.get("QuestionType", "N/A")
             
             # Safely extract choices if they exist and are in a valid format
