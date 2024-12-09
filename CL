@@ -1,4 +1,3 @@
-
 import json
 import pandas as pd
 
@@ -27,10 +26,13 @@ def qsf_to_excel(qsf_path, excel_path):
             question_text = payload.get("QuestionText", "N/A")
             question_type = payload.get("QuestionType", "N/A")
             
-            # Extract choices if available
+            # Safely extract choices if they exist and are in a valid format
             choices = payload.get("Choices", {})
-            response_options = [choice.get("Display", "N/A") for choice in choices.values()]
-            
+            if isinstance(choices, dict):  # Ensure 'Choices' is a dictionary
+                response_options = [choice.get("Display", "N/A") for choice in choices.values()]
+            else:
+                response_options = []
+
             # Add question info to the list
             questions_data.append({
                 'Question ID': question_id,
