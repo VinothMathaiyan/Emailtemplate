@@ -1,1 +1,53 @@
 
+import json
+import pandas as pd
+
+def qsf_to_excel(qsf_path, excel_path):
+    """
+    Converts a QSF file to an Excel file.
+    
+    :param qsf_path: Path to the input QSF file.
+    :param excel_path: Path to save the output Excel file.
+    """
+    # Load the QSF file
+    with open(qsf_path, 'r', encoding='utf-8') as file:
+        qsf_data = json.load(file)
+
+    # Extract relevant survey questions from SurveyElements
+    survey_elements = qsf_data.get("SurveyElements", [])
+    
+    # List to store extracted question data
+    questions_data = []
+
+    for element in survey_elements:
+        if element.get("Element") == "SQ":  # SQ = Survey Question
+            payload = element.get("Payload", {})
+            
+            question_id = payload.get("QuestionID", "N/A")
+            question_text = payload.get("QuestionText", "N/A")
+            question_type = payload.get("QuestionType", "N/A")
+            
+            # Extract choices if available
+            choices = payload.get("Choices", {})
+            response_options = [choice.get("Display", "N/A") for choice in choices.values()]
+            
+            # Add question info to the list
+            questions_data.append({
+                'Question ID': question_id,
+                'Question Text': question_text,
+                'Question Type': question_type,
+                'Response Options': ', '.join(response_options) if response_options else None
+            })
+
+    # Convert the list of dictionaries to a DataFrame
+    df = pd.DataFrame(questions_data)
+    
+    # Export the DataFrame to an Excel file
+    df.to_excel(excel_path, index=False)
+    print(f"Excel file has been saved at {excel_path}")
+
+
+# Run the function to convert a QSF file to an Excel file
+qsf_path = 'path/to/your/input.qsf'  # Replace with the path to your QSF file
+excel_path = 'path/to/your/output.xlsx'  # Replace with the desired output path
+qsf_to_excel(qsf_path, excel_path)
