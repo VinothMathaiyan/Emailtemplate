@@ -1,17 +1,29 @@
 import json
 import pandas as pd
-import re  # Import re for removing HTML tags and &nbsp;
+import re  # Import re for removing HTML tags and special HTML entities
 
 def clean_html_tags(text):
-    """Removes HTML tags and non-breaking spaces (&nbsp;) from a string."""
+    """Removes HTML tags and cleans common HTML entities from a string."""
     if text:
         # Remove all HTML tags like <div>, <b>, <img>, etc.
         text = re.sub(r'<.*?>', '', text)
-        # Remove non-breaking spaces (&nbsp;)
+        # Replace HTML entities like &nbsp; and &amp; with their corresponding characters
         text = re.sub(r'&nbsp;', ' ', text)
+        text = re.sub(r'&amp;', '&', text)
         # Remove extra whitespace caused by removing tags
         text = re.sub(r'\s+', ' ', text).strip()
     return text
+
+def map_question_type(question_type):
+    """Maps question type to one of the specified types."""
+    mapping = {
+        "Intro": "Intro",
+        "Single": "Single",
+        "Multi": "Multi",
+        "Ranking": "Ranking",
+        "Free Text": "Free Text"
+    }
+    return mapping.get(question_type, "N/A")  # Default to "N/A" if not found
 
 def qsf_to_excel(qsf_path, excel_path):
     """
@@ -36,7 +48,7 @@ def qsf_to_excel(qsf_path, excel_path):
             
             question_id = payload.get("QuestionID", "N/A")
             question_text = clean_html_tags(payload.get("QuestionText", "N/A"))  # Clean HTML tags and &nbsp;
-            question_type = payload.get("QuestionType", "N/A")
+            question_type = map_question_type(payload.get("QuestionType", "N/A"))
             
             # Safely extract choices if they exist and are in a valid format
             choices = payload.get("Choices", {})
@@ -50,7 +62,7 @@ def qsf_to_excel(qsf_path, excel_path):
                 'Question ID': question_id,
                 'Question Text': question_text,
                 'Question Type': question_type,
-                'Response Options': ', '.join(response_options) if response_options else None
+                'Response Options': '; '.join(response_options) if response_options else None  # Replace comma with semicolon
             })
 
     # Convert the list of dictionaries to a DataFrame
