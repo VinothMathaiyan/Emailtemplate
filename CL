@@ -1,12 +1,1 @@
-Hi Team,
 
-Thank you all for your patience. It took longer than expected to complete, but we’ve managed to finish everything except the calendar and hyperlink color change. The hyperlink issue is due to a backend code limitation. We’ll keep you updated on our progress.
-
-Here are the links to the surveys:
-
-[Survey 1](insert link)
-[Survey 2](insert link)
-We’ve also updated the Confluence page with our comments. Please feel free to share any additional feedback.
-
-Thank you!
-[Your Name]
