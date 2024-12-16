@@ -1,15 +1,23 @@
-Qualtrics.SurveyEngine.addOnload(function() {
-  jQuery('.ChoiceStructure a').on('mouseover focus', function() {
-    jQuery(this).css('color', '#FFFFFF');
-  });
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  jQuery(document).ready(function () {
+    // Set default hyperlink color to #3AE7C
+    jQuery('.ChoiceStructure a').css('color', '#3AE7C');
 
-  jQuery('.ChoiceStructure a').on('mouseout blur', function() {
-    jQuery(this).css('color', '#3AE7C');
-  });
+    // Add hover, focus, and keyboard effects for each option box
+    jQuery('.ChoiceStructure').on('mouseover focus', function () {
+      jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on hover and focus
+    });
 
-  jQuery('.ChoiceStructure a').on('keydown', function(e) {
-    if (e.keyCode === 32 || e.keyCode === 13) {
-      jQuery(this).css('color', '#FFFFFF');
-    }
+    jQuery('.ChoiceStructure').on('mouseout blur', function () {
+      jQuery(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout and blur
+    });
+
+    // Add keydown event listener for spacebar and Enter key
+    jQuery('.ChoiceStructure').on('keydown', function (e) {
+      if (e.keyCode === 32 || e.keyCode === 13) {
+        jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on keydown
+      }
+    });
   });
-});
+</script>
