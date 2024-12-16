@@ -1,19 +1,22 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   Qualtrics.SurveyEngine.addOnload(function () {
+    // Set default hyperlink color to #3AE7C
+    $('.ChoiceStructure a').css('color', '#3AE7C');
+
     // Add hover, focus, and keyboard effects for each option box
     $('.ChoiceStructure').on({
       mouseover: function () {
         $(this).find('a').css('color', '#FFFFFF'); // Change to white on hover
       },
       mouseout: function () {
-        $(this).find('a').css('color', '#3AE7C'); // Change to #3AE7C when mouseout
+        $(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout
       },
       focusin: function () { // Handles keyboard Tab focus
         $(this).find('a').css('color', '#FFFFFF'); // Change to white when focused
       },
       focusout: function () { // Revert color when focus is removed
-        $(this).find('a').css('color', '#3AE7C'); // Change to #3AE7C when focus out
+        $(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C when focus out
       },
       keydown: function (e) { // Spacebar or Enter key
         if (e.keyCode === 32 || e.keyCode === 13) {
