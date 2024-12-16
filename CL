@@ -25,9 +25,9 @@
       }
     });
 
-    // Ensure mouseout event is triggered correctly
+    // Ensure mouseleave event is triggered correctly
     $('.ChoiceStructure').on('mouseleave', function () {
-      $(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout
+      $(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseleave
     });
   });
 </script>
