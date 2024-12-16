@@ -1,23 +1,9 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  jQuery(document).ready(function () {
-    // Set default hyperlink color to #3AE7C
-    jQuery('.SingleAnswer.radio a').css('color', '#3AE7C');
+/* Default hyperlink color */
+.SingleAnswer.radio a {
+    color: #3AE7C; /* Default color */
+}
 
-    // Add hover, focus, and keyboard effects for each option box
-    jQuery('.SingleAnswer.radio').on('mouseover focus', function () {
-      jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on hover and focus
-    });
-
-    jQuery('.SingleAnswer.radio').on('mouseout blur', function () {
-      jQuery(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout and blur
-    });
-
-    // Add keydown event listener for spacebar and Enter key
-    jQuery('.SingleAnswer.radio').on('keydown', function (e) {
-      if (e.keyCode === 32 || e.keyCode === 13) {
-        jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on keydown
-      }
-    });
-  });
-</script>
+/* Change hyperlink color to white on hover */
+.SingleAnswer.radio:hover a {
+    color: white; /* Change to white on hover */
+}
