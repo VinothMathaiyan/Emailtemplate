@@ -1,16 +1,15 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function() {
-    // Set default hyperlink color to #3AE7C
-    $('.choice.radio a').css('color', '#3AE7C');
-
-    // Add hover effects for each option box
-    $('.choice.radio').hover(
-      function() {
-        $(this).find('a').css('color', 'white'); // Change to white on hover
+  Qualtrics.SurveyEngine.addOnload(function () {
+    // Add hover effect for each option box
+    $('.ChoiceStructure').hover(
+      function () {
+        // On hover: Change hyperlink color to white
+        $(this).find('a').css('color', '#FFFFFF');
       },
-      function() {
-        $(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout
+      function () {
+        // On mouse out: Revert hyperlink color to original
+        $(this).find('a').css('color', '#1A73E8');
       }
     );
   });
