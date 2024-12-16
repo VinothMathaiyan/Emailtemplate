@@ -1,30 +1,12 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  jQuery(document).ready(function () {
-    // Set default hyperlink color to #3AE7C
-    jQuery('.ChoiceStructure a').css('color', '#3AE7C');
+Hi Team,
 
-    // Add hover, focus, and keyboard effects for each option box
-    jQuery('.ChoiceStructure').on('mouseover focus', function () {
-      jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on hover and focus
-    });
+Thank you all for your patience. It took longer than expected to complete, but we’ve managed to finish everything except the calendar and hyperlink color change. The hyperlink issue is due to a backend code limitation. We’ll keep you updated on our progress.
 
-    jQuery('.ChoiceStructure').on('mouseout blur', function () {
-      jQuery(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on mouseout and blur
-    });
+Here are the links to the surveys:
 
-    // Add keydown event listener for spacebar and Enter key
-    jQuery('.ChoiceStructure').on('keydown', function (e) {
-      if (e.keyCode === 32 || e.keyCode === 13) {
-        jQuery(this).find('a').css('color', '#FFFFFF'); // Change to white on keydown
-      }
-    });
+[Survey 1](insert link)
+[Survey 2](insert link)
+We’ve also updated the Confluence page with our comments. Please feel free to share any additional feedback.
 
-    // Add keyup event listener to revert color on keyup
-    jQuery('.ChoiceStructure').on('keyup', function (e) {
-      if (e.keyCode === 32 || e.keyCode === 13) {
-        jQuery(this).find('a').css('color', '#3AE7C'); // Change back to #3AE7C on keyup
-      }
-    });
-  });
-</script>
+Thank you!
+[Your Name]
