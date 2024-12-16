@@ -1,1 +1,13 @@
+<a href="#" 
+   style="
+     display: inline-block; 
+     color: #1A73E8; 
+     text-decoration: none; 
+     transition: color 0.3s ease;
+   " 
+   onmouseover="this.style.color='#FFFFFF'" 
+   onmouseout="this.style.color='#1A73E8'" 
+   onclick="this.style.color='#005CBE'">
+   Your Link Text
+</a>
 
