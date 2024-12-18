@@ -1,1 +1,5 @@
+I’ve reviewed the new layout, and it’s a notable improvement over dynamic themes, which will certainly add value. To fully leverage this, we would need two key features:
 
+The ability to unselect options in a single-select question.
+The inclusion of a calendar question type.
+Are there any plans to incorporate these features into the roadmap? I attempted to enable the unselect option for single-select using JavaScript, but it was unsuccessful due to the extensive class changes required.
