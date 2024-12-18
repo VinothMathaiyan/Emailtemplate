@@ -1,1 +1,13 @@
+/* Simple table with borders */
+.table-border {
+  width: 100%; /* Full width of the container */
+  border-collapse: collapse; /* Ensures no space between borders */
+}
+
+.table-border tr, 
+.table-border td {
+  border: 1px solid #000; /* Black border for all table rows and cells */
+  padding: 8px; /* Padding inside each cell */
+  text-align: left; /* Align text to the left */
+}
 
