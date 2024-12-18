@@ -1,1 +1,35 @@
+Step 4: Finalize and Prepare for Import
 
+Prepare the Import File: Create a new file with the following columns:
+
+ID
+
+First Name (FN)
+
+Last Name
+
+Email
+
+Apply Data Filter: Extract records where Indirect_Direct_Filled_Reports is greater than or equal to 10.
+
+Add Additional Column: Add an additional column named LM_Flag. Set the value as People Leader or Senior Leader based on the logic established during verification.
+
+Remove Unnecessary Columns: Ensure only the required columns listed above are present in the file.
+
+Final Review: Verify the file structure and content to ensure accuracy before proceeding with import.
+
+Step 5: Import and Distribute People Leader Role Dashboard Invite
+
+Prepare for Import:
+
+Follow internal import procedures to ensure proper system handling of the file.
+
+Check for file format compatibility (e.g., CSV, Excel).
+
+Import the File into the People Leader role dashboard system.
+
+Distribute Dashboard Invites:
+
+Send invites to People Leaders via the system or email as needed.
+
+Refer to the provided screenshot for guidance on how to send the invites.
