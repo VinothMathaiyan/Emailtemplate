@@ -1,1 +1,89 @@
+Overview
 
+This document provides a step-by-step guide for handling data files and distributing People Leader role dashboard invites. 
+
+Total Process Time: 1 weekEffort Involved: 20 hoursCL Team Responsibility: ABData Science Team POC: X
+
+Step 1: Share File with Data Science Team
+
+Prepare the Excel file with the following 3 columns:
+
+ID: Unique identifier for each record.
+
+Status: Value should be either Completed or left blank.
+
+LM_ID: Unique identifier for the Line Manager.
+
+Reference File: Use the provided template as a guide to ensure accurate column names and formatting.
+
+Share the File: Send the file to the Data Science Team POC (X). Use secure file-sharing methods to ensure data privacy.
+
+Step 2: Receive Output File from Data Science Team
+
+Output Format: The Data Science Team will return the file with an additional column. The structure will be as follows:
+
+ID
+
+Status
+
+LM_ID
+
+[New Column] (This column will be added by the Data Science Team)
+
+File Review: Ensure that the returned file matches the expected format and includes all required data.
+
+Step 3: Verification Approach
+
+Define Verification Checks (Work in progress):
+
+Validate that the ID column matches the original file.
+
+Check that Status values are as expected (Completed or blank).
+
+Verify that no extra rows or missing rows exist.
+
+Confirm the LM_ID values are unchanged.
+
+Review the content of the newly added column to ensure it aligns with expectations.
+
+Review Process: Document and standardize this verification process to ensure consistency for future handovers.
+
+Step 4: Finalize and Prepare for Import
+
+Retain the Following Columns Only:
+
+ID
+
+Status
+
+LM_ID
+
+[New Column from Data Science Team]
+
+LMFlag (Value will be Yes or No based on the logic determined during verification)
+
+Remove Unnecessary Columns: Delete any additional columns not listed above.
+
+Final Review: Ensure all required columns are present and contain valid data before proceeding.
+
+Step 5: Import and Distribute People Leader Role Dashboard Invite
+
+Prepare for Import:
+
+Follow internal import procedures to ensure proper system handling of the file.
+
+Check for file format compatibility (e.g., CSV, Excel).
+
+Import the File into the People Leader role dashboard system.
+
+Distribute Dashboard Invites:
+
+Send invites to People Leaders via the system or email as needed.
+
+Refer to the provided screenshot for guidance on how to send the invites.
+
+Roles and Responsibilities
+
+CL Team (AB): Responsible for file preparation, verification, import, and invite distribution.
+
+Data Science Team (POC: X): Responsible for appending the additional column and returning the file.
