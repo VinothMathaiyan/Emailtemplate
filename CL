@@ -1,18 +1,18 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet/themes/default.css">
-<script src="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet.js"></script>
-
-<duet-date-picker
-  identifier="my-date-picker"
-  value="2023-01-01"
-  min="2022-01-01"
-  max="2024-12-31"
-  localization="en-GB"
-  dateAdapter="customDateAdapter"
-></duet-date-picker>
-
 <script>
   Qualtrics.SurveyEngine.addOnload(function() {
-    const datePicker = document.querySelector('duet-date-picker');
+    // Get the question container
+    const questionContainer = this.getQuestionContainer();
+
+    // Create the date picker element
+    const datePicker = document.createElement('duet-date-picker');
+    datePicker.setAttribute('identifier', 'my-date-picker');
+    datePicker.setAttribute('value', '2023-01-01');
+    datePicker.setAttribute('min', '2022-01-01');
+    datePicker.setAttribute('max', '2024-12-31');
+    datePicker.setAttribute('localization', 'en-GB');
+
+    // Append the date picker to the question container
+    questionContainer.appendChild(datePicker);
 
     // Optional: Customize the date adapter if needed
     datePicker.dateAdapter = {
@@ -31,4 +31,3 @@
     };
   });
 </script>
-
