@@ -1,17 +1,1 @@
-Dear [Talent Acquisition Team/Stakeholders],
 
-Following my discussion with AB, here are the options we have identified for measuring user satisfaction and journey for the pre-deployment service feedback. As previously acknowledged, I’ve noted the timeline for getting back to you with viable options, and this is an overview of the possibilities we’ve considered:
-
-Challenges with Using Qualtrics EX
-Volume Constraints: As per data privacy (DP) guidelines, the minimum anonymity threshold in Qualtrics EX is set to 5. If the volume is less than 5 responses, the data will not display in the dashboard.
-Anonymity Flexibility in CX: While Qualtrics CX allows adjusting anonymity thresholds for specific dashboards with DP approval, Qualtrics EX does not provide this flexibility, making it unsuitable for very low response volumes.
-Options to Consider
-1. Direct 1-to-1 Feedback
-Pros: Allows for in-depth discussions and personalized insights.
-Cons: There is a risk of respondents feeling less inclined to share honest feedback due to the lack of anonymity.
-Next Step: We already use this approach for the Leaver Female Survey. We can explore with the team to understand their methodology and assess its applicability for pre-deployment feedback.
-2. Anonymous Survey Using MS Forms
-Pros: Maintains respondent confidentiality while being easy to deploy for smaller volumes.
-Cons: Without demographic data, we lose the ability to break down results by groups, which limits deeper analysis.
-Next Step:
-Engage MS Forms Team: We will reach out to understand their risk mitigation strategies and assess how they ensure data confidentiality and usability.
