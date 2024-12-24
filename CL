@@ -1,1 +1,30 @@
 
+Qualtrics.SurveyEngine.addOnload(function() {
+  var inputId = 'QR~' + this.questionId; 
+  var picker = new Pikaday({
+    field: document.getElementById(inputId),
+    firstDay: 1, 
+    format: 'DD/MM/YYYY', 
+  });
+});
+
+Qualtrics.SurveyEngine.addOnReady(function() {
+  //jQuery("#" + this.questionId + " .InputText").attr("readonly", true);
+  jQuery("#" + this.questionId + " .InputText").css("width", "10.5em");
+  jQuery("#" + this.questionId + " .InputText").attr("placeholder", "DD/MM/YYYY"); 
+});
+
+Qualtrics.SurveyEngine.addOnload(function() {
+  var inputId = 'QR~' + this.questionId; 
+  var picker = new Pikaday({
+    field: document.getElementById(inputId),
+    firstDay: 1, 
+    format: 'DD/MM/YYYY', 
+  });
+});
+
+Qualtrics.SurveyEngine.addOnReady(function() {
+  //jQuery("#" + this.questionId + " .InputText").attr("readonly", true);
+  jQuery("#" + this.questionId + " .InputText").css("width", "10.5em");
+  jQuery("#" + this.questionId + " .InputText").attr("placeholder", "DD/MM/YYYY"); 
+});
