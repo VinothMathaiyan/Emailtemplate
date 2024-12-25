@@ -1,32 +1,19 @@
-<link href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css" rel="stylesheet" type="text/css" /><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet/themes/default.css" rel="stylesheet" /><script src="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet.js"></script>
-
 Qualtrics.SurveyEngine.addOnload(function() {
-  var inputId = 'QR~' + this.questionId; 
-  var picker = new Pikaday({
-    field: document.getElementById(inputId),
-    firstDay: 1, 
-    format: 'DD/MM/YYYY', 
+  // Create the Duet Date Picker element
+  var duetDatePicker = document.createElement("duet-date-picker");
+  duetDatePicker.setAttribute("first-day-of-week", "0");
+  duetDatePicker.setAttribute("identifier", "date");
+  
+  // Append the date picker to the container
+  document.getElementById("duet-date-picker-container").appendChild(duetDatePicker);
+
+  // Listen for when a date is selected and log it to the console
+  duetDatePicker.addEventListener("duetChange", function(e) {
+    console.log("selected date", e.detail.valueAsDate);
+    // You can also update a Qualtrics embedded data field here if needed
+    var inputTextElement = document.querySelector(".InputText");
+    inputTextElement.value = e.detail.valueAsDate.toLocaleDateString();
   });
 });
 
-Qualtrics.SurveyEngine.addOnReady(function() {
-  //jQuery("#" + this.questionId + " .InputText").attr("readonly", true);
-  jQuery("#" + this.questionId + " .InputText").css("width", "10.5em");
-  jQuery("#" + this.questionId + " .InputText").attr("placeholder", "DD/MM/YYYY"); 
-});
-
-Qualtrics.SurveyEngine.addOnload(function() {
-  var inputId = 'QR~' + this.questionId; 
-  var picker = new Pikaday({
-    field: document.getElementById(inputId),
-    firstDay: 1, 
-    format: 'DD/MM/YYYY', 
-  });
-});
-
-Qualtrics.SurveyEngine.addOnReady(function() {
-  //jQuery("#" + this.questionId + " .InputText").attr("readonly", true);
-  jQuery("#" + this.questionId + " .InputText").css("width", "10.5em");
-  jQuery("#" + this.questionId + " .InputText").attr("placeholder", "DD/MM/YYYY"); 
-});
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet/themes/default.css">
