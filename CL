@@ -17,18 +17,21 @@ Qualtrics.SurveyEngine.addOnload(function() {
   // Insert the date picker container after the input text element
   inputTextElement.after(datePickerContainer);
 
-  // Ensure the calendar popup is displayed correctly
-  datePicker.addEventListener('duetOpen', () => {
-    const dialog = datePicker.shadowRoot.querySelector('duet-date-picker-dialog');
-    jQuery(dialog).css({
-      'display': 'block',
-      'position': 'absolute',
-      'z-index': '9999',
-    });
-  });
-
-  // Update the input text element with the selected date
+  // Listen for date selection and update the Qualtrics input box
   datePicker.addEventListener('duetChange', (event) => {
     inputTextElement.val(event.detail.value);
+  });
+
+  // Add a button to trigger the date picker
+  const calendarButton = document.createElement('button');
+  calendarButton.type = 'button';
+  calendarButton.className = 'icon';
+  calendarButton.setAttribute('aria-label', 'Choose Date');
+  calendarButton.innerHTML = '<span class="fa fa-calendar-alt fa-2x">&nbsp;</span>';
+  inputTextElement.after(calendarButton);
+
+  // Open the date picker when the button is clicked
+  calendarButton.addEventListener('click', () => {
+    datePicker.focus();
   });
 });
