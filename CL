@@ -1,19 +1,34 @@
 Qualtrics.SurveyEngine.addOnload(function() {
-  // Create the Duet Date Picker element
-  var duetDatePicker = document.createElement("duet-date-picker");
-  duetDatePicker.setAttribute("first-day-of-week", "0");
-  duetDatePicker.setAttribute("identifier", "date");
-  
-  // Append the date picker to the container
-  document.getElementById("duet-date-picker-container").appendChild(duetDatePicker);
+  // Append the calendar button to the free text box
+  const inputTextElement = jQuery("#" + this.questionId + " .InputText");
 
-  // Listen for when a date is selected and log it to the console
-  duetDatePicker.addEventListener("duetChange", function(e) {
-    console.log("selected date", e.detail.valueAsDate);
-    // You can also update a Qualtrics embedded data field here if needed
-    var inputTextElement = document.querySelector(".InputText");
-    inputTextElement.value = e.detail.valueAsDate.toLocaleDateString();
+  // Create a container for the date picker
+  const datePickerContainer = document.createElement('div');
+  datePickerContainer.id = 'date-picker-container';
+
+  // Create the date picker element
+  const datePicker = document.createElement('duet-date-picker');
+  datePicker.setAttribute('first-day-of-week', '0');
+  datePicker.setAttribute('identifier', 'date');
+
+  // Append the date picker to the container
+  datePickerContainer.appendChild(datePicker);
+
+  // Insert the date picker container after the input text element
+  inputTextElement.after(datePickerContainer);
+
+  // Ensure the calendar popup is displayed correctly
+  datePicker.addEventListener('duetOpen', () => {
+    const dialog = datePicker.shadowRoot.querySelector('duet-date-picker-dialog');
+    jQuery(dialog).css({
+      'display': 'block',
+      'position': 'absolute',
+      'z-index': '9999',
+    });
+  });
+
+  // Update the input text element with the selected date
+  datePicker.addEventListener('duetChange', (event) => {
+    inputTextElement.val(event.detail.value);
   });
 });
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@duetds/date-picker/dist/duet/themes/default.css">
