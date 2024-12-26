@@ -1,6 +1,1 @@
-<div id="duet-date-picker-container-start">&nbsp;</div>
-<div id="duet-date-picker-container-end">&nbsp;</div>
 
-Start Date : ${e://Field/JS_Survey_Open_Date}<br>
-End Date : ${e://Field/JS_Survey_Close_Date}<br>
-Reminder Date : ${e://Field/Survey_Reminder_Date_API}
