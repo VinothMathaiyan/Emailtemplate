@@ -1,1 +1,112 @@
 
+Qualtrics.SurveyEngine.addOnload(function() {
+  // Create the start date picker element
+  const startDatePicker = document.createElement('duet-date-picker');
+  startDatePicker.setAttribute('first-day-of-week', '0');
+  startDatePicker.setAttribute('identifier', 'start-date');
+  startDatePicker.setAttribute('required', 'true'); // Make the date selection required
+
+  const today = new Date().toISOString().split('T')[0];
+  startDatePicker.setAttribute('min', today);  // Set the minimum date to today's date
+  startDatePicker.setAttribute('value', today);  // Set today's date as the default value
+
+  // Append the start date picker to the container with ID 'duet-date-picker-container-start'
+  const startContainer = document.getElementById('duet-date-picker-container-start');
+  startContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
+  startContainer.appendChild(startDatePicker);
+
+  // Create the end date picker element
+  const endDatePicker = document.createElement('duet-date-picker');
+  endDatePicker.setAttribute('first-day-of-week', '0');
+  endDatePicker.setAttribute('identifier', 'end-date');
+  endDatePicker.setAttribute('required', 'true'); // Make the date selection required
+
+  const fourDaysLater = new Date();
+  fourDaysLater.setDate(fourDaysLater.getDate() + 3); // Add 3 days to today to make 4 days inclusive
+  const fourDaysLaterISO = fourDaysLater.toISOString().split('T')[0];
+  endDatePicker.setAttribute('min', fourDaysLaterISO);  // Set the minimum date to four days later
+  endDatePicker.setAttribute('value', fourDaysLaterISO);  // Set four days later as the default value
+
+  // Append the end date picker to the container with ID 'duet-date-picker-container-end'
+  const endContainer = document.getElementById('duet-date-picker-container-end');
+  endContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
+  endContainer.appendChild(endDatePicker);
+
+  // Function to check if a date is before another date
+  function isBefore(date1, date2) {
+    return new Date(date1) < new Date(date2);
+  }
+
+  // Function to add days to a date and return the result in ISO format, including the start date in the count
+  function addDaysIncludingStart(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days - 1); // Include the start date in the count
+    return result.toISOString().split('T')[0];
+  }
+
+  // Function to check date format (YYYY-MM-DD)
+  function isValidDateFormat(date) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(date);
+  }
+
+  // Function to validate dates and control the Next button state
+  function validateDates() {
+    const selectedStartDate = startDatePicker.value;
+    const selectedEndDate = endDatePicker.value;
+    const fourDaysLater = addDaysIncludingStart(selectedStartDate, 4);
+
+    if (!selectedStartDate || !selectedEndDate) {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+      return;
+    }
+
+    if (!isValidDateFormat(selectedStartDate) || !isValidDateFormat(selectedEndDate)) {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+      return;
+    }
+
+    if (isBefore(selectedStartDate, today)) {
+      alert('Please select a start date that is today or later.');
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    } else if (isBefore(selectedEndDate, fourDaysLater)) {
+      alert('Please select an end date that is at least four days after the start date.');
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    } else {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', false);
+    }
+
+    // Update embedded data
+    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', selectedStartDate);
+    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', selectedEndDate);
+    Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_Date_API', addDaysIncludingStart(selectedStartDate, 3));
+  }
+
+  // Add event listeners to clear the Next button state if inputs are cleared
+  startDatePicker.addEventListener('duetChange', function(event) {
+    if (!event.detail.valueAsDate) {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    }
+    const newMinEndDate = addDaysIncludingStart(event.detail.value, 4);
+    endDatePicker.setAttribute('min', newMinEndDate); // Update the minimum date for end date picker
+    validateDates();
+  });
+
+  endDatePicker.addEventListener('duetChange', function(event) {
+    if (!event.detail.valueAsDate) {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    }
+    validateDates();
+  });
+
+  // Initial validation check
+  validateDates();
+});
+
+Qualtrics.SurveyEngine.addOnReady(function() {
+  // Show the Next button by default but ensure it's initially disabled until validation
+  jQuery(".Skin #Buttons #NextButton").show().prop('disabled', true);
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function() {
+  // Place any JavaScript here to run when the page is unloaded
+});
