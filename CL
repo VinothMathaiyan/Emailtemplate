@@ -1,37 +1,90 @@
 Qualtrics.SurveyEngine.addOnload(function() {
-  // Append the calendar button to the free text box
-  const inputTextElement = jQuery("#" + this.questionId + " .InputText");
+  // Create the start date picker element
+  const startDatePicker = document.createElement('duet-date-picker');
+  startDatePicker.setAttribute('first-day-of-week', '0');
+  startDatePicker.setAttribute('identifier', 'start-date');
+  startDatePicker.setAttribute('required', 'true'); // Make the date selection required
+  
+  const today = new Date().toISOString().split('T')[0];
+  startDatePicker.setAttribute('min', today);  // Set the minimum date to today's date
+  startDatePicker.setAttribute('value', today);  // Set today's date as the default value
 
-  // Create a container for the date picker
-  const datePickerContainer = document.createElement('div');
-  datePickerContainer.id = 'date-picker-container';
+  // Append the start date picker to the container with ID 'duet-date-picker-container-start'
+  const startContainer = document.getElementById('duet-date-picker-container-start');
+  startContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
+  startContainer.appendChild(startDatePicker);
 
-  // Create the date picker element
-  const datePicker = document.createElement('duet-date-picker');
-  datePicker.setAttribute('first-day-of-week', '0');
-  datePicker.setAttribute('identifier', 'date');
+  // Create the end date picker element
+  const endDatePicker = document.createElement('duet-date-picker');
+  endDatePicker.setAttribute('first-day-of-week', '0');
+  endDatePicker.setAttribute('identifier', 'end-date');
+  endDatePicker.setAttribute('required', 'true'); // Make the date selection required
 
-  // Append the date picker to the container
-  datePickerContainer.appendChild(datePicker);
+  const fourDaysLater = new Date();
+  fourDaysLater.setDate(fourDaysLater.getDate() + 3); // Add 3 days to today to make 4 days inclusive
+  const fourDaysLaterISO = fourDaysLater.toISOString().split('T')[0];
+  endDatePicker.setAttribute('min', fourDaysLaterISO);  // Set the minimum date to four days later
+  endDatePicker.setAttribute('value', fourDaysLaterISO);  // Set four days later as the default value
 
-  // Insert the date picker container after the input text element
-  inputTextElement.after(datePickerContainer);
+  // Append the end date picker to the container with ID 'duet-date-picker-container-end'
+  const endContainer = document.getElementById('duet-date-picker-container-end');
+  endContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
+  endContainer.appendChild(endDatePicker);
 
-  // Listen for date selection and update the Qualtrics input box
-  datePicker.addEventListener('duetChange', (event) => {
-    inputTextElement.val(event.detail.value);
+  // Function to check if a date is before another date
+  function isBefore(date1, date2) {
+    return new Date(date1) < new Date(date2);
+  }
+
+  // Function to add days to a date and return the result in ISO format, including the start date in the count
+  function addDaysIncludingStart(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days - 1); // Include the start date in the count
+    return result.toISOString().split('T')[0];
+  }
+
+  // Function to validate dates and control the Next button state
+  function validateDates() {
+    const selectedStartDate = startDatePicker.value;
+    const selectedEndDate = endDatePicker.value;
+    const fourDaysLater = addDaysIncludingStart(selectedStartDate, 4);
+
+    if (isBefore(selectedStartDate, today)) {
+      alert('Please select a start date that is today or later.');
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    } else if (isBefore(selectedEndDate, fourDaysLater)) {
+      alert('Please select an end date that is at least four days after the start date.');
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
+    } else {
+      jQuery(".Skin #Buttons #NextButton").prop('disabled', false);
+    }
+
+    // Update embedded data
+    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', selectedStartDate);
+    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', selectedEndDate);
+    Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_Date_API', addDaysIncludingStart(selectedStartDate, 3));
+  }
+
+  // Set the default values for embedded data
+  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', today);
+  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', fourDaysLaterISO);
+  Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_Date_API', addDaysIncludingStart(today, 3));
+
+  // Add event listeners to validate dates and control the Next button state
+  startDatePicker.addEventListener('duetChange', function(event) {
+    const newMinEndDate = addDaysIncludingStart(event.detail.value, 4);
+    endDatePicker.setAttribute('min', newMinEndDate); // Update the minimum date for end date picker
+    validateDates();
   });
 
-  // Add a button to trigger the date picker
-  const calendarButton = document.createElement('button');
-  calendarButton.type = 'button';
-  calendarButton.className = 'icon';
-  calendarButton.setAttribute('aria-label', 'Choose Date');
-  calendarButton.innerHTML = '<span class="fa fa-calendar-alt fa-2x">&nbsp;</span>';
-  inputTextElement.after(calendarButton);
+  endDatePicker.addEventListener('duetChange', validateDates);
+});
 
-  // Open the date picker when the button is clicked
-  calendarButton.addEventListener('click', () => {
-    datePicker.focus();
-  });
+Qualtrics.SurveyEngine.addOnReady(function() {
+  // Show the Next button by default and enable it initially
+  jQuery(".Skin #Buttons #NextButton").show().prop('disabled', false);
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function() {
+  // Place any JavaScript here to run when the page is unloaded
 });
