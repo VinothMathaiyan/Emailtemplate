@@ -1,1 +1,22 @@
-
+Choose Date Button
+Space, Enter: Opens the date picker dialog and moves focus to the first select menu in the dialog.
+Date Picker Dialog
+Esc: Closes the date picker dialog and moves focus back to the “Choose Date” button.
+Tab: Moves focus to the next element in the dialog. Only one button in the calendar grid is in the tab sequence. Focus loops back to the first focusable element after the last one.
+Shift + Tab: Same as above, but in reverse order.
+Date Picker Dialog: Month/Year Buttons
+Space, Enter: Changes the month and/or year displayed.
+Date Picker Dialog: Date Grid
+Space, Enter: Selects a date, closes the dialog, moves focus to the “Choose Date” button, and updates the selected date in the input field.
+Arrow Up: Moves focus to the same day of the previous week.
+Arrow Down: Moves focus to the same day of the next week.
+Arrow Right: Moves focus to the next day.
+Arrow Left: Moves focus to the previous day.
+Home: Moves focus to the first day of the current week.
+End: Moves focus to the last day of the current week.
+Page Up: Changes the grid to the previous month and focuses on the same day of the week.
+Shift + Page Up: Changes the grid to the previous year and focuses on the same day of the week.
+Page Down: Changes the grid to the next month and focuses on the same day of the week.
+Shift + Page Down: Changes the grid to the next year and focuses on the same day of the week.
+Date Picker Dialog: Close Button
+Space, Enter: Closes the dialog, moves focus to the “Choose Date” button, but does not update the date in the input field.
