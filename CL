@@ -1,37 +1,4 @@
 Qualtrics.SurveyEngine.addOnload(function() {
-  // Create the start date picker element
-  const startDatePicker = document.createElement('duet-date-picker');
-  startDatePicker.setAttribute('first-day-of-week', '0');
-  startDatePicker.setAttribute('identifier', 'start-date');
-  startDatePicker.setAttribute('required', 'true');
-
-  const today = new Date().toISOString().split('T')[0];
-  startDatePicker.setAttribute('min', today);
-  startDatePicker.setAttribute('value', today);
-
-  const startContainer = document.getElementById('duet-date-picker-container-start');
-  startContainer.style.maxWidth = '90%';
-  startContainer.appendChild(startDatePicker);
-
-  const endDatePicker = document.createElement('duet-date-picker');
-  endDatePicker.setAttribute('first-day-of-week', '0');
-  endDatePicker.setAttribute('identifier', 'end-date');
-  endDatePicker.setAttribute('required', 'true');
-
-  const fiveDaysLater = new Date();
-  fiveDaysLater.setDate(fiveDaysLater.getDate() + 4);
-  const fiveDaysLaterISO = fiveDaysLater.toISOString().split('T')[0];
-  endDatePicker.setAttribute('min', fiveDaysLaterISO);
-  endDatePicker.setAttribute('value', fiveDaysLaterISO);
-
-  const endContainer = document.getElementById('duet-date-picker-container-end');
-  endContainer.style.maxWidth = '90%';
-  endContainer.appendChild(endDatePicker);
-
-  function isBefore(date1, date2) {
-    return new Date(date1) < new Date(date2);
-  }
-
   function addDaysIncludingStart(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days - 1);
@@ -40,92 +7,15 @@ Qualtrics.SurveyEngine.addOnload(function() {
     const month = String(result.getMonth() + 1).padStart(2, '0'); // Ensure two digits
     const day = String(result.getDate()).padStart(2, '0'); // Ensure two digits
 
-    console.log('Year:', year); // Print the year for debugging
-    console.log('Month:', month); // Print the month for debugging
-    console.log('Day:', day); // Print the day for debugging
-
     return year + '-' + month + '-' + day; // Properly formatted date
   }
 
-  function isValidDateFormat(date) {
-    return /^\d{4}-\d{2}-\d{2}$/.test(date);
-  }
+  const today = new Date().toISOString().split('T')[0];
+  const fiveDaysLater = addDaysIncludingStart(today, 5);
+  const reminderDate = addDaysIncludingStart(today, 3);
 
-  function validateDates() {
-    const selectedStartDate = startDatePicker.value;
-    const selectedEndDate = endDatePicker.value;
-    const fiveDaysLater = addDaysIncludingStart(selectedStartDate, 5);
-
-    if (!selectedStartDate || !selectedEndDate) {
-      alert('Both date fields are required.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-      return;
-    }
-
-    if (!isValidDateFormat(selectedStartDate) || !isValidDateFormat(selectedEndDate)) {
-      alert('Invalid date format. Use YYYY-MM-DD.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-      return;
-    }
-
-    if (isBefore(selectedStartDate, today)) {
-      alert('Please select a start date that is today or later.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    } else if (isBefore(selectedEndDate, fiveDaysLater)) {
-      alert('Please select an end date that is at least five days after the start date.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    } else {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', false);
-    }
-
-    const reminderDate = addDaysIncludingStart(selectedStartDate, 3);
-
-    console.log('Reminder Date:', reminderDate); // Print the reminder date for debugging
-
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', selectedStartDate);
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', selectedEndDate);
-    Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_DateI', reminderDate); // Date string without time
-  }
-
-  startDatePicker.addEventListener('duetChange', function(event) {
-    if (!event.detail.valueAsDate) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    }
-    const newMinEndDate = addDaysIncludingStart(event.detail.value, 5);
-    endDatePicker.setAttribute('min', newMinEndDate); // Update the minimum date for end date picker
-    validateDates();
-  });
-
-  endDatePicker.addEventListener('duetChange', function(event) {
-    if (!event.detail.valueAsDate) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    }
-    validateDates();
-  });
-
-  // Set embedded data fields with default values on page load
-  const selectedStartDate = startDatePicker.value;
-  const selectedEndDate = endDatePicker.value;
-  const reminderDate = addDaysIncludingStart(selectedStartDate, 3);
-
-  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', selectedStartDate);
-  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', selectedEndDate);
+  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', today);
+  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', fiveDaysLater);
   Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_DateI', reminderDate); // Date string without time
-
-  validateDates();
-
-  // Ensure embedded data is set when the next button is clicked
-  jQuery(".Skin #Buttons #NextButton").on('click', function() {
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', startDatePicker.value);
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', endDatePicker.value);
-    Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_DateI', addDaysIncludingStart(startDatePicker.value, 3)); // Date string without time
-  });
 });
 
-Qualtrics.SurveyEngine.addOnReady(function() {
-  jQuery(".Skin #Buttons #NextButton").show();
-});
-
-Qualtrics.SurveyEngine.addOnUnload(function() {
-  // Place any JavaScript here to run when the page is unloaded
-});
