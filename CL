@@ -1,21 +1,22 @@
-Qualtrics.SurveyEngine.addOnload(function() {
-  function addDaysIncludingStart(date, days) {
-    const result = new Date(date);
-    result.setDate(result.getDate() + days - 1);
+Identify Key Themes: Use XM Discover to extract common themes from the feedback, both before and after the tool change.
 
-    const year = result.getFullYear();
-    const month = String(result.getMonth() + 1).padStart(2, '0'); // Ensure two digits
-    const day = String(result.getDate()).padStart(2, '0'); // Ensure two digits
+Sentiment Analysis: Visualize the sentiment scores (positive, neutral, negative) for each phase to highlight shifts in perception.
 
-    return year + '-' + month + '-' + day; // Properly formatted date
-  }
+Comparative Analysis: Create before-and-after visualizations to show changes in key metrics like pain points and challenges mentioned.
 
-  const today = new Date().toISOString().split('T')[0];
-  const fiveDaysLater = addDaysIncludingStart(today, 5);
-  const reminderDate = addDaysIncludingStart(today, 3);
+Topic Volume: Display the volume of feedback mentioning specific topics over time to identify trends.
 
-  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', today);
-  Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', fiveDaysLater);
-  Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_DateI', reminderDate); // Date string without time
-});
+Heatmaps or Word Clouds: Use these for a visual representation of the most frequently mentioned topics.
 
+
+For your visualizations, here are some chart suggestions:
+
+Sentiment Analysis: A stacked bar chart can effectively show the distribution of positive, neutral, and negative sentiments for both the hiring manager and new joiner surveys, before and after the system change.
+
+Comparative Analysis: Side-by-side bar charts or line charts can compare feedback metrics before and after the change, highlighting trends over time.
+
+Pattern Identification: Heatmaps can illustrate the frequency of keywords or themes mentioned in feedback for both surveys.
+
+Volume of Mentions: Word clouds or frequency bar charts can visually represent the most common topics and keywords mentioned in the feedback.
+
+Combining these charts will give you a comprehensive view of the feedback patterns. Does that help?
