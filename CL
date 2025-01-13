@@ -1,1 +1,27 @@
+Review Workflow:
 
+Evaluate the workflow created within Qualtrics to ensure it aligns with project requirements.
+
+Review Data:
+
+Inspect data sent by the Workday team, focusing on accuracy and completeness.
+
+Quality Assurance:
+
+Validate that the workflow operates as intended and meets quality standards.
+
+Creating Test Cases:
+
+Develop test cases to cover all scenarios, ensuring the workflow's reliability.
+
+Data Validation:
+
+Confirm data integrity and that processes function as expected.
+
+Coordinating Feedback:
+
+Collaborate with Workday or Qualtrics teams based on feedback to address issues and implement fixes.
+
+Final Prep:
+
+Ready the final files and configurations for workflow deployment.
