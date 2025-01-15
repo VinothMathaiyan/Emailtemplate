@@ -1,1 +1,6 @@
 
+Address the automation issue and establish a fix-before deadline, aligning with the project go-live date.
+
+Discuss contingency plans: manual data upload or alternative automation.
+
+Plan necessary adjustments to the survey flow for flat file integration, including sample creation and determining e-value for sampling.
