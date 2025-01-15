@@ -1,7 +1,9 @@
-Subject: Update: Recertified SSO Enabled
+Subject: Qualtrics SSO Recertification Update
 
-Dear Team,
+Hi Team,
 
-We’re excited to announce that the recertified Single Sign-On (SSO) is now enabled and has been successfully tested internally. This update ensures seamless access to the tool.
+I’m reaching out to inform you that we have successfully completed the Qualtrics SSO recertification. This update ensures that neither you nor your users should encounter any issues when logging into the tool.
 
-If you experience any issues with SSO, please don’t hesitate to reach out. You can escalate or inform us through our group mailbox at [Colleague Listening].
+However, if you do experience any challenges, please don’t hesitate to let us know via this channel or through our group mailbox.
+
+Thank you for your attention and support!
