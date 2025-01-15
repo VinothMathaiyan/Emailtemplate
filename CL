@@ -1,15 +1,21 @@
+import pandas as pd
 
-from openpyxl import load_workbook
-from openpyxl.styles import PatternFill
+# Load the Excel file
+file_path = 'your_file.xlsx'
+df = pd.read_excel(file_path)
 
-workbook = load_workbook('your_file.xlsx')
-sheet = workbook.active
+# List of values to exclude
+exclude_values = [
+    '${e://Field/pbimg}%',
+    '${e://Field/RC}',
+    'click to write the question text'
+]
 
-# Set column width
-sheet.column_dimensions['A'].width = 20
+# Filter out rows where Column B contains only the specified values
+df_filtered = df[~df['B'].isin(exclude_values)]
 
-# Set header background color
-for cell in sheet[1]:
-    cell.fill = PatternFill(start_color='00FF00', end_color='00FF00', fill_type='solid')
+# Save the filtered DataFrame back to an Excel file
+output_file_path = 'filtered_file.xlsx'
+df_filtered.to_excel(output_file_path, index=False)
 
-workbook.save('your_formatted_file.xlsx')
+print(f"Filtered file saved to {output_file_path}")
