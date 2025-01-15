@@ -1,9 +1,1 @@
-Subject: Qualtrics SSO Recertification Update
 
-Hi Team,
-
-I’m reaching out to inform you that we have successfully completed the Qualtrics SSO recertification. This update ensures that neither you nor your users should encounter any issues when logging into the tool.
-
-However, if you do experience any challenges, please don’t hesitate to let us know via this channel or through our group mailbox.
-
-Thank you for your attention and support!
