@@ -1,1 +1,5 @@
+Resolve the automation issue by X date, ensuring it's fixed before the survey live date on X+1 day, with input from A and Team D on timelines.
 
+Discuss contingency plans for manual data upload, seeking confirmation from John if needed.
+
+The AB team should plan survey adjustments for flat file integration and prepare for sample creation.
