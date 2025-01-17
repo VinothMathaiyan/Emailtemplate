@@ -1,1 +1,44 @@
+Verify Audience Appropriateness: The survey programmer needs to confirm with the business or product owner whether the selected audience (managers) truly participated in the pre-deployment program and assisted colleagues during their career transition. This is critical to avoid confusion or escalation if non-relevant managers receive the survey.
 
+Ensure Audience Confirmation: A clear and written confirmation from the business is required to proceed with the survey, ensuring the identified participants are the appropriate target audience.
+
+Survey Tool Usage: Confirm the use of MS Forms as the platform for this survey. Ensure the responses remain anonymous, and only business owners can access the reports.
+
+Data Privacy Statement: Include an appropriate data privacy statement in the survey to comply with data protection requirements.
+
+-------
+Procurement Status
+
+The survey programmer must confirm the current stage of the procurement process and provide clarity on when the survey is planned to launch.
+Participant Consent and Data Privacy
+
+The survey programmer must include a data privacy statement at the beginning of the survey, clearly explaining the purpose of the focus group and specifying that no personally identifiable information (PII) will be collected.
+Participants must provide explicit consent, acknowledging their understanding of the purpose and data privacy terms before proceeding with the survey.
+Handling Unwanted Content
+
+The programmer must clarify how the tool will handle scenarios where participants post irrelevant or inappropriate content during focus group discussions.
+Controls and measures must be in place to allow facilitators to remove such content efficiently and maintain the integrity of the discussion.
+
+-------
+Data Privacy Statement
+
+The tech team must include a data privacy statement in their communications, ensuring that participants are fully informed about how their data will be handled.
+Data Handling and Retention Details
+
+The business must clearly outline and communicate how the collected data (email and participant bridges) will be used, where it will be stored, and the retention period for the data.
+This information must adhere to the data privacy policies to ensure compliance with regulations.
+
+-----
+
+Keep the Service and Collect Feedback
+
+The service would remain in the dashboard, and feedback would still be collected.
+HR Operations can filter the data if they want to calculate the satisfaction score without including this service or choose to ignore it completely based on the filter options.
+Remove the Service from Feedback Surveys
+
+This would entirely remove the service from the feedback surveys.
+The downside is that it would completely miss the opportunity to gather colleagues' experience with that service.
+Keep the Question, Remove the Form
+
+The question related to the service would remain, but the form itself would be removed.
+This option would require input from other teams responsible for providing data, as there's uncertainty on how it would be handled.
