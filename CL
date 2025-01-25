@@ -1,22 +1,16 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-ui-bootstrap.min.js"></script>
 
-Qualtrics.SurveyEngine.addOnload(function() {
-    var qid = this.questionId; 
-    jQuery("#QR~" + qid).datepicker(); 
-});
+<div ng-app="myApp" ng-controller="MyCtrl">
+  <div class="well well-sm">
+    <p>Selected Date: {{ selectedDate }}</p>
+    <uib-datepicker ng-model="selectedDate" date-format="yyyy-MM-dd"></uib-datepicker>
+  </div>
+</div>
 
-Qualtrics.SurveyEngine.addOnload(function() {
-    var qid = this.questionId; 
-    jQuery("#QR~" + qid).datepicker({
-        dateFormat: "mm/dd/yy", // Example date format
-        minDate: new Date(2000, 1 - 1, 1), // January 1, 2000 (minimum date)
-        maxDate: new Date(), // Today's date (maximum date)
-    }); 
+<script>
+var app = angular.module('myApp', ['ui.bootstrap']);
+app.controller('MyCtrl', function($scope) {
+  $scope.selectedDate = new Date(); // Initial selected date
 });
-
-Qualtrics.SurveyEngine.addOnload(function() {
-    var qid = this.questionId; // Get the question ID
-    jQuery("#QR~" + qid + " input[type='text']").datepicker(); // Target the input field specifically
-});
+</script>
