@@ -1,16 +1,26 @@
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-ui-bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-<div ng-app="myApp" ng-controller="MyCtrl">
-  <div class="well well-sm">
-    <p>Selected Date: {{ selectedDate }}</p>
-    <uib-datepicker ng-model="selectedDate" date-format="yyyy-MM-dd"></uib-datepicker>
-  </div>
-</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<input type="text" id="datepicker" placeholder="Select Date">
 
 <script>
-var app = angular.module('myApp', ['ui.bootstrap']);
-app.controller('MyCtrl', function($scope) {
-  $scope.selectedDate = new Date(); // Initial selected date
+$( function() {
+  $( "#datepicker" ).datepicker(); 
+} );
+</script>
+
+<script>
+Qualtrics.SurveyEngine.addOnload(function() {
+  var qid = this.questionId; // Get the question ID
+
+  // Event handler for date selection
+  $( "#datepicker" ).datepicker({
+    onSelect: function(dateText) {
+      // Set the selected date as Embedded Data
+      Qualtrics.SurveyEngine.setEmbeddedData("SelectedDate", dateText); 
+    }
+  });
 });
 </script>
