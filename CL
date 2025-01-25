@@ -1,26 +1,14 @@
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-<input type="text" id="datepicker" placeholder="Select Date">
-
-<script>
-$( function() {
-  $( "#datepicker" ).datepicker(); 
-} );
-</script>
-
-<script>
 Qualtrics.SurveyEngine.addOnload(function() {
-  var qid = this.questionId; // Get the question ID
+    var questionId = this.questionId;
+    var inputId = '#' + questionId + ' .InputText';
 
-  // Event handler for date selection
-  $( "#datepicker" ).datepicker({
-    onSelect: function(dateText) {
-      // Set the selected date as Embedded Data
-      Qualtrics.SurveyEngine.setEmbeddedData("SelectedDate", dateText); 
-    }
-  });
+    var container = document.createElement('div');
+    container.innerHTML = '<duet-date-picker identifier="my-date-picker" value=""></duet-date-picker>';
+    document.querySelector(inputId).parentNode.appendChild(container);
+
+    document.querySelector(inputId).style.display = 'none';
+
+    container.querySelector('duet-date-picker').addEventListener('duetChange', function(event) {
+        document.querySelector(inputId).value = event.detail.value;
+    });
 });
-</script>
