@@ -15,3 +15,8 @@ Qualtrics.SurveyEngine.addOnload(function() {
         maxDate: new Date(), // Today's date (maximum date)
     }); 
 });
+
+Qualtrics.SurveyEngine.addOnload(function() {
+    var qid = this.questionId; // Get the question ID
+    jQuery("#QR~" + qid + " input[type='text']").datepicker(); // Target the input field specifically
+});
