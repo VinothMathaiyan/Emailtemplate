@@ -1,152 +1,24 @@
 Qualtrics.SurveyEngine.addOnload(function() {
-  const dateInput = document.getElementById('date-input');
-  const datePickerButton = document.getElementById('date-picker-button');
-  const calendarContainer = document.getElementById('calendar-container');
-  
-  datePickerButton.addEventListener('click', toggleCalendar);
-  
-  function toggleCalendar() {
-    if (calendarContainer.classList.contains('calendar-hidden')) {
-      calendarContainer.classList.remove('calendar-hidden');
-      calendarContainer.setAttribute('aria-hidden', 'false');
-      generateCalendar(new Date());
-    } else {
-      calendarContainer.classList.add('calendar-hidden');
-      calendarContainer.setAttribute('aria-hidden', 'true');
-    }
-  }
-  
-  function generateCalendar(date) {
-    // Clear the existing calendar
-    calendarContainer.innerHTML = '';
-    
-    // Generate the calendar for the given date
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    
-    // Create the header
-    const header = document.createElement('div');
-    header.textContent = `${date.toLocaleString('default', { month: 'long' })} ${year}`;
-    calendarContainer.appendChild(header);
-    
-    // Create the days of the week
-    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const daysRow = document.createElement('div');
-    daysRow.classList.add('days-row');
-    daysOfWeek.forEach(day => {
-      const dayElement = document.createElement('div');
-      dayElement.textContent = day;
-      daysRow.appendChild(dayElement);
+    var questionId = this.questionId;
+    var inputId = '#' + questionId + ' .InputText';
+
+    var container = document.createElement('div');
+    container.innerHTML = '<duet-date-picker identifier="my-date-picker" value=""></duet-date-picker>';
+    document.querySelector(inputId).parentNode.appendChild(container);
+
+    document.querySelector(inputId).style.display = 'none';
+
+    var datePicker = container.querySelector('duet-date-picker');
+
+    datePicker.addEventListener('duetChange', function(event) {
+        document.querySelector(inputId).value = event.detail.value;
     });
-    calendarContainer.appendChild(daysRow);
-    
-    // Create the days of the month
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    let dayCounter = 1;
-    
-    for (let i = 0; i < 6; i++) {
-      const weekRow = document.createElement('div');
-      weekRow.classList.add('week-row');
-      
-      for (let j = 0; j < 7; j++) {
-        const dayElement = document.createElement('div');
-        dayElement.classList.add('day');
-        
-        if (i === 0 && j < firstDayOfMonth) {
-          dayElement.textContent = '';
-        } else if (dayCounter > daysInMonth) {
-          dayElement.textContent = '';
-        } else {
-          dayElement.textContent = dayCounter;
-          dayElement.addEventListener('click', () => selectDate(dayCounter, month, year));
-          dayCounter++;
+
+    // Handle Enter key press to open the date picker
+    document.querySelector(inputId).parentNode.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            datePicker.focus();
         }
-        
-        weekRow.appendChild(dayElement);
-      }
-      
-      calendarContainer.appendChild(weekRow);
-    }
-  }
-  
-  function selectDate(day, month, year) {
-    const selectedDate = new Date(year, month, day);
-    const formattedDate = `${String(day).padStart(2, '0')}.${String(month + 1).padStart(2, '0')}.${year}`;
-    dateInput.value = formattedDate;
-    toggleCalendar();
-  }
+    });
 });
-
-
-<!-- HTML for the Date Picker -->
-<div class="date-picker-container">
-  <input type="text" id="date-input" placeholder="dd.mm.yyyy" aria-label="Date Input">
-  <button id="date-picker-button" type="button" aria-label="Open Calendar">
-    <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img">
-      <path d="M2.25 24A2.252 2.252 0 0 1 0 21.75V5.25A2.252 2.252 0 0 1 2.25 3H6V.75a.75.75 0 0 1 1.5 0V3h9V.75a.75.75 0 0 1 1.5 0V3h3.75A2.252 2.252 0 0 1 24 5.25v16.5A2.252 2.252 0 0 1 21.75 24zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 0 0 .75-.75V10.5h-21zM22.5 9V5.25a.75.75 0 0 0-.75-.75H18V6a.75.75 0 0 1-1.5 0V4.5h-9V6A.75.75 0 0 1 6 6V4.5H2.25a.75.75 0 0 0-.75.75V9z"/>
-      <circle cx="5.625" cy="13.875" r="1.125"/>
-      <circle cx="5.625" cy="19.125" r="1.125"/>
-      <circle cx="12" cy="13.875" r="1.125"/>
-      <circle cx="12" cy="19.125" r="1.125"/>
-      <circle cx="18.375" cy="13.875" r="1.125"/>
-      <path d="M18.375 20.25c-.62 0-1.125-.505-1.125-1.125a1.127 1.127 0 0 1 1.171-1.122l.027.003a1.118 1.118 0 0 1 1.052 1.12c0 .619-.505 1.124-1.125 1.124z"/>
-    </svg>
-  </button>
-  <div id="calendar-container" class="calendar-hidden" aria-hidden="true">
-    <!-- Calendar will be generated here by JavaScript -->
-  </div>
-</div>
-
-<!-- CSS for the Date Picker -->
-<style>
-.date-picker-container {
-  position: relative;
-  display: inline-block;
-}
-
-#date-input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-#date-picker-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  margin-left: 8px;
-}
-
-#calendar-container {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  z-index: 1000;
-}
-
-.calendar-hidden {
-  display: none;
-}
-
-.days-row, .week-row {
-  display: flex;
-}
-
-.day {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.day:hover {
-  background-color: #f0f0f0;
-}
-</style>
