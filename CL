@@ -1,24 +1,56 @@
-Qualtrics.SurveyEngine.addOnload(function() {
-    var questionId = this.questionId;
-    var inputId = '#' + questionId + ' .InputText';
+<script type="module" src="https://cdn.duetds.com/api/components/9.0.0/lib/duet/duet.esm.js" integrity="sha384-P0PT1UEYZ4wEMBFEJJcPkAkNI84slSyx5YrB5rAtnJm6ceyYRGwH/dpCXvm2eMWd" crossorigin="anonymous"></script>
+<script nomodule src="https://cdn.duetds.com/api/components/9.0.0/lib/duet/duet.js" integrity="sha384-/Od4Er4Y14nGz3Rqey/VVnuMmbKaz61ROKLqufBi1S4QF5lJfne81WKsKUyIPbxc" crossorigin="anonymous"></script>
+<style>
+  body {
+    padding: 16px;
+    margin: 0;
+  }
+  .duet-example-without-padding {
+    margin-top: -16px !important;
+    margin-left: -16px !important;
+    margin-bottom: -16px !important;
+    width: calc(100% + 32px) !important;
+  }
+  .grid-demo duet-grid-item {
+    background: #e6f2f8;
+    padding: 16px !important;
+    margin-right: 16px !important;
+  }
+  .grid-demo duet-grid-item duet-grid-item {
+    padding: 0;
+  }
+  .spacer-demo {
+    width: 100%;
+    height: 260px;
+  }
+  .spacer-demo duet-spacer {
+    background: #e6f2f8;
+    margin: 0 0 3px 0 !important;
+  }
+  .duet-theme-turva .grid-demo duet-grid-item,
+  .duet-theme-turva .spacer-demo duet-spacer {
+    background: #f9e6ea;
+  }
+</style>
 
-    var container = document.createElement('div');
-    container.innerHTML = '<duet-date-picker identifier="my-date-picker" value=""></duet-date-picker>';
-    document.querySelector(inputId).parentNode.appendChild(container);
+<div id="duet-date-picker"></div>
 
-    document.querySelector(inputId).style.display = 'none';
+<script>
+  Qualtrics.SurveyEngine.addOnload(function() {
+    // Create the date picker element
+    var datePicker = document.createElement('duet-date-picker');
+    datePicker.setAttribute('name', 'date');
+    datePicker.setAttribute('language', 'en');
+    datePicker.setAttribute('label', 'Choose a date');
+    datePicker.setAttribute('placeholder', 'dd.mm.yyyy');
+    datePicker.setAttribute('value', '2020-06-16');
 
-    var datePicker = container.querySelector('duet-date-picker');
+    // Append the date picker to the div
+    document.getElementById('duet-date-picker').appendChild(datePicker);
 
-    datePicker.addEventListener('duetChange', function(event) {
-        document.querySelector(inputId).value = event.detail.value;
+    // Listen for when date is selected
+    datePicker.addEventListener('duetChange', function (e) {
+      console.log('selected date', e.detail.valueAsDate);
     });
-
-    // Handle Enter key press to open the date picker
-    document.querySelector(inputId).parentNode.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            datePicker.focus();
-        }
-    });
-});
+  });
+</script>
