@@ -1,68 +1,10 @@
-
-<script type="module" src="https://cdn.duetds.com/api/components/9.0.0/lib/duet/duet.esm.js" integrity="sha384-P0PT1UEYZ4wEMBFEJJcPkAkNI84slSyx5YrB5rAtnJm6ceyYRGwH/dpCXvm2eMWd" crossorigin="anonymous"></script>
-<script nomodule src="https://cdn.duetds.com/api/components/9.0.0/lib/duet/duet.js" integrity="sha384-/Od4Er4Y14nGz3Rqey/VVnuMmbKaz61ROKLqufBi1S4QF5lJfne81WKsKUyIPbxc" crossorigin="anonymous"></script>
-<style>
-  body {
-    padding: 16px;
-    margin: 0;
-  }
-  .duet-example-without-padding {
-    margin-top: -16px !important;
-    margin-left: -16px !important;
-    margin-bottom: -16px !important;
-    width: calc(100% + 32px) !important;
-  }
-  .grid-demo duet-grid-item {
-    background: #e6f2f8;
-    padding: 16px !important;
-    margin-right: 16px !important;
-  }
-  .grid-demo duet-grid-item duet-grid-item {
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
     padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
   }
-  .spacer-demo {
-    width: 100%;
-    height: 260px;
-  }
-  .spacer-demo duet-spacer {
-    background: #e6f2f8;
-    margin: 0 0 3px 0 !important;
-  }
-  .duet-theme-turva .grid-demo duet-grid-item,
-  .duet-theme-turva .spacer-demo duet-spacer {
-    background: #f9e6ea;
-  }
-</style>
-
-
-<div id="tooltip-container">
-  <duet-tooltip for="tooltip-target" position="top">
-    Hello, I’m a tooltip! To close me you can hit ESC key, click the close button, or click the X button.
-  </duet-tooltip>
-  <button id="tooltip-target">Hover or focus me</button>
-</div>
-
-<script>
-  Qualtrics.SurveyEngine.addOnload(function() {
-    // Initialize the tooltip
-    const tooltip = document.querySelector('duet-tooltip');
-    const target = document.getElementById('tooltip-target');
-
-    // Show the tooltip when the target is focused or hovered
-    target.addEventListener('focus', () => {
-      tooltip.show();
-    });
-
-    target.addEventListener('blur', () => {
-      tooltip.hide();
-    });
-
-    target.addEventListener('mouseenter', () => {
-      tooltip.show();
-    });
-
-    target.addEventListener('mouseleave', () => {
-      tooltip.hide();
-    });
-  });
-</script>
