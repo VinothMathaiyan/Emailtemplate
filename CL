@@ -1,5 +1,6 @@
 import os
 import json
+import openpyxl
 
 def load_qsf_file(qsf_path):
     """
@@ -33,16 +34,31 @@ def extract_question_ids_from_bl(qsf_data):
     """
     question_ids = []
     for element in qsf_data.get("SurveyElements", []):
-        if element.get("Element") == "BL":  # Changed "BQ" to "BL"
+        if element.get("Element") == "BL":
             payload = element.get("Payload", {})
-            print("Payload:", payload)  # Print the entire payload for debugging
-
             for block_id, block_data in payload.items():
                 if isinstance(block_data, dict) and "BlockElements" in block_data:
                     for block_element in block_data["BlockElements"]:
                         if "QuestionID" in block_element:
                             question_ids.append(block_element["QuestionID"])
     return question_ids
+
+def write_to_excel(question_ids, file_name):
+    """
+    Writes the list of question IDs to an Excel file.
+
+    Args:
+        question_ids: A list of question IDs.
+        file_name: The name of the Excel file to be created.
+    """
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "Question IDs"
+
+    for row, question_id in enumerate(question_ids, start=1):
+        sheet.cell(row=row, column=1, value=question_id)
+
+    workbook.save(file_name)
 
 # Change directory
 os.chdir(r'c:\User\file')
@@ -57,5 +73,11 @@ qsf_data = load_qsf_file(qsf_path)
 
 # Extract QuestionIDs from BL
 if qsf_data:
-    question_ids = extract_question_ids_from_bl(qsf_data)  # Changed "BQ" to "BL"
+    question_ids = extract_question_ids_from_bl(qsf_data)
+
+    # Write question IDs to Excel
+    output_file_name = f"{name}_question_ids.xlsx"
+    write_to_excel(question_ids, output_file_name)
+
     print(f"Question IDs from BL in {file_name}: {question_ids}")
+    print(f"Question IDs written to {output_file_name}")
