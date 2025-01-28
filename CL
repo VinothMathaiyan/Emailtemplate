@@ -9,7 +9,7 @@ def extract_questions(qsf_file):
     survey_flow = None
     for element in data['SurveyElements']:
         if element['Element'] == 'FL':
-            survey_flow = element['Payload']['Flow']
+            survey_flow = element['Payload'].get('Flow', [])
             break
     
     if survey_flow is None:
@@ -20,7 +20,7 @@ def extract_questions(qsf_file):
     def parse_flow(flow):
         for item in flow:
             if item['Type'] == 'Block':
-                parse_flow(item['Flow'])
+                parse_flow(item.get('Flow', []))
             elif item['Type'] == 'Question':
                 question_order.append(item['ID'])
     
