@@ -1,55 +1,59 @@
+import os
 import json
-import openpyxl
 
-def extract_question_ids(qsf_file):
+def load_qsf_file(qsf_path):
     """
-    Extracts QuestionIDs from a Qualtrics QSF file and stores them in an Excel file.
+    Loads the JSON data from the specified QSF file.
 
     Args:
-        qsf_file: Path to the QSF file.
+        qsf_path: Path to the QSF file.
 
     Returns:
-        None
+        A dictionary containing the JSON data from the QSF file.
     """
-
     try:
-        with open(qsf_file, 'r') as f:
-            qsf_data = json.load(f)
-
-        question_ids = []
-
-        def extract_ids_from_block(block_elements):
-            for element in block_elements:
-                if 'QuestionID' in element:
-                    question_ids.append(element['QuestionID'])
-                elif isinstance(element, dict) and 'BlockElements' in element:
-                    extract_ids_from_block(element['BlockElements'])
-
-        for survey_element in qsf_data['SurveyElements']:
-            payload = survey_element.get('Payload', {})
-            for block_id, block_data in payload.items():
-                if 'BlockElements' in block_data:
-                    extract_ids_from_block(block_data['BlockElements'])
-
-        # Create an Excel workbook and sheet
-        workbook = openpyxl.Workbook()
-        sheet = workbook.active
-        sheet.title = 'Question IDs'
-
-        # Write question IDs to the sheet
-        for i, question_id in enumerate(question_ids):
-            sheet.cell(row=i+1, column=1, value=question_id)
-
-        # Save the Excel file
-        workbook.save('question_ids.xlsx')
-
+        with open(qsf_path, 'r') as f:
+            return json.load(f)
     except FileNotFoundError:
-        print(f"Error: QSF file '{qsf_file}' not found.")
+        print(f"Error: QSF file '{qsf_path}' not found.")
+        return None
     except json.JSONDecodeError:
-        print(f"Error: Invalid JSON in QSF file '{qsf_file}'.")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+        print(f"Error: Invalid JSON in QSF file '{qsf_path}'.")
+        return None
 
-# Example usage:
-qsf_file_path = "QualtricsExported_template_formatted.qsf" 
-extract_question_ids(qsf_file_path)
+def extract_question_ids_from_bq(qsf_data):
+    """
+    Extracts QuestionIDs from Block Questions (BQ) in the QSF data.
+
+    Args:
+        qsf_data: A dictionary containing the JSON data from the QSF file.
+
+    Returns:
+        A list of QuestionIDs extracted from Block Questions.
+    """
+    question_ids = []
+    for element in qsf_data.get("SurveyElements", []):
+        if element.get("Element") == "BQ":
+            payload = element.get("Payload", {})
+            for block_id, block_data in payload.items():
+                if isinstance(block_data, dict) and "BlockElements" in block_data:
+                    for block_element in block_data["BlockElements"]:
+                        if "QuestionID" in block_element:
+                            question_ids.append(block_element["QuestionID"])
+    return question_ids
+
+# Change directory
+os.chdir(r'c:\User\file')
+
+# Get user input
+name = input("enter name: ")
+file_name = f"{name}.qsf"
+qsf_path = f"QSF/{file_name}"
+
+# Load QSF data
+qsf_data = load_qsf_file(qsf_path)
+
+# Extract QuestionIDs from BQ
+if qsf_data:
+    question_ids = extract_question_ids_from_bq(qsf_data)
+    print(f"Question IDs from BQ in {file_name}: {question_ids}")
