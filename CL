@@ -1,10 +1,17 @@
 import json
 import pandas as pd
+import re
 
 def load_qsf_file(qsf_file):
     with open(qsf_file, 'r', encoding='utf-8-sig') as file:
         data = json.load(file)
     return data
+
+def clean_html(raw_html):
+    clean_text = re.sub(r'<[^>]+>', '', raw_html)  # Remove HTML tags
+    clean_text = re.sub(r'&nbsp;', ' ', clean_text)  # Replace &nbsp; with space
+    clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra whitespace
+    return clean_text
 
 def extract_questions(data):
     questions = []
@@ -12,7 +19,7 @@ def extract_questions(data):
         if element['Element'] == 'SQ':
             question = element['Payload']
             question_id = question.get('QuestionID', '')
-            question_text = question.get('QuestionText', '')
+            question_text = clean_html(question.get('QuestionText', ''))
             questions.append((question_id, question_text))
     
     print("Extracted Questions:", questions)  # Debugging line
