@@ -1,34 +1,28 @@
 import json
 import pandas as pd
 
-def extract_questions(qsf_file):
+def load_qsf_file(qsf_file):
     with open(qsf_file, 'r', encoding='utf-8-sig') as file:
         data = json.load(file)
-    
-    # Extract the survey flow to get the order of questions
-    survey_flow = None
+    return data
+
+def extract_question_order(data):
+    block_elements = {}
     for element in data['SurveyElements']:
-        if element['Element'] == 'FL':
-            survey_flow = element['Payload'].get('Flow', [])
-            break
-    
-    if survey_flow is None:
-        raise KeyError("Survey flow not found in the QSF file.")
+        if element['Element'] == 'BL':
+            block_id = element['PrimaryAttribute']
+            block_elements[block_id] = element['Payload'].get('BlockElements', [])
     
     question_order = []
-    
-    def parse_flow(flow):
-        for item in flow:
-            if item['Type'] == 'Block':
-                parse_flow(item.get('Flow', []))
-            elif item['Type'] == 'Question':
-                question_order.append(item['ID'])
-    
-    parse_flow(survey_flow)
+    for block_id, elements in block_elements.items():
+        for item in elements:
+            if item['Type'] == 'Question':
+                question_order.append(item['QuestionID'])
     
     print("Question Order:", question_order)  # Debugging line
-    
-    # Extract questions and maintain their order
+    return question_order
+
+def extract_questions(data, question_order):
     questions = []
     for element in data['SurveyElements']:
         if element['Element'] == 'SQ':
@@ -39,9 +33,6 @@ def extract_questions(qsf_file):
                 questions.append((question_order.index(question_id), question_text))
     
     print("Extracted Questions:", questions)  # Debugging line
-    
-    # Sort questions by their order in the survey
-    questions.sort(key=lambda x: x[0])
     return questions
 
 def save_to_excel(questions, output_file):
@@ -52,6 +43,8 @@ if __name__ == "__main__":
     qsf_file = 'path/to/your/survey.qsf'
     output_file = 'output.xlsx'
     
-    questions = extract_questions(qsf_file)
+    data = load_qsf_file(qsf_file)
+    question_order = extract_question_order(data)
+    questions = extract_questions(data, question_order)
     save_to_excel(questions, output_file)
     print(f"Questions have been successfully exported to {output_file}")
