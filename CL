@@ -1,83 +1,57 @@
-import os
 import json
-import openpyxl
+import pandas as pd
+import re
 
-def load_qsf_file(qsf_path):
-    """
-    Loads the JSON data from the specified QSF file.
+def load_qsf_file(qsf_file):
+    with open(qsf_file, 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
+    return data
 
-    Args:
-        qsf_path: Path to the QSF file.
+def clean_html(raw_html):
+    clean_text = re.sub(r'<[^>]+>', '', raw_html)  # Remove HTML tags
+    clean_text = re.sub(r'&nbsp;', ' ', clean_text)  # Replace &nbsp; with space
+    clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra whitespace
+    return clean_text
 
-    Returns:
-        A dictionary containing the JSON data from the QSF file.
-    """
-    try:
-        with open(qsf_path, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        print(f"Error: QSF file '{qsf_path}' not found.")
-        return None
-    except json.JSONDecodeError:
-        print(f"Error: Invalid JSON in QSF file '{qsf_path}'.")
-        return None
+def extract_questions(data):
+    questions = {}
+    for element in data['SurveyElements']:
+        if element['Element'] == 'SQ':
+            question = element['Payload']
+            question_id = question.get('QuestionID', '')
+            question_text = clean_html(question.get('QuestionText', ''))
+            questions[question_id] = question_text
+    
+    print("Extracted Questions:", questions)  # Debugging line
+    return questions
 
-def extract_question_ids_from_bl(qsf_data):
-    """
-    Extracts QuestionIDs from Block Questions (BL) in the QSF data.
+def load_question_order_from_excel(excel_file):
+    df = pd.read_excel(excel_file)
+    question_order = df['QuestionID'].tolist()
+    print("Loaded Question Order from Excel:", question_order)  # Debugging line
+    return question_order
 
-    Args:
-        qsf_data: A dictionary containing the JSON data from the QSF file.
+def reorder_questions(questions, question_order):
+    ordered_questions = [(question_order.index(qid), questions[qid]) for qid in question_order if qid in questions]
+    
+    print("Ordered Questions:", ordered_questions)  # Debugging line
+    return ordered_questions
 
-    Returns:
-        A list of QuestionIDs extracted from Block Questions.
-    """
-    question_ids = []
-    for element in qsf_data.get("SurveyElements", []):
-        if element.get("Element") == "BL":
-            payload = element.get("Payload", {})
-            for block_id, block_data in payload.items():
-                if isinstance(block_data, dict) and "BlockElements" in block_data:
-                    for block_element in block_data["BlockElements"]:
-                        if "QuestionID" in block_element:
-                            question_ids.append(block_element["QuestionID"])
-    return question_ids
+def save_to_excel(questions, output_file):
+    df = pd.DataFrame(questions, columns=['Order', 'QuestionText'])
+    df.to_excel(output_file, index=False)
 
-def write_to_excel(question_ids, file_name):
-    """
-    Writes the list of question IDs to an Excel file.
-
-    Args:
-        question_ids: A list of question IDs.
-        file_name: The name of the Excel file to be created.
-    """
-    workbook = openpyxl.Workbook()
-    sheet = workbook.active
-    sheet.title = "Question IDs"
-
-    for row, question_id in enumerate(question_ids, start=1):
-        sheet.cell(row=row, column=1, value=question_id)
-
-    workbook.save(file_name)
-
-# Change directory
-os.chdir(r'c:\User\file')
-
-# Get user input
-name = input("enter name: ")
-file_name = f"{name}.qsf"
-qsf_path = f"QSF/{file_name}"
-
-# Load QSF data
-qsf_data = load_qsf_file(qsf_path)
-
-# Extract QuestionIDs from BL
-if qsf_data:
-    question_ids = extract_question_ids_from_bl(qsf_data)
-
-    # Write question IDs to Excel
-    output_file_name = f"{name}_question_ids.xlsx"
-    write_to_excel(question_ids, output_file_name)
-
-    print(f"Question IDs from BL in {file_name}: {question_ids}")
-    print(f"Question IDs written to {output_file_name}")
+if __name__ == "__main__":
+    directory = 'd:/Hackaton/EXCELtoQSF'
+    
+    name = input("Please enter the file name without extension: ")
+    qsf_file = f'{directory}/QSF/{name}.qsf'
+    question_order_file = f'{directory}/{name}_question_ids.xlsx'
+    output_file = f'{directory}/{name}_reordered_output.xlsx'
+    
+    data = load_qsf_file(qsf_file)
+    questions = extract_questions(data)
+    question_order = load_question_order_from_excel(question_order_file)
+    ordered_questions = reorder_questions(questions, question_order)
+    save_to_excel(ordered_questions, output_file)
+    print(f"Reordered questions have been successfully exported to {output_file}")
