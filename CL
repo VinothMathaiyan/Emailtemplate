@@ -6,6 +6,18 @@ def load_qsf_file(qsf_file):
         data = json.load(file)
     return data
 
+def extract_questions(data):
+    questions = []
+    for element in data['SurveyElements']:
+        if element['Element'] == 'SQ':
+            question = element['Payload']
+            question_id = question.get('QuestionID', '')
+            question_text = question.get('QuestionText', '')
+            questions.append((question_id, question_text))
+    
+    print("Extracted Questions:", questions)  # Debugging line
+    return questions
+
 def extract_question_order(data):
     block_elements = {}
     for element in data['SurveyElements']:
@@ -19,32 +31,28 @@ def extract_question_order(data):
             if item['Type'] == 'Question':
                 question_order.append(item['QuestionID'])
     
+    print("Block Elements:", block_elements)  # Debugging line
     print("Question Order:", question_order)  # Debugging line
     return question_order
 
-def extract_questions(data, question_order):
-    questions = []
-    for element in data['SurveyElements']:
-        if element['Element'] == 'SQ':
-            question = element['Payload']
-            question_id = question.get('QuestionID', '')
-            question_text = question.get('QuestionText', '')
-            if question_id in question_order:
-                questions.append((question_order.index(question_id), question_text))
+def reorder_questions(questions, question_order):
+    question_dict = {qid: qtext for qid, qtext in questions}
+    ordered_questions = [(question_order.index(qid), question_dict[qid]) for qid in question_order if qid in question_dict]
     
-    print("Extracted Questions:", questions)  # Debugging line
-    return questions
+    print("Ordered Questions:", ordered_questions)  # Debugging line
+    return ordered_questions
 
 def save_to_excel(questions, output_file):
     df = pd.DataFrame(questions, columns=['Order', 'QuestionText'])
     df.to_excel(output_file, index=False)
 
 if __name__ == "__main__":
-    qsf_file = 'path/to/your/survey.qsf'
+    qsf_file = 'd:/Hackaton/EXCELtoQSF/QualtricsExported_template_formatted.qsf'
     output_file = 'output.xlsx'
     
     data = load_qsf_file(qsf_file)
+    questions = extract_questions(data)
     question_order = extract_question_order(data)
-    questions = extract_questions(data, question_order)
-    save_to_excel(questions, output_file)
+    ordered_questions = reorder_questions(questions, question_order)
+    save_to_excel(ordered_questions, output_file)
     print(f"Questions have been successfully exported to {output_file}")
