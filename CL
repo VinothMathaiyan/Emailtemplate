@@ -26,6 +26,8 @@ def extract_questions(qsf_file):
     
     parse_flow(survey_flow)
     
+    print("Question Order:", question_order)  # Debugging line
+    
     # Extract questions and maintain their order
     questions = []
     for element in data['SurveyElements']:
@@ -35,6 +37,8 @@ def extract_questions(qsf_file):
             question_text = question.get('QuestionText', '')
             if question_id in question_order:
                 questions.append((question_order.index(question_id), question_text))
+    
+    print("Extracted Questions:", questions)  # Debugging line
     
     # Sort questions by their order in the survey
     questions.sort(key=lambda x: x[0])
