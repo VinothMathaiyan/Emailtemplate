@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import re
+import os
 
 def load_qsf_file(qsf_file):
     with open(qsf_file, 'r', encoding='utf-8-sig') as file:
@@ -54,8 +55,12 @@ def save_to_excel(questions, output_file):
     df.to_excel(output_file, index=False)
 
 if __name__ == "__main__":
-    qsf_file = 'd:/Hackaton/EXCELtoQSF/QualtricsExported_template_formatted.qsf'
-    output_file = 'output.xlsx'
+    directory = input("Please enter the directory path: ")
+    os.chdir(directory)
+    
+    name = input("Please enter the file name without extension: ")
+    qsf_file = f'QSF\\{name}.qsf'
+    output_file = f'{name}_output.xlsx'
     
     data = load_qsf_file(qsf_file)
     questions = extract_questions(data)
