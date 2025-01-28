@@ -25,19 +25,26 @@ def extract_questions(data):
     print("Extracted Questions:", questions)  # Debugging line
     return questions
 
-def extract_question_order(data):
-    question_order = []
-    for element in data['SurveyElements']:
-        if 'Payload' in element:
-            for key, value in element['Payload'].items():
-                if isinstance(value, dict) and 'BlockElements' in value:
-                    block_elements = value['BlockElements']
-                    for item in block_elements:
-                        if 'QuestionID' in item:
-                            question_order.append(item['QuestionID'])
-    
-    print("Question Order:", question_order)  # Debugging line
-    return question_order
+def extract_question_ids_from_bl(qsf_data):
+    """
+    Extracts QuestionIDs from Block Questions (BL) in the QSF data.
+
+    Args:
+        qsf_data: A dictionary containing the JSON data from the QSF file.
+
+    Returns:
+        A list of QuestionIDs extracted from Block Questions.
+    """
+    question_ids = []
+    for element in qsf_data.get("SurveyElements", []):
+        if element.get("Element") == "BL":
+            payload = element.get("Payload", {})
+            for block_id, block_data in payload.items():
+                if isinstance(block_data, dict) and "BlockElements" in block_data:
+                    for block_element in block_data["BlockElements"]:
+                        if "QuestionID" in block_element:
+                            question_ids.append(block_element["QuestionID"])
+    return question_ids
 
 def reorder_questions(questions, question_order):
     ordered_questions = [(question_order.index(qid), questions[qid]) for qid in question_order if qid in questions]
@@ -58,7 +65,7 @@ if __name__ == "__main__":
     
     data = load_qsf_file(qsf_file)
     questions = extract_questions(data)
-    question_order = extract_question_order(data)
+    question_order = extract_question_ids_from_bl(data)
     ordered_questions = reorder_questions(questions, question_order)
     save_to_excel(ordered_questions, output_file)
     print(f"Reordered questions have been successfully exported to {output_file}")
