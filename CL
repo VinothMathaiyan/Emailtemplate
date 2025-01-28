@@ -1,5 +1,11 @@
 import json
+import pandas as pd
 import re
+
+def load_qsf_file(qsf_file):
+    with open(qsf_file, 'r', encoding='utf-8-sig') as file:
+        data = json.load(file)
+    return data
 
 def clean_html(raw_html):
     clean_text = re.sub(r'<[^>]+>', '', raw_html)  # Remove HTML tags
@@ -7,51 +13,50 @@ def clean_html(raw_html):
     clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra whitespace
     return clean_text
 
-def format_qsf(input_file_path, output_file_path):
-    try:
-        # Read the content of the .qsf file
-        with open(input_file_path, 'r', encoding='utf-8-sig') as file:
-            data = json.load(file)
-        
-        # Extract and clean questions
-        questions = {}
-        for element in data['SurveyElements']:
-            if element['Element'] == 'SQ':
-                question = element['Payload']
-                question_id = question.get('QuestionID', '')
-                question_text = clean_html(question.get('QuestionText', ''))
-                questions[question_id] = question_text
-        
-        # Extract question order from BlockElements
-        question_order = []
-        for element in data['SurveyElements']:
-            if element['Element'] == 'BL':
-                block_elements = element['Payload'].get('BlockElements', [])
-                for item in block_elements:
-                    if item['Type'] == 'Question':
-                        question_order.append(item['QuestionID'])
-        
-        # Reorder questions based on the extracted order
-        ordered_questions = {qid: questions[qid] for qid in question_order if qid in questions}
-        
-        # Update the data with cleaned and ordered questions
-        for element in data['SurveyElements']:
-            if element['Element'] == 'SQ':
-                question_id = element['Payload'].get('QuestionID', '')
-                if question_id in ordered_questions:
-                    element['Payload']['QuestionText'] = ordered_questions[question_id]
-        
-        # Write the formatted JSON to a new file
-        with open(output_file_path, 'w', encoding='utf-8') as formatted_file:
-            json.dump(data, formatted_file, indent=4)
-        
-        print(f"File formatted successfully! Formatted file saved at: {output_file_path}")
+def extract_questions(data):
+    questions = {}
+    for element in data['SurveyElements']:
+        if element['Element'] == 'SQ':
+            question = element['Payload']
+            question_id = question.get('QuestionID', '')
+            question_text = clean_html(question.get('QuestionText', ''))
+            questions[question_id] = question_text
     
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    print("Extracted Questions:", questions)  # Debugging line
+    return questions
+
+def extract_question_order(data):
+    question_order = []
+    for element in data['SurveyElements']:
+        if element['Element'] == 'BL':
+            block_elements = element['Payload'].get('BlockElements', [])
+            for item in block_elements:
+                if item['Type'] == 'Question':
+                    question_order.append(item['QuestionID'])
+    
+    print("Question Order:", question_order)  # Debugging line
+    return question_order
+
+def reorder_questions(questions, question_order):
+    ordered_questions = [(question_order.index(qid), questions[qid]) for qid in question_order if qid in questions]
+    
+    print("Ordered Questions:", ordered_questions)  # Debugging line
+    return ordered_questions
+
+def save_to_excel(questions, output_file):
+    df = pd.DataFrame(questions, columns=['Order', 'QuestionText'])
+    df.to_excel(output_file, index=False)
 
 if __name__ == "__main__":
-    input_file_path = input("Please enter the input file path: ")
-    output_file_path = input("Please enter the output file path: ")
+    directory = 'd:/Hackaton/EXCELtoQSF'
     
-    format_qsf(input_file_path, output_file_path)
+    name = input("Please enter the file name without extension: ")
+    qsf_file = f'{directory}/QSF/{name}.qsf'
+    output_file = f'{directory}/{name}_output.xlsx'
+    
+    data = load_qsf_file(qsf_file)
+    questions = extract_questions(data)
+    question_order = extract_question_order(data)
+    ordered_questions = reorder_questions(questions, question_order)
+    save_to_excel(ordered_questions, output_file)
+    print(f"Questions have been successfully exported to {output_file}")
