@@ -5,20 +5,35 @@ def extract_questions(qsf_file):
     with open(qsf_file, 'r', encoding='utf-8-sig') as file:
         data = json.load(file)
     
+    # Extract the survey flow to get the order of questions
+    survey_flow = data['SurveyElements'][0]['Payload']['Flow']
+    question_order = []
+    
+    def parse_flow(flow):
+        for item in flow:
+            if item['Type'] == 'Block':
+                parse_flow(item['Flow'])
+            elif item['Type'] == 'Question':
+                question_order.append(item['ID'])
+    
+    parse_flow(survey_flow)
+    
+    # Extract questions and maintain their order
     questions = []
     for element in data['SurveyElements']:
         if element['Element'] == 'SQ':
             question = element['Payload']
+            question_id = question.get('QuestionID', '')
             question_text = question.get('QuestionText', '')
-            question_order = question.get('QuestionID', '')
-            questions.append((question_order, question_text))
+            if question_id in question_order:
+                questions.append((question_order.index(question_id), question_text))
     
     # Sort questions by their order in the survey
     questions.sort(key=lambda x: x[0])
     return questions
 
 def save_to_excel(questions, output_file):
-    df = pd.DataFrame(questions, columns=['QuestionID', 'QuestionText'])
+    df = pd.DataFrame(questions, columns=['Order', 'QuestionText'])
     df.to_excel(output_file, index=False)
 
 if __name__ == "__main__":
