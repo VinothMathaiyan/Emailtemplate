@@ -7,38 +7,22 @@ def load_qsf_file(qsf_file):
         data = json.load(file)
     return data
 
-def clean_html(raw_html):
-    clean_text = re.sub(r'<[^>]+>', '', raw_html)  # Remove HTML tags
-    clean_text = re.sub(r'&nbsp;', ' ', clean_text)  # Replace &nbsp; with space
-    clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra whitespace
-    return clean_text
-
-def extract_questions(data):
-    questions = {}
+def extract_question_ids_from_bl(data):
+    question_ids = []
     for element in data['SurveyElements']:
-        if element['Element'] == 'SQ':
-            question = element['Payload']
-            question_id = question.get('QuestionID', '')
-            question_text = clean_html(question.get('QuestionText', ''))
-            questions[question_id] = question_text
+        if 'Payload' in element:
+            for key, value in element['Payload'].items():
+                if isinstance(value, dict) and 'BlockElements' in value:
+                    block_elements = value['BlockElements']
+                    for item in block_elements:
+                        if 'QuestionID' in item:
+                            question_ids.append(item['QuestionID'])
     
-    print("Extracted Questions:", questions)  # Debugging line
-    return questions
+    print("Extracted Question IDs:", question_ids)  # Debugging line
+    return question_ids
 
-def load_question_order_from_excel(excel_file):
-    df = pd.read_excel(excel_file)
-    question_order = df['QuestionID'].tolist()
-    print("Loaded Question Order from Excel:", question_order)  # Debugging line
-    return question_order
-
-def reorder_questions(questions, question_order):
-    ordered_questions = [(question_order.index(qid), questions[qid]) for qid in question_order if qid in questions]
-    
-    print("Ordered Questions:", ordered_questions)  # Debugging line
-    return ordered_questions
-
-def save_to_excel(questions, output_file):
-    df = pd.DataFrame(questions, columns=['Order', 'QuestionText'])
+def write_to_excel(question_ids, output_file):
+    df = pd.DataFrame(question_ids, columns=['QuestionID'])
     df.to_excel(output_file, index=False)
 
 if __name__ == "__main__":
@@ -46,12 +30,9 @@ if __name__ == "__main__":
     
     name = input("Please enter the file name without extension: ")
     qsf_file = f'{directory}/QSF/{name}.qsf'
-    question_order_file = f'{directory}/{name}_question_ids.xlsx'
-    output_file = f'{directory}/{name}_reordered_output.xlsx'
+    output_file = f'{directory}/{name}_question_ids.xlsx'
     
     data = load_qsf_file(qsf_file)
-    questions = extract_questions(data)
-    question_order = load_question_order_from_excel(question_order_file)
-    ordered_questions = reorder_questions(questions, question_order)
-    save_to_excel(ordered_questions, output_file)
-    print(f"Reordered questions have been successfully exported to {output_file}")
+    question_ids = extract_question_ids_from_bl(data)
+    write_to_excel(question_ids, output_file)
+    print(f"Question IDs have been successfully exported to {output_file}")
