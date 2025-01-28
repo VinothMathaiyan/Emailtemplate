@@ -1,37 +1,55 @@
 import json
-import pandas as pd
+import openpyxl
 
-def load_qsf_file(qsf_file):
-    with open(qsf_file, 'r', encoding='utf-8-sig') as file:
-        data = json.load(file)
-    return data
+def extract_question_ids(qsf_file):
+    """
+    Extracts QuestionIDs from a Qualtrics QSF file and stores them in an Excel file.
 
-def extract_question_order(data):
-    question_order = []
-    for element in data['SurveyElements']:
-        if 'Payload' in element:
-            for key, value in element['Payload'].items():
-                if isinstance(value, dict) and 'BlockElements' in value:
-                    block_elements = value['BlockElements']
-                    for item in block_elements:
-                        if 'QuestionID' in item:
-                            question_order.append(item['QuestionID'])
-    
-    print("Question Order:", question_order)  # Debugging line
-    return question_order
+    Args:
+        qsf_file: Path to the QSF file.
 
-def save_order_to_excel(question_order, output_file):
-    df = pd.DataFrame(question_order, columns=['QuestionID'])
-    df.to_excel(output_file, index=False)
+    Returns:
+        None
+    """
 
-if __name__ == "__main__":
-    directory = 'd:/Hackaton/EXCELtoQSF'
-    
-    name = input("Please enter the file name without extension: ")
-    qsf_file = f'{directory}/QSF/{name}.qsf'
-    output_file = f'{directory}/{name}_order_output.xlsx'
-    
-    data = load_qsf_file(qsf_file)
-    question_order = extract_question_order(data)
-    save_order_to_excel(question_order, output_file)
-    print(f"Question order has been successfully exported to {output_file}")
+    try:
+        with open(qsf_file, 'r') as f:
+            qsf_data = json.load(f)
+
+        question_ids = []
+
+        def extract_ids_from_block(block_elements):
+            for element in block_elements:
+                if 'QuestionID' in element:
+                    question_ids.append(element['QuestionID'])
+                elif isinstance(element, dict) and 'BlockElements' in element:
+                    extract_ids_from_block(element['BlockElements'])
+
+        for survey_element in qsf_data['SurveyElements']:
+            payload = survey_element.get('Payload', {})
+            for block_id, block_data in payload.items():
+                if 'BlockElements' in block_data:
+                    extract_ids_from_block(block_data['BlockElements'])
+
+        # Create an Excel workbook and sheet
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        sheet.title = 'Question IDs'
+
+        # Write question IDs to the sheet
+        for i, question_id in enumerate(question_ids):
+            sheet.cell(row=i+1, column=1, value=question_id)
+
+        # Save the Excel file
+        workbook.save('question_ids.xlsx')
+
+    except FileNotFoundError:
+        print(f"Error: QSF file '{qsf_file}' not found.")
+    except json.JSONDecodeError:
+        print(f"Error: Invalid JSON in QSF file '{qsf_file}'.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Example usage:
+qsf_file_path = "QualtricsExported_template_formatted.qsf" 
+extract_question_ids(qsf_file_path)
