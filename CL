@@ -21,9 +21,9 @@ def load_qsf_file(qsf_path):
         print(f"Error: Invalid JSON in QSF file '{qsf_path}'.")
         return None
 
-def extract_question_ids_from_bq(qsf_data):
+def extract_question_ids_from_bl(qsf_data):
     """
-    Extracts QuestionIDs from Block Questions (BQ) in the QSF data.
+    Extracts QuestionIDs from Block Questions (BL) in the QSF data.
 
     Args:
         qsf_data: A dictionary containing the JSON data from the QSF file.
@@ -33,8 +33,10 @@ def extract_question_ids_from_bq(qsf_data):
     """
     question_ids = []
     for element in qsf_data.get("SurveyElements", []):
-        if element.get("Element") == "BQ":
+        if element.get("Element") == "BL":  # Changed "BQ" to "BL"
             payload = element.get("Payload", {})
+            print("Payload:", payload)  # Print the entire payload for debugging
+
             for block_id, block_data in payload.items():
                 if isinstance(block_data, dict) and "BlockElements" in block_data:
                     for block_element in block_data["BlockElements"]:
@@ -53,7 +55,7 @@ qsf_path = f"QSF/{file_name}"
 # Load QSF data
 qsf_data = load_qsf_file(qsf_path)
 
-# Extract QuestionIDs from BQ
+# Extract QuestionIDs from BL
 if qsf_data:
-    question_ids = extract_question_ids_from_bq(qsf_data)
-    print(f"Question IDs from BQ in {file_name}: {question_ids}")
+    question_ids = extract_question_ids_from_bl(qsf_data)  # Changed "BQ" to "BL"
+    print(f"Question IDs from BL in {file_name}: {question_ids}")
