@@ -6,7 +6,15 @@ def extract_questions(qsf_file):
         data = json.load(file)
     
     # Extract the survey flow to get the order of questions
-    survey_flow = data['SurveyElements'][0]['Payload']['Flow']
+    survey_flow = None
+    for element in data['SurveyElements']:
+        if element['Element'] == 'FL':
+            survey_flow = element['Payload']['Flow']
+            break
+    
+    if survey_flow is None:
+        raise KeyError("Survey flow not found in the QSF file.")
+    
     question_order = []
     
     def parse_flow(flow):
