@@ -1,85 +1,34 @@
-import json
 import pandas as pd
-import re
+import os
 
-def load_qsf_file(qsf_file):
-    with open(qsf_file, 'r', encoding='utf-8-sig') as file:
-        data = json.load(file)
-    return data
+def combine_excel_files(file_list, output_file="Master.xlsx"):
+  """
+  Combines multiple Excel files into a single Master file.
 
-def clean_html(raw_html):
-    clean_text = re.sub(r'<[^>]+>', '', raw_html)  # Remove HTML tags
-    clean_text = re.sub(r'&nbsp;', ' ', clean_text)  # Replace &nbsp; with space
-    clean_text = re.sub(r'\s+', ' ', clean_text).strip()  # Remove extra whitespace
-    return clean_text
+  Args:
+    file_list: A list of file names to be combined.
+    output_file: The name of the output Excel file (default: "Master.xlsx").
+  """
 
-def extract_questions(data):
-    questions = []
-    for element in data['SurveyElements']:
-        if element['Element'] == 'SQ':
-            question = element['Payload']
-            question_id = question.get('QuestionID', '')
-            question_text = clean_html(question.get('QuestionText', ''))
-            questions.append({
-                'QuestionID': question_id,
-                'QuestionText': question_text,
-                'QuestionType': question.get('QuestionType', ''),
-                'Selector': question.get('Selector', ''),
-                'SubSelector': question.get('SubSelector', ''),
-                'DataExportTag': question.get('DataExportTag', ''),
-                'QuestionDescription': clean_html(question.get('QuestionDescription', ''))
-            })
-    
-    print("Extracted Questions:", questions)  # Debugging line
-    return questions
+  df_master = pd.DataFrame()
 
-def extract_question_ids_from_bl(qsf_data):
-    """
-    Extracts QuestionIDs and Block Names from Block Questions (BL) in the QSF data.
+  for file_name in file_list:
+    try:
+      df_temp = pd.read_excel(file_name)
+      df_temp['Survey Name'] = file_name
+      df_master = pd.concat([df_master, df_temp], ignore_index=True)
+    except Exception as e:
+      print(f"Error processing {file_name}: {e}")
 
-    Args:
-        qsf_data: A dictionary containing the JSON data from the QSF file.
+  try:
+    if os.path.exists(output_file):
+      with pd.ExcelWriter(output_file, mode='a', engine='openpyxl', if_sheet_exists='replace') as writer:
+        df_master.to_excel(writer, sheet_name='Sheet1', index=False)
+    else:
+      df_master.to_excel(output_file, index=False)
+  except Exception as e:
+    print(f"Error writing to {output_file}: {e}")
 
-    Returns:
-        A list of tuples containing Block Names and QuestionIDs extracted from Block Questions.
-    """
-    question_ids = []
-    for element in qsf_data.get("SurveyElements", []):
-        if element.get("Element") == "BL":
-            payload = element.get("Payload", {})
-            for block_id, block_data in payload.items():
-                if isinstance(block_data, dict) and "BlockElements" in block_data:
-                    block_name = block_data.get("Description", "Unnamed Block")
-                    for block_element in block_data["BlockElements"]:
-                        if "QuestionID" in block_element:
-                            question_ids.append((block_name, block_element["QuestionID"]))
-    
-    print("Extracted Question IDs and Block Names:", question_ids)  # Debugging line
-    return question_ids
-
-def reorder_questions(questions, question_order):
-    question_dict = {q['QuestionID']: q for q in questions}
-    ordered_questions = [question_dict[qid] for _, qid in question_order if qid in question_dict]
-    
-    print("Ordered Questions:", ordered_questions)  # Debugging line
-    return ordered_questions
-
-def save_to_excel(questions, question_order, output_file):
-    df_questions = pd.DataFrame(questions)
-    df_order = pd.DataFrame(question_order, columns=['BlockName', 'QuestionID'])
-    df_merged = pd.merge(df_order, df_questions, on='QuestionID', how='left')
-    df_merged.to_excel(output_file, index=False)
-
-if __name__ == "__main__":
-    directory = 'd:/Hackaton/EXCELtoQSF'
-    
-    name = input("Please enter the file name without extension: ")
-    qsf_file = f'{directory}/QSF/{name}.qsf'
-    output_file = f'{directory}/{name}_reordered_output.xlsx'
-    
-    data = load_qsf_file(qsf_file)
-    questions = extract_questions(data)
-    question_order = extract_question_ids_from_bl(data)
-    ordered_questions = reorder_questions(questions, question_order)
-    save_to_excel(ordered_questions, question_order, output_file)
-    print(f"Reordered questions have been successfully exported to {output_file}")
+# Example usage:
+file_list = ['file1.xlsx', 'file2.xlsx', 'file3.xlsx']  # Replace with your actual file names
+combine_excel_files(file_list)
