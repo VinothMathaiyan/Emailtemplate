@@ -46,13 +46,15 @@ def extract_question_ids_from_bl(qsf_data):
     question_ids = []
     for element in qsf_data.get("SurveyElements", []):
         if element.get("Element") == "BL":
-            block_name = element.get("PrimaryAttribute", "Unnamed Block")
             payload = element.get("Payload", {})
             for block_id, block_data in payload.items():
                 if isinstance(block_data, dict) and "BlockElements" in block_data:
+                    block_name = block_data.get("Description", "Unnamed Block")
                     for block_element in block_data["BlockElements"]:
                         if "QuestionID" in block_element:
                             question_ids.append((block_name, block_element["QuestionID"]))
+    
+    print("Extracted Question IDs and Block Names:", question_ids)  # Debugging line
     return question_ids
 
 def reorder_questions(questions, question_order):
