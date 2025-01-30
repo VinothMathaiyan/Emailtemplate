@@ -1,34 +1,23 @@
-import pandas as pd
-import os
+In XM Discover (Qualtrics' AI-powered text analytics tool), a deterministic model could be used in the following ways:
 
-def combine_excel_files(file_list, output_file="Master.xlsx"):
-  """
-  Combines multiple Excel files into a single Master file.
+Rule-Based Text Classification – If XM Discover applies strict rules (like keyword matching, phrase detection, or sentiment scoring based on predefined conditions), then it follows a deterministic approach. Given the same input (e.g., a customer review or employee feedback), it will always assign the same category, sentiment, or tag.
 
-  Args:
-    file_list: A list of file names to be combined.
-    output_file: The name of the output Excel file (default: "Master.xlsx").
-  """
+Intent and Sentiment Analysis – If XM Discover uses a fixed logic to classify responses into positive, negative, or neutral sentiment based on predefined word lists, this would be deterministic. The same sentence would always yield the same sentiment score.
 
-  df_master = pd.DataFrame()
+In today’s workplace, colleague feedback is collected through multiple channels—surveys, chat transcripts, emails, and internal platforms. While this provides a wealth of insights, the challenge lies in extracting meaningful themes, sentiment, and trends efficiently.
 
-  for file_name in file_list:
-    try:
-      df_temp = pd.read_excel(file_name)
-      df_temp['Survey Name'] = file_name
-      df_master = pd.concat([df_master, df_temp], ignore_index=True)
-    except Exception as e:
-      print(f"Error processing {file_name}: {e}")
+Currently, analyzing free-text responses is time-consuming, inconsistent, and often relies on manual effort or basic keyword-based tools. This limits our ability to uncover deeper insights, identify emerging concerns, and drive action in a timely manner.
 
-  try:
-    if os.path.exists(output_file):
-      with pd.ExcelWriter(output_file, mode='a', engine='openpyxl', if_sheet_exists='replace') as writer:
-        df_master.to_excel(writer, sheet_name='Sheet1', index=False)
-    else:
-      df_master.to_excel(output_file, index=False)
-  except Exception as e:
-    print(f"Error writing to {output_file}: {e}")
+To solve this, we need a robust, AI-powered tool that can analyze unstructured text data at scale, ensuring accuracy, consistency, and actionable insights. This is where XM Discover comes in
 
-# Example usage:
-file_list = ['file1.xlsx', 'file2.xlsx', 'file3.xlsx']  # Replace with your actual file names
-combine_excel_files(file_list)
+To gain a holistic understanding of colleague feedback, we need a consistent, rule-based (deterministic) approach that ensures reliability and transparency in text classification. Instead of relying on AI-driven models, which can be complex and less interpretable, a deterministic model will allow us to define clear rules and categories, ensuring that text analysis is structured, repeatable, and aligned with our business needs.
+
+XM Discover offers the ability to analyze text data from multiple sources using a deterministic approach, helping us standardize insights and ensure consistency across all feedback channels."
+"Currently, our text analysis is limited to Text iQ, which is survey-specific and does not allow us to analyze text data from multiple sources in a unified way. This creates silos in our insights and limits our ability to identify trends across different colleague feedback channels (e.g., surveys, emails, chat transcripts, and case management data).
+
+To ensure scalability, consistency, and interpretability, we propose leveraging XM Discover with a deterministic model rather than an AI-driven approach. Unlike black-box AI models, a deterministic model allows us to:
+
+Define explicit rules and logic for text classification, ensuring consistency across datasets.
+Standardize analysis across multiple sources, eliminating survey-only constraints.
+Improve transparency and governance, making it easier to audit and refine classification logic.
+This shift would enable us to unlock cross-channel insights while maintaining full control over text categorization logic, aligning with our data governance standards. I’d love to discuss how we can structure this transition and define the key implementation steps."
