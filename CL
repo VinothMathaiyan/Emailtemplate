@@ -1,23 +1,30 @@
-In XM Discover (Qualtrics' AI-powered text analytics tool), a deterministic model could be used in the following ways:
+import json
+import os
 
-Rule-Based Text Classification – If XM Discover applies strict rules (like keyword matching, phrase detection, or sentiment scoring based on predefined conditions), then it follows a deterministic approach. Given the same input (e.g., a customer review or employee feedback), it will always assign the same category, sentiment, or tag.
+# Import the data
+os.chdir(r'D:\Hackaton\EXCELtoQSF')
 
-Intent and Sentiment Analysis – If XM Discover uses a fixed logic to classify responses into positive, negative, or neutral sentiment based on predefined word lists, this would be deterministic. The same sentence would always yield the same sentiment score.
+def format_qsf(input_file_path, output_file_path):
+    try:
+        # Read the content of the .qsf file
+        with open(input_file_path, 'r') as file:
+            content = file.read()
+        
+        # Parse and reformat the JSON content
+        formatted_content = json.dumps(json.loads(content), indent=4)
+        
+        # Write the formatted JSON to a new file
+        with open(output_file_path, 'w') as formatted_file:
+            formatted_file.write(formatted_content)
+        
+        print(f"File formatted successfully! Formatted file saved at: {output_file_path}")
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
-In today’s workplace, colleague feedback is collected through multiple channels—surveys, chat transcripts, emails, and internal platforms. While this provides a wealth of insights, the challenge lies in extracting meaningful themes, sentiment, and trends efficiently.
+# Input and output file paths
+input_file = "Template_v1.qsf"  # Replace with the path to your .qsf file
+output_file = "Template_v1_x.qsf"  # Replace with the desired output file path
 
-Currently, analyzing free-text responses is time-consuming, inconsistent, and often relies on manual effort or basic keyword-based tools. This limits our ability to uncover deeper insights, identify emerging concerns, and drive action in a timely manner.
-
-To solve this, we need a robust, AI-powered tool that can analyze unstructured text data at scale, ensuring accuracy, consistency, and actionable insights. This is where XM Discover comes in
-
-To gain a holistic understanding of colleague feedback, we need a consistent, rule-based (deterministic) approach that ensures reliability and transparency in text classification. Instead of relying on AI-driven models, which can be complex and less interpretable, a deterministic model will allow us to define clear rules and categories, ensuring that text analysis is structured, repeatable, and aligned with our business needs.
-
-XM Discover offers the ability to analyze text data from multiple sources using a deterministic approach, helping us standardize insights and ensure consistency across all feedback channels."
-"Currently, our text analysis is limited to Text iQ, which is survey-specific and does not allow us to analyze text data from multiple sources in a unified way. This creates silos in our insights and limits our ability to identify trends across different colleague feedback channels (e.g., surveys, emails, chat transcripts, and case management data).
-
-To ensure scalability, consistency, and interpretability, we propose leveraging XM Discover with a deterministic model rather than an AI-driven approach. Unlike black-box AI models, a deterministic model allows us to:
-
-Define explicit rules and logic for text classification, ensuring consistency across datasets.
-Standardize analysis across multiple sources, eliminating survey-only constraints.
-Improve transparency and governance, making it easier to audit and refine classification logic.
-This shift would enable us to unlock cross-channel insights while maintaining full control over text categorization logic, aligning with our data governance standards. I’d love to discuss how we can structure this transition and define the key implementation steps."
+# Format the .qsf file
+format_qsf(input_file, output_file)
