@@ -1,2 +1,50 @@
+import json
+import pandas as pd
+
+# Replace 'yourfile.qsf' with your QSF file name
+with open('yourfile.qsf', 'r', encoding='utf-8-sig') as file:
+    data = json.load(file)
+
+# Extract elements where "Element" is "BL"
+bl_elements = [element for element in data['SurveyElements'] if element.get('Element') == 'BL']
+
+# Prepare data for the DataFrame
+rows = []
+for element in bl_elements:
+    payload = element['Payload']
+    row = {}
+    for key, value in payload.items():
+        if key == 'BlockElements':
+            for block in value:
+                row_copy = row.copy()
+                for sub_key, sub_value in block.items():
+                    row_copy[f"{key}_{sub_key}"] = sub_value
+                rows.append(row_copy)
+        else:
+            if isinstance(value, dict):  # if value is another dictionary, flatten it
+                for sub_key, sub_value in value.items():
+                    row[f"{key}_{sub_key}"] = sub_value
+            else:
+                row[key] = value
+    if 'BlockElements' not in row:
+        rows.append(row)  # if no BlockElements, append the row
+
+# Convert to DataFrame
+df = pd.DataFrame(rows)
+
+# Transpose the DataFrame so each key becomes a column
+df = df.melt(var_name='Header', value_name='Value')
+
+# Split the Header column into two separate columns based on the underscore
+df[['Header1', 'Header2']] = df['Header'].str.split('_', expand=True)
+
 # Remove rows where Header2 contains values like "ID", "Options", "SubType"
 df = df[~df['Header2'].isin(['ID', 'Options', 'SubType'])]
+
+# Reorder columns to have Header1, Header2, and Value
+df = df[['Header1', 'Header2', 'Value']]
+
+# Save to Excel
+df.to_excel('bl_elements_transposed.xlsx', index=False)
+
+print("Data successfully extracted to 'bl_elements_transposed.xlsx'")
