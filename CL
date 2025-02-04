@@ -1,50 +1,15 @@
-import json
 import pandas as pd
+import ast
 
-# Replace 'yourfile.qsf' with your QSF file name
-with open('yourfile.qsf', 'r', encoding='utf-8-sig') as file:
-    data = json.load(file)
+# Load the Excel file
+file_path = "your_file.xlsx"  # Update with your file path
+df = pd.read_excel(file_path)
 
-# Extract elements where "Element" is "BL"
-bl_elements = [element for element in data['SurveyElements'] if element.get('Element') == 'BL']
+# Filter rows where Header2 == "BlockElements"
+filtered_df = df[df['Header2'] == "BlockElements"].copy()
 
-# Prepare data for the DataFrame
-rows = []
-for element in bl_elements:
-    payload = element['Payload']
-    row = {}
-    for key, value in payload.items():
-        if key == 'BlockElements':
-            for block in value:
-                block_row = row.copy()
-                for sub_key, sub_value in block.items():
-                    block_row[f"{key}_{sub_key}"] = sub_value
-                rows.append(block_row)
-        else:
-            if isinstance(value, dict):  # if value is another dictionary, flatten it
-                for sub_key, sub_value in value.items():
-                    row[f"{key}_{sub_key}"] = sub_value
-            else:
-                row[key] = value
-    if 'BlockElements' not in row:
-        rows.append(row)  # if no BlockElements, append the row
+# Convert 'value' column from string to list of dictionaries
+filtered_df['parsed_value'] = filtered_df['value'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) and x.startswith("[") else [])
 
-# Convert to DataFrame
-df = pd.DataFrame(rows)
-
-# Transpose the DataFrame so each key becomes a column
-df = df.melt(var_name='Header', value_name='Value')
-
-# Split the Header column into two separate columns based on the underscore
-df[['Header1', 'Header2']] = df['Header'].str.split('_', expand=True)
-
-# Remove rows where Header2 contains values like "ID", "Options", "SubType"
-df = df[~df['Header2'].isin(['ID', 'Options', 'SubType'])]
-
-# Reorder columns to have Header1, Header2, and Value
-df = df[['Header1', 'Header2', 'Value']]
-
-# Save to Excel
-df.to_excel('bl_elements_transposed.xlsx', index=False)
-
-print("Data successfully extracted to 'bl_elements_transposed.xlsx'")
+# Print the extracted values
+print(filtered_df[['Header1', 'Header2', 'parsed_value']])
