@@ -1,30 +1,23 @@
 import json
-import os
+import pandas as pd
 
-# Import the data
-os.chdir(r'D:\Hackaton\EXCELtoQSF')
+# Replace 'yourfile.qsf' with your QSF file name
+with open('yourfile.qsf', 'r', encoding='utf-8-sig') as file:
+    data = json.load(file)
 
-def format_qsf(input_file_path, output_file_path):
-    try:
-        # Read the content of the .qsf file
-        with open(input_file_path, 'r') as file:
-            content = file.read()
-        
-        # Parse and reformat the JSON content
-        formatted_content = json.dumps(json.loads(content), indent=4)
-        
-        # Write the formatted JSON to a new file
-        with open(output_file_path, 'w') as formatted_file:
-            formatted_file.write(formatted_content)
-        
-        print(f"File formatted successfully! Formatted file saved at: {output_file_path}")
-    
-    except Exception as e:
-        print(f"An error occurred: {e}")
+# Extract elements where "Element" is "BL"
+bl_elements = [element for element in data['SurveyElements'] if element.get('Element') == 'BL']
 
-# Input and output file paths
-input_file = "Template_v1.qsf"  # Replace with the path to your .qsf file
-output_file = "Template_v1_x.qsf"  # Replace with the desired output file path
+# Extract headers and values
+rows = []
+for element in bl_elements:
+    payload = element['Payload']
+    headers = payload.keys()
+    values = payload.values()
+    rows.append(dict(zip(headers, values)))
 
-# Format the .qsf file
-format_qsf(input_file, output_file)
+# Convert to DataFrame and save to Excel
+df = pd.DataFrame(rows)
+df.to_excel('bl_elements.xlsx', index=False)
+
+print("Data successfully extracted to 'bl_elements.xlsx'")
