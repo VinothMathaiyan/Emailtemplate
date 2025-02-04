@@ -26,18 +26,24 @@ final_df = pd.concat(all_data, ignore_index=True)
 
 # Check if the output file already exists
 if os.path.exists(output_file):
-    existing_df = pd.read_excel(output_file, sheet_name=master_sheet)  # Read only the Master sheet
-    final_df = pd.concat([existing_df, final_df], ignore_index=True)  # Append new data
+    with pd.ExcelFile(output_file) as existing_xl:
+        if master_sheet in existing_xl.sheet_names:
+            existing_df = pd.read_excel(output_file, sheet_name=master_sheet)  # Read only the Master sheet
+            final_df = pd.concat([existing_df, final_df], ignore_index=True)  # Append new data
 
-# Save the final combined file with the specified sheet name
-with pd.ExcelWriter(output_file, engine='openpyxl', mode='w') as writer:
-    final_df.to_excel(writer, sheet_name=master_sheet, index=False)
+# Load existing workbook to preserve other sheets
+wb = load_workbook(output_file) if os.path.exists(output_file) else load_workbook()
 
-# Load the combined Excel file using openpyxl to adjust column widths
-wb = load_workbook(output_file)
-ws = wb[master_sheet]
+# Write the updated data to the Master sheet
+if master_sheet in wb.sheetnames:
+    wb.remove(wb[master_sheet])  # Remove the existing Master sheet
+ws = wb.create_sheet(master_sheet)
 
-# Increase the width of all columns (adjust width as needed)
+for r_idx, row in enumerate(final_df.itertuples(index=False), 1):
+    for c_idx, value in enumerate(row, 1):
+        ws.cell(row=r_idx + 1, column=c_idx, value=value)
+
+# Adjust column widths
 for col in ws.columns:
     max_length = 0
     column = col[0].column_letter  # Get column name (A, B, C, etc.)
@@ -50,7 +56,7 @@ for col in ws.columns:
     adjusted_width = max_length + 2
     ws.column_dimensions[column].width = adjusted_width
 
-# Save the file after adjusting the column widths
+# Save the file
 wb.save(output_file)
 
-print(f"Successfully combined and adjusted column widths in '{output_file}' (Sheet: '{master_sheet}').")
+print(f"Successfully combined and adjusted column widths in '{output_file}' (Sheet: '{master_sheet}'), while preserving other sheets.")
