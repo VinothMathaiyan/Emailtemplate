@@ -12,27 +12,39 @@ bl_elements = [element for element in data['SurveyElements'] if element.get('Ele
 rows = []
 for element in bl_elements:
     payload = element['Payload']
-    block_elements = payload.get('BlockElements', [])
-    for block_element in block_elements:
-        row = {
-            'BlockNumber': len(rows) + 1,
-            'Type': payload.get('Type', ''),
-            'Description': payload.get('Description', ''),
-            'BlockElementType': block_element.get('Type', '')
-        }
-        if 'QuestionID' in block_element:
-            row['QuestionID'] = block_element['QuestionID']
+    row = {}
+    for key, value in payload.items():
+        if key == 'BlockElements':
+            for block in value:
+                block_row = row.copy()
+                for sub_key, sub_value in block.items():
+                    block_row[f"{key}_{sub_key}"] = sub_value
+                rows.append(block_row)
         else:
-            row['QuestionID'] = ''  # Handle cases where QuestionID is missing
-        rows.append(row)
+            if isinstance(value, dict):  # if value is another dictionary, flatten it
+                for sub_key, sub_value in value.items():
+                    row[f"{key}_{sub_key}"] = sub_value
+            else:
+                row[key] = value
+    if 'BlockElements' not in row:
+        rows.append(row)  # if no BlockElements, append the row
 
 # Convert to DataFrame
 df = pd.DataFrame(rows)
 
-# Reorder columns
-df = df[['BlockNumber', 'Type', 'Description', 'BlockElementType', 'QuestionID']]
+# Transpose the DataFrame so each key becomes a column
+df = df.melt(var_name='Header', value_name='Value')
+
+# Split the Header column into two separate columns based on the underscore
+df[['Header1', 'Header2']] = df['Header'].str.split('_', expand=True)
+
+# Remove rows where Header2 contains values like "ID", "Options", "SubType"
+df = df[~df['Header2'].isin(['ID', 'Options', 'SubType'])]
+
+# Reorder columns to have Header1, Header2, and Value
+df = df[['Header1', 'Header2', 'Value']]
 
 # Save to Excel
-df.to_excel('bl_elements_split.xlsx', index=False)
+df.to_excel('bl_elements_transposed.xlsx', index=False)
 
-print("Data successfully extracted to 'bl_elements_split.xlsx'")
+print("Data successfully extracted to 'bl_elements_transposed.xlsx'")
