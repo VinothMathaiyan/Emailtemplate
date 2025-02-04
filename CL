@@ -1,15 +1,1 @@
-import pandas as pd
-import ast
-
-# Load the Excel file
-file_path = "your_file.xlsx"  # Update with your file path
-df = pd.read_excel(file_path)
-
-# Filter rows where Header2 == "BlockElements"
-filtered_df = df[df['Header2'] == "BlockElements"].copy()
-
-# Convert 'value' column from string to list of dictionaries
-filtered_df['parsed_value'] = filtered_df['value'].apply(lambda x: ast.literal_eval(x) if isinstance(x, str) and x.startswith("[") else [])
-
-# Print the extracted values
-print(filtered_df[['Header1', 'Header2', 'parsed_value']])
+expanded_df.rename(columns={expanded_df.columns[2]: "Description"}, inplace=True)
