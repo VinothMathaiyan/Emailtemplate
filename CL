@@ -8,16 +8,26 @@ with open('yourfile.qsf', 'r', encoding='utf-8-sig') as file:
 # Extract elements where "Element" is "BL"
 bl_elements = [element for element in data['SurveyElements'] if element.get('Element') == 'BL']
 
-# Extract headers and values
+# Prepare data for the DataFrame
 rows = []
 for element in bl_elements:
     payload = element['Payload']
-    headers = payload.keys()
-    values = payload.values()
-    rows.append(dict(zip(headers, values)))
+    row = {}
+    for key, value in payload.items():
+        if isinstance(value, dict):  # if value is another dictionary, flatten it
+            for sub_key, sub_value in value.items():
+                row[f"{key}_{sub_key}"] = sub_value
+        else:
+            row[key] = value
+    rows.append(row)
 
-# Convert to DataFrame and save to Excel
+# Convert to DataFrame
 df = pd.DataFrame(rows)
-df.to_excel('bl_elements.xlsx', index=False)
 
-print("Data successfully extracted to 'bl_elements.xlsx'")
+# Transpose the DataFrame so each key becomes a column
+df = df.melt(var_name='Header', value_name='Value')
+
+# Save to Excel
+df.to_excel('bl_elements_transposed.xlsx', index=False)
+
+print("Data successfully extracted to 'bl_elements_transposed.xlsx'")
