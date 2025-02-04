@@ -1,5 +1,2 @@
-# Split the Header column into two separate columns based on the underscore
-df[['Header1', 'Header2']] = df['Header'].str.split('_', expand=True)
-
-# Reorder columns to have Header1, Header2, and Value
-df = df[['Header1', 'Header2', 'Value']]
+# Remove rows where Header2 contains values like "ID", "Options", "SubType"
+df = df[~df['Header2'].isin(['ID', 'Options', 'SubType'])]
