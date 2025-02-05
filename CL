@@ -1,5 +1,8 @@
-<div style="width: 100%; max-width: 763px; height: 25vh; max-height: 190px; background: url('YOUR_IMAGE_URL') no-repeat center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: Arial, sans-serif; padding: 1vh;">
-    <h2 style="margin: 0.5vh 0; font-size: 1.8em; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Curated Experience</h2>
-    <h3 style="margin: 0.5vh 0; font-size: 1.5em; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Colleague Satisfaction Survey</h3>
-    <h4 style="margin: 0.5vh 0; font-size: 1.2em; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${e://Field/Location}</h4>
+<div style="width: 100%; max-width: 763px; height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: Arial, sans-serif; padding: 1vh;">
+    <img src="YOUR_IMAGE_URL" alt="Banner Image" style="width: 100%; height: auto; max-height: 190px; object-fit: contain;">
+    <div style="position: absolute; text-align: center;">
+        <h2 style="margin: 0.5vh 0; font-size: 1.8em; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Curated Experience</h2>
+        <h3 style="margin: 0.5vh 0; font-size: 1.5em; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Colleague Satisfaction Survey</h3>
+        <h4 style="margin: 0.5vh 0; font-size: 1.2em; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${e://Field/Location}</h4>
+    </div>
 </div>
