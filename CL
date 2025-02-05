@@ -1,70 +1,16 @@
-import pandas as pd
-import os
-from datetime import datetime
-from openpyxl import load_workbook
-from openpyxl.styles import PatternFill, Alignment
+consolidate and give up.
+Absolutely, here's a draft for that email:
 
-# Set working directory
-os.chdir(r'path')  # Update with the actual path
+Subject: Update on Provisioning Process and Decommissioning of [Old Tool Name]
 
-# List of Excel files to combine
-excel_files = ["file1.xlsx", "file2.xlsx", "file3.xlsx"]  # Update with your actual file names
+Dear [Tech Team's Name],
 
-# Output file name
-output_file = "combined_file.xlsx"
-master_sheet = "Master"  # Define the sheet name
+I hope this message finds you well. I am writing to inform you about some important changes regarding the provisioning process for our tools and the decommissioning of [Old Tool Name].
 
-# Read and combine all files
-all_data = []
+As we transition to using the [New Brand Name], an enterprise-level tool, we have determined that the current provisioning process, which involves sensitive colleague information, poses a significant risk if continued with the existing approach. Due to the limited scope of users and the absence of sensitive data in our previous tool, the existing tech team was able to manage the provisioning process effectively. However, the scale and nature of [New Brand Name] involve confidential data that cannot be exposed to external teams.
 
-for file in excel_files:
-    if os.path.exists(file):  # Check if the file exists
-        df = pd.read_excel(file)
-        file_name_without_extension = os.path.splitext(file)[0]  # Remove the file extension (.xlsx)
-        df["File Name"] = file_name_without_extension  # Add file name without extension
-        df["Date Updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Add timestamp
-        all_data.append(df)
+Therefore, we will be handling the provisioning of admin access internally within our team moving forward. We understand this is a shift from the previous process, and I sincerely apologize for any inconvenience caused by not informing you sooner.
 
-# Combine all DataFrames into one
-final_df = pd.concat(all_data, ignore_index=True)
+Regarding the decommissioning of [Old Tool Name], there seems to be some confusion around the process, and I apologize for the lack of clarity. We are currently unable to provide a direct point of contact for incidents related to the decommissioned tool. However, please be assured that I will investigate this matter and get back to you with more information as soon as possible.
 
-# Check if the output file already exists
-if os.path.exists(output_file):
-    with pd.ExcelFile(output_file) as existing_xl:
-        if master_sheet in existing_xl.sheet_names:
-            existing_df = pd.read_excel(output_file, sheet_name=master_sheet)  # Read only the Master sheet
-            final_df = pd.concat([existing_df, final_df], ignore_index=True)  # Append new data
-
-# Load existing workbook to preserve other sheets
-wb = load_workbook(output_file) if os.path.exists(output_file) else load_workbook()
-
-# Write the updated data to the Master sheet
-if master_sheet in wb.sheetnames:
-    wb.remove(wb[master_sheet])  # Remove the existing Master sheet
-ws = wb.create_sheet(master_sheet)
-
-# Apply header background color
-header_fill = PatternFill(start_color='D9D9D9', end_color='D9D9D9', fill_type='solid')
-
-for col_num, column_title in enumerate(final_df.columns, 1):
-    cell = ws.cell(row=1, column=col_num, value=column_title)
-    cell.fill = header_fill
-    cell.alignment = Alignment(wrap_text=True)
-
-# Write data and apply text wrapping
-for r_idx, row in enumerate(final_df.itertuples(index=False), 2):
-    for c_idx, value in enumerate(row, 1):
-        cell = ws.cell(row=r_idx, column=c_idx, value=value)
-        cell.alignment = Alignment(wrap_text=True)
-
-# Adjust specific column widths
-ws.column_dimensions['A'].width = 20
-ws.column_dimensions['B'].width = 20
-ws.column_dimensions['C'].width = 20
-ws.column_dimensions['D'].width = 20
-ws.column_dimensions['E'].width = 20
-
-# Save the file
-wb.save(output_file)
-
-print(f"Successfully combined and adjusted column widths in '{output_file}' (Sheet: '{master_sheet}'), while preserving other sheets.")
+Thank you for your understanding and cooperation during this transition. If you have any concerns or questions, feel free to reach out to me directly.
