@@ -1,3 +1,38 @@
+Here’s a structured Confluence page draft that you can use to document the **banner implementation** for similar projects. I'll make it **clear, structured, and easy to follow**.  
+
+---
+
+### 📌 **Confluence Page: Qualtrics Banner Implementation Guide**  
+
+#### 🔹 **Overview**  
+This document provides step-by-step instructions for implementing a **custom banner with text overlay** in **Qualtrics surveys**. The banner dynamically displays location details based on embedded data.  
+
+---
+
+### 🖼 **Banner Specifications**  
+| Property | Value |
+|----------|-------|
+| **Width** | 763px |
+| **Max Height** | 190px |
+| **Text Content** | 1. Curated Experience <br> 2. Colleague Satisfaction Survey <br> 3. Location (from Embedded Data) |
+| **Scaling** | Fully responsive (supports up to 400% zoom) |
+| **Image Handling** | Ensures full visibility without cropping |
+
+---
+
+### 🛠 **Implementation Steps**  
+
+#### 1️⃣ **Upload the Banner Image**  
+1. Host the banner image on a publicly accessible server or Qualtrics **Graphics Library**.  
+2. Copy the image URL for use in the code.  
+
+#### 2️⃣ **Add the HTML Code to Qualtrics**  
+1. Open **Qualtrics Survey Flow**.  
+2. Add a **Descriptive Text** question.  
+3. Click **Rich Content Editor → HTML View**.  
+4. Paste the following HTML code:  
+
+```html
 <div style="width: 100%; max-width: 763px; height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: Arial, sans-serif; padding: 1vh;">
     <img src="YOUR_IMAGE_URL" alt="Banner Image" style="width: 100%; height: auto; max-height: 190px; object-fit: contain;">
     <div style="position: absolute; text-align: center;">
@@ -6,3 +41,39 @@
         <h4 style="margin: 0.5vh 0; font-size: 1.2em; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">${e://Field/Location}</h4>
     </div>
 </div>
+```
+
+#### 3️⃣ **Replace the Image URL**  
+- Replace **YOUR_IMAGE_URL** with the actual hosted image URL.  
+
+#### 4️⃣ **Test Responsiveness**  
+- Zoom in to **400%** and verify text alignment.  
+- Test across **different screen sizes** to ensure proper scaling.  
+
+---
+
+### 📝 **Notes & Considerations**  
+- The banner **automatically resizes** to fit different screens.  
+- If using a **dark background image**, adjust **text color** for better contrast.  
+- The `${e://Field/Location}` placeholder dynamically pulls **location data** from embedded fields.  
+
+---
+
+### 🔄 **Troubleshooting**  
+| Issue | Solution |
+|-------|----------|
+| Image is cropped | Ensure `object-fit: contain` is used in the `<img>` tag. |
+| Text alignment issues | Use **relative units** like `em`, `vh`, and `vw` instead of pixels. |
+| Embedded data not showing | Verify that `${e://Field/Location}` is properly set in **Survey Flow**. |
+
+---
+
+### ✅ **Final Checklist**  
+✅ Banner image is fully visible without cropping  
+✅ Text is **responsive** and aligns correctly at **400% zoom**  
+✅ **Embedded data** dynamically updates location  
+
+---
+
+Now you can **publish** this page in Confluence and share it with your team! 🚀  
+Let me know if you need any modifications. 😊
