@@ -1,17 +1,1 @@
-Subject: Confirmation on Business Rule for Assignment Group in ABC Toll Zone
 
-Dear [Recipient's Name],
-
-I hope you are doing well.
-
-We are reaching out to seek confirmation on the business rule set for the Assignment Group in the ABC Toll Zone. As part of our HR case experience survey, we trigger a survey via Qualtrics when a case is closed in ServiceNow. This process ensures colleagues can provide feedback on their experience.
-
-However, the HR Operations team has raised a concern regarding the satisfaction score, as some HR cases are not handled by HR Operations but rather by other teams or self-service by people leaders. They have proposed the following approach:
-
-If the Assignment Group field is blank, it indicates a People Leader handled the case.
-If the Assignment Group has a value, it means HR Operations was involved.
-Before proceeding with this approach, we want to ensure that we are fully aligned with the operational data reporting and that this assumption reflects the actual business rule set in ServiceNow. Could you please confirm if this logic is correct and whether it aligns with the existing setup? This confirmation is crucial to ensure accurate reporting and avoid any critical discrepancies.
-
-We appreciate your insights and confirmation on this matter. Please let us know if any additional details are required.
-
-Looking forward to your response.
