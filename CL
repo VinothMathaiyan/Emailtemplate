@@ -1,166 +1,17 @@
+Subject: Confirmation on Business Rule for Assignment Group in ABC Toll Zone
 
-Absolutely, Rajasekar, I hear you. Let me take the points you've shared and create a detailed summary.
+Dear [Recipient's Name],
 
-1. Objective:
+I hope you are doing well.
 
-Use Qualtrics XM Discover for actionable insights from large amounts of free text.
+We are reaching out to seek confirmation on the business rule set for the Assignment Group in the ABC Toll Zone. As part of our HR case experience survey, we trigger a survey via Qualtrics when a case is closed in ServiceNow. This process ensures colleagues can provide feedback on their experience.
 
-Identify key themes, sentiments, and trends to find pain points and improvement opportunities.
+However, the HR Operations team has raised a concern regarding the satisfaction score, as some HR cases are not handled by HR Operations but rather by other teams or self-service by people leaders. They have proposed the following approach:
 
-2. Proposal:
+If the Assignment Group field is blank, it indicates a People Leader handled the case.
+If the Assignment Group has a value, it means HR Operations was involved.
+Before proceeding with this approach, we want to ensure that we are fully aligned with the operational data reporting and that this assumption reflects the actual business rule set in ServiceNow. Could you please confirm if this logic is correct and whether it aligns with the existing setup? This confirmation is crucial to ensure accurate reporting and avoid any critical discrepancies.
 
-Analyze open-ended responses from the recognition platform to find alignment between selected values/mindsets and the text entered.
+We appreciate your insights and confirmation on this matter. Please let us know if any additional details are required.
 
-Assess the correlation between recognition and colleague engagement using biannual survey data.
-
-Evaluate the onboarding experience to identify pain points in the process and tools.
-
-3. Data Use Cases:
-
-Recognition Platform: Analyzing the alignment between selected values/mindsets and the text entered in recognition responses.
-
-Engagement Survey: Determining if higher recognition correlates with higher colleague engagement.
-
-Onboarding Experience: Ensuring new joiners face no issues with the tools and processes.
-
-4. Achievements & Challenges:
-
-XM Discover:
-
-Potential: Better visualization for stakeholders.
-
-Current Shortcomings:
-
-Limited impact for text analysis; only showing top themes.
-
-Basic sentiment analysis (positive, negative, neutral) not very insightful.
-
-Lack of thematic analysis due to insufficient theme generation based on semantic analysis.
-
-Could Be Improved:
-
-Detailed topic modeling and unsupervised thematic analysis.
-
-Comprehensive correlation/driver analysis using demographic data.
-
-5. Fundamentals Reviewed:
-
-Analyze Module: Expected to provide machine learning-driven theme detection, but did not meet expectations.
-
-Act Module: Dashboard useful for making insights available but lacked summarized outcomes, patterns, and easy attribute grouping.
-
-Listen Module: The process was challenging to blend qualitative and quantitative data interactively.
-
-6. Current Status & Next Steps:
-
-Current Status: Struggling to derive actionable insights due to the limitations of the current tool.
-
-Next Steps:
-
-Continue exploring more advanced text analysis methods (topic modeling, unsupervised thematic analysis).
-
-Enhance dashboard usability for better visualization and summary of data.
-
-Incorporate deeper driver analysis for better correlation insights.
-
-This summary encapsulates the objectives, proposals, achievements, and challenges you've shared, and highlights the gaps and next steps for improvement. Let's continue with any additional details you have to ensure we've covered everything comprehensively.
-
-
-
-Objective:
-
-Utilize Qualtrics XM Discover to analyze large volumes of free text for actionable insights.
-
-Identify key themes, sentiments, and trends to find pain points and improvement opportunities.
-
-Proposal:
-
-Analyze open-ended responses from the recognition platform to find alignment between selected values/mindsets and the text entered.
-
-Assess the correlation between recognition and colleague engagement using biannual survey data.
-
-Evaluate the onboarding experience to identify pain points in the process and tools.
-
-Data Use Cases:
-
-Recognition Platform:
-
-Objective: Determine the alignment between selected values/mindsets and the text entered in recognition responses.
-
-Challenge: The tool provides limited semantic analysis and insufficient thematic analysis.
-
-Gap: Fails to provide impactful thematic analysis or detailed correlations.
-
-Engagement Survey:
-
-Objective: Determine if higher recognition correlates with higher colleague engagement.
-
-Challenge: Struggling to apply filters and analyze different demographic cuts.
-
-Gap: Limited driver analysis and insufficiently intuitive filtering system.
-
-Onboarding Experience:
-
-Objective: Identify patterns, trends, and pain points in feedback from new joiners.
-
-Challenge: Limited insights from existing visualizations and deep-dive analyses.
-
-Gap: Heatmaps and line charts provide volume but lack depth and correlation insights.
-
-Achievements & Challenges:
-
-XM Discover:
-
-Achievements: Provides potential for better visualization for stakeholders.
-
-Challenges:
-
-Limited impact for text analysis; only showing top themes.
-
-Basic sentiment analysis (positive, negative, neutral) not very insightful.
-
-Lack of thematic analysis due to insufficient theme generation based on semantic analysis.
-
-Struggles with correlation matrices and driver analysis due to lack of depth and sophistication in the tool.
-
-Challenges with intuitive filtering, visualization, and user-friendly dashboards.
-
-Current Status & Next Steps:
-
-Current Status:
-
-Recognition and engagement insights are limited by the tool's capabilities.
-
-Onboarding experience analysis shows limited actionable insights.
-
-Gaps in thematic analysis, driver analysis, and correlation matrices.
-
-Next Steps:
-
-Explore more advanced text analysis methods (e.g., topic modeling, unsupervised thematic analysis).
-
-Improve the usability of the dashboard for better visualization and summary of data.
-
-Incorporate deeper driver analysis and correlation matrices for comprehensive insights.
-
-Implement comparative visualizations (e.g., heatmaps, line charts, bar charts, word clouds) to identify trends and patterns more effectively.
-
-Example Visualizations:
-
-Heatmaps: For sentiment analysis to highlight positive, neutral, and negative feedback trends over time.
-
-Line Graphs: Showing the frequency of key themes before and after system changes.
-
-Bar Charts: Displaying the most common pain points or challenges, allowing for easy comparison across categories.
-
-Word Clouds: Quickly identifying recurring keywords or phrases in open-text feedback, indicating themes.
-
-Correlation Matrices: Identifying relationships between different topics or keywords, showing how they interact or influence each other.
-
-Insights:
-
-Overall sentiment analysis showing a shift from negative to neutral after system implementation.
-
-Change in the order of top topics, indicating shifting priorities or issues over time.
-
-This detailed summary captures the essence of our discussions and highlights the key points, gaps, and next steps for your presentation to your lead and suppliers. Let me know if there's anything else you'd like to add or adjust.
+Looking forward to your response.
