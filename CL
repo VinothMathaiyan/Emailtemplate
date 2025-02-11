@@ -1,1 +1,181 @@
+Survey Platform Evaluation & User Research Participation
+
+Dear [Recipient's Name],
+
+We are currently assessing our survey platform landscape to ensure it continues to meet the evolving needs of our organization. As part of this initiative, we are evaluating potential alternatives and enhancements to our current tool and gathering user insights to define future requirements.
+
+To support this effort, we are conducting a user research study and would like to invite you to an upcoming session where we will:
+
+Provide an overview of the evaluation process and why this change is being considered.
+Share our Colleague Listening vision – how we Ask, Listen, and Analyze feedback across engagement, lifecycle, and pulse surveys.
+Discuss the current challenges and limitations in the existing approach.
+Seek your input on business and technical requirements, covering survey creation, response collection, analysis, and reporting.
+Outline the timeline for decision-making, ensuring we have comprehensive insights before finalizing a direction.
+Your feedback is critical in shaping the future of our survey ecosystem. We would greatly appreciate your participation in this session and your support in defining the requirements that will best serve both HR and non-HR colleagues.
+
+📅 Date: [Insert Date]
+⏰ Time: [Insert Time]
+📍 Location: [Insert Meeting Link]
+
+If you have any questions or require further information before the session, please feel free to reach out. We look forward to your valuable insights!
+
+
+---------------------
+
+the colleague listening vision—Ask, Listen, Analyze—and how this framework drives decision-making for the future survey platform. It needs to cover:
+
+Why This Evaluation Is Happening – The need to explore Glint as an alternative to Qualtrics before license renewal in 2026.
+Colleague Listening Vision – Breaking down Ask (surveys), Listen (data collection and governance), and Analyze (insights and actions).
+Current State and Challenges – The surveys and programs currently run, how they support engagement, and any limitations in Qualtrics.
+User Needs – What HR and non-HR teams require from a survey tool across building, collecting, and analyzing responses.
+Comparison of Tools – Evaluating whether Qualtrics or Glint better meets business and technical needs.
+Business Requirement Gathering Approach – How you’re gathering stakeholder input, validating requirements, and translating them into specifications.
+Decision-Making Timeline – Key milestones for finalizing business and technical requirements by mid-2025.
+
+
+-----------------------------
+
+
+
+Survey Platform Evaluation & User Research Approach
+
+1. Introduction
+
+In our continuous effort to enhance Colleague Listening capabilities, we are evaluating the current survey platform landscape to determine whether our existing tools, including Qualtrics, fully meet business needs or whether alternative solutions could provide better functionality, flexibility, and integration. This process involves gathering detailed business and technical requirements from key stakeholders, HR and non-HR colleagues, and survey users.
+
+2. Objectives
+
+Understand user needs – Identify pain points, limitations, and expectations from the survey platform.
+
+Evaluate tool capabilities – Assess the strengths and gaps of the current system against business requirements.
+
+Gather user stories – Collect real-world use cases from colleagues who build, distribute, and analyze surveys.
+
+Ensure alignment with business goals – Support engagement programs, lifecycle feedback, and sentiment analysis with the most effective tools.
+
+Define future requirements – Document functional and technical needs to support decision-making on platform enhancements or transitions.
+
+3. Colleague Listening Vision
+
+Our Colleague Listening vision is built on three key pillars:
+
+Ask – Running global engagement surveys, lifecycle surveys, and pulse surveys to capture feedback at critical moments.
+
+Listen – Enabling business teams to create and manage their own surveys using structured templates while ensuring compliance with data privacy and legal guidelines.
+
+Analyze – Providing people leaders with actionable insights through advanced data visualization, reporting, and trend analysis, integrating multiple feedback sources for holistic decision-making.
+
+4. User Research Methodology
+
+To ensure that our decision is data-driven and user-centric, we are conducting user research through:
+
+Workshops – Facilitated sessions to understand diverse team requirements and challenges.
+
+Stakeholder Interviews – One-on-one discussions with HR, IT, and non-HR users to gather insights on survey-building and reporting pain points.
+
+Surveys & Polls – Collecting structured feedback on current tool usage, limitations, and desired improvements.
+
+Feedback Forums – Open discussions where users can voice expectations and concerns about the survey tools.
+
+5. Business & Technical Requirements Gathering
+
+The business requirement gathering process consists of:
+
+Identifying key survey processes – From creation and deployment to analysis and reporting.
+
+Documenting functional needs – E.g., flexibility in survey design, multilingual support, integration with HR and enterprise systems.
+
+Assessing reporting and insights – Understanding how users interpret and act on survey data.
+
+Technical feasibility analysis – Ensuring that platform capabilities align with IT security, compliance, and performance standards.
+
+Validating findings – Engaging with the community of practice to refine and finalize requirements.
+
+6. Tool Evaluation & Decision Process
+
+Once we gather insights and requirements, the evaluation process will include:
+
+Assessing Qualtrics vs. alternatives – Identifying whether limitations can be addressed within the existing system or if a new tool is needed.
+
+Benchmarking features – Comparing survey creation, distribution, analytics, automation, and integrations.
+
+Cost-benefit analysis – Evaluating licensing, implementation, and operational costs.
+
+User Testing & Pilots – Running test scenarios on selected tools before final decisions.
+
+Stakeholder alignment & approval – Ensuring leadership, IT, HR, and end-users support the proposed solution.
+
+7. Timeline & Next Steps
+
+We aim to complete the evaluation and requirement definition in 2025 Q1, with the translation of business needs into technical specifications in 2025 Q2. The next steps include:
+
+Hosting a presentation session to discuss our approach and invite feedback.
+
+Engaging with teams for detailed requirement validation.
+
+Assessing platform fit and defining the final recommendation.
+
+8. Call to Action
+
+Your input is essential in shaping the future of our survey platform. We invite you to join the upcoming presentation session, where we will discuss this approach in detail and gather your insights.
+
+📅 Date: [Insert Date]⏰ Time: [Insert Time]📍 Location: [Insert Meeting Link]
+
+If you have any questions or would like to contribute additional feedback, please feel free to reach out.
+
+Thank you for your participation!
+
+-------------------------------
+
+Survey Platform Evaluation & User Research Approach
+1. Background & Purpose
+Our organization heavily relies on surveys to gather insights on colleague engagement, lifecycle experiences, and feedback on various programs.
+Currently, we use Qualtrics as our primary survey tool. However, we want to evaluate whether it continues to meet our evolving business needs or if an alternative solution would be better suited.
+This evaluation will be guided by a user research approach, ensuring that the needs of HR and non-HR colleagues are fully considered before making a decision.
+2. Colleague Listening Vision: Ask, Listen, Analyze
+To ensure a structured and effective listening strategy, we focus on three key pillars:
+
+✅ Ask
+
+Conducting Global Engagement Surveys (annually/quarterly).
+Capturing Employee Lifecycle Moments (onboarding, exit, case experience).
+Running Pulse Surveys for product/process changes and leadership feedback.
+Enabling managers to conduct pre-built team surveys.
+✅ Listen
+
+Enabling business teams to build and manage surveys independently using standardized methodologies.
+Ensuring compliance with legal and data privacy requirements while maintaining survey flexibility.
+Expanding survey accessibility beyond email to platforms like Microsoft Teams and other channels.
+Integrating unstructured/external data sources into a unified visualization.
+✅ Analyze
+
+Providing leaders with self-service access to analyze survey results and other key data points.
+Delivering insights and action recommendations to the right stakeholders.
+Enabling transparency by tracking action plans and progress based on survey feedback.
+3. Current Challenges & User Research Approach
+We recognize that the existing approach may have gaps or limitations that impact ease of use, reporting, or scalability.
+To identify these pain points, we are conducting user interviews and workshops with:
+Survey creators & managers – to understand survey-building challenges.
+Survey respondents – to explore response experience and accessibility issues.
+Data/report users – to assess how effectively insights are extracted and visualized.
+How We’ll Conduct Research:
+
+Workshops & One-on-One Interviews to explore pain points and expectations.
+Survey Form Inputs to gather structured feedback on key features.
+User Story Development – documenting real use cases to ensure requirements align with business needs.
+4. Business & Technical Requirements Gathering
+We aim to document a comprehensive list of requirements covering:
+✅ Survey Creation & Customization Needs
+✅ User Experience & Accessibility (for both respondents & survey admins)
+✅ Integration Capabilities (e.g., HR systems, reporting tools)
+✅ Data Storage, Compliance, and Privacy Considerations
+✅ Reporting, Dashboarding, and AI-Driven Insights
+
+This process will help us evaluate whether Qualtrics remains the best option or if an alternative solution is needed to enhance survey capabilities.
+
+5. Next Steps & Timeline
+📌 Q1 2025 – Business requirement gathering from HR & non-HR stakeholders.
+📌 Q2 2025 – Translating business needs into technical specifications for tool evaluation.
+📌 Mid-2025 – Finalizing the approach based on user research and tool capabilities.
+
 
