@@ -1,1 +1,26 @@
 
+
+I hope you are doing well.
+
+I wanted to update you on a recent issue with the ServiceNow-Qualtrics integration, which impacts the automated collection of colleague experience feedback on HR services.
+
+As part of this integration, when an HR case is closed in ServiceNow, a survey email is triggered from Qualtrics, and a task is created in ServiceNow to track survey completion. However, since Monday, we have observed that:
+
+Survey emails are being sent successfully.
+Task creation and updates in ServiceNow are failing due to an unauthorization error.
+This means colleagues are not seeing a task associated with their survey, which could result in a decline in response rates.
+Action Plan and Next Steps
+We are actively investigating the root cause in collaboration with both the Qualtrics and ServiceNow teams. While we cannot yet confirm whether the issue is solely on the ServiceNow side, we are working to identify a long-term fix.
+
+To mitigate the immediate impact, we plan to refresh the integration credentials on Saturday. This is a precautionary measure to restore task creation functionality while we continue our root cause analysis. We expect to have a resolution in place by Monday and will provide further updates as we progress.
+
+Please let us know if you have any concerns or require further details.
+
+I wanted to bring to your attention a recent issue with the integration between ServiceNow and Qualtrics, which enables the automated collection of colleague experience feedback on HR services.
+
+The integration is designed to trigger a survey email from Qualtrics via Outlook when an HR case is closed in ServiceNow. Simultaneously, a task is created in ServiceNow, which is later updated or closed when the survey is completed. However, since Monday, we have observed that:
+
+Survey emails are being sent successfully.
+Task creation and updates in ServiceNow are failing due to an unauthorization error.
+This impacts our ability to track survey completion and may affect response rates.
+We suspect the issue is related to ServiceNow access permissions for the integration and would appreciate your support in investigating and resolving this matter. Please let us know if additional information is required.
