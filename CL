@@ -1,1 +1,70 @@
+Presentation Title: Scaling Colleague Listening Best Practices Across the Organization
+Slide 1: Title & Agenda
+🎤 Speaker Notes:
+"Good [morning/afternoon] everyone. Today, we’ll be discussing how we can share and scale our colleague listening best practices across the organization. We’ve learned a lot through our work, and we want to ensure more teams benefit from these insights.
 
+"Here’s the agenda for today’s session:"
+
+The importance of sharing best practices
+A quick walkthrough of our Colleague Listening Best Practices Hub
+How we actively support teams – with a real-life example
+How we can scale this across the organization
+"I’ll also walk through a recent case where we helped a team improve their feedback process, showing the real impact of our work."
+
+Slide 2: The Problem Statement
+🎤 Speaker Notes:
+"The challenge we face today is that while we have well-established best practices, they aren’t always reaching the teams that need them. Not every team knows where to start when it comes to colleague listening. As a result, some surveys lack structure, don’t generate actionable insights, or miss key research considerations."
+
+"Our goal is to bridge this gap and make best practices more accessible, so more teams can conduct meaningful listening exercises that drive real improvements."
+
+Slide 3: Best Practices Hub (SharePoint Overview)
+🎤 Speaker Notes:
+"To solve this, we have built a centralized Best Practices Hub on SharePoint. This is a one-stop resource where teams can find guidance on:"
+
+Research Methods – including engagement surveys, sentiment analysis, A/B testing, focus groups
+Survey Design – covering questionnaire formulation, frequency, population selection, and privacy approvals
+Tools & Metrics – how to measure results and derive meaningful insights
+"This resource ensures teams follow a structured approach when conducting surveys. But we don’t just provide documentation—we also actively support teams to tailor their listening efforts to their unique needs."
+
+Slide 4: How We Support Colleagues in Applying Best Practices
+🎤 Speaker Notes:
+"Beyond creating this SharePoint, we work hands-on with teams to apply these best practices in real situations. Let me share a recent example of how we guided a team conducting a feedback survey for a new Performance Management App."
+
+Slide 5: Real-Life Example – Performance Management App Feedback
+🎤 Speaker Notes:
+"A team launched a pilot version of a Performance Management App to 100 users and wanted to collect feedback to refine the app before a wider rollout."
+
+Initial Survey Issues:
+
+The original survey contained only basic questions—an overall rating, top 3 liked features, and top 3 areas for improvement.
+It lacked clarity—users might not immediately recognize which app the survey was referring to.
+Open-ended questions were too broad and didn’t provide structured, actionable feedback.
+How We Improved It Using Best Practices:
+✅ We suggested including an app screenshot to ensure respondents knew exactly which tool they were evaluating.
+✅ Instead of broad open-ended questions, we introduced attribute-based ratings—evaluating performance, reliability, navigation, ease of use, and insights on a structured scale.
+✅ We guided them on Data Privacy Approvals (DPA) and raised awareness about how to handle open-text responses responsibly.
+
+Outcome:
+✅ The revised survey was more structured, more insightful, and better aligned with the team’s objectives.
+✅ The feedback provided clear, actionable takeaways to improve the app before its full launch.
+
+"This example shows how applying best practices transforms a survey from just a collection of responses into a powerful decision-making tool."
+
+Slide 6: Scaling This Across the Organization
+🎤 Speaker Notes:
+"This is just one example of how we help teams improve their surveys. But imagine if more teams knew about and followed these best practices from the start—it would lead to better listening, better insights, and ultimately, better decisions."
+
+How can we make this happen?
+Here are a few ideas:
+
+Increase Awareness – Actively promote the Best Practices Hub through internal newsletters and forums.
+Training & Workshops – Conduct short sessions on effective survey design.
+Create a Champions Network – Identify key individuals across teams to act as advocates for best practices.
+Interactive Q&A Sessions – Offer regular open sessions where teams can get guidance on their surveys.
+"By embedding these best practices in more teams, we ensure that listening efforts across the organization drive real impact."
+
+Slide 7: Discussion & Next Steps
+🎤 Speaker Notes:
+"I’d love to open up the floor now. How can we further scale these efforts? Are there additional ways we can ensure teams adopt and benefit from our best practices?"
+
+"Thank you for your time—I’m looking forward to your thoughts and ideas!"
