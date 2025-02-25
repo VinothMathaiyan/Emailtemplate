@@ -1,5 +1,43 @@
 import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from gensim.summarization import summarize
 from openpyxl import load_workbook
+
+# Load processed file
+file_path = input("Enter the processed Excel file path: ")
+
+# Load datasets
+df_p1266 = pd.read_excel(file_path, sheet_name="PeopleLeader_1266")
+df_c1033 = pd.read_excel(file_path, sheet_name="Colleage_1033")
+df_stages = pd.read_excel(file_path, sheet_name="Stages")  # Contains topic names
+
+# Ensure text columns are string type
+df_p1266["Expanded Response"] = df_p1266["Expanded Response"].astype(str)
+df_c1033["Expanded Response"] = df_c1033["Expanded Response"].astype(str)
+df_stages["Stages"] = df_stages["Stages"].astype(str)
+
+# Vectorize topics and responses
+vectorizer = TfidfVectorizer(stop_words='english')
+
+# Fit on Stages (Topics)
+stages_tfidf = vectorizer.fit_transform(df_stages["Stages"])
+
+# Function to map each response to the single **most relevant** topic
+def map_best_topic(response):
+    response_tfidf = vectorizer.transform([response])  # Convert response to TF-IDF
+    similarities = cosine_similarity(response_tfidf, stages_tfidf)  # Compute similarity
+    
+    best_match_index = np.argmax(similarities)  # Get index of the highest similarity
+    best_score = similarities[0][best_match_index]  # Get highest similarity score
+    
+    # Assign topic only if similarity exceeds threshold (0.3)
+    return df_stages.iloc[best_match_index, 0] if best_score >= 0.3 else "No Match"
+
+# Apply the new mapping logic to both datasets
+df_p1266["Stages"] = df_p1266["Expanded Response"].apply(map_best_topic)
+df_c1033["Stages"] = df_c1033["Expanded Response"].apply(map_best_topic)
 
 # Function to categorize sentiment
 def categorize_sentiment(score):
@@ -10,49 +48,50 @@ def categorize_sentiment(score):
     else:
         return "Positive"
 
-# Function to generate topic-wise sentiment summary
-def generate_summary(df, sheet_name):
+# Function to generate topic summaries
+def generate_topic_summary(df):
     summary_data = {}
 
     for _, row in df.iterrows():
-        topics = str(row["Stages"]).split("; ")  # Split multiple topics
+        topic = row["Stages"]
         sentiment_category = categorize_sentiment(row["Sentiment Score"])
         comment = str(row["Response"])
 
-        for topic in topics:
-            if topic not in summary_data:
-                summary_data[topic] = {"Positive": 0, "Negative": 0, "Neutral": 0, "Aggregated Comments": []}
+        if topic not in summary_data:
+            summary_data[topic] = {
+                "Positive": 0, "Negative": 0, "Neutral": 0, 
+                "Aggregated Comments": []
+            }
 
-            # Increment sentiment category count
-            summary_data[topic][sentiment_category] += 1
-            summary_data[topic]["Aggregated Comments"].append(comment)
+        # Increment sentiment count
+        summary_data[topic][sentiment_category] += 1
+        summary_data[topic]["Aggregated Comments"].append(comment)
 
-    # Convert to DataFrame
+    # Convert summary data to DataFrame
     summary_df = pd.DataFrame([
         {
             "Stages": topic,
             "Positive Count": data["Positive"],
             "Negative Count": data["Negative"],
             "Neutral Count": data["Neutral"],
-            "Aggregated Comments": " | ".join(set(data["Aggregated Comments"]))  # Remove duplicate comments
+            "Aggregated Comments": " | ".join(set(data["Aggregated Comments"])),  # Deduplicated
+            "Overall Summary": summarize(" ".join(set(data["Aggregated Comments"])), ratio=0.2)
+            if len(" ".join(set(data["Aggregated Comments"])).split()) > 50 else " ".join(set(data["Aggregated Comments"]))
         }
         for topic, data in summary_data.items()
     ])
 
     return summary_df
 
-# Load processed Excel file
-file_path = input("Enter the processed Excel file path: ")
-df_p1266 = pd.read_excel(file_path, sheet_name="PeopleLeader_1266")
-df_c1033 = pd.read_excel(file_path, sheet_name="Colleage_1033")
-
 # Generate summaries
-df_summary_p1266 = generate_summary(df_p1266, "PL1266_Topic_Summary")
-df_summary_c1033 = generate_summary(df_c1033, "C1033_Topic_Summary")
+df_summary_p1266 = generate_topic_summary(df_p1266)
+df_summary_c1033 = generate_topic_summary(df_c1033)
 
-# Save to the same processed file as new sheets
+# Save results back to the processed file
 with pd.ExcelWriter(file_path, engine="openpyxl", mode="a") as writer:
+    df_p1266.to_excel(writer, sheet_name="PeopleLeader_1266_Updated", index=False)
+    df_c1033.to_excel(writer, sheet_name="Colleage_1033_Updated", index=False)
     df_summary_p1266.to_excel(writer, sheet_name="PL1266_Topic_Summary", index=False)
     df_summary_c1033.to_excel(writer, sheet_name="C1033_Topic_Summary", index=False)
 
-print("Summary saved in 'PL1266_Topic_Summary' and 'C1033_Topic_Summary' sheets.")
+print("Updated topics and summaries saved successfully!")
