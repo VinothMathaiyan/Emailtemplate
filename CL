@@ -1,30 +1,36 @@
-# Function to compute sentiment
-def get_sentiment(response):
-    polarity = TextBlob(response).sentiment.polarity
+# Load the existing Excel file
+wb = load_workbook(file_path)
 
-    # Mapping sentiment score to labels
-    if polarity <= -0.6:
-        sentiment_label = "Very Negative"
-        numeric_score = -2
-    elif -0.6 < polarity <= -0.2:
-        sentiment_label = "Negative"
-        numeric_score = -1
-    elif -0.2 < polarity <= 0.2:
-        sentiment_label = "Neutral"
-        numeric_score = 0
-    elif 0.2 < polarity <= 0.6:
-        sentiment_label = "Positive"
-        numeric_score = 1
-    else:
-        sentiment_label = "Very Positive"
-        numeric_score = 2
+# Function to adjust column width & wrap text
+def adjust_excel_format(sheet):
+    for col in sheet.columns:
+        max_length = 0
+        col_letter = col[0].column_letter  # Get column letter
+        for cell in col:
+            try:
+                if cell.value:
+                    max_length = max(max_length, len(str(cell.value)))
+            except:
+                pass
+        adjusted_width = min(max_length + 2, 50)  # Max width = 50
+        sheet.column_dimensions[col_letter].width = adjusted_width
 
-    return sentiment_label, numeric_score
+    # Wrap text for long responses
+    for row in sheet.iter_rows():
+        for cell in row:
+            cell.alignment = Alignment(wrap_text=True)
 
-# Apply sentiment analysis
-df_1234[["Sentiment Label", "Sentiment Score"]] = df_1234["Response"].astype(str).apply(
-    lambda x: pd.Series(get_sentiment(x))
-)
-df_5678[["Sentiment Label", "Sentiment Score"]] = df_5678["Response"].astype(str).apply(
-    lambda x: pd.Series(get_sentiment(x))
-)
+# Write updated data to Excel & format it
+with pd.ExcelWriter(file_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
+    df_1234.to_excel(writer, sheet_name="1234", index=False)
+    df_5678.to_excel(writer, sheet_name="5678", index=False)
+
+# Reload workbook to adjust formatting
+wb = load_workbook(file_path)
+adjust_excel_format(wb["1234"])
+adjust_excel_format(wb["5678"])
+
+# Save final formatted file
+wb.save(file_path)
+
+print(f"✅ Processing complete! File updated: {file_path}")
