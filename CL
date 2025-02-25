@@ -19,12 +19,17 @@ stopwords_list = pd.read_excel(xls, sheet_name="stopwords").iloc[:, 0].tolist()
 
 # Ensure necessary columns exist
 response_col = "Response"  # Change if column name differs
+topic_col = "Topics"  # Explicitly using the header name
+
 if response_col not in df_1234.columns or response_col not in df_5678.columns:
     raise ValueError(f"Column '{response_col}' not found in response sheets.")
 
+if topic_col not in df_stages.columns:
+    raise ValueError(f"Column '{topic_col}' not found in Stages sheet.")
+
 # Preprocess text (TF-IDF vectorization)
 vectorizer = TfidfVectorizer(stop_words=stopwords_list)
-stages_tfidf = vectorizer.fit_transform(df_stages.iloc[:, 0])  # Assuming first column has topics
+stages_tfidf = vectorizer.fit_transform(df_stages[topic_col])  # Using "Topics" column
 
 def map_topics(df):
     """Maps relevant stages to each response based on cosine similarity."""
@@ -34,7 +39,7 @@ def map_topics(df):
 
     # Assign topics based on highest similarity
     for i, similarities in enumerate(similarity_matrix):
-        best_matches = [df_stages.iloc[j, 0] for j in range(len(similarities)) if similarities[j] > 0.1]
+        best_matches = [df_stages[topic_col].iloc[j] for j in range(len(similarities)) if similarities[j] > 0.1]
         df.at[i, "Stages"] = "; ".join(best_matches) if best_matches else "No Match"
 
 # Map topics for both sheets
@@ -47,4 +52,3 @@ with pd.ExcelWriter(file_path, engine="openpyxl", mode="a", if_sheet_exists="rep
     df_5678.to_excel(writer, sheet_name="5678", index=False)
 
 print("Mapping completed and saved to File1.xlsx")
-
