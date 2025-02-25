@@ -1,44 +1,22 @@
-import pandas as pd
-from textblob import TextBlob
+# Define custom keyword expansion dictionary (Modify as needed)
+keyword_dict = {
+    "holiday": ["leave", "vacation"],
+    "payroll": ["salary", "wages"],
+    "workday": ["HR system", "platform"],
+}
 
-# Function to compute sentiment using TextBlob
-def get_sentiment(response):
-    polarity = TextBlob(response).sentiment.polarity
+# Function to expand text using synonyms
+def expand_text(text):
+    words = text.split()
+    expanded_words = []
+    for word in words:
+        if word.lower() in keyword_dict:
+            expanded_words.append(word)
+            expanded_words.extend(keyword_dict[word.lower()])  # Add synonyms
+        else:
+            expanded_words.append(word)
+    return " ".join(expanded_words)
 
-    # Mapping sentiment score to labels
-    if polarity <= -0.6:
-        sentiment_label = "Very Negative"
-        numeric_score = -2
-    elif -0.6 < polarity <= -0.2:
-        sentiment_label = "Negative"
-        numeric_score = -1
-    elif -0.2 < polarity <= 0.2:
-        sentiment_label = "Neutral"
-        numeric_score = 0
-    elif 0.2 < polarity <= 0.6:
-        sentiment_label = "Positive"
-        numeric_score = 1
-    else:
-        sentiment_label = "Very Positive"
-        numeric_score = 2
-
-    return sentiment_label, numeric_score
-
-# Let user input file path
-file_path = input("Enter the Excel file path: ")
-
-# Apply sentiment analysis to both sheets
-for sheet_name in ["1234", "5678"]:
-    df = pd.read_excel(file_path, sheet_name=sheet_name)
-
-    # Compute sentiment for each response
-    df[["Sentiment Label", "Sentiment Score"]] = df["Response"].apply(
-        lambda x: pd.Series(get_sentiment(str(x)))  # Convert to string to avoid errors
-    )
-
-    # Save updated sheet
-    with pd.ExcelWriter(file_path, mode="a", if_sheet_exists="replace") as writer:
-        df.to_excel(writer, sheet_name=sheet_name, index=False)
-
-print(f"Sentiment analysis added! File updated: {file_path}")
-
+# Apply expansion to responses
+df_1234["Expanded Response"] = df_1234["Response"].astype(str).apply(expand_text)
+df_5678["Expanded Response"] = df_5678["Response"].astype(str).apply(expand_text)
