@@ -1,31 +1,52 @@
 import pandas as pd
-import openpyxl
-from openpyxl.styles import Alignment
+from openpyxl import load_workbook
 
-# File name (Modify if needed)
-output_file = "Processed_File.xlsx"
+# Function to categorize sentiment
+def categorize_sentiment(score):
+    if score <= -0.5:
+        return "Negative"
+    elif -0.5 < score <= 0.5:
+        return "Neutral"
+    else:
+        return "Positive"
 
-# Step 1: Save DataFrames to Excel
-with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
-    df_p1266.to_excel(writer, sheet_name="PeopleLeader_1266", index=False)
-    df_c1033.to_excel(writer, sheet_name="Colleague_1033", index=False)
+# Function to generate topic sentiment summary for a dataframe
+def generate_summary(df, sheet_name):
+    summary_data = []
+    
+    for stage, group in df.groupby("Stages"):
+        # Count sentiment categories
+        positive_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Positive")
+        negative_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Negative")
+        neutral_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Neutral")
 
-# Step 2: Apply Formatting (Column Width & Text Wrapping)
-wb = openpyxl.load_workbook(output_file)
+        # Aggregate all comments for the topic
+        aggregated_comments = " | ".join(group["Response"].dropna().astype(str))
 
-# List of sheets to format
-sheets_to_format = ["PeopleLeader_1266", "Colleague_1033"]
+        # Append to summary data
+        summary_data.append({
+            "Stages": stage,
+            "Positive Count": positive_count,
+            "Negative Count": negative_count,
+            "Neutral Count": neutral_count,
+            "Aggregated Comments": aggregated_comments
+        })
 
-for sheet_name in sheets_to_format:
-    ws = wb[sheet_name]
+    # Convert to DataFrame
+    return pd.DataFrame(summary_data)
 
-    # Set column width and enable text wrapping
-    for col in ws.columns:
-        col_letter = col[0].column_letter  # Get column letter (A, B, C, etc.)
-        ws.column_dimensions[col_letter].width = 40  # Set width
-        for cell in col:
-            cell.alignment = Alignment(wrap_text=True)  # Enable text wrapping
+# Load processed Excel file
+file_path = input("Enter the processed Excel file path: ")
+df_p1266 = pd.read_excel(file_path, sheet_name="PeopleLeader_1266")
+df_c1033 = pd.read_excel(file_path, sheet_name="Colleage_1033")
 
-# Step 3: Save the formatted file
-wb.save(output_file)
-print("✅ Process completed! File saved & formatted with column width = 40 and text wrapping enabled.")
+# Generate summaries
+df_summary_p1266 = generate_summary(df_p1266, "PL1266_Topic_Summary")
+df_summary_c1033 = generate_summary(df_c1033, "C1033_Topic_Summary")
+
+# Save to the same processed file as new sheets
+with pd.ExcelWriter(file_path, engine="openpyxl", mode="a") as writer:
+    df_summary_p1266.to_excel(writer, sheet_name="PL1266_Topic_Summary", index=False)
+    df_summary_c1033.to_excel(writer, sheet_name="C1033_Topic_Summary", index=False)
+
+print("Summary saved in 'PL1266_Topic_Summary' and 'C1033_Topic_Summary' sheets.")
