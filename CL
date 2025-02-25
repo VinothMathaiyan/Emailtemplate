@@ -1,36 +1,30 @@
-# Load the existing Excel file
-wb = load_workbook(file_path)
+import pandas as pd
 
-# Function to adjust column width & wrap text
-def adjust_excel_format(sheet):
-    for col in sheet.columns:
-        max_length = 0
-        col_letter = col[0].column_letter  # Get column letter
-        for cell in col:
-            try:
-                if cell.value:
-                    max_length = max(max_length, len(str(cell.value)))
-            except:
-                pass
-        adjusted_width = min(max_length + 2, 50)  # Max width = 50
-        sheet.column_dimensions[col_letter].width = adjusted_width
+# Read the input file
+file_path = input("Enter the Excel file path: ")  # Allow user to input file name
+df_keywords = pd.read_excel(file_path, sheet_name="Keyword_Dictionary")
 
-    # Wrap text for long responses
-    for row in sheet.iter_rows():
-        for cell in row:
-            cell.alignment = Alignment(wrap_text=True)
+# Convert to dictionary format { 'Keyword': ['Synonym1', 'Synonym2', ...] }
+keyword_dict = df_keywords.set_index("Keyword")["Synonyms"].str.split(";").to_dict()
 
-# Write updated data to Excel & format it
-with pd.ExcelWriter(file_path, engine="openpyxl", mode="a", if_sheet_exists="replace") as writer:
-    df_1234.to_excel(writer, sheet_name="1234", index=False)
-    df_5678.to_excel(writer, sheet_name="5678", index=False)
+# Print to verify
+print("Keyword Dictionary Loaded:", keyword_dict)
 
-# Reload workbook to adjust formatting
-wb = load_workbook(file_path)
-adjust_excel_format(wb["1234"])
-adjust_excel_format(wb["5678"])
 
-# Save final formatted file
-wb.save(file_path)
+def expand_text(text, keyword_dict):
+    for keyword, synonyms in keyword_dict.items():
+        for synonym in synonyms:
+            if synonym.lower() in text.lower():
+                text += f" {keyword}"  # Append the main keyword
+    return text
 
-print(f"✅ Processing complete! File updated: {file_path}")
+# Read the sheets where responses exist
+df_1234 = pd.read_excel(file_path, sheet_name="1234")
+df_5678 = pd.read_excel(file_path, sheet_name="5678")
+
+# Apply keyword expansion to responses
+df_1234["Response"] = df_1234["Response"].apply(lambda x: expand_text(str(x), keyword_dict))
+df_5678["Response"] = df_5678["Response"].apply(lambda x: expand_text(str(x), keyword_dict))
+
+# Print verification
+print("Keyword expansion applied to responses!")
