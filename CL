@@ -1,18 +1,31 @@
-# Function to Map Topics to Responses
-def map_topics(response):
-    response_tfidf = vectorizer.transform([response])  # Convert response to TF-IDF
-    similarities = cosine_similarity(response_tfidf, stages_tfidf)  # Compute cosine similarity
-    
-    best_matches = np.where(similarities[0] > 0.3)[0]  # Updated Threshold = 0.3
-    
-    # Debugging: Print similarity scores for sample responses
-    if len(best_matches) == 0:
-        print(f"No match found for response: {response}")
-    
-    mapped_topics = [df_stages.iloc[i, 1] for i in best_matches]  # Picking topics from the correct column
+import pandas as pd
+import openpyxl
+from openpyxl.styles import Alignment
 
-    return "; ".join(mapped_topics) if mapped_topics else "No Match"
+# File name (Modify if needed)
+output_file = "Processed_File.xlsx"
 
-# Apply Topic Mapping
-df_p1266["Stages"] = df_p1266["Expanded Response"].astype(str).apply(map_topics)
-df_c1033["Stages"] = df_c1033["Expanded Response"].astype(str).apply(map_topics)
+# Step 1: Save DataFrames to Excel
+with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
+    df_p1266.to_excel(writer, sheet_name="PeopleLeader_1266", index=False)
+    df_c1033.to_excel(writer, sheet_name="Colleague_1033", index=False)
+
+# Step 2: Apply Formatting (Column Width & Text Wrapping)
+wb = openpyxl.load_workbook(output_file)
+
+# List of sheets to format
+sheets_to_format = ["PeopleLeader_1266", "Colleague_1033"]
+
+for sheet_name in sheets_to_format:
+    ws = wb[sheet_name]
+
+    # Set column width and enable text wrapping
+    for col in ws.columns:
+        col_letter = col[0].column_letter  # Get column letter (A, B, C, etc.)
+        ws.column_dimensions[col_letter].width = 40  # Set width
+        for cell in col:
+            cell.alignment = Alignment(wrap_text=True)  # Enable text wrapping
+
+# Step 3: Save the formatted file
+wb.save(output_file)
+print("✅ Process completed! File saved & formatted with column width = 40 and text wrapping enabled.")
