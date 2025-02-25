@@ -1,19 +1,30 @@
-# Initialize TfidfVectorizer (Remove stopwords, lowercase, and process text)
-vectorizer = TfidfVectorizer(stop_words=custom_stopwords)
+# Function to compute sentiment
+def get_sentiment(response):
+    polarity = TextBlob(response).sentiment.polarity
 
-# Fit TF-IDF on Stages (topics)
-stages_tfidf = vectorizer.fit_transform(df_stages.iloc[:, 0])  # Assuming topics are in the first column
+    # Mapping sentiment score to labels
+    if polarity <= -0.6:
+        sentiment_label = "Very Negative"
+        numeric_score = -2
+    elif -0.6 < polarity <= -0.2:
+        sentiment_label = "Negative"
+        numeric_score = -1
+    elif -0.2 < polarity <= 0.2:
+        sentiment_label = "Neutral"
+        numeric_score = 0
+    elif 0.2 < polarity <= 0.6:
+        sentiment_label = "Positive"
+        numeric_score = 1
+    else:
+        sentiment_label = "Very Positive"
+        numeric_score = 2
 
-# Function to find best matching topic
-def map_topics(response):
-    response_tfidf = vectorizer.transform([response])
-    similarities = cosine_similarity(response_tfidf, stages_tfidf)
-    best_matches = np.where(similarities[0] > 0.1)[0]  # Threshold = 0.1 (Adjustable)
-    
-    if len(best_matches) == 0:
-        return "No Match"
-    return "; ".join(df_stages.iloc[best_matches, 0].values)  # Map multiple topics
+    return sentiment_label, numeric_score
 
-# Apply topic mapping to responses
-df_1234["Stages"] = df_1234["Expanded Response"].apply(map_topics)
-df_5678["Stages"] = df_5678["Expanded Response"].apply(map_topics)
+# Apply sentiment analysis
+df_1234[["Sentiment Label", "Sentiment Score"]] = df_1234["Response"].astype(str).apply(
+    lambda x: pd.Series(get_sentiment(x))
+)
+df_5678[["Sentiment Label", "Sentiment Score"]] = df_5678["Response"].astype(str).apply(
+    lambda x: pd.Series(get_sentiment(x))
+)
