@@ -10,30 +10,36 @@ def categorize_sentiment(score):
     else:
         return "Positive"
 
-# Function to generate topic sentiment summary for a dataframe
+# Function to generate topic-wise sentiment summary
 def generate_summary(df, sheet_name):
-    summary_data = []
-    
-    for stage, group in df.groupby("Stages"):
-        # Count sentiment categories
-        positive_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Positive")
-        negative_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Negative")
-        neutral_count = sum(group["Sentiment Score"].apply(categorize_sentiment) == "Neutral")
+    summary_data = {}
 
-        # Aggregate all comments for the topic
-        aggregated_comments = " | ".join(group["Response"].dropna().astype(str))
+    for _, row in df.iterrows():
+        topics = str(row["Stages"]).split("; ")  # Split multiple topics
+        sentiment_category = categorize_sentiment(row["Sentiment Score"])
+        comment = str(row["Response"])
 
-        # Append to summary data
-        summary_data.append({
-            "Stages": stage,
-            "Positive Count": positive_count,
-            "Negative Count": negative_count,
-            "Neutral Count": neutral_count,
-            "Aggregated Comments": aggregated_comments
-        })
+        for topic in topics:
+            if topic not in summary_data:
+                summary_data[topic] = {"Positive": 0, "Negative": 0, "Neutral": 0, "Aggregated Comments": []}
+
+            # Increment sentiment category count
+            summary_data[topic][sentiment_category] += 1
+            summary_data[topic]["Aggregated Comments"].append(comment)
 
     # Convert to DataFrame
-    return pd.DataFrame(summary_data)
+    summary_df = pd.DataFrame([
+        {
+            "Stages": topic,
+            "Positive Count": data["Positive"],
+            "Negative Count": data["Negative"],
+            "Neutral Count": data["Neutral"],
+            "Aggregated Comments": " | ".join(set(data["Aggregated Comments"]))  # Remove duplicate comments
+        }
+        for topic, data in summary_data.items()
+    ])
+
+    return summary_df
 
 # Load processed Excel file
 file_path = input("Enter the processed Excel file path: ")
