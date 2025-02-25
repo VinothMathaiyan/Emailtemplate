@@ -1,105 +1,18 @@
-# Ensure responses are strings before processing
-df_p1266["Response"] = df_p1266["Response"].astype(str).fillna("")
-df_c1033["Response"] = df_c1033["Response"].astype(str).fillna("")
-
-# Apply Sentiment Analysis
-df_p1266[["Sentiment", "Sentiment Score"]] = df_p1266["Response"].apply(lambda x: pd.Series(get_sentiment(str(x))))
-df_c1033[["Sentiment", "Sentiment Score"]] = df_c1033["Response"].apply(lambda x: pd.Series(get_sentiment(str(x))))
-
-
-
-# Step 1: Import Libraries
-import pandas as pd
-import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from textblob import TextBlob
-import xlsxwriter
-
-# Step 2: Read Input File
-file_name = input("Enter the Excel file name (including .xlsx): ")  # User input
-xls = pd.ExcelFile(file_name)  # Load Excel file
-
-# Read sheets into DataFrames
-df_p1266 = pd.read_excel(xls, sheet_name="PeopleLeader_1266")  # Responses (Sheet 1)
-df_c1033 = pd.read_excel(xls, sheet_name="Colleague_1033")  # Responses (Sheet 2)
-df_stages = pd.read_excel(xls, sheet_name="Stages")  # Topics
-df_stopwords = pd.read_excel(xls, sheet_name="Stopwords")  # Stopwords
-df_keywords = pd.read_excel(xls, sheet_name="Keyword_Dictionary")  # Synonyms
-
-# Step 3: Prepare Stopwords
-stopwords_list = df_stopwords.iloc[:, 0].dropna().astype(str).str.strip().tolist()  # Ensure it's a list
-
-# Step 4: Prepare Keyword Dictionary
-keyword_dict = {}
-for _, row in df_keywords.iterrows():
-    keyword = row["Keyword"].strip().lower()
-    synonyms = [syn.strip().lower() for syn in str(row["Synonym"]).split(";") if syn.strip()]
-    keyword_dict[keyword] = synonyms
-
-# Function to Expand Text Using Synonyms
-def expand_text(text):
-    words = text.split()
-    expanded_words = []
-    for word in words:
-        word_lower = word.lower()
-        if word_lower in keyword_dict:
-            expanded_words.append(word)  # Keep original
-            expanded_words.extend(keyword_dict[word_lower])  # Add synonyms
-        else:
-            expanded_words.append(word)
-    return " ".join(expanded_words)
-
-# Step 5: Apply Expansion to Responses
-df_p1266["Expanded Response"] = df_p1266["Response"].astype(str).apply(expand_text)
-df_c1033["Expanded Response"] = df_c1033["Response"].astype(str).apply(expand_text)
-
-# Step 6: Vectorize Topics (Stages) Using TF-IDF
-vectorizer = TfidfVectorizer(stop_words=stopwords_list)
-stages_tfidf = vectorizer.fit_transform(df_stages["Topics"])  # Vectorize topics
-
 # Function to Map Topics to Responses
 def map_topics(response):
     response_tfidf = vectorizer.transform([response])  # Convert response to TF-IDF
     similarities = cosine_similarity(response_tfidf, stages_tfidf)  # Compute cosine similarity
-    best_matches = np.where(similarities[0] > 0.1)[0]  # Threshold = 0.1 (Adjustable)
-    mapped_topics = [df_stages.iloc[i, 0] for i in best_matches]  # Get matching topics
+    
+    best_matches = np.where(similarities[0] > 0.3)[0]  # Updated Threshold = 0.3
+    
+    # Debugging: Print similarity scores for sample responses
+    if len(best_matches) == 0:
+        print(f"No match found for response: {response}")
+    
+    mapped_topics = [df_stages.iloc[i, 1] for i in best_matches]  # Picking topics from the correct column
+
     return "; ".join(mapped_topics) if mapped_topics else "No Match"
 
-# Step 7: Apply Topic Mapping
-df_p1266["Stages"] = df_p1266["Expanded Response"].apply(map_topics)
-df_c1033["Stages"] = df_c1033["Expanded Response"].apply(map_topics)
-
-# Step 8: Sentiment Analysis
-def get_sentiment(text):
-    sentiment_score = TextBlob(text).sentiment.polarity  # Polarity score (-1 to 1)
-    if sentiment_score <= -0.6:
-        return "Very Negative", -2
-    elif sentiment_score < -0.2:
-        return "Negative", -1
-    elif sentiment_score <= 0.2:
-        return "Neutral", 0
-    elif sentiment_score < 0.6:
-        return "Positive", 1
-    else:
-        return "Very Positive", 2
-
-# Apply Sentiment Analysis
-df_p1266[["Sentiment", "Sentiment Score"]] = df_p1266["Response"].apply(lambda x: pd.Series(get_sentiment(x)))
-df_c1033[["Sentiment", "Sentiment Score"]] = df_c1033["Response"].apply(lambda x: pd.Series(get_sentiment(x)))
-
-# Step 9: Save to New Excel with Formatting
-output_file = "Processed_" + file_name
-with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
-    df_p1266.to_excel(writer, sheet_name="PeopleLeader_1266", index=False)
-    df_c1033.to_excel(writer, sheet_name="Colleague_1033", index=False)
-
-    # Formatting: Adjust Column Width & Wrap Text
-    workbook = writer.book
-    for sheet_name in ["PeopleLeader_1266", "Colleague_1033"]:
-        worksheet = writer.sheets[sheet_name]
-        for col_num, col in enumerate(df_p1266.columns):
-            max_length = max(df_p1266[col].astype(str).apply(len).max(), len(col)) + 2  # Auto width
-            worksheet.set_column(col_num, col_num, max_length, workbook.add_format({"text_wrap": True}))
-
-print(f"✅ Processing complete! File saved as: {output_file}")
+# Apply Topic Mapping
+df_p1266["Stages"] = df_p1266["Expanded Response"].astype(str).apply(map_topics)
+df_c1033["Stages"] = df_c1033["Expanded Response"].astype(str).apply(map_topics)
