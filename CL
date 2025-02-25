@@ -28,9 +28,10 @@ topics = df_stages["Topics"].dropna().tolist()
 
 # Step 3: Load Keyword Dictionary (Synonyms)
 keyword_dict = {}
+
 for _, row in df_keywords.iterrows():
-    keyword = row.iloc[0].lower()
-    synonyms = [syn.strip().lower() for syn in row.iloc[1:].dropna()]
+    keyword = row["Keyword"].strip().lower()  # Read from 'Keyword' column
+    synonyms = [syn.strip().lower() for syn in str(row["Synonym"]).split(";") if syn.strip()]  # Split 'Synonym' column by ";"
     keyword_dict[keyword] = synonyms
 
 # Step 4: Function for Phrase-Based Expansion
