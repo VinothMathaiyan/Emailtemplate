@@ -1,1 +1,44 @@
+import pandas as pd
+from textblob import TextBlob
+
+# Function to compute sentiment using TextBlob
+def get_sentiment(response):
+    polarity = TextBlob(response).sentiment.polarity
+
+    # Mapping sentiment score to labels
+    if polarity <= -0.6:
+        sentiment_label = "Very Negative"
+        numeric_score = -2
+    elif -0.6 < polarity <= -0.2:
+        sentiment_label = "Negative"
+        numeric_score = -1
+    elif -0.2 < polarity <= 0.2:
+        sentiment_label = "Neutral"
+        numeric_score = 0
+    elif 0.2 < polarity <= 0.6:
+        sentiment_label = "Positive"
+        numeric_score = 1
+    else:
+        sentiment_label = "Very Positive"
+        numeric_score = 2
+
+    return sentiment_label, numeric_score
+
+# Let user input file path
+file_path = input("Enter the Excel file path: ")
+
+# Apply sentiment analysis to both sheets
+for sheet_name in ["1234", "5678"]:
+    df = pd.read_excel(file_path, sheet_name=sheet_name)
+
+    # Compute sentiment for each response
+    df[["Sentiment Label", "Sentiment Score"]] = df["Response"].apply(
+        lambda x: pd.Series(get_sentiment(str(x)))  # Convert to string to avoid errors
+    )
+
+    # Save updated sheet
+    with pd.ExcelWriter(file_path, mode="a", if_sheet_exists="replace") as writer:
+        df.to_excel(writer, sheet_name=sheet_name, index=False)
+
+print(f"Sentiment analysis added! File updated: {file_path}")
 
