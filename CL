@@ -1,30 +1,93 @@
 import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from textblob import TextBlob
+import string
 
-# Read the input file
-file_path = input("Enter the Excel file path: ")  # Allow user to input file name
-df_keywords = pd.read_excel(file_path, sheet_name="Keyword_Dictionary")
+# Step 1: User Inputs
+file_path = input("Enter the Excel file path: ")  # User provides file name
+sheet_responses = ["1234", "5678"]  # Sheets containing responses
+sheet_stages = "Stages"  # Sheet containing topics
+sheet_stopwords = "stopwords"  # Sheet containing stopwords
+sheet_keywords = "Keyword_Dictionary"  # Sheet containing synonyms/keywords
 
-# Convert to dictionary format { 'Keyword': ['Synonym1', 'Synonym2', ...] }
-keyword_dict = df_keywords.set_index("Keyword")["Synonyms"].str.split(";").to_dict()
+# Step 2: Read Data
+df_1234 = pd.read_excel(file_path, sheet_name="1234")
+df_5678 = pd.read_excel(file_path, sheet_name="5678")
+df_stages = pd.read_excel(file_path, sheet_name=sheet_stages)
+df_stopwords = pd.read_excel(file_path, sheet_name=sheet_stopwords, header=None)
+df_keywords = pd.read_excel(file_path, sheet_name=sheet_keywords)
 
-# Print to verify
-print("Keyword Dictionary Loaded:", keyword_dict)
+# Extract Stopwords
+stop_words = set(df_stopwords[0].dropna().str.lower())
 
+# Extract Topics
+df_stages.columns = ["#", "Topics"]  # Ensure column names
+topics = df_stages["Topics"].dropna().tolist()
 
+# Step 3: Load Keyword Dictionary (Synonyms)
+keyword_dict = {}
+for _, row in df_keywords.iterrows():
+    keyword = row.iloc[0].lower()
+    synonyms = [syn.strip().lower() for syn in row.iloc[1:].dropna()]
+    keyword_dict[keyword] = synonyms
+
+# Step 4: Function for Phrase-Based Expansion
 def expand_text(text, keyword_dict):
     for keyword, synonyms in keyword_dict.items():
         for synonym in synonyms:
-            if synonym.lower() in text.lower():
+            if synonym in text.lower():  # Check if synonym exists in text
                 text += f" {keyword}"  # Append the main keyword
     return text
 
-# Read the sheets where responses exist
-df_1234 = pd.read_excel(file_path, sheet_name="1234")
-df_5678 = pd.read_excel(file_path, sheet_name="5678")
+# Step 5: Apply Expansion to Responses
+df_1234["Expanded Response"] = df_1234["Response"].astype(str).apply(lambda x: expand_text(x, keyword_dict))
+df_5678["Expanded Response"] = df_5678["Response"].astype(str).apply(lambda x: expand_text(x, keyword_dict))
 
-# Apply keyword expansion to responses
-df_1234["Response"] = df_1234["Response"].apply(lambda x: expand_text(str(x), keyword_dict))
-df_5678["Response"] = df_5678["Response"].apply(lambda x: expand_text(str(x), keyword_dict))
+# Step 6: Vectorize Topics & Responses
+vectorizer = TfidfVectorizer(stop_words=stop_words, lowercase=True)
+stages_tfidf = vectorizer.fit_transform(topics)  # Vectorize Topics
 
-# Print verification
-print("Keyword expansion applied to responses!")
+def map_topics(response):
+    response_tfidf = vectorizer.transform([response])  # Vectorize response
+    similarities = cosine_similarity(response_tfidf, stages_tfidf)
+    best_matches = np.where(similarities[0] > 0.1)[0]  # Threshold = 0.1
+    return "; ".join([topics[i] for i in best_matches]) if best_matches.size > 0 else "No Match"
+
+# Apply Mapping to Both Sheets
+df_1234["Stages"] = df_1234["Expanded Response"].apply(map_topics)
+df_5678["Stages"] = df_5678["Expanded Response"].apply(map_topics)
+
+# Step 7: Sentiment Analysis
+def get_sentiment(text):
+    score = TextBlob(text).sentiment.polarity
+    if score <= -0.6:
+        return "Very Negative", -2
+    elif -0.6 < score <= -0.2:
+        return "Negative", -1
+    elif -0.2 < score <= 0.2:
+        return "Neutral", 0
+    elif 0.2 < score <= 0.6:
+        return "Positive", 1
+    else:
+        return "Very Positive", 2
+
+# Apply Sentiment
+df_1234[["Sentiment", "Sentiment Score"]] = df_1234["Response"].apply(lambda x: pd.Series(get_sentiment(x)))
+df_5678[["Sentiment", "Sentiment Score"]] = df_5678["Response"].apply(lambda x: pd.Series(get_sentiment(x)))
+
+# Step 8: Formatting & Save Output
+output_file = file_path.replace(".xlsx", "_processed.xlsx")
+
+with pd.ExcelWriter(output_file, engine="xlsxwriter") as writer:
+    df_1234.to_excel(writer, sheet_name="1234", index=False)
+    df_5678.to_excel(writer, sheet_name="5678", index=False)
+
+    workbook = writer.book
+    for sheet in ["1234", "5678"]:
+        worksheet = writer.sheets[sheet]
+        for i, col in enumerate(df_1234.columns):
+            worksheet.set_column(i, i, 30, workbook.add_format({"text_wrap": True}))  # Adjust column width & wrap text
+
+print(f"✅ Processed file saved as: {output_file}")
