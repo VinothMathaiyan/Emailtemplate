@@ -1,2 +1,773 @@
+User Story:
+As a survey creator, I want prompt responses, clear issue resolution, and proactive technical support from the tool supplier, so that I can ensure seamless survey execution, address challenges efficiently, and minimize disruptions to ongoing projects.
 
-https://github.com/ContentUpgrad/semantic_processing/blob/main/Topic%20Modelling/code%20files/nmf-imdb-movie-reviews.ipynb
+Acceptance Criteria:
+
+The tool supplier responds to queries within a defined SLA, ensuring minimal delays.
+Issue reports are acknowledged with clear next steps and estimated resolution timelines.
+Technical support provides precise guidance aligned with business and survey requirements.
+Regular updates on tool changes, potential impacts, and upcoming enhancements are proactively shared.
+Critical issues are escalated and resolved promptly to avoid disruptions in survey creation and execution.
+Would you like me to adjust the focus or add specific technical details based on your organization's needs?
+
+
+
+
+
+
+
+
+You said:
+think for this requirement and share the user story, tool to support generic link and personalised link 
+ChatGPT said:
+User Story:
+As a survey creator, I want the survey tool to support both generic and personalized survey links, so that I can provide flexibility in distribution while ensuring appropriate tracking, security, and user experience.
+
+Acceptance Criteria:
+
+The tool allows generating generic links for open participation without user-specific tracking.
+The tool supports personalized links that enable individual tracking and response management.
+Personalized links ensure responses are secure and confidential while linking to respondent metadata.
+The tool provides access controls to prevent unauthorized multiple submissions where necessary.
+Reports differentiate between generic and personalized responses, maintaining data integrity.
+The system ensures seamless integration with existing email and distribution channels for both link types.
+Would you like to include any additional requirements, such as expiration settings or access restrictions?
+
+
+
+
+
+
+
+You said:
+genric link for anonymoised response.. and tool to support both multiple submission for survey like hiring manager and one time submission for survey like leaving organisation
+ChatGPT said:
+User Story:
+As a survey creator, I want the tool to support both generic links for anonymized responses and personalized links for controlled participation, so that I can ensure the right level of tracking, security, and response flexibility based on survey requirements.
+
+Acceptance Criteria:
+
+The tool allows generating generic links for fully anonymous responses, with no tracking of individual participants.
+The tool supports personalized links for tracking responses while ensuring confidentiality.
+The system provides an option to configure surveys for:
+Multiple submissions (e.g., for hiring managers providing feedback on multiple candidates).
+One-time submission (e.g., for employees completing an exit survey).
+The survey settings allow customization of response limits based on the survey type.
+Reports differentiate between anonymous and tracked responses while maintaining data integrity.
+The tool ensures seamless integration with email distribution systems for both generic and personalized links.
+Would you like to include any additional conditions, such as response expiration or IP-based restrictions for multiple submissions?
+
+
+
+
+
+
+
+You said:
+dashbaord display and data extract and report supporting customised report, team specific report based on hierarchy level with response threshold to avoid identification
+ChatGPT said:
+User Story:
+As a survey dashboard user, I want the dashboard to display customized reports and support team-specific reporting based on hierarchy levels while maintaining response thresholds to ensure anonymity, so that I can access relevant insights without compromising respondent confidentiality.
+
+Acceptance Criteria:
+
+The dashboard allows users to generate customized reports with relevant filters (e.g., date, department, location).
+Reports support team-specific views based on organizational hierarchy, ensuring that users only see data relevant to their access level.
+A minimum response threshold is enforced to prevent identification of individual responses.
+The system ensures that hierarchy-based access controls restrict visibility of sensitive data.
+Users can extract reports in multiple formats (e.g., Excel, PDF) for further analysis.
+The dashboard provides interactive visualizations while allowing users to drill down into aggregate data without exposing individual responses.
+Automated scheduling of regular reports is supported for different user roles.
+Would you like to specify additional controls, such as role-based permissions for different reporting levels?
+
+
+
+
+
+
+
+You said:
+Dashboard with more flecibility for self serve with real time data 
+ChatGPT said:
+User Story:
+As a survey dashboard user, I want a flexible, self-serve dashboard with real-time data, so that I can independently explore insights, apply custom filters, and generate reports without relying on manual data extraction or support requests.
+
+Acceptance Criteria:
+
+The dashboard provides real-time data updates to ensure insights reflect the latest responses.
+Users can apply custom filters (e.g., date range, department, location, demographics) to tailor the displayed insights.
+The system allows drill-down analysis while maintaining response thresholds to protect anonymity.
+Users can create and save custom views based on frequently used filters.
+Reports and visualizations are interactive, enabling trend analysis and comparisons.
+The dashboard supports role-based access, ensuring users only see data relevant to their hierarchy level.
+Users can export reports on demand in various formats (Excel, PDF, etc.).
+The dashboard provides a user-friendly interface with tooltips and guidance for ease of use.
+Would you like to include specific real-time update frequencies or integration requirements?
+
+
+
+
+
+
+
+You said:
+retake link from where they left, link with expiry date
+ChatGPT said:
+User Story:
+As a survey participant, I want the ability to resume my survey from where I left off using a retake link and have a survey link with an expiry date, so that I can complete the survey at my convenience within the allowed timeframe.
+
+Acceptance Criteria:
+
+The tool provides a retake link that allows respondents to continue their survey from the last saved progress.
+The system ensures that retake links are secure and unique to each respondent to maintain data integrity.
+The survey link can be configured with an expiry date, after which the link becomes inaccessible.
+Expired links should display a customizable message informing users that the survey is no longer available.
+The system allows survey administrators to extend the expiry date if needed.
+The tool ensures that partially completed responses are saved automatically to prevent data loss.
+Would you like to include additional conditions, such as reminder notifications before expiry?
+
+
+
+
+
+
+
+You said:
+Survey build must have customisation options like font style, theme and layout update, navigation  button change, reduce between question, determine nuber of question per page, question and label randomisation
+ChatGPT said:
+User Story:
+As a survey creator, I want customization options for survey design, including font styles, themes, layout updates, navigation button modifications, spacing control, question-per-page settings, and question/label randomization, so that I can enhance the survey’s visual appeal, user experience, and engagement.
+
+Acceptance Criteria:
+
+The tool allows custom font styles and text formatting to align with branding guidelines.
+Users can select and apply themes and color schemes to match the organization's visual identity.
+The layout can be adjusted, including options to modify navigation buttons (e.g., text, size, position).
+Survey creators can control spacing between questions to improve readability and user experience.
+The system supports setting the number of questions per page to optimize survey length and flow.
+Questions and labels can be randomized to reduce bias and prevent order effects.
+The tool provides a preview mode to review changes before publishing the survey.
+Would you like additional features, such as device-responsive design settings or conditional display options?
+
+
+
+
+
+
+
+You said:
+Abilityto edit and update participant metadata after response collection
+ChatGPT said:
+User Story:
+As a survey administrator, I want the ability to edit and update participant metadata after response collection, so that I can correct errors, enrich data, and ensure accurate reporting without modifying actual survey responses.
+
+Acceptance Criteria:
+
+The tool allows editing participant metadata fields (e.g., department, job level, region) after responses have been collected.
+Updates to metadata do not alter or overwrite survey responses provided by participants.
+The system maintains an audit log of metadata changes for transparency and compliance.
+Bulk updates to metadata are supported via manual entry or file upload (e.g., Excel/CSV).
+Changes to metadata should reflect in real-time on dashboards and reports.
+Access control ensures only authorized users can edit metadata, with role-based permissions.
+Would you like any additional conditions, such as approval workflows before metadata changes take effect?
+
+
+
+
+
+
+
+You said:
+tool with display logic, skip logic, customised validation and error message
+ChatGPT said:
+User Story:
+As a survey creator, I want the tool to support display logic, skip logic, customized validation, and error messages, so that I can create a dynamic and user-friendly survey experience while ensuring data accuracy and relevance.
+
+Acceptance Criteria:
+
+Display logic allows questions to appear based on previous responses or metadata conditions.
+Skip logic ensures respondents are redirected to relevant sections based on their answers, avoiding irrelevant questions.
+The tool supports custom validation rules (e.g., numerical range, character limits, required fields).
+Custom error messages can be defined to guide respondents in case of incorrect or missing inputs.
+The validation and error messages should be clear, user-friendly, and context-specific.
+A real-time preview mode allows survey creators to test display logic, skip logic, and validation rules before deployment.
+Would you like additional conditions, such as logic testing reports or compatibility across different devices?
+
+
+
+
+
+
+
+You said:
+options to compare response from other surveys, historical data comparison, other source data to import, features to display invites sent, skipped, duplicate to understand response rate in realtime
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support response comparisons across surveys, historical data tracking, external data imports, and real-time response monitoring, so that I can analyze trends, benchmark results, and track engagement effectively.
+
+Acceptance Criteria:
+
+The tool allows comparison of responses from multiple surveys for benchmarking and trend analysis.
+Users can access historical survey data and compare it with current responses.
+The system supports importing external data sources (e.g., HR systems, operational data) for deeper insights.
+A dashboard displays real-time response metrics, including:
+Invites sent
+Responses received
+Skipped responses
+Duplicate submissions (if applicable)
+Filters allow users to analyze response rates by demographics, department, or survey type.
+The tool provides visualizations and trends to help track survey participation over time.
+Alerts or notifications can be set for low response rates or unexpected drop-offs.
+Would you like additional features, such as automated reports comparing past and current results?
+
+
+
+
+
+
+
+You said:
+Ability to add customised metrics and calculation to bring desired data report and isights
+ChatGPT said:
+User Story:
+As a survey administrator, I want the ability to add customized metrics and calculations within the tool, so that I can generate tailored reports and extract meaningful insights based on business-specific needs.
+
+Acceptance Criteria:
+
+The tool allows users to define custom metrics (e.g., engagement scores, satisfaction indices).
+Users can apply custom formulas and calculations to survey data (e.g., weighted averages, sentiment scores).
+Calculated metrics should be available for real-time analysis and reporting.
+The tool provides flexible aggregation options (e.g., department-level, region-wise, or tenure-based summaries).
+Users can set benchmark values and compare survey results against predefined targets.
+Custom metrics can be visualized through charts, tables, and trend graphs.
+The system ensures role-based access so only authorized users can modify or define custom calculations.
+Would you like the ability to export calculated insights into external tools (e.g., Power BI, Excel)?
+
+
+
+
+
+
+
+You said:
+Survey with sensitive data scrubber in place and modifying based on organisation data privacy policy, closing the loop, ticket handling, psudonmysation
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to have a sensitive data scrubber, pseudonymization, compliance with data privacy policies, and ticket handling for closing the loop, so that I can ensure data security, protect participant confidentiality, and take appropriate actions based on feedback.
+
+Acceptance Criteria:
+
+The tool includes an automated sensitive data scrubber to detect and remove personally identifiable information (PII) from open-text responses.
+Users can configure custom data privacy rules to align with organizational policies.
+The system supports pseudonymization, replacing identifiable data with unique, non-traceable identifiers.
+Role-based access control ensures only authorized users can view or manage sensitive data.
+The tool allows for ticket handling and follow-up actions based on survey responses (e.g., flagging critical feedback for HR or managers).
+A closed-loop feedback process enables tracking of actions taken in response to survey results.
+The system provides audit logs and compliance tracking to ensure adherence to data protection policies.
+Would you like additional features, such as automated alerts when sensitive data is detected?
+
+
+
+
+
+
+
+You said:
+Text analysis with summary and theme detetctin and trending topic detection, semantic and thematic analysis, tool to support both supervised andunsupervised text analysis with high accuracy in snetiment and summary 
+ChatGPT said:
+User Story:
+As a survey analyst, I want the tool to support advanced text analysis with summary generation, theme detection, trending topics, and both supervised and unsupervised analysis, so that I can extract meaningful insights from open-ended responses with high accuracy in sentiment and summarization.
+
+Acceptance Criteria:
+
+The tool provides automatic theme and topic detection from free-text responses.
+Trending topic identification highlights emerging themes based on frequency and sentiment shifts.
+Supports both supervised and unsupervised text analysis, allowing manual tagging and AI-driven insights.
+Semantic and thematic analysis clusters related responses for deeper understanding.
+High-accuracy sentiment analysis detects positive, neutral, and negative sentiments with contextual understanding.
+The tool generates concise, meaningful summaries from large volumes of text responses.
+Customizable keyword detection and rule-based classification enhance text analytics.
+The system integrates with dashboard visualization tools for reporting insights effectively.
+Would you like the ability to compare text insights across multiple surveys or departments?
+
+
+
+
+
+
+
+You said:
+tool with varying visualisation and chart availbility includes heatmap, driver analysis, correlation, significance test, trend, line, bar, stac,k, pivot, table
+ChatGPT said:
+User Story:
+As a survey analyst, I want the tool to support a variety of visualizations and advanced analytical charts, including heatmaps, driver analysis, correlation, significance tests, trends, line charts, bar charts, stacked charts, pivot tables, and standard tables, so that I can present insights in a visually compelling and meaningful way for decision-making.
+
+Acceptance Criteria:
+
+The tool provides heatmaps to highlight key areas of concern or high engagement.
+Driver analysis helps identify factors influencing key metrics like satisfaction or engagement.
+Correlation analysis reveals relationships between survey responses and demographic factors.
+Significance testing determines whether differences in responses across groups are statistically meaningful.
+Trend analysis allows tracking of changes in responses over time.
+Multiple chart types (line, bar, stacked bar) are available to represent data effectively.
+Pivot tables enable flexible data slicing and custom aggregations.
+Interactive visualizations allow users to filter and drill down into specific segments.
+The tool supports exporting visualizations in multiple formats for reporting purposes.
+Would you like additional capabilities, such as AI-driven insights or automated report generation?
+
+
+
+
+
+
+
+You said:
+line by line data access control
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support line-by-line data access control, so that I can ensure users only see the data relevant to their role, maintaining confidentiality and compliance with data privacy policies.
+
+Acceptance Criteria:
+
+The tool allows role-based access control (RBAC) to restrict data visibility at a granular level.
+Users can be assigned row-level permissions based on hierarchy, department, or predefined access rules.
+Data masking or redaction ensures sensitive information is only accessible to authorized users.
+Customizable access settings allow administrators to define who can view, edit, or export specific data points.
+Audit logs track who accessed, modified, or exported data for compliance monitoring.
+The tool integrates with existing identity and access management (IAM) systems for seamless authentication.
+Flexible filtering ensures users see only the relevant data without exposing restricted information.
+Would you like the ability to provide temporary access for audits or external reviews?
+
+
+
+
+
+
+
+You said:
+Survey to support multiple channel distribution including Whatsapp, sms, email, MS Forms, website static link integration and track response and provide rendring and device capability to link support any kind of browser
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support multi-channel survey distribution via WhatsApp, SMS, email, MS Forms, website static links, and ensure response tracking, cross-device compatibility, and browser support, so that I can maximize survey reach and ensure a seamless user experience across all platforms.
+
+Acceptance Criteria:
+
+The tool allows survey distribution through WhatsApp, SMS, email, MS Forms, and website static links.
+Response tracking is enabled for each distribution channel to monitor completion rates and engagement.
+Surveys are rendered properly across all device types (mobile, tablet, desktop).
+The survey links are compatible with all major browsers (Chrome, Edge, Safari, Firefox).
+Users can see channel-wise response metrics to assess survey reach and performance.
+Link expiration and security settings can be configured per channel.
+The system ensures delivery optimization, such as SMS character limits and WhatsApp formatting compliance.
+Would you like the ability to automate reminders based on incomplete responses?
+
+
+
+
+
+
+
+You said:
+Tool suport integration with any system like servicenow, HRDP, workday, Qlik, Tableau if system support not possible atleast to pick the file from sftp and enable distribution through API and workflow. Automation and integration is primary feature to be included and
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support seamless integration with external systems such as ServiceNow, HRDP, Workday, Qlik, Tableau, or at minimum, allow SFTP-based data exchange and API-driven distribution, so that I can automate workflows, streamline data management, and enhance reporting capabilities.
+
+Acceptance Criteria:
+
+The tool provides direct integration capabilities with systems like ServiceNow, HRDP, Workday, Qlik, and Tableau (if supported).
+If direct integration is not possible, the tool can ingest/export data via SFTP for automated data exchange.
+API support enables external systems to push and pull survey data programmatically.
+Automated workflows can be configured to trigger surveys based on system events (e.g., onboarding, exit, performance cycles).
+The tool supports webhooks and scheduled data syncs for real-time or batch updates.
+Data transfer logs and monitoring dashboards are available to track integration status and troubleshoot issues.
+The tool ensures secure data handling, including encryption for file transfers and API authentication.
+Would you also need support for custom connectors or low-code/no-code integration options?
+
+
+
+
+
+
+
+You said:
+so i caoul automate distribution 
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support automated survey distribution through system integrations, API triggers, and scheduled workflows, so that I can eliminate manual effort, ensure timely survey deployment, and improve response rates.
+
+Acceptance Criteria:
+
+The tool supports automated survey distribution via API, SFTP, and system integrations.
+Event-based triggers (e.g., new hire onboarding, exit process, performance review) initiate surveys automatically.
+Surveys can be scheduled for recurring distribution (e.g., monthly, quarterly, annually).
+The system allows bulk survey invitations based on predefined criteria (e.g., department, tenure, job role).
+Surveys can be distributed across multiple channels (email, SMS, WhatsApp, MS Teams, etc.) automatically.
+Reminder emails/SMS notifications are triggered for incomplete responses at set intervals.
+Response tracking dashboards provide real-time insights on sent, opened, and completed surveys.
+The tool ensures secure data handling, with encryption and authentication for API-based distribution.
+Would you also like A/B testing capabilities to optimize survey distribution strategies?
+
+
+
+
+
+
+
+You said:
+Tool suport integration with any system like servicenow, HRDP, workday, Qlik, Tableau if system support not possible atleast to pick the file from sftp and enable distribution through API and workflow. Automation and integration is primary feature to be included so distrubution is automated
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to seamlessly integrate with external systems such as ServiceNow, HRDP, Workday, Qlik, and Tableau, or at a minimum, allow SFTP-based file exchange and API-driven survey distribution, so that I can automate survey deployment, streamline data flow, and minimize manual effort.
+
+Acceptance Criteria:
+
+The tool provides direct integration with HR and analytics platforms (ServiceNow, HRDP, Workday, Qlik, Tableau).
+If direct integration is unavailable, the tool can ingest/export survey data via SFTP for automated processing.
+API endpoints enable automated survey distribution, response collection, and data retrieval.
+Surveys can be triggered based on system events (e.g., onboarding, offboarding, training completion).
+The system supports workflow automation, allowing surveys to be scheduled and distributed dynamically.
+Real-time response tracking and analytics are available for integrated surveys.
+Security features ensure encrypted data transfer, authentication, and compliance with company policies.
+Would you also require custom webhook support for real-time updates from external systems?
+
+
+
+
+
+
+
+You said:
+tool with sampling feature to support anytype of sampling t
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to support various sampling methods, including random sampling, stratified sampling, quota sampling, and custom sampling rules, so that I can ensure a representative sample and improve the quality of survey insights.
+
+Acceptance Criteria:
+
+The tool allows random sampling to ensure unbiased participant selection.
+Stratified sampling is available to segment respondents based on demographics, departments, or other attributes.
+Quota sampling enables setting limits on responses based on predefined criteria (e.g., 30% managers, 40% employees).
+Custom sampling rules allow the selection of specific groups based on business needs.
+Weighted sampling ensures responses reflect the actual distribution of a population.
+The tool supports sampling for longitudinal studies, ensuring consistent respondent tracking over time.
+Real-time monitoring and adjustments are available to modify sampling rules as needed.
+Would you also need A/B testing capabilities to compare different sampling strategies?
+
+
+
+
+
+
+
+You said:
+I want ability to extract usage details at all levels, dashbaord, survey and license and division , group
+ChatGPT said:
+User Story:
+As a survey administrator, I want the ability to extract detailed usage reports at all levels, including dashboard usage, survey engagement, license utilization, and division/group-level breakdowns, so that I can monitor tool adoption, optimize resource allocation, and ensure compliance with license agreements.
+
+Acceptance Criteria:
+
+The tool provides real-time and historical usage reports for dashboards, surveys, and licenses.
+Usage data is filterable by division, group, team, and individual users.
+Reports include survey creation, response rates, active vs. inactive users, and dashboard interactions.
+License tracking shows allocation, active users, and unused licenses to optimize renewals.
+Export options (CSV, Excel, API) are available for detailed analysis.
+Automated alerts notify admins when usage exceeds thresholds or licenses are underutilized.
+Access control ensures only authorized users can view or extract sensitive usage data.
+Would you also need visualization options (e.g., trend charts, heatmaps) for easier insights?
+
+
+
+
+
+
+
+You said:
+Expecting tool to provide notification at reguslar inverls and also notication of any unexpected error or failure of the integration or workflow
+ChatGPT said:
+User Story:
+As a survey administrator, I want the tool to provide automated notifications at regular intervals and real-time alerts for unexpected errors or integration failures, so that I can stay informed about survey progress, proactively address issues, and ensure smooth workflow execution.
+
+Acceptance Criteria:
+
+The tool supports scheduled notifications (daily, weekly, or custom intervals) for survey status updates, response trends, and system usage.
+Real-time alerts notify users of workflow failures, API errors, integration breakdowns, or delayed survey distributions.
+Notifications can be sent via email, SMS, in-app alerts, or webhook integrations.
+Customizable thresholds allow users to define when an alert should be triggered (e.g., low response rate, survey completion drop).
+A dashboard logs all past notifications for tracking and auditing.
+The tool provides detailed error messages with troubleshooting steps for quick resolution.
+Would you also need escalation workflows, where critical issues get automatically flagged to higher-level admins?
+
+
+
+
+
+
+
+You said:
+Notofication should provide details information so ic ould immedaittely take action to avoid any data loss
+ChatGPT said:
+User Story:
+As a survey administrator, I want detailed notifications with precise information on errors, failures, or critical updates, so that I can immediately take action to prevent data loss and ensure seamless survey operations.
+
+Acceptance Criteria:
+
+Notifications include specific details such as error type, affected workflows, impacted users, and recommended actions.
+The tool provides real-time alerts for integration failures, API errors, survey distribution issues, and data processing failures.
+Notifications specify the root cause (e.g., “Survey distribution failed due to API timeout at 10:15 AM UTC”).
+Direct links to affected dashboards, reports, or logs are included in the notification for quick troubleshooting.
+Alerts are categorized by severity (e.g., Critical, Warning, Informational) to prioritize action.
+Notifications support multiple channels (email, SMS, in-app, Teams/Slack) for immediate visibility.
+A notification history log allows tracking past issues and resolutions.
+The system supports escalation workflows, automatically notifying higher-level admins for unresolved critical issues.
+Would you also need automated rollback mechanisms in case of integration failures to prevent data loss?
+
+
+
+
+
+
+
+You said:
+Tool to provide cross survey analsysis and journey analytics
+ChatGPT said:
+User Story:
+As a survey analyst, I want the tool to provide cross-survey analysis and journey analytics, so that I can identify trends, compare responses across multiple surveys, and track employee experience over time for deeper insights.
+
+Acceptance Criteria:
+
+The tool allows comparison of responses across multiple surveys for trend and pattern identification.
+Journey analytics tracks employee experience at different touchpoints (e.g., onboarding, engagement, exit) to measure long-term impact.
+Users can filter and segment data by survey type, demographic, role, tenure, or other metadata.
+Supports historical data comparisons to analyze changes in sentiment, satisfaction, and engagement.
+Allows importing external data sources for enriched insights.
+Provides visual reports, including trend lines, heatmaps, correlation analysis, and cohort tracking.
+Supports custom metrics and derived calculations for in-depth analysis.
+Enables automated alerts when significant trends or anomalies are detected.
+Would you also need predictive analytics to forecast future trends based on historical responses?
+
+
+
+
+
+
+
+You said:
+could you add example betweenemployee journey and touch point based?
+ChatGPT said:
+User Story:
+As a survey analyst, I want the tool to provide cross-survey analysis and journey analytics, so that I can compare responses across multiple surveys and analyze employee experience across key touchpoints to identify trends and improve decision-making.
+
+Acceptance Criteria:
+The tool allows comparison of responses across multiple surveys (e.g., engagement, onboarding, exit, well-being).
+Journey-based analytics tracks employee experience across different lifecycle stages, such as:
+Onboarding: First-week feedback, 30/60/90-day check-ins.
+Development & Growth: Training satisfaction, career progression, mentorship impact.
+Engagement & Well-being: Pulse surveys, work-life balance, stress levels.
+Exit & Alumni: Leaver surveys, boomerang employee trends.
+Touchpoint-based analytics tracks experiences at specific interactions, such as:
+HR Services: Payroll issue resolution, benefits enrollment, promotion process.
+Manager Interaction: Performance review experience, coaching effectiveness.
+Technology Experience: IT support satisfaction, software usability feedback.
+Workplace Experience: Office facilities, remote work support, collaboration tools.
+The tool supports trend analysis, cohort comparison, and correlation between different journey stages and touchpoints.
+Enables data filtering by department, tenure, region, job role, and other metadata.
+Supports historical data analysis to track changes over time.
+Predictive analytics to forecast trends based on past survey responses.
+Provides automated alerts for anomalies (e.g., drop in engagement scores post-restructuring).
+Allows data import from external systems to enhance cross-survey insights.
+Would you also like automated recommendations based on journey insights (e.g., identifying early warning signs of disengagement)?
+
+
+
+
+
+
+
+You said:
+yes plese
+ChatGPT said:
+User Story:
+As a survey analyst, I want the tool to provide cross-survey analysis and journey analytics with automated recommendations, so that I can track employee experience across key touchpoints, compare responses over time, and receive proactive insights to improve decision-making.
+
+Acceptance Criteria:
+Journey-Based Analytics
+Tracks employee experience across lifecycle stages, including:
+Onboarding: First-week feedback, 30/60/90-day check-ins.
+Development & Growth: Training satisfaction, career progression, mentorship impact.
+Engagement & Well-being: Pulse surveys, work-life balance, stress levels.
+Exit & Alumni: Leaver surveys, boomerang employee trends.
+Touchpoint-Based Analytics
+Tracks specific employee interactions, such as:
+HR Services: Payroll issue resolution, benefits enrollment, promotion process.
+Manager Interaction: Performance review experience, coaching effectiveness.
+Technology Experience: IT support satisfaction, software usability feedback.
+Workplace Experience: Office facilities, remote work support, collaboration tools.
+Data & Insights Capabilities
+Allows comparison of responses across multiple surveys and time periods.
+Enables trend analysis to identify shifts in employee sentiment and satisfaction.
+Supports data filtering by department, tenure, region, job role, and other metadata.
+Provides historical data analysis to track long-term changes.
+Enables cohort comparison (e.g., new hires vs. tenured employees).
+Supports correlation analysis between different journey stages and touchpoints.
+Allows data import from external sources to enhance cross-survey insights.
+Automated Recommendations & Alerts
+Identifies early warning signs of disengagement, such as:
+Decrease in onboarding satisfaction → Recommend manager check-ins.
+Decline in engagement survey scores after a restructuring → Suggest leadership communication improvements.
+Poor IT experience impacting productivity → Flag recurring issues to IT support.
+High exit survey dissatisfaction from a specific team → Recommend intervention strategies.
+Provides predictive analytics to forecast future trends based on past survey responses.
+Sends automated alerts for anomalies, such as a sudden drop in engagement scores.
+Offers AI-driven insights and action suggestions to improve employee experience.
+Would you like the tool to also provide benchmarking against industry trends or internal benchmarks?
+
+
+
+
+
+
+
+You said:
+user role acces to be automated and access management based on business unit
+ChatGPT said:
+User Story:
+As an admin, I want user role access to be automated and managed based on business units, so that access is controlled efficiently, reducing manual effort while ensuring data security and compliance.
+
+Acceptance Criteria:
+Automated Role Assignment:
+
+User access is automatically assigned based on business unit, job role, and hierarchy level.
+Access updates dynamically when users change roles, departments, or leave the organization.
+Supports predefined role-based access control (RBAC) with permissions tailored to different user groups (e.g., HR, Managers, Survey Admins, Analysts).
+Access Management Rules:
+
+Survey Creators can design, distribute, and analyze surveys within their business unit.
+Managers can access survey results only for their teams while ensuring response threshold compliance.
+Executives can view aggregated reports without accessing raw data.
+Admins have full access to manage users, surveys, and dashboards.
+Security & Compliance:
+
+Access is restricted based on minimum response thresholds to protect respondent anonymity.
+Supports Single Sign-On (SSO) and multi-factor authentication (MFA) for secure login.
+Logs all access activities for audit and compliance tracking.
+Integration & Automation:
+
+Integrates with Active Directory, Workday, HRDP, or other HR systems to sync user data.
+Allows access provisioning through APIs or workflow automation.
+Provides real-time role updates based on employee status changes.
+Would you like to include temporary access options for ad-hoc users or self-service access requests with approval workflows?
+
+
+
+
+
+
+
+You said:
+user role acces to be automated and access management based on business unit so leaver and mover can be managed automatically and people in the team have right access
+ChatGPT said:
+User Story:
+As an admin, I want user role access to be automated and managed based on business units, so that leavers and movers are handled automatically, and team members always have the right access without manual intervention.
+
+Acceptance Criteria:
+Automated Role Assignment & Updates:
+
+User access is assigned based on business unit, job role, and hierarchy.
+When an employee moves to a different team or role, their access is updated automatically based on the new business unit.
+When an employee leaves the organization, their access is revoked immediately to ensure security.
+Supports role-based access control (RBAC) to define permissions for different levels (e.g., HR, Managers, Analysts).
+Team Access Management:
+
+Managers have access to their team's survey results while ensuring response thresholds are met for anonymity.
+Survey creators can create and manage surveys within their assigned business unit.
+Executives can view aggregated insights at a company or department level without seeing raw data.
+Admins can oversee user access, ensuring compliance and security.
+Security & Compliance:
+
+Access updates occur in real-time to prevent unauthorized access when employees switch roles or leave.
+Enforces minimum response thresholds to protect anonymity in survey results.
+Audit logs track all access changes for security and compliance reviews.
+Integration & Automation:
+
+Syncs user data with HR systems (e.g., Workday, HRDP, Active Directory, ServiceNow) for automated updates.
+Supports APIs and workflow automation to ensure access is provisioned or revoked automatically.
+Enables temporary access for project-based users with expiry dates.
+Would you like to include self-service access requests for ad-hoc needs with manager approvals?
+
+
+
+
+
+
+
+You said:
+employee relateddata to be access by the relavnt team with releavent business unitand hieracrchy basedrole access abd deleagte option to be included
+ChatGPT said:
+User Story:
+As an admin, I want employee-related data to be accessed only by the relevant team based on business unit and hierarchy-based role access, with a delegate option for temporary access, so that data security is maintained while ensuring the right stakeholders can view and manage relevant information.
+
+Acceptance Criteria:
+Role-Based Access Control (RBAC):
+
+Employees can access only the survey and dashboard data relevant to their business unit.
+Managers can view data for their direct reports and teams while adhering to minimum response thresholds for anonymity.
+HR Business Partners (HRBPs) can access only their assigned regions, departments, or divisions.
+Executives can view aggregated insights at a higher organizational level without seeing raw data.
+Hierarchy-Based Access:
+
+Access is dynamically assigned based on organizational hierarchy (e.g., reporting structure, business function, or division).
+When an employee moves to a new role, their access updates automatically based on their new business unit.
+Access revocation occurs immediately upon an employee leaving the organization.
+Delegate Access Feature:
+
+Allows temporary access delegation for employees covering someone else's role (e.g., during leave or transition).
+Delegated access is time-bound and automatically revoked after the approved period.
+Delegation requests require approval from a designated authority (e.g., manager or admin).
+Security & Compliance:
+
+Access logs and audit trails track who accessed what data and when.
+Minimum response thresholds ensure that individual responses remain anonymous.
+The system enforces data privacy policies in compliance with company security standards.
+Integration & Automation:
+
+Syncs with HR systems (e.g., Workday, HRDP, Active Directory, ServiceNow) to manage user roles and permissions dynamically.
+Supports APIs and automation workflows for real-time access provisioning and revocation.
+Enables bulk access updates for org-wide changes (e.g., restructuring, team mergers).
+Would you like to include self-service role requests where employees can request access with manager approval?
+
+
+
+
+
+
+
+You said:
+Survey with redirect feature and custom message enabled
+ChatGPT said:
+User Story:
+As a survey creator, I want the survey tool to support a redirect feature with custom messages, so that participants can be directed to relevant pages after completion, partial completion, or disqualification, and receive appropriate messaging based on their survey journey.
+
+Acceptance Criteria:
+Custom Redirect Options:
+
+Ability to redirect respondents to a specific URL upon survey completion.
+Redirects can be configured based on response selection, completion status (completed, partial, disqualified), or survey logic.
+Supports different redirects based on user segments or business logic (e.g., internal employees vs. external participants).
+Custom Messages:
+
+Display custom messages before redirection, based on survey responses.
+Ability to personalize messages (e.g., “Thank you for your feedback! Click here to learn more.”).
+Supports rich text formatting and multilingual options for global audiences.
+Conditional Redirects & Branching:
+
+If a respondent qualifies for further engagement, redirect them to a follow-up survey or relevant content.
+If a participant does not meet eligibility criteria, display a custom message and redirect to an alternative page.
+If a respondent abandons the survey, provide an option to resume later with a stored progress link.
+Tracking & Analytics:
+
+Capture redirect analytics (e.g., number of users redirected, click-through rates).
+Ability to track completion rates for redirected users in reporting.
+Ensure that redirects do not impact survey response tracking and data integrity.
+Would you like an option for embedding tracking parameters in redirected URLs for campaign performance analysis?
