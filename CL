@@ -771,3 +771,32 @@ Capture redirect analytics (e.g., number of users redirected, click-through rate
 Ability to track completion rates for redirected users in reporting.
 Ensure that redirects do not impact survey response tracking and data integrity.
 Would you like an option for embedding tracking parameters in redirected URLs for campaign performance analysis?
+
+As a survey owner and administrator, I want a dedicated Technical Account Manager (TAM) who fully understands our business from end to end, so that we receive business-specific guidance, proactive recommendations, best practices, and future release updates that align with our employee experience survey strategy.
+
+Acceptance Criteria:
+Business Understanding & Strategic Guidance:
+
+The TAM must have in-depth knowledge of our organization's survey workflows, key objectives, and challenges.
+The TAM should provide tailored recommendations to enhance survey effectiveness, data accuracy, and engagement strategies.
+Must ensure alignment with organizational goals, HR strategies, and regulatory requirements.
+Proactive Best Practices & Advisory:
+
+Regularly share industry best practices, benchmarks, and insights to improve survey design and dashboarding.
+Provide guidance on survey methodologies, sampling techniques, and data structuring to ensure meaningful insights.
+Recommend technical enhancements, including automation, integration improvements, and advanced analytics capabilities.
+Proactive Updates & Impact Analysis:
+
+Must provide early updates on new feature releases, system upgrades, and deprecations.
+Analyze potential impacts of upcoming changes on our existing surveys, dashboards, and workflows.
+Provide mitigation strategies if updates introduce risks to our survey operations or integrations.
+Dedicated Support & Issue Resolution:
+
+Act as a single point of contact for high-priority issues and escalations.
+Ensure fast and accurate resolutions to technical challenges, minimizing business disruptions.
+Provide clear documentation and knowledge transfer for any system modifications.
+Ongoing Training & Enablement:
+
+Conduct periodic training sessions for HR, survey creators, and dashboard users on new features and best practices.
+Offer hands-on workshops or Q&A sessions to ensure users maximize the tool’s capabilities.
+Ensure that non-HR teams using the tool also receive necessary enablement and customization support.
