@@ -1,19 +1,1 @@
-User Story:
-As a Colleague Listening team member, I want to integrate the onboarding candidate survey and hiring manager survey with ServiceNow, so that we can trigger surveys automatically based on the candidate's status start date, ensuring timely survey delivery and minimizing delays. By utilizing the ServiceNow integration, we will send surveys within 7 to 14 days and control the frequency of hiring manager surveys to avoid multiple surveys being sent for each candidate. We also want to ensure that tasks are created in ServiceNow to remind colleagues and hiring managers to complete surveys, which will help improve response rates and engagement.
 
-Acceptance Criteria:
-
-The system will trigger the onboarding candidate survey and hiring manager survey based on the "current status start date," with surveys sent between 7 to 14 days after the start date.
-Hiring managers will receive one survey per month, based on a 30-day frequency, and will not receive multiple surveys for the same candidate.
-The integration with ServiceNow will create a task associated with the survey event, reminding the colleague and the hiring manager to complete the survey. This reminder will be shown in the ServiceNow system in addition to the email reminders already sent on the seventh day.
-In the case of a no-show or dropout (lever flag = 'S'), the onboarding survey will not be triggered, following the current process.
-The integration will reduce delays in survey distribution by triggering surveys immediately based on the candidate's start date, eliminating the need to wait for the weekly schedule.
-The integration will allow for the creation of tasks within ServiceNow to remind colleagues and hiring managers about the survey, thus improving response rates.
-The surveys will be triggered automatically via a workflow setup in Qualtrics, with integration to pull data from the ServiceNow system when the conditions are met.
-Benefits:
-
-Timely and responsive survey distribution, reducing delays in feedback.
-Increased response rate for both candidate and hiring manager surveys due to ServiceNow task reminders.
-Reduced manual intervention with automated integration between Qualtrics and ServiceNow.
-Improved feedback quality by ensuring relevant surveys are sent only to hiring managers.
-The reminder task ensures higher survey completion, leading to better data for analyzing the onboarding experience.
