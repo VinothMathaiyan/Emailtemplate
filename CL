@@ -1,24 +1,25 @@
+Prompt for Copilot:
 
-Please help me summarize responses for each topic in my Excel file. The file has two columns: "Response" for the actual responses and "Topics" for the mapped topics. I'd like to create a summarized response for each topic so stakeholders can easily understand what users are discussing.
+Please help me summarize responses for each topic in my Excel file. The file has three columns: "Response" for the actual responses, "Topics" for the mapped topics, and "Actor" for the values "People leader" and "Colleague." I'd like to create a summarized response for each topic, further broken down by the "Actor" values, so stakeholders can easily understand what users are discussing.
 
 Here's the step-by-step approach I would like you to follow:
 
 Read the Excel File:
 
-Load the file and read the "Response" and "Topics" columns.
+Load the file and read the "Response," "Topics," and "Actor" columns.
 
 Preprocess the Data:
 
 Clean the text data by removing stop words, punctuation, and converting to lowercase.
 
-Group by Topics:
+Group by Topics and Actor:
 
-Group the responses by the "Topics" column.
+Group the responses by the "Topics" and "Actor" columns.
 
-Summarize Each Topic:
+Summarize Each Group:
 
-For each topic, combine the responses and generate a concise summary.
+For each topic and actor group, combine the responses and generate a concise summary.
 
 Provide the Summaries:
 
-Output the summarized responses for each topic.
+Output the summarized responses for each topic and actor group.
