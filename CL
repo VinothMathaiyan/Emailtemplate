@@ -1,1 +1,24 @@
 
+Please help me summarize responses for each topic in my Excel file. The file has two columns: "Response" for the actual responses and "Topics" for the mapped topics. I'd like to create a summarized response for each topic so stakeholders can easily understand what users are discussing.
+
+Here's the step-by-step approach I would like you to follow:
+
+Read the Excel File:
+
+Load the file and read the "Response" and "Topics" columns.
+
+Preprocess the Data:
+
+Clean the text data by removing stop words, punctuation, and converting to lowercase.
+
+Group by Topics:
+
+Group the responses by the "Topics" column.
+
+Summarize Each Topic:
+
+For each topic, combine the responses and generate a concise summary.
+
+Provide the Summaries:
+
+Output the summarized responses for each topic.
