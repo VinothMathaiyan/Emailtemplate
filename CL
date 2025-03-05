@@ -1,25 +1,9 @@
-Prompt for Copilot:
+I hope you are doing well.
 
-Please help me summarize responses for each topic in my Excel file. The file has three columns: "Response" for the actual responses, "Topics" for the mapped topics, and "Actor" for the values "People leader" and "Colleague." I'd like to create a summarized response for each topic, further broken down by the "Actor" values, so stakeholders can easily understand what users are discussing.
+We understand that your schedule is busy, and we truly appreciate your time and input. However, we need to consolidate user stories and requirements before our discussion with the tech team in the third week of March. If we wait until April, there is a risk that key requirements may be missed.
 
-Here's the step-by-step approach I would like you to follow:
+To ensure your needs are captured, would it be possible for you to share a high-level outline of your user story? If time constraints make this challenging, even bullet points highlighting your key business requirements for the survey tool would be immensely helpful. Our team can then expand on them and structure them accordingly.
 
-Read the Excel File:
+We recognize that this is a time-consuming task, especially on short notice, but your insights are valuable in shaping the future of this tool. Please let us know if we can assist in any way to make this process easier for you.
 
-Load the file and read the "Response," "Topics," and "Actor" columns.
-
-Preprocess the Data:
-
-Clean the text data by removing stop words, punctuation, and converting to lowercase.
-
-Group by Topics and Actor:
-
-Group the responses by the "Topics" and "Actor" columns.
-
-Summarize Each Group:
-
-For each topic and actor group, combine the responses and generate a concise summary.
-
-Provide the Summaries:
-
-Output the summarized responses for each topic and actor group.
+Looking forward to your response.
