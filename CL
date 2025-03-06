@@ -1,9 +1,46 @@
-I hope you are doing well.
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import string
+import nltk
 
-We understand that your schedule is busy, and we truly appreciate your time and input. However, we need to consolidate user stories and requirements before our discussion with the tech team in the third week of March. If we wait until April, there is a risk that key requirements may be missed.
+nltk.download('stopwords')
+nltk.download('punkt')
 
-To ensure your needs are captured, would it be possible for you to share a high-level outline of your user story? If time constraints make this challenging, even bullet points highlighting your key business requirements for the survey tool would be immensely helpful. Our team can then expand on them and structure them accordingly.
+def preprocess_text(text):
+    stop_words = set(stopwords.words('english'))
+    words = word_tokenize(text.lower())
+    words = [word for word in words if word.isalnum() and word not in stop_words and word not in string.punctuation]
+    return ' '.join(words)
 
-We recognize that this is a time-consuming task, especially on short notice, but your insights are valuable in shaping the future of this tool. Please let us know if we can assist in any way to make this process easier for you.
+# Read the Excel File
+df = pd.read_excel('your_file.xlsx')
+df['cleaned_responses'] = df['Response'].apply(preprocess_text)
 
-Looking forward to your response.
+# Vectorize the Text
+vectorizer = TfidfVectorizer(max_features=1000)
+X = vectorizer.fit_transform(df['cleaned_responses'])
+
+# Apply K-means Clustering
+num_clusters = 5
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+kmeans.fit(X)
+df['cluster'] = kmeans.labels_
+
+# Get Top Words Per Cluster
+def get_top_words_per_cluster(kmeans, vectorizer, n_words=10):
+    order_centroids = kmeans.cluster_centers_.argsort()[:, ::-1]
+    terms = vectorizer.get_feature_names_out()
+    
+    clusters = {}
+    for i in range(num_clusters):
+        clusters[i] = [terms[ind] for ind in order_centroids[i, :n_words]]
+    return clusters
+
+top_words_per_cluster = get_top_words_per_cluster(kmeans, vectorizer)
+
+# Display Top Words Per Cluster
+for cluster_id, top_words in top_words_per_cluster.items():
+    print(f"Cluster {cluster_id} Top Words: {', '.join(top_words)}")
