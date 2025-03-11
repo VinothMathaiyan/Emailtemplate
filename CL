@@ -1,58 +1,44 @@
-import pandas as pd
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+
+# Function to generate word clouds for each topic and actor
+def generate_word_clouds_by_topic_actor(df):
+    grouped = df.groupby(['Topics', 'Actor'])
+    
+    for (topic, actor), group in grouped:
+        unique_words = [word for words in group['Top_Words'] for word in words]
+        wordcloud_text = " ".join(unique_words)
+        wordcloud = WordCloud(width=800, height=400, background_color='white').generate(wordcloud_text)
+        
+        plt.figure(figsize=(10, 8))
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.title(f'Word Cloud for {topic} and {actor}')
+        plt.axis('off')
+        plt.show()
+
+# Generate word clouds by topic and actor
+generate_word_clouds_by_topic_actor(df)
+
+
 from collections import Counter
 import seaborn as sns
 
-# Sample DataFrame structure (replace this with your actual DataFrame)
-data = {
-    'Topics': ['Topic1', 'Topic1', 'Topic2', 'Topic2', 'Topic1'],
-    'Actor': ['Actor1', 'Actor1', 'Actor2', 'Actor2', 'Actor1'],
-    'Cluster': [0, 1, 0, 1, 1],
-    'Optimal_Clusters': [2, 2, 2, 2, 2],
-    'Silhouette_Score': [0.25, 0.25, 0.33, 0.33, 0.25],
-    'Top_Words': [
-        "['coding', 'python', 'love', 'data', 'great']",
-        "['analysis', 'machine', 'learning', 'models', 'fascinating']",
-        "['enjoy', 'machine', 'learning', 'fascinating', 'AI']",
-        "['science', 'exciting', 'field', 'data', 'analysis']",
-        "['coding', 'python', 'love', 'data', 'great']"
-    ]
-}
+# Function to generate bar plots for each topic and actor
+def generate_bar_plots_by_topic_actor(df):
+    grouped = df.groupby(['Topics', 'Actor'])
+    
+    for (topic, actor), group in grouped:
+        unique_words = [word for words in group['Top_Words'] for word in words]
+        word_counts = Counter(unique_words)
+        word_counts_df = pd.DataFrame.from_dict(word_counts, orient='index', columns=['Count']).reset_index()
+        word_counts_df = word_counts_df.rename(columns={'index': 'Word'})
+        
+        plt.figure(figsize=(12, 6))
+        sns.barplot(x='Count', y='Word', data=word_counts_df, palette='viridis')
+        plt.title(f'Top Words for {topic} and {actor}')
+        plt.xlabel('Frequency')
+        plt.ylabel('Words')
+        plt.show()
 
-df = pd.DataFrame(data)
-
-# Preprocess Top_Words column
-def preprocess_top_words(words_str):
-    words_str = words_str.replace("[", "").replace("]", "").replace("'", "").replace(" ", "")
-    words_list = words_str.split(",")
-    return words_list
-
-df['Top_Words'] = df['Top_Words'].apply(preprocess_top_words)
-
-# Prepare data for visualizations
-unique_words = set(word for words in df['Top_Words'] for word in words)
-unique_words = list(unique_words)
-
-# Generate word cloud for unique words
-wordcloud_text = " ".join(unique_words)
-wordcloud = WordCloud(width=800, height=400, background_color='white').generate(wordcloud_text)
-
-plt.figure(figsize=(10, 8))
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.title('Word Cloud for Unique Words')
-plt.axis('off')
-plt.show()
-
-# Count occurrences of each unique word in the Top_Words column
-word_counts = Counter(word for words in df['Top_Words'] for word in words)
-word_counts_df = pd.DataFrame.from_dict(word_counts, orient='index', columns=['Count']).reset_index()
-word_counts_df = word_counts_df.rename(columns={'index': 'Word'})
-
-# Generate bar plot for unique words
-plt.figure(figsize=(12, 6))
-sns.barplot(x='Count', y='Word', data=word_counts_df, palette='viridis')
-plt.title('Frequency of Unique Words')
-plt.xlabel('Frequency')
-plt.ylabel('Words')
-plt.show()
+# Generate bar plots by topic and actor
+generate_bar_plots_by_topic_actor(df)
