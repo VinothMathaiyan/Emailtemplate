@@ -1,71 +1,44 @@
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-import numpy as np
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
-# Sample DataFrame: Replace with your actual data
-data = {
-    'Topics': ['Topic1', 'Topic1', 'Topic2', 'Topic2', 'Topic1'],
-    'Actor': ['Actor1', 'Actor1', 'Actor2', 'Actor2', 'Actor1'],
-    'cleaned_responses1': [
-        'I love coding in Python.',
-        'Python is great for data analysis.',
-        'I enjoy machine learning and AI.',
-        'Data science is an exciting field.',
-        'Machine learning models are fascinating.'
-    ]
-}
-
-df = pd.DataFrame(data)
-
-# Function to perform clustering on responses and return the optimal number of clusters and top words
-def optimal_clusters(responses, max_k=10):
-    if len(responses) < 2:
-        return [0] * len(responses), 1, -1, {}
+# Function to generate word clouds for each topic
+def generate_word_clouds(df):
+    topics = df['Topics'].unique()
     
-    vectorizer = TfidfVectorizer(stop_words='english')
-    X = vectorizer.fit_transform(responses)
-    
-    best_k = 2
-    best_score = -1
-    
-    for k in range(2, min(max_k + 1, len(responses))):
-        model = KMeans(n_clusters=k, n_init=10, random_state=42)
-        labels = model.fit_predict(X)
-        score = silhouette_score(X, labels)
+    for topic in topics:
+        topic_data = df[df['Topics'] == topic]
+        all_words = [word for words in topic_data['Top_Words'] for word in words]
+        wordcloud = WordCloud(width=800, height=400, background_color='white').generate(" ".join(all_words))
         
-        if score > best_score:
-            best_k = k
-            best_score = score
-    
-    model = KMeans(n_clusters=best_k, n_init=10, random_state=42)
-    labels = model.fit_predict(X)
-    
-    # Get top words for each cluster
-    top_words = {}
-    order_centroids = model.cluster_centers_.argsort()[:, ::-1]
-    terms = vectorizer.get_feature_names_out()
-    
-    for i in range(best_k):
-        top_words[i] = [terms[ind] for ind in order_centroids[i, :10]]
-    
-    return labels, best_k, best_score, top_words
+        plt.figure(figsize=(10, 8))
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.title(f'Word Cloud for {topic}')
+        plt.axis('off')
+        plt.show()
 
-# Step 1: Group by Topics and apply clustering within each topic
-result = []
+# Generate word clouds
+generate_word_clouds(df)
 
-for topic, group in df.groupby('Topics'):
-    group = group.reset_index(drop=True)
-    labels, best_k, best_score, top_words = optimal_clusters(group['cleaned_responses1'].tolist())
-    group['Cluster'] = labels
-    group['Optimal_Clusters'] = best_k
-    group['Silhouette_Score'] = best_score
-    group['Top_Words'] = [top_words[cluster] for cluster in labels]
-    result.append(group)
+from collections import Counter
+import seaborn as sns
 
-# Step 2: Concatenate results into a single DataFrame
-df_final = pd.concat(result).reset_index(drop=True)
+# Function to generate bar plots for each topic
+def generate_bar_plots(df):
+    topics = df['Topics'].unique()
+    
+    for topic in topics:
+        topic_data = df[df['Topics'] == topic]
+        all_words = [word for words in topic_data['Top_Words'] for word in words]
+        word_counts = Counter(all_words)
+        word_counts_df = pd.DataFrame.from_dict(word_counts, orient='index', columns=['Count']).reset_index()
+        word_counts_df = word_counts_df.rename(columns={'index': 'Word'})
+        
+        plt.figure(figsize=(12, 6))
+        sns.barplot(x='Count', y='Word', data=word_counts_df, palette='viridis')
+        plt.title(f'Top Words for {topic}')
+        plt.xlabel('Frequency')
+        plt.ylabel('Words')
+        plt.show()
 
-# Display DataFrame with columns: Actor, Topics, Cluster, Optimal_Clusters, Silhouette_Score, Top_Words
-print(df_final[['Actor', 'Topics', 'Cluster', 'Optimal_Clusters', 'Silhouette_Score', 'Top_Words']])
+# Generate bar plots
+generate_bar_plots(df)
