@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+import numpy as np
 
 # Sample DataFrame: Replace with your actual data
 data = {
@@ -21,10 +22,10 @@ df = pd.DataFrame(data)
 # Step 1: Group by Topics and Actor
 grouped = df.groupby(['Topics', 'Actor'])
 
-# Function to perform clustering on responses and return the optimal number of clusters
+# Function to perform clustering on responses and return the optimal number of clusters and top words
 def optimal_clusters(responses, max_k=10):
     if len(responses) < 2:
-        return [0] * len(responses), 1, -1  # Handle case with fewer than 2 samples
+        return [0] * len(responses), 1, -1, {}
     
     vectorizer = TfidfVectorizer(stop_words='english')
     X = vectorizer.fit_transform(responses)
@@ -32,8 +33,8 @@ def optimal_clusters(responses, max_k=10):
     best_k = 2
     best_score = -1
     
-    for k in range(2, min(max_k + 1, len(responses))):  # Adjust loop to valid range
-        model = KMeans(n_clusters=k, random_state=42)
+    for k in range(2, min(max_k + 1, len(responses))):
+        model = KMeans(n_clusters=k, n_init=10, random_state=42)
         labels = model.fit_predict(X)
         score = silhouette_score(X, labels)
         
@@ -41,17 +42,29 @@ def optimal_clusters(responses, max_k=10):
             best_k = k
             best_score = score
     
-    model = KMeans(n_clusters=best_k, random_state=42)
+    model = KMeans(n_clusters=best_k, n_init=10, random_state=42)
     labels = model.fit_predict(X)
-    return labels, best_k, best_score
+    
+    # Get top words for each cluster
+    top_words = {}
+    order_centroids = model.cluster_centers_.argsort()[:, ::-1]
+    terms = vectorizer.get_feature_names_out()
+    
+    for i in range(best_k):
+        top_words[i] = [terms[ind] for ind in order_centroids[i, :10]]
+    
+    return labels, best_k, best_score, top_words
 
-# Step 2: Apply clustering within each group and find optimal number of clusters
+# Step 2: Apply clustering within each group and find optimal number of clusters and top words
 def cluster_with_optimal_k(group):
-    labels, best_k, best_score = optimal_clusters(group['cleaned_responses1'].tolist())
+    labels, best_k, best_score, top_words = optimal_clusters(group['cleaned_responses1'].tolist())
     group['Cluster'] = labels
     group['Optimal_Clusters'] = best_k
     group['Silhouette_Score'] = best_score
+    group['Top_Words'] = [top_words[cluster] for cluster in labels]
     return group
 
 df = grouped.apply(cluster_with_optimal_k)
-print(df)
+
+# Display DataFrame with columns: Topics, Actor, cleaned_responses1, Cluster, Optimal_Clusters, Silhouette_Score, Top_Words
+print(df[['Topics', 'Actor', 'cleaned_responses1', 'Cluster', 'Optimal_Clusters', 'Silhouette_Score', 'Top_Words']])
