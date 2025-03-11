@@ -12,24 +12,31 @@ data = {
     'Optimal_Clusters': [2, 2, 2, 2, 2],
     'Silhouette_Score': [0.25, 0.25, 0.33, 0.33, 0.25],
     'Top_Words': [
-        ['coding', 'python', 'love', 'data', 'great'],
-        ['analysis', 'machine', 'learning', 'models', 'fascinating'],
-        ['enjoy', 'machine', 'learning', 'fascinating', 'AI'],
-        ['science', 'exciting', 'field', 'data', 'analysis'],
-        ['coding', 'python', 'love', 'data', 'great']
+        "['coding', 'python', 'love', 'data', 'great']",
+        "['analysis', 'machine', 'learning', 'models', 'fascinating']",
+        "['enjoy', 'machine', 'learning', 'fascinating', 'AI']",
+        "['science', 'exciting', 'field', 'data', 'analysis']",
+        "['coding', 'python', 'love', 'data', 'great']"
     ]
 }
 
 df = pd.DataFrame(data)
 
+# Preprocess Top_Words column
+def preprocess_top_words(words_str):
+    words_str = words_str.replace("[", "").replace("]", "").replace("'", "").replace(" ", "")
+    words_list = words_str.split(",")
+    return words_list
+
+df['Top_Words'] = df['Top_Words'].apply(preprocess_top_words)
+
 # Prepare data for visualizations
-unique_words = set()
-for words in df['Top_Words']:
-    unique_words.update(words)
+unique_words = set(word for words in df['Top_Words'] for word in words)
 unique_words = list(unique_words)
 
 # Generate word cloud for unique words
-wordcloud = WordCloud(width=800, height=400, background_color='white').generate(" ".join(unique_words))
+wordcloud_text = " ".join(unique_words)
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate(wordcloud_text)
 
 plt.figure(figsize=(10, 8))
 plt.imshow(wordcloud, interpolation='bilinear')
