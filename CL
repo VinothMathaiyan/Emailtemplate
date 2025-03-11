@@ -23,13 +23,16 @@ grouped = df.groupby(['Topics', 'Actor'])
 
 # Function to perform clustering on responses and return the optimal number of clusters
 def optimal_clusters(responses, max_k=10):
+    if len(responses) < 2:
+        return [0] * len(responses), 1, -1  # Handle case with fewer than 2 samples
+    
     vectorizer = TfidfVectorizer(stop_words='english')
     X = vectorizer.fit_transform(responses)
     
     best_k = 2
     best_score = -1
     
-    for k in range(2, max_k + 1):
+    for k in range(2, min(max_k + 1, len(responses))):  # Adjust loop to valid range
         model = KMeans(n_clusters=k, random_state=42)
         labels = model.fit_predict(X)
         score = silhouette_score(X, labels)
