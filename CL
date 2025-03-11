@@ -19,9 +19,6 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Step 1: Group by Topics and Actor
-grouped = df.groupby(['Topics', 'Actor'])
-
 # Function to perform clustering on responses and return the optimal number of clusters and top words
 def optimal_clusters(responses, max_k=10):
     if len(responses) < 2:
@@ -55,16 +52,20 @@ def optimal_clusters(responses, max_k=10):
     
     return labels, best_k, best_score, top_words
 
-# Step 2: Apply clustering within each group and find optimal number of clusters and top words
-def cluster_with_optimal_k(group):
+# Step 1: Group by Topics and Actor, and then apply clustering within each group
+result = []
+
+for (topic, actor), group in df.groupby(['Topics', 'Actor']):
+    group = group.reset_index(drop=True)
     labels, best_k, best_score, top_words = optimal_clusters(group['cleaned_responses1'].tolist())
     group['Cluster'] = labels
     group['Optimal_Clusters'] = best_k
     group['Silhouette_Score'] = best_score
     group['Top_Words'] = [top_words[cluster] for cluster in labels]
-    return group
+    result.append(group)
 
-df = grouped.apply(cluster_with_optimal_k)
+# Step 2: Concatenate results into a single DataFrame
+df_final = pd.concat(result).reset_index(drop=True)
 
 # Display DataFrame with columns: Topics, Actor, cleaned_responses1, Cluster, Optimal_Clusters, Silhouette_Score, Top_Words
-print(df[['Topics', 'Actor', 'cleaned_responses1', 'Cluster', 'Optimal_Clusters', 'Silhouette_Score', 'Top_Words']])
+print(df_final[['Topics', 'Actor', 'cleaned_responses1', 'Cluster', 'Optimal_Clusters', 'Silhouette_Score', 'Top_Words']])
