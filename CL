@@ -1,8 +1,8 @@
 from collections import Counter
 import seaborn as sns
 
-# Function to generate bar plots for each topic and actor
-def generate_bar_plots_by_topic_actor(df):
+# Function to generate and save bar plots for each topic and actor
+def generate_and_save_bar_plots_by_topic_actor(df):
     grouped = df.groupby(['Topics', 'Actor'])
     
     for (topic, actor), group in grouped:
@@ -14,12 +14,15 @@ def generate_bar_plots_by_topic_actor(df):
         # Get top 10 words
         top_10_words_df = word_counts_df.nlargest(10, 'Count')
         
-        plt.figure(figsize=(12, 6))
+        plt.figure(figsize=(14, 8))
         sns.barplot(x='Count', y='Word', data=top_10_words_df, palette='viridis')
-        plt.title(f'Top 10 Words for {topic} and {actor}')
-        plt.xlabel('Frequency')
-        plt.ylabel('Words')
+        plt.title(f'Top 10 Words for {topic} and {actor}', fontsize=16)
+        plt.xlabel('Frequency', fontsize=14)
+        plt.ylabel('Words', fontsize=14)
+        plt.xticks(fontsize=12)
+        plt.yticks(fontsize=12)
+        plt.savefig(f'barplot_{topic}_{actor}.png')
         plt.show()
 
-# Generate bar plots by topic and actor
-generate_bar_plots_by_topic_actor(df)
+# Generate and save bar plots by topic and actor
+generate_and_save_bar_plots_by_topic_actor(df)
