@@ -1,160 +1,54 @@
-User Story: Hiring Manager Experience Survey
-Multi-Device Accessibility
-As a hiring manager,
-I want to access and complete my survey on any device (desktop, tablet, or mobile),
-So that I can provide feedback conveniently without being restricted to a specific platform.
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 
-Acceptance Criteria:
+# Sample DataFrame: Replace with your actual data
+data = {
+    'Topics': ['Topic1', 'Topic1', 'Topic2', 'Topic2', 'Topic1'],
+    'Actor': ['Actor1', 'Actor1', 'Actor2', 'Actor2', 'Actor1'],
+    'cleaned_responses1': [
+        'I love coding in Python.',
+        'Python is great for data analysis.',
+        'I enjoy machine learning and AI.',
+        'Data science is an exciting field.',
+        'Machine learning models are fascinating.'
+    ]
+}
 
-The survey should be fully responsive and accessible across different devices and screen sizes.
-The user interface should be optimized for mobile, tablet, and desktop experiences.
-The survey should function smoothly without requiring any additional software or plugins.
-Response Replication
-As a hiring manager,
-I want the ability to replicate my previous responses given for Candidate X to Candidate Y,
-So that I don’t have to fill out the same details repeatedly for similar hiring experiences.
+df = pd.DataFrame(data)
 
-Acceptance Criteria:
+# Step 1: Group by Topics and Actor
+grouped = df.groupby(['Topics', 'Actor'])
 
-The system should provide an option to copy previous responses if applicable.
-The hiring manager should be able to review and modify replicated responses before submission.
-The feature should work across different hiring instances while ensuring data accuracy.
-Progress Saving & Resumption
-As a hiring manager,
-I want to save my progress and resume from where I left off on any device,
-So that I can complete the survey at my convenience without losing data.
+# Function to perform clustering on responses and return the optimal number of clusters
+def optimal_clusters(responses, max_k=10):
+    vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform(responses)
+    
+    best_k = 2
+    best_score = -1
+    
+    for k in range(2, max_k + 1):
+        model = KMeans(n_clusters=k, random_state=42)
+        labels = model.fit_predict(X)
+        score = silhouette_score(X, labels)
+        
+        if score > best_score:
+            best_k = k
+            best_score = score
+    
+    model = KMeans(n_clusters=best_k, random_state=42)
+    labels = model.fit_predict(X)
+    return labels, best_k, best_score
 
-Acceptance Criteria:
+# Step 2: Apply clustering within each group and find optimal number of clusters
+def cluster_with_optimal_k(group):
+    labels, best_k, best_score = optimal_clusters(group['cleaned_responses1'].tolist())
+    group['Cluster'] = labels
+    group['Optimal_Clusters'] = best_k
+    group['Silhouette_Score'] = best_score
+    return group
 
-The survey should auto-save responses periodically.
-Users should be able to resume the survey from any device without starting over.
-The feature should not be dependent on a specific browser or session.
-Response Summary Before and After Submission
-As a hiring manager,
-I want to review a summary of my responses before submitting the survey,
-So that I can ensure my inputs are accurate and complete.
-
-Acceptance Criteria:
-
-A review page should display all responses before final submission.
-Users should be able to edit responses before submitting.
-After submission, the hiring manager should receive a confirmation email with a summary of their responses.
-Relevant Survey Questions
-As a hiring manager,
-I want to answer only the survey questions relevant to my specific hiring experience,
-So that my feedback is more meaningful and aligned with my role.
-
-Acceptance Criteria:
-
-The survey should use dynamic logic to display only relevant questions.
-Irrelevant or inapplicable questions should be skipped automatically.
-The system should ensure that every hiring manager receives a personalized survey experience based on their inputs.
-
-User Story: Dashboard User for Survey Insights
-Customizable Reports & Filters
-As a dashboard user,
-I want to generate reports and insights from survey responses with an option to customize reports and apply filters,
-So that I can view specific metrics and data points relevant to my analysis.
-
-Acceptance Criteria:
-
-The dashboard should provide filtering options based on survey attributes (e.g., date range, demographics, responses).
-Users should be able to customize reports by selecting specific data points.
-Reports should be exportable in various formats (e.g., PDF, Excel, CSV).
-The interface should allow users to save and reuse customized report settings.
-Exporting Complete Survey Data from Widgets
-As a dashboard user,
-I want to export survey data from the dashboard at the widget level with complete details,
-So that I can analyze all relevant data, not just the metrics and data points visible on the screen, without restrictions in scrolling.
-
-Acceptance Criteria:
-
-Users should be able to export complete data sets from any widget.
-The export feature should include all underlying data, not just the summarized or displayed metrics.
-There should be no limitation in exporting data due to scrolling constraints.
-The exported file should maintain data integrity and structure for further analysis.
-
-User Story: Learning Survey Stakeholder
-Avoid Duplicate Surveys for the Same Course
-As a learning survey stakeholder,
-I want to check whether a survey has already been sent to the colleague for the same course within the last 30 days,
-So that I can prevent duplicate survey invitations and avoid survey fatigue.
-
-Acceptance Criteria:
-
-The system should verify if a survey has been sent to the same colleague for the same course in the past 30 days.
-If a survey was already sent within the defined period, the new survey should be skipped.
-A log entry should be created for skipped surveys with a reason code.
-Real-Time Survey Trigger at Course Completion
-As a learning survey stakeholder,
-I want the survey to be triggered immediately upon course completion,
-So that feedback is captured in real time, enabling active listening and eliminating the 12-hour delay caused by file transfers.
-
-Acceptance Criteria:
-
-The survey should be automatically triggered as soon as a colleague completes a course.
-There should be no dependency on the SFTP file transfer process.
-The system should maintain timestamps for when the survey was triggered.
-Automated Notification for SFTP Transfer Failure
-As a learning survey stakeholder,
-I want to receive an automated email notification if the SFTP file transfer from Workday fails,
-So that I can take timely action to resolve the issue.
-
-Acceptance Criteria:
-
-If an SFTP transfer fails, an email notification should be sent to the relevant stakeholders.
-The notification should include the reason for failure and relevant troubleshooting steps.
-The system should allow configuring email recipients for failure alerts.
-Maintain Logs of Workday Learning & Survey Tool Interactions
-As a learning survey stakeholder,
-I want to maintain logs of all interactions between Workday Learning and the survey tool,
-So that I can track data exchanges, troubleshoot issues, and ensure data integrity.
-
-Acceptance Criteria:
-
-The system should log all interactions, including successful and failed data transfers.
-Logs should capture timestamps, data payload details, and error messages (if any).
-Logs should be accessible for audit and troubleshooting purposes.
-
-User Story: Leaving Survey Stakeholder – Contact Frequency Rule
-As a leaving survey stakeholder,
-I want the survey workflow to check and enforce a contact frequency rule,
-So that a colleague receives the leaving survey only once in 365 days, preventing duplicate survey invitations.
-
-Acceptance Criteria:
-The system should verify if the colleague has received a leaving survey in the past 365 days before triggering a new one.
-If a survey was already sent within the 365-day period, the new survey should be skipped.
-A log entry should be created for skipped surveys, mentioning the reason as "Contact frequency rule enforced."
-The system should allow configuration of the contact frequency rule for future adjustments.
-
-
-
-
-
-User Story: Hiring Manager Experience Survey
-
-As a Journey Owner for the Progressing and Recruiting Journey,
-I want hiring managers to have a seamless and efficient survey experience,
-So that their feedback is easily captured, relevant, and actionable.
-
-Acceptance Criteria:
-Multi-Device Accessibility
-
-As a hiring manager, I want to access and complete the survey on any device (desktop, tablet, or mobile)
-The survey should be fully responsive and optimized for different screen sizes.
-Response Replication
-
-As a hiring manager, I want the option to replicate my previous responses given for Candidate X to Candidate Y if the experience was similar.
-The system should allow me to review and modify the replicated responses before submission.
-Progress Saving & Resumption
-
-As a hiring manager, I want to save my progress and resume from where I left off on any device without browser dependency.
-My responses should be auto-saved periodically to prevent data loss.
-Response Summary Before and After Submission
-
-As a hiring manager, I want to review a summary of my responses before submission.
-After submission, I want to receive a confirmation email with a summary of my responses for my records.
-Relevant Survey Questions
-
-As a hiring manager, I want to answer survey questions that are relevant to my specific hiring experience.
-The survey should dynamically adjust based on my inputs to ensure the feedback is meaningful.
+df = grouped.apply(cluster_with_optimal_k)
+print(df)
