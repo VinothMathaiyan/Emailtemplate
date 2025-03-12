@@ -1,21 +1,17 @@
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+import pandas as pd
 
-# Function to generate and save word clouds for each topic and actor
-def generate_and_save_word_clouds_by_topic_actor(df):
-    grouped = df.groupby(['Topics', 'Actor'])
-    
-    for (topic, actor), group in grouped:
-        unique_words = [word for words in group['Top_Words'] for word in words]
-        wordcloud_text = " ".join(unique_words)
-        wordcloud = WordCloud(width=800, height=400, background_color='white').generate(wordcloud_text)
-        
-        plt.figure(figsize=(10, 8))
-        plt.imshow(wordcloud, interpolation='bilinear')
-        plt.title(f'Word Cloud for {topic} and {actor}')
-        plt.axis('off')
-        plt.savefig(f'wordcloud_{topic}_{actor}.png')
-        plt.show()
+def replace_keywords(response, keyword_dict):
+    for key, values in keyword_dict.items():
+        for value in values:
+            response = response.replace(value, key)
+    return response
 
-# Generate and save word clouds by topic and actor
-generate_and_save_word_clouds_by_topic_actor(df)
+# Example usage with a DataFrame
+data = {'Response': ['I need a vacation and have a booking for it.', 
+                     'The reservation is for my holiday.']}
+df = pd.DataFrame(data)
+
+keyword_dict = {'leave': ['vacation', 'holiday'], 'booking': ['scheduling', 'reservation']}
+df['Expanded Response'] = df['Response'].astype(str).apply(lambda x: replace_keywords(x, keyword_dict))
+
+print(df)
