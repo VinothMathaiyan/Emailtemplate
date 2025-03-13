@@ -1,17 +1,103 @@
-import pandas as pd
+Sure, Rajasekar! Here's the complete and final structure of our presentation with all the details we have discussed so far:
 
-def replace_keywords(response, keyword_dict):
-    for key, values in keyword_dict.items():
-        for value in values:
-            response = response.replace(value, key)
-    return response
+---
 
-# Example usage with a DataFrame
-data = {'Response': ['I need a vacation and have a booking for it.', 
-                     'The reservation is for my holiday.']}
-df = pd.DataFrame(data)
+## Presentation Structure
 
-keyword_dict = {'leave': ['vacation', 'holiday'], 'booking': ['scheduling', 'reservation']}
-df['Expanded Response'] = df['Response'].astype(str).apply(lambda x: replace_keywords(x, keyword_dict))
+### 1. Introduction
+- Highlight the importance of analyzing free text responses.
 
-print(df)
+### 2. Business Problem
+- **Challenge:** Lack of specificity and difficulty in deriving actionable insights from generic topics like "Experience" or "Services."
+- **Need:** Mapping responses to specific stages in a process, making them more relatable and actionable.
+
+### 3. Stakeholder Expectations
+- Explain the need to map responses to specific stages in a process.
+
+### 4. Process Stages for Annual Leave
+- Detail the stages of the annual leave process:
+  1. Access Workday platform
+  2. Review guidance and leave allocations
+  3. Review balance
+  4. Select leave dates
+  5. Add notes (if necessary)
+  6. Submit request
+  7. Manager review and approval
+  8. Make adjustments (if necessary)
+  9. Notification of decision to manager
+  10. Update Workday calendar
+  11. Track and report
+
+### 5. Current Solutions
+- **Mapping Responses:** Using TF-IDF vectorizer method to map responses to specific topics.
+- **Identifying Subtopics:** Cluster analysis to identify subtopics within responses.
+- **Visualization:** Creating word clouds and bar charts for visual representation.
+- **Summarizing Responses:** Parsing mapped responses and summarizing comments for stakeholder review.
+
+### 6. Detailed Steps in Mapping Topics
+1. **Input File:**
+   - **Sheet 1:** Annual leave responses
+   - **Sheet 2:** Keyword dictionary
+   - **Sheet 3:** Moment responses
+
+2. **Data Cleaning:**
+   - Convert text to lowercase
+   - Remove text in square brackets, punctuations, and words containing numbers
+   - Remove underscores, periods, slashes, colons, and equal signs
+   - Lemmatize text
+   - Remove stop words and non-alphanumeric tokens
+
+3. **Keyword Dictionary:**
+   - Prepare keyword dictionary to standardize terminology
+   - Replace synonyms with common keywords for consistency
+
+4. **Exploratory Data Analysis (EDA):**
+   - Analyze the number of words in responses
+   - Create word clouds and bar charts for visual representation
+
+5. **N-gram Analysis:**
+   - Examining unigrams, bigrams, and trigrams to see word frequency patterns.
+
+6. **TF-IDF Mapping:**
+   - Each response is mapped to specific topics using TF-IDF.
+   - Random checks suggest good accuracy, with potential for improvement through refining the keyword dictionary and applying machine learning for continual updates.
+
+### 7. Clustering Analysis
+1. **Subtopic Creation:**
+   - Using clustering analysis to create subtopics.
+   - Input is the processed output from TF-IDF mapping.
+
+2. **Data Processing:**
+   - Similar cleaning and processing are applied, with a focus on cluster creation.
+
+3. **Optimal Cluster Identification:**
+   - Business needs determine the number of subtopics.
+   - Methods like Silhouette Analysis help find the optimal cluster number.
+   - Manual testing suggests three clusters for the "Access to Workday" topic.
+
+4. **Cluster Refinement:**
+   - Further refinement is possible to enhance accuracy.
+
+### 8. Visualizations
+- **Visualization Creation:** Creating word clouds and bar charts to represent data visually.
+- **Visualizations:** Help in understanding and communicating key insights from the data.
+
+### 9. Future Steps
+- **Qualtrics Integration:**
+  - Moving the processed file into Qualtrics for further analysis.
+  - Using Qualtrics dashboards to drill down based on the team.
+  - Performing sentiment analysis for deeper insights.
+
+- **Automation and Refinement:**
+  - Optimizing the number of clusters.
+  - Enhancing efficiency and accuracy through automation.
+  - Reducing manual effort and minimizing errors.
+
+### 10. Benefits
+- **Faster Topic Mapping:** Allowing quicker identification of trends in large volumes of data.
+- **Reduced Manual Intervention:** Saving time and ensuring reliability.
+- **Enhanced Accuracy:** Through continual updates and refinements.
+
+---
+
+Does this cover everything you need for your presentation? If there's anything else you need, feel free to let me know!
