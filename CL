@@ -1,54 +1,60 @@
-<label for="date">Choose a date</label>
-<div class="date-container">
-  <input type="text" id="date" placeholder="mm/dd/yyyy" />
-  <span class="calendar-icon">&#128197;</span> <!-- Unicode for calendar icon -->
+<div class="date-picker">
+    <input type="text" id="dateInput" placeholder="Select date" readonly>
+    <button id="calendarButton" aria-label="Open calendar">
+        <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M7 10h5v5H7z" fill="currentColor"/>
+            <path d="M21 2h-3V0h-2v2H8V0H6v2H3C1.9 2 1 2.9 1 4v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 20H3V9h18v13zm0-15H3V4h3v2h2V4h8v2h2V4h3v3z" fill="currentColor"/>
+        </svg>
+    </button>
 </div>
 
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+.date-picker {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    width: fit-content;
+    margin: 10px 0;
+}
+
+.date-picker input {
+    border: none;
+    padding: 8px;
+    width: 150px;
+    outline: none;
+}
+
+.date-picker button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.date-picker button svg {
+    fill: #333;
+}
+</style>
+
 <script>
-  Qualtrics.SurveyEngine.addOnload(function() {
-    const input = document.getElementById('date');
-    const calendarIcon = document.querySelector('.calendar-icon');
-    
-    input.addEventListener('focus', function() {
-      this.type = 'date';
-      this.placeholder = 'yyyy-mm-dd';
-      calendarIcon.style.visibility = 'visible';
+document.getElementById('calendarButton').addEventListener('click', function() {
+    const dateInput = document.getElementById('dateInput');
+    const currentValue = dateInput.value;
+    const datePicker = new window.duet.DatePicker({
+        value: currentValue,
+        onValueChange: ({ value }) => {
+            dateInput.value = value;
+        }
     });
-
-    input.addEventListener('blur', function() {
-      this.type = 'text';
-      this.placeholder = 'mm/dd/yyyy';
-      calendarIcon.style.visibility = 'hidden';
-    });
-
-    // Initially hide the calendar icon
-    calendarIcon.style.visibility = 'hidden';
-  });
+    datePicker.show();
+});
 </script>
 
-<style>
-  .date-container {
-    position: relative;
-    display: inline-block;
-    width: 75%;
-  }
-  
-  #date {
-    width: 100%;
-    padding-right: 30px; /* To accommodate the calendar icon */
-    box-sizing: border-box;
-  }
-
-  .calendar-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    visibility: hidden; /* Initially hidden */
-  }
-
-  #date:focus + .calendar-icon {
-    visibility: visible;
-  }
-</style>
+<script src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@latest/dist/duet/duet.esm.js" type="module"></script>
