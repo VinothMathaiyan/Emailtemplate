@@ -62,4 +62,52 @@ Qualtrics.SurveyEngine.addOnload(function() {
             // Focus on the calendar to enable keyboard navigation
             setTimeout(function() {
                 jQuery(".ui-datepicker").attr("tabindex", "0").focus();
-      
+            }, 100);
+        });
+
+        // Enable keyboard navigation for the calendar
+        jQuery(document).on("keydown", function(e) {
+            if (jQuery(".ui-datepicker:visible").length) {
+                if (e.key === "Escape") {
+                    hiddenInput.datepicker("hide");
+                    calendarIcon.focus();
+                }
+            }
+        });
+    });
+
+    // Move to next field on input
+    dayInput.on("input", function() {
+        if (this.value.length === 2) {
+            monthInput.focus();
+        }
+    });
+
+    monthInput.on("input", function() {
+        if (this.value.length === 2) {
+            yearInput.focus();
+        }
+    });
+
+    // Accessibility: Focus outline in blue
+    jQuery("#day, #month, #year").on("focus", function() {
+        jQuery(this).css("outline", "2px solid blue");
+    }).on("blur", function() {
+        jQuery(this).css("outline", "none");
+    });
+
+    // Validate full date format
+    yearInput.on("blur", function() {
+        var day = dayInput.val();
+        var month = monthInput.val();
+        var year = yearInput.val();
+        var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+        
+        if (!regex.test(day + "-" + month + "-" + year)) {
+            alert("Please enter a valid date in dd-mm-yyyy format.");
+            dayInput.val("");
+            monthInput.val("");
+            yearInput.val("");
+        }
+    });
+});
