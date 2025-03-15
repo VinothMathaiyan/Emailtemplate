@@ -1,28 +1,42 @@
-<label for="date">Select a date:</label>
+<label for="date">Select a Date:</label>
 <input type="text" id="date" placeholder="dd-mm-yyyy" required />
 
 Qualtrics.SurveyEngine.addOnload(function() {
-    var inputBox = document.getElementById("date");
+    var inputBox = jQuery("#date");
 
-    // Enforce placeholder format
-    inputBox.setAttribute("pattern", "\\d{2}-\\d{2}-\\d{4}");
+    // Ensure jQuery UI is loaded
+    function loadjQueryUI(callback) {
+        if (typeof jQuery.ui === "undefined") {
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
+            document.head.appendChild(link);
 
-    // Accessibility: Blue outline on focus
-    inputBox.addEventListener("focus", function() {
-        this.style.outline = "2px solid blue";
-    });
-
-    inputBox.addEventListener("blur", function() {
-        this.style.outline = "none";
-    });
-
-    // Validate date format on input
-    inputBox.addEventListener("input", function() {
-        var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
-        if (!regex.test(this.value)) {
-            this.style.border = "2px solid red";
+            var script = document.createElement("script");
+            script.src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js";
+            script.onload = callback;
+            document.head.appendChild(script);
         } else {
-            this.style.border = "2px solid green";
+            callback();
         }
+    }
+
+    // Initialize Datepicker after loading jQuery UI
+    loadjQueryUI(function() {
+        inputBox.datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: 0,
+            maxDate: "+3M",
+            showAnim: "fadeIn",
+            showOn: "both",
+            buttonText: "📅"
+        });
+
+        // Accessibility: Focus outline in blue
+        inputBox.on("focus", function() {
+            jQuery(this).css("outline", "2px solid blue");
+        }).on("blur", function() {
+            jQuery(this).css("outline", "none");
+        });
     });
 });
