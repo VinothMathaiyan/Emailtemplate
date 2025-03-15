@@ -1,40 +1,52 @@
-The script provided should generally work in Qualtrics, as it uses standard HTML, CSS, and JavaScript. However, Qualtrics may have some specific requirements or constraints that need to be considered. Here are a few points to ensure compatibility:
-
-1. **Script Execution**: Ensure that the script is placed in the appropriate section where Qualtrics allows custom JavaScript to run, such as in the "Add JavaScript" section of a question.
-
-2. **jQuery**: If Qualtrics uses jQuery, make sure there are no conflicts with the `document.addEventListener` method. You might need to use jQuery's `$(document).ready()` instead.
-
-3. **CSS Styles**: Ensure that the CSS styles are properly scoped to avoid conflicts with other styles in Qualtrics.
-
-Here is a version of the code adapted for use in Qualtrics:
-
-```html
 <label for="date">Choose a date</label>
-<input type="text" id="date" placeholder="mm/dd/yyyy" style="width: 75%;" />
+<div class="date-container">
+  <input type="text" id="date" placeholder="mm/dd/yyyy" style="width: 75%;" />
+  <span class="calendar-icon">&#128197;</span> <!-- Unicode for calendar icon -->
+</div>
 
-<script type="text/javascript">
+<script>
   Qualtrics.SurveyEngine.addOnload(function() {
     const input = document.getElementById('date');
+    const calendarIcon = document.querySelector('.calendar-icon');
     
     input.addEventListener('focus', function() {
       this.type = 'date';
       this.placeholder = 'yyyy-mm-dd';
+      calendarIcon.style.visibility = 'visible';
     });
 
     input.addEventListener('blur', function() {
       this.type = 'text';
       this.placeholder = 'mm/dd/yyyy';
+      calendarIcon.style.visibility = 'hidden';
     });
+
+    // Initially hide the calendar icon
+    calendarIcon.style.visibility = 'hidden';
   });
 </script>
 
 <style>
+  .date-container {
+    position: relative;
+    display: inline-block;
+  }
+  
   #date {
     width: 75%;
+    padding-right: 30px; /* To accommodate the calendar icon */
+  }
+
+  .calendar-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden; /* Initially hidden */
+  }
+
+  #date:focus + .calendar-icon {
+    visibility: visible;
   }
 </style>
-```
-
-This script uses `Qualtrics.SurveyEngine.addOnload` to ensure that it runs when the question is loaded. This should help in integrating the script smoothly into a Qualtrics survey.
-
-Would you like to proceed with updating the file in your repository with this code, or do you need further assistance with Qualtrics-specific adjustments?
