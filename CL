@@ -1,8 +1,10 @@
 <label for="date">Select a Date:</label>
 <input type="text" id="date" placeholder="dd-mm-yyyy" required />
+<button type="button" id="calendarIcon">📅</button>
 
 Qualtrics.SurveyEngine.addOnload(function() {
     var inputBox = jQuery("#date");
+    var calendarIcon = jQuery("#calendarIcon");
 
     // Ensure jQuery UI is loaded
     function loadjQueryUI(callback) {
@@ -28,15 +30,29 @@ Qualtrics.SurveyEngine.addOnload(function() {
             minDate: 0,
             maxDate: "+3M",
             showAnim: "fadeIn",
-            showOn: "both",
+            showOn: "focus", // Prevents auto-popup when typing
             buttonText: "📅"
         });
 
-        // Accessibility: Focus outline in blue
+        // Only show calendar when clicking the button
+        calendarIcon.on("click", function() {
+            inputBox.datepicker("show");
+        });
+
+        // Accessibility: Focus outline in blue when using keyboard
         inputBox.on("focus", function() {
             jQuery(this).css("outline", "2px solid blue");
         }).on("blur", function() {
             jQuery(this).css("outline", "none");
+        });
+
+        // Validate input format on blur
+        inputBox.on("blur", function() {
+            var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+            if (!regex.test(jQuery(this).val())) {
+                alert("Please enter a valid date in dd-mm-yyyy format.");
+                jQuery(this).val("");
+            }
         });
     });
 });
