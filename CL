@@ -7,10 +7,19 @@ Qualtrics.SurveyEngine.addOnload(function() {
   const duetDatePicker = document.createElement('duet-date-picker');
   duetDatePicker.identifier = 'date';
   duetDatePicker.value = input.value;
-  duetDatePicker.setAttribute('placeholder', 'mm/dd/yyyy'); // Set placeholder
+  duetDatePicker.localization = {
+    placeholder: "mm/dd/yyyy", // Set placeholder
+    dateFormat: "MM/DD/YYYY"   // Set date format
+  };
   input.parentNode.replaceChild(duetDatePicker, input);
 });
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/themes/default.css" />
 <script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>
+
+<style>
+  .duet-date__input {
+    width: 75%;
+  }
+</style>
