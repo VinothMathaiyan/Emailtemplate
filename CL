@@ -36,6 +36,15 @@ Qualtrics.SurveyEngine.addOnload(function() {
                 dayInput.val(parts[0]);
                 monthInput.val(parts[1]);
                 yearInput.val(parts[2]);
+            },
+            beforeShow: function(input, inst) {
+                var iconOffset = calendarIcon.offset();
+                setTimeout(function() {
+                    inst.dpDiv.css({
+                        top: iconOffset.top + calendarIcon.outerHeight() + "px",
+                        left: iconOffset.left + "px"
+                    });
+                }, 10);
             }
         });
 
