@@ -7,6 +7,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
   const duetDatePicker = document.createElement('duet-date-picker');
   duetDatePicker.identifier = 'date';
   duetDatePicker.value = input.value;
+  duetDatePicker.setAttribute('placeholder', 'mm/dd/yyyy'); // Set placeholder
   input.parentNode.replaceChild(duetDatePicker, input);
 });
 
