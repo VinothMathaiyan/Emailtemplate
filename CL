@@ -1,6 +1,6 @@
 <label for="date">Choose a date</label>
 <div class="date-container">
-  <input type="text" id="date" placeholder="mm/dd/yyyy" style="width: 75%;" />
+  <input type="text" id="date" placeholder="mm/dd/yyyy" />
   <span class="calendar-icon">&#128197;</span> <!-- Unicode for calendar icon -->
 </div>
 
@@ -30,11 +30,13 @@
   .date-container {
     position: relative;
     display: inline-block;
+    width: 75%;
   }
   
   #date {
-    width: 75%;
+    width: 100%;
     padding-right: 30px; /* To accommodate the calendar icon */
+    box-sizing: border-box;
   }
 
   .calendar-icon {
