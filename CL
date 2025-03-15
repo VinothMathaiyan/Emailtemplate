@@ -1,25 +1,40 @@
+The script provided should generally work in Qualtrics, as it uses standard HTML, CSS, and JavaScript. However, Qualtrics may have some specific requirements or constraints that need to be considered. Here are a few points to ensure compatibility:
+
+1. **Script Execution**: Ensure that the script is placed in the appropriate section where Qualtrics allows custom JavaScript to run, such as in the "Add JavaScript" section of a question.
+
+2. **jQuery**: If Qualtrics uses jQuery, make sure there are no conflicts with the `document.addEventListener` method. You might need to use jQuery's `$(document).ready()` instead.
+
+3. **CSS Styles**: Ensure that the CSS styles are properly scoped to avoid conflicts with other styles in Qualtrics.
+
+Here is a version of the code adapted for use in Qualtrics:
+
+```html
 <label for="date">Choose a date</label>
-<input type="date" id="date" />
+<input type="text" id="date" placeholder="mm/dd/yyyy" style="width: 75%;" />
 
-Qualtrics.SurveyEngine.addOnload(function() {
-  // Convert input to Duet Date Picker once the script is loaded
-  const input = document.getElementById('date');
-  const duetDatePicker = document.createElement('duet-date-picker');
-  duetDatePicker.identifier = 'date';
-  duetDatePicker.value = input.value;
-  duetDatePicker.localization = {
-    placeholder: "mm/dd/yyyy", // Set placeholder
-    dateFormat: "MM/DD/YYYY"   // Set date format
-  };
-  input.parentNode.replaceChild(duetDatePicker, input);
-});
+<script type="text/javascript">
+  Qualtrics.SurveyEngine.addOnload(function() {
+    const input = document.getElementById('date');
+    
+    input.addEventListener('focus', function() {
+      this.type = 'date';
+      this.placeholder = 'yyyy-mm-dd';
+    });
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/themes/default.css" />
-<script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>
+    input.addEventListener('blur', function() {
+      this.type = 'text';
+      this.placeholder = 'mm/dd/yyyy';
+    });
+  });
+</script>
 
 <style>
-  .duet-date__input {
+  #date {
     width: 75%;
   }
 </style>
+```
+
+This script uses `Qualtrics.SurveyEngine.addOnload` to ensure that it runs when the question is loaded. This should help in integrating the script smoothly into a Qualtrics survey.
+
+Would you like to proceed with updating the file in your repository with this code, or do you need further assistance with Qualtrics-specific adjustments?
