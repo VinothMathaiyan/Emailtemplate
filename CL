@@ -1,60 +1,45 @@
-<div class="date-picker">
-    <input type="text" id="dateInput" placeholder="Select date" readonly>
-    <button id="calendarButton" aria-label="Open calendar">
-        <svg width="24" height="24" viewBox="0 0 24 24">
-            <path d="M7 10h5v5H7z" fill="currentColor"/>
-            <path d="M21 2h-3V0h-2v2H8V0H6v2H3C1.9 2 1 2.9 1 4v18c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 20H3V9h18v13zm0-15H3V4h3v2h2V4h8v2h2V4h3v3z" fill="currentColor"/>
-        </svg>
-    </button>
-</div>
+Qualtrics.SurveyEngine.addOnload(function() {
+    var qid = this.getQuestionInfo().ContainerID;
+    
+    jQuery(document).ready(function() {
+        var inputBox = jQuery("#" + qid + " input[type='text']");
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-}
+        inputBox.datepicker({
+            dateFormat: 'dd/mm/yy',
+            minDate: 0,
+            maxDate: "+3M",
+            showAnim: "fadeIn",
+            showOn: "both",
+            buttonText: "📅",
+            beforeShow: function(input, inst) {
+                setTimeout(function() {
+                    jQuery(inst.dpDiv).attr("role", "dialog").attr("aria-live", "polite");
+                }, 0);
+            }
+        });
 
-.date-picker {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    overflow: hidden;
-    width: fit-content;
-    margin: 10px 0;
-}
+        // Accessibility: Ensure keyboard users can focus on the calendar
+        inputBox.on("keydown", function(event) {
+            if (event.key === "ArrowDown") {
+                jQuery(this).datepicker("show");
+            }
+        });
 
-.date-picker input {
-    border: none;
-    padding: 8px;
-    width: 150px;
-    outline: none;
-}
-
-.date-picker button {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-}
-
-.date-picker button svg {
-    fill: #333;
-}
-</style>
-
-<script>
-document.getElementById('calendarButton').addEventListener('click', function() {
-    const dateInput = document.getElementById('dateInput');
-    const currentValue = dateInput.value;
-    const datePicker = new window.duet.DatePicker({
-        value: currentValue,
-        onValueChange: ({ value }) => {
-            dateInput.value = value;
-        }
+        // Focus outline for accessibility
+        inputBox.on("focus", function() {
+            jQuery(this).css("outline", "2px solid blue");
+        }).on("blur", function() {
+            jQuery(this).css("outline", "none");
+        });
     });
-    datePicker.show();
 });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@latest/dist/duet/duet.esm.js" type="module"></script>
+.ui-datepicker {
+    font-size: 14px;
+    z-index: 9999 !important; /* Ensure the calendar is visible */
+}
+
+.ui-datepicker-trigger {
+    cursor: pointer;
+    margin-left: 5px;
+}
