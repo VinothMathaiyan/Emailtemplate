@@ -31,12 +31,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
             minDate: 0,
             maxDate: "+3M",
             showAnim: "fadeIn",
-            onSelect: function(dateText) {
-                var parts = dateText.split("-");
-                dayInput.val(parts[0]);
-                monthInput.val(parts[1]);
-                yearInput.val(parts[2]);
-            },
+            showOn: "focus",
             beforeShow: function(input, inst) {
                 var iconOffset = calendarIcon.offset();
                 setTimeout(function() {
@@ -44,48 +39,27 @@ Qualtrics.SurveyEngine.addOnload(function() {
                         top: iconOffset.top + calendarIcon.outerHeight() + "px",
                         left: iconOffset.left + "px"
                     });
+
+                    // Ensure keyboard focus on calendar popup
+                    inst.dpDiv.attr("tabindex", "-1").focus();
                 }, 10);
+            },
+            onSelect: function(dateText) {
+                var parts = dateText.split("-");
+                dayInput.val(parts[0]);
+                monthInput.val(parts[1]);
+                yearInput.val(parts[2]);
+
+                // Move focus back to day input after selection
+                dayInput.focus();
             }
         });
 
         // Show calendar when clicking the icon
         calendarIcon.on("click", function() {
             hiddenInput.datepicker("show");
-        });
-    });
 
-    // Move to next field on input
-    dayInput.on("input", function() {
-        if (this.value.length === 2) {
-            monthInput.focus();
-        }
-    });
-
-    monthInput.on("input", function() {
-        if (this.value.length === 2) {
-            yearInput.focus();
-        }
-    });
-
-    // Accessibility: Focus outline in blue
-    jQuery("#day, #month, #year").on("focus", function() {
-        jQuery(this).css("outline", "2px solid blue");
-    }).on("blur", function() {
-        jQuery(this).css("outline", "none");
-    });
-
-    // Validate full date format
-    yearInput.on("blur", function() {
-        var day = dayInput.val();
-        var month = monthInput.val();
-        var year = yearInput.val();
-        var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
-        
-        if (!regex.test(day + "-" + month + "-" + year)) {
-            alert("Please enter a valid date in dd-mm-yyyy format.");
-            dayInput.val("");
-            monthInput.val("");
-            yearInput.val("");
-        }
-    });
-});
+            // Focus on the calendar to enable keyboard navigation
+            setTimeout(function() {
+                jQuery(".ui-datepicker").attr("tabindex", "0").focus();
+      
