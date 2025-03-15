@@ -1,113 +1,50 @@
-Qualtrics.SurveyEngine.addOnload(function() {
-    var dayInput = jQuery("#day");
-    var monthInput = jQuery("#month");
-    var yearInput = jQuery("#year");
-    var calendarIcon = jQuery("#calendarIcon");
+<style>
+/* Style the overall date input container */
+.date-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
+}
 
-    function loadjQueryUI(callback) {
-        if (typeof jQuery.ui === "undefined") {
-            var link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
-            document.head.appendChild(link);
+/* Remove individual borders from the input fields */
+.date-container input {
+    border: none;
+    width: 30px;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+}
 
-            var script = document.createElement("script");
-            script.src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js";
-            script.onload = callback;
-            document.head.appendChild(script);
-        } else {
-            callback();
-        }
-    }
+/* Ensure fixed spacing between inputs */
+.date-separator {
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
 
-    loadjQueryUI(function() {
-        // Create a hidden input field for the datepicker
-        var hiddenInput = jQuery('<input type="text" id="datePickerField" style="position: absolute; left: -9999px;">');
-        jQuery("body").append(hiddenInput);
+/* Style the calendar icon */
+#calendarIcon {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+    color: #007bff;
+}
 
-        // Initialize datepicker on the hidden input
-        hiddenInput.datepicker({
-            dateFormat: 'dd-mm-yy',
-            minDate: 0,
-            maxDate: "+3M",
-            showAnim: "fadeIn",
-            showOn: "focus",
-            beforeShow: function(input, inst) {
-                var iconOffset = calendarIcon.offset();
-                setTimeout(function() {
-                    inst.dpDiv.css({
-                        top: iconOffset.top + calendarIcon.outerHeight() + "px",
-                        left: iconOffset.left + "px"
-                    });
+/* Accessibility: Highlight border on focus */
+.date-container:focus-within {
+    border: 2px solid blue;
+}
+</style>
 
-                    // Ensure keyboard focus on calendar popup
-                    inst.dpDiv.attr("tabindex", "-1").focus();
-                }, 10);
-            },
-            onSelect: function(dateText) {
-                var parts = dateText.split("-");
-                dayInput.val(parts[0]);
-                monthInput.val(parts[1]);
-                yearInput.val(parts[2]);
 
-                // Move focus back to day input after selection
-                dayInput.focus();
-            }
-        });
-
-        // Show calendar when clicking the icon
-        calendarIcon.on("click", function() {
-            hiddenInput.datepicker("show");
-
-            // Focus on the calendar to enable keyboard navigation
-            setTimeout(function() {
-                jQuery(".ui-datepicker").attr("tabindex", "0").focus();
-            }, 100);
-        });
-
-        // Enable keyboard navigation for the calendar
-        jQuery(document).on("keydown", function(e) {
-            if (jQuery(".ui-datepicker:visible").length) {
-                if (e.key === "Escape") {
-                    hiddenInput.datepicker("hide");
-                    calendarIcon.focus();
-                }
-            }
-        });
-    });
-
-    // Move to next field on input
-    dayInput.on("input", function() {
-        if (this.value.length === 2) {
-            monthInput.focus();
-        }
-    });
-
-    monthInput.on("input", function() {
-        if (this.value.length === 2) {
-            yearInput.focus();
-        }
-    });
-
-    // Accessibility: Focus outline in blue
-    jQuery("#day, #month, #year").on("focus", function() {
-        jQuery(this).css("outline", "2px solid blue");
-    }).on("blur", function() {
-        jQuery(this).css("outline", "none");
-    });
-
-    // Validate full date format
-    yearInput.on("blur", function() {
-        var day = dayInput.val();
-        var month = monthInput.val();
-        var year = yearInput.val();
-        var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
-        
-        if (!regex.test(day + "-" + month + "-" + year)) {
-            alert("Please enter a valid date in dd-mm-yyyy format.");
-            dayInput.val("");
-            monthInput.val("");
-            yearInput.val("");
-        }
-    });
-});
+<div class="date-container">
+    <input type="text" id="day" maxlength="2" placeholder="DD">
+    <span class="date-separator">-</span>
+    <input type="text" id="month" maxlength="2" placeholder="MM">
+    <span class="date-separator">-</span>
+    <input type="text" id="year" maxlength="4" placeholder="YYYY">
+    <span id="calendarIcon">📅</span>
+</div>
