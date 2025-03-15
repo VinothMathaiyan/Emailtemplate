@@ -21,8 +21,12 @@ Qualtrics.SurveyEngine.addOnload(function() {
     }
 
     loadjQueryUI(function() {
-        // Attach datepicker directly to the calendar button
-        calendarIcon.datepicker({
+        // Create a hidden input field for the datepicker
+        var hiddenInput = jQuery('<input type="text" id="datePickerField" style="position: absolute; left: -9999px;">');
+        jQuery("body").append(hiddenInput);
+
+        // Initialize datepicker on the hidden input
+        hiddenInput.datepicker({
             dateFormat: 'dd-mm-yy',
             minDate: 0,
             maxDate: "+3M",
@@ -37,7 +41,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
 
         // Show calendar when clicking the icon
         calendarIcon.on("click", function() {
-            calendarIcon.datepicker("show");
+            hiddenInput.datepicker("show");
         });
     });
 
