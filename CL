@@ -38,6 +38,13 @@ Qualtrics.SurveyEngine.addOnload(function() {
     font-size: 14px;
     z-index: 9999 !important; /* Ensure the calendar is visible */
 }
+<!-- Load jQuery UI only if missing -->
+<script>
+    if (typeof jQuery.ui === "undefined") {
+        document.write('<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">');
+        document.write('<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"><\/script>');
+    }
+</script>
 
 .ui-datepicker-trigger {
     cursor: pointer;
