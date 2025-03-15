@@ -1,7 +1,25 @@
 Qualtrics.SurveyEngine.addOnload(function() {
     var qid = this.getQuestionInfo().ContainerID;
-    
-    jQuery(document).ready(function() {
+
+    // Ensure jQuery UI is loaded
+    function loadjQueryUI(callback) {
+        if (typeof jQuery.ui === "undefined") {
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
+            document.head.appendChild(link);
+
+            var script = document.createElement("script");
+            script.src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js";
+            script.onload = callback;
+            document.head.appendChild(script);
+        } else {
+            callback();
+        }
+    }
+
+    // Initialize Datepicker after loading jQuery UI
+    loadjQueryUI(function() {
         var inputBox = jQuery("#" + qid + " input[type='text']");
 
         inputBox.datepicker({
@@ -10,22 +28,10 @@ Qualtrics.SurveyEngine.addOnload(function() {
             maxDate: "+3M",
             showAnim: "fadeIn",
             showOn: "both",
-            buttonText: "📅",
-            beforeShow: function(input, inst) {
-                setTimeout(function() {
-                    jQuery(inst.dpDiv).attr("role", "dialog").attr("aria-live", "polite");
-                }, 0);
-            }
+            buttonText: "📅"
         });
 
-        // Accessibility: Ensure keyboard users can focus on the calendar
-        inputBox.on("keydown", function(event) {
-            if (event.key === "ArrowDown") {
-                jQuery(this).datepicker("show");
-            }
-        });
-
-        // Focus outline for accessibility
+        // Accessibility: Focus outline in blue
         inputBox.on("focus", function() {
             jQuery(this).css("outline", "2px solid blue");
         }).on("blur", function() {
@@ -33,20 +39,3 @@ Qualtrics.SurveyEngine.addOnload(function() {
         });
     });
 });
-
-.ui-datepicker {
-    font-size: 14px;
-    z-index: 9999 !important; /* Ensure the calendar is visible */
-}
-<!-- Load jQuery UI only if missing -->
-<script>
-    if (typeof jQuery.ui === "undefined") {
-        document.write('<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">');
-        document.write('<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"><\/script>');
-    }
-</script>
-
-.ui-datepicker-trigger {
-    cursor: pointer;
-    margin-left: 5px;
-}
