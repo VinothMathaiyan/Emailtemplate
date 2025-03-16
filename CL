@@ -1,50 +1,39 @@
-<style>
-/* Style the overall date input container */
-.date-container {
-    display: flex;
-    align-items: center;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-    width: fit-content;
-}
-
-/* Remove individual borders from the input fields */
 .date-container input {
     border: none;
-    width: 30px;
+    width: 35px; /* Slightly wider for dd and mm */
     text-align: center;
     font-size: 16px;
     outline: none;
 }
 
-/* Ensure fixed spacing between inputs */
-.date-separator {
-    margin: 0 5px;
+#year {
+    width: 55px; /* Wider for full YYYY visibility */
+}
+.date-container input {
+    background: none;
+    border: none;
+    width: 35px;
+    text-align: center;
     font-size: 16px;
-    font-weight: bold;
+    outline: none;
 }
 
-/* Style the calendar icon */
-#calendarIcon {
-    cursor: pointer;
+.date-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc; /* Light grey border for whole box */
+    border-radius: 5px;
     padding: 5px;
-    font-size: 18px;
-    color: #007bff;
+    width: fit-content;
+    background: none; /* Remove any background */
 }
 
-/* Accessibility: Highlight border on focus */
+/* Remove focus outline on input, but keep accessibility */
+.date-container input:focus {
+    outline: none;
+}
+
+/* Ensure blue focus on the overall box */
 .date-container:focus-within {
     border: 2px solid blue;
 }
-</style>
-
-
-<div class="date-container">
-    <input type="text" id="day" maxlength="2" placeholder="DD">
-    <span class="date-separator">-</span>
-    <input type="text" id="month" maxlength="2" placeholder="MM">
-    <span class="date-separator">-</span>
-    <input type="text" id="year" maxlength="4" placeholder="YYYY">
-    <span id="calendarIcon">📅</span>
-</div>
