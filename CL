@@ -1,55 +1,122 @@
+<div class="date-container">
+    <input type="text" id="day" maxlength="2" placeholder="DD">
+    <span class="date-separator">-</span>
+    <input type="text" id="month" maxlength="2" placeholder="MM">
+    <span class="date-separator">-</span>
+    <input type="text" id="year" maxlength="4" placeholder="YYYY">
+    <span id="calendarIcon">📅</span>
+</div>
+
 Qualtrics.SurveyEngine.addOnload(function() {
-    let dayInput = document.getElementById("day");
-    let monthInput = document.getElementById("month");
-    let yearInput = document.getElementById("year");
-    let calendarButton = document.getElementById("calendarButton");
+    var dayInput = jQuery("#day");
+    var monthInput = jQuery("#month");
+    var yearInput = jQuery("#year");
+    var calendarIcon = jQuery("#calendarIcon");
 
-    function storeDateComponents() {
-        let day = dayInput.value.trim();
-        let month = monthInput.value.trim();
-        let year = yearInput.value.trim();
+    function loadjQueryUI(callback) {
+        if (typeof jQuery.ui === "undefined") {
+            var link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css";
+            document.head.appendChild(link);
 
-        // Store values in Qualtrics Embedded Data
-        if (day && month && year) {
-            Qualtrics.SurveyEngine.setEmbeddedData("StartDate", day);
-            Qualtrics.SurveyEngine.setEmbeddedData("StartMonth", month);
-            Qualtrics.SurveyEngine.setEmbeddedData("StartYear", year);
-            console.log("📌 Stored in Qualtrics:", { day, month, year });
+            var script = document.createElement("script");
+            script.src = "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js";
+            script.onload = callback;
+            document.head.appendChild(script);
+        } else {
+            callback();
         }
     }
 
-    // Attach event listeners to store date when input changes
-    dayInput.addEventListener("input", storeDateComponents);
-    monthInput.addEventListener("input", storeDateComponents);
-    yearInput.addEventListener("input", storeDateComponents);
+    loadjQueryUI(function() {
+        // Create a hidden input field for the datepicker
+        var hiddenInput = jQuery('<input type="text" id="datePickerField" style="position: absolute; left: -9999px;">');
+        jQuery("body").append(hiddenInput);
 
-    // Open calendar when clicking the button
-    calendarButton.addEventListener("click", function() {
-        let input = document.createElement("input");
-        input.type = "date";
-        input.style.position = "absolute";
-        input.style.opacity = "0"; // Invisible but functional
-        document.body.appendChild(input);
-        input.focus();
-        input.click();
+        // Initialize datepicker on the hidden input
+        hiddenInput.datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: 0,
+            maxDate: "+3M",
+            showAnim: "fadeIn",
+            showOn: "focus",
+            beforeShow: function(input, inst) {
+                var iconOffset = calendarIcon.offset();
+                setTimeout(function() {
+                    inst.dpDiv.css({
+                        top: iconOffset.top + calendarIcon.outerHeight() + "px",
+                        left: iconOffset.left + "px"
+                    });
 
-        // Capture selected date
-        input.addEventListener("change", function() {
-            if (input.value) {
-                let [year, month, day] = input.value.split("-");
-                dayInput.value = day;
-                monthInput.value = month;
-                yearInput.value = year;
-                storeDateComponents();
+                    // Ensure keyboard focus on calendar popup
+                    inst.dpDiv.attr("tabindex", "-1").focus();
+                }, 10);
+            },
+            onSelect: function(dateText) {
+                var parts = dateText.split("-");
+                dayInput.val(parts[0]);
+                monthInput.val(parts[1]);
+                yearInput.val(parts[2]);
+
+                // Move focus back to day input after selection
+                dayInput.focus();
             }
-            document.body.removeChild(input); // Remove temporary input
+        });
+
+        // Show calendar when clicking the icon
+        calendarIcon.on("click", function() {
+            hiddenInput.datepicker("show");
+
+            // Focus on the calendar to enable keyboard navigation
+            setTimeout(function() {
+                jQuery(".ui-datepicker").attr("tabindex", "0").focus();
+            }, 100);
+        });
+
+        // Enable keyboard navigation for the calendar
+        jQuery(document).on("keydown", function(e) {
+            if (jQuery(".ui-datepicker:visible").length) {
+                if (e.key === "Escape") {
+                    hiddenInput.datepicker("hide");
+                    calendarIcon.focus();
+                }
+            }
         });
     });
-});
 
-<div class="date-container">
-    <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
-    <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
-    <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
-    <button id="calendarButton" type="button">Select Date</button>
-</div>
+    // Move to next field on input
+    dayInput.on("input", function() {
+        if (this.value.length === 2) {
+            monthInput.focus();
+        }
+    });
+
+    monthInput.on("input", function() {
+        if (this.value.length === 2) {
+            yearInput.focus();
+        }
+    });
+
+    // Accessibility: Focus outline in blue
+    jQuery("#day, #month, #year").on("focus", function() {
+        jQuery(this).css("outline", "2px solid blue");
+    }).on("blur", function() {
+        jQuery(this).css("outline", "none");
+    });
+
+    // Validate full date format
+    yearInput.on("blur", function() {
+        var day = dayInput.val();
+        var month = monthInput.val();
+        var year = yearInput.val();
+        var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
+        
+        if (!regex.test(day + "-" + month + "-" + year)) {
+            alert("Please enter a valid date in dd-mm-yyyy format.");
+            dayInput.val("");
+            monthInput.val("");
+            yearInput.val("");
+        }
+    });
+});
