@@ -4,15 +4,23 @@ Qualtrics.SurveyEngine.addOnload(function() {
     let monthInput = document.getElementById("month");
     let yearInput = document.getElementById("year");
     let calendarIcon = document.getElementById("calendarIcon");
-    
+
     // Create an error message div (hidden by default)
     let errorMessage = document.createElement("div");
     errorMessage.id = "dateError";
     errorMessage.style.color = "red";
     errorMessage.style.fontSize = "12px";
     errorMessage.style.marginTop = "5px";
-    errorMessage.style.display = "none"; // Hidden initially
+    errorMessage.style.display = "none"; // Initially hidden
     document.querySelector(".date-container").appendChild(errorMessage);
+
+    // Create and attach a calendar popup
+    let calendarPopup = document.createElement("input");
+    calendarPopup.type = "date";
+    calendarPopup.style.position = "absolute";
+    calendarPopup.style.opacity = "0"; // Hide but still functional
+    calendarPopup.style.pointerEvents = "none"; // Prevent direct interaction
+    document.body.appendChild(calendarPopup);
 
     // Function to validate and store the date
     function validateAndStoreDate() {
@@ -41,4 +49,22 @@ Qualtrics.SurveyEngine.addOnload(function() {
     dayInput.addEventListener("change", validateAndStoreDate);
     monthInput.addEventListener("change", validateAndStoreDate);
     yearInput.addEventListener("change", validateAndStoreDate);
+
+    // Calendar popup functionality
+    calendarIcon.addEventListener("click", function() {
+        calendarPopup.style.pointerEvents = "auto"; // Enable interaction
+        calendarPopup.focus(); // Open calendar popup
+    });
+
+    calendarPopup.addEventListener("change", function() {
+        if (calendarPopup.value) {
+            let [year, month, day] = calendarPopup.value.split("-");
+
+            dayInput.value = day;
+            monthInput.value = month;
+            yearInput.value = year;
+
+            validateAndStoreDate(); // Store selected date
+        }
+    });
 });
