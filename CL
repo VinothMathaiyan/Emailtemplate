@@ -1,9 +1,19 @@
+<div class="date-container">
+    <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
+    <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
+    <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
+    <span id="calendarIcon" style="cursor: pointer;">📅</span>
+    <input type="date" id="calendarInput" style="display: none;">
+</div>
+
+
 Qualtrics.SurveyEngine.addOnload(function() {
     // Select input fields
     let dayInput = document.getElementById("day");
     let monthInput = document.getElementById("month");
     let yearInput = document.getElementById("year");
     let calendarIcon = document.getElementById("calendarIcon");
+    let calendarPopup = document.getElementById("calendarInput"); // Ensure this is in the HTML
 
     // Create an error message div (hidden by default)
     let errorMessage = document.createElement("div");
@@ -13,14 +23,6 @@ Qualtrics.SurveyEngine.addOnload(function() {
     errorMessage.style.marginTop = "5px";
     errorMessage.style.display = "none"; // Initially hidden
     document.querySelector(".date-container").appendChild(errorMessage);
-
-    // Create and attach a calendar popup
-    let calendarPopup = document.createElement("input");
-    calendarPopup.type = "date";
-    calendarPopup.style.position = "absolute";
-    calendarPopup.style.opacity = "0"; // Hide but still functional
-    calendarPopup.style.pointerEvents = "none"; // Prevent direct interaction
-    document.body.appendChild(calendarPopup);
 
     // Function to validate and store the date
     function validateAndStoreDate() {
@@ -50,12 +52,14 @@ Qualtrics.SurveyEngine.addOnload(function() {
     monthInput.addEventListener("change", validateAndStoreDate);
     yearInput.addEventListener("change", validateAndStoreDate);
 
-    // Calendar popup functionality
+    // Ensure calendar opens correctly below the icon
     calendarIcon.addEventListener("click", function() {
-        calendarPopup.style.pointerEvents = "auto"; // Enable interaction
-        calendarPopup.focus(); // Open calendar popup
+        calendarPopup.style.display = "block"; // Show the calendar input
+        calendarPopup.focus();
+        calendarPopup.click(); // Open the date picker
     });
 
+    // Handle calendar date selection
     calendarPopup.addEventListener("change", function() {
         if (calendarPopup.value) {
             let [year, month, day] = calendarPopup.value.split("-");
@@ -65,6 +69,9 @@ Qualtrics.SurveyEngine.addOnload(function() {
             yearInput.value = year;
 
             validateAndStoreDate(); // Store selected date
+
+            // Hide the popup after selection
+            calendarPopup.style.display = "none";
         }
     });
 });
