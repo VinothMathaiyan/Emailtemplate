@@ -1,54 +1,7 @@
-Qualtrics.SurveyEngine.addOnload(function() {
-    let dayInput = document.getElementById("day");
-    let monthInput = document.getElementById("month");
-    let yearInput = document.getElementById("year");
-    let calendarIcon = document.getElementById("calendarIcon");
-    let calendarPopup = document.getElementById("calendarInput");
-
-    if (!calendarPopup) {
-        console.error("❌ Calendar input field not found. Check your HTML.");
-        return;
-    }
-
-    function storeDateComponents() {
-        let day = dayInput.value.trim();
-        let month = monthInput.value.trim();
-        let year = yearInput.value.trim();
-
-        // Store individual values in Qualtrics Embedded Data
-        Qualtrics.SurveyEngine.setEmbeddedData("StartDate", day);
-        Qualtrics.SurveyEngine.setEmbeddedData("StartMonth", month);
-        Qualtrics.SurveyEngine.setEmbeddedData("StartYear", year);
-
-        console.log("📌 Stored in Qualtrics:", { day, month, year });
-    }
-
-    // Attach event listeners to store values when changed
-    dayInput.addEventListener("change", storeDateComponents);
-    monthInput.addEventListener("change", storeDateComponents);
-    yearInput.addEventListener("change", storeDateComponents);
-
-    // Ensure calendar popup works
-    calendarIcon.addEventListener("click", function() {
-        if (!calendarPopup) {
-            console.error("❌ Calendar input field is missing.");
-            return;
-        }
-        calendarPopup.style.display = "block";
-        calendarPopup.focus();
-        calendarPopup.click();
-    });
-
-    // Handle date selection from calendar
-    calendarPopup.addEventListener("change", function() {
-        if (calendarPopup.value) {
-            let [year, month, day] = calendarPopup.value.split("-");
-            dayInput.value = day;
-            monthInput.value = month;
-            yearInput.value = year;
-
-            storeDateComponents(); // Save to Embedded Data
-            calendarPopup.style.display = "none"; // Hide calendar
-        }
-    });
-});
+<div class="date-container">
+    <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
+    <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
+    <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
+    <span id="calendarIcon" style="cursor: pointer;">📅</span>
+    <input type="date" id="calendarInput" style="display: none;">
+</div>
