@@ -2,7 +2,7 @@ Qualtrics.SurveyEngine.addOnload(function() {
     let dayInput = document.getElementById("day");
     let monthInput = document.getElementById("month");
     let yearInput = document.getElementById("year");
-    let calendarIcon = document.getElementById("calendarIcon");
+    let calendarButton = document.getElementById("calendarButton");
 
     function storeDateComponents() {
         let day = dayInput.value.trim();
@@ -18,13 +18,13 @@ Qualtrics.SurveyEngine.addOnload(function() {
         }
     }
 
-    // Attach event listeners to update Embedded Data when input changes
+    // Attach event listeners to store date when input changes
     dayInput.addEventListener("input", storeDateComponents);
     monthInput.addEventListener("input", storeDateComponents);
     yearInput.addEventListener("input", storeDateComponents);
 
-    // Open calendar when clicking the icon
-    calendarIcon.addEventListener("click", function() {
+    // Open calendar when clicking the button
+    calendarButton.addEventListener("click", function() {
         let input = document.createElement("input");
         input.type = "date";
         input.style.position = "absolute";
@@ -51,5 +51,5 @@ Qualtrics.SurveyEngine.addOnload(function() {
     <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
     <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
     <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
-    <span id="calendarIcon" style="cursor: pointer;">📅</span>
+    <button id="calendarButton" type="button">Select Date</button>
 </div>
