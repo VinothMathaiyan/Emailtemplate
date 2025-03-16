@@ -1,111 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qualtrics Calendar</title>
-    <!-- jQuery UI CSS -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- jQuery UI JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-</head>
-<body>
-    <!-- Your HTML content here -->
-    <div class="date-container">
-        <input type="text" id="day" maxlength="2" placeholder="DD">
-        <span class="date-separator">-</span>
-        <input type="text" id="month" maxlength="2" placeholder="MM">
-        <span class="date-separator">-</span>
-        <input type="text" id="year" maxlength="4" placeholder="YYYY">
-        <span id="calendarIcon">📅</span>
-    </div>
-    <!-- Your existing script -->
-    <script>
-        Qualtrics.SurveyEngine.addOnload(function() {
-            var dayInput = jQuery("#day");
-            var monthInput = jQuery("#month");
-            var yearInput = jQuery("#year");
-            var calendarIcon = jQuery("#calendarIcon");
+<div class="date-container">
+    <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
+    <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
+    <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
+    <button id="calendarButton" type="button">
+        <img src="https://duetds.github.io/date-picker/icon.svg" alt="Open Calendar" width="20">
+    </button>
+    <div id="duetPickerContainer"></div> <!-- Placeholder for date picker -->
+</div>
+Qualtrics.SurveyEngine.addOnload(function() {
+    let dayInput = document.getElementById("day");
+    let monthInput = document.getElementById("month");
+    let yearInput = document.getElementById("year");
+    let calendarButton = document.getElementById("calendarButton");
+    let pickerContainer = document.getElementById("duetPickerContainer");
 
-            // Initialize datepicker on the hidden input
-            var hiddenInput = jQuery('<input type="text" id="datePickerField" style="position: absolute; left: -9999px;">');
-            jQuery("body").append(hiddenInput);
+    // Dynamically add Duet Date Picker (so Qualtrics doesn't remove it)
+    let duetPicker = document.createElement("duet-date-picker");
+    duetPicker.setAttribute("id", "duetDatePicker");
+    duetPicker.setAttribute("locale", "en-GB");
+    duetPicker.setAttribute("date-format", "dd-MM-yyyy");
+    duetPicker.setAttribute("value", "");
+    pickerContainer.appendChild(duetPicker);
 
-            hiddenInput.datepicker({
-                dateFormat: 'dd-mm-yy',
-                minDate: 0,
-                maxDate: "+3M",
-                showAnim: "fadeIn",
-                showOn: "focus",
-                beforeShow: function(input, inst) {
-                    var iconOffset = calendarIcon.offset();
-                    setTimeout(function() {
-                        inst.dpDiv.css({
-                            top: iconOffset.top + calendarIcon.outerHeight() + "px",
-                            left: iconOffset.left + "px"
-                        });
-                        inst.dpDiv.attr("tabindex", "-1").focus();
-                    }, 10);
-                },
-                onSelect: function(dateText) {
-                    var parts = dateText.split("-");
-                    dayInput.val(parts[0]);
-                    monthInput.val(parts[1]);
-                    yearInput.val(parts[2]);
-                    dayInput.focus();
-                }
-            });
+    function storeDateComponents() {
+        let day = dayInput.value.trim();
+        let month = monthInput.value.trim();
+        let year = yearInput.value.trim();
 
-            calendarIcon.on("click", function() {
-                hiddenInput.datepicker("show");
-                setTimeout(function() {
-                    jQuery(".ui-datepicker").attr("tabindex", "0").focus();
-                }, 100);
-            });
+        if (day && month && year) {
+            Qualtrics.SurveyEngine.setEmbeddedData("StartDate", day);
+            Qualtrics.SurveyEngine.setEmbeddedData("StartMonth", month);
+            Qualtrics.SurveyEngine.setEmbeddedData("StartYear", year);
+            console.log("📌 Stored in Qualtrics:", { day, month, year });
+        }
+    }
 
-            jQuery(document).on("keydown", function(e) {
-                if (jQuery(".ui-datepicker:visible").length) {
-                    if (e.key === "Escape") {
-                        hiddenInput.datepicker("hide");
-                        calendarIcon.focus();
-                    }
-                }
-            });
+    // Open calendar when clicking the button
+    calendarButton.addEventListener("click", function() {
+        duetPicker.show(); // Open the Duet date picker
+    });
 
-            dayInput.on("input", function() {
-                if (this.value.length === 2) {
-                    monthInput.focus();
-                }
-            });
+    // Capture selected date
+    duetPicker.addEventListener("duetChange", function(event) {
+        if (event.detail.value) {
+            let [day, month, year] = event.detail.value.split("-");
+            dayInput.value = day;
+            monthInput.value = month;
+            yearInput.value = year;
+            storeDateComponents();
+        }
+    });
 
-            monthInput.on("input", function() {
-                if (this.value.length === 2) {
-                    yearInput.focus();
-                }
-            });
-
-            jQuery("#day, #month, #year").on("focus", function() {
-                jQuery(this).css("outline", "2px solid blue");
-            }).on("blur", function() {
-                jQuery(this).css("outline", "none");
-            });
-
-            yearInput.on("blur", function() {
-                var day = dayInput.val();
-                var month = monthInput.val();
-                var year = yearInput.val();
-                var regex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$/;
-                
-                if (!regex.test(day + "-" + month + "-" + year)) {
-                    alert("Please enter a valid date in dd-mm-yyyy format.");
-                    dayInput.val("");
-                    monthInput.val("");
-                    yearInput.val("");
-                }
-            });
-        });
-    </script>
-</body>
-</html>
-
+    // Update Embedded Data when users manually type the date
+    dayInput.addEventListener("input", storeDateComponents);
+    monthInput.addEventListener("input", storeDateComponents);
+    yearInput.addEventListener("input", storeDateComponents);
+});
