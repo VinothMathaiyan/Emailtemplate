@@ -3,5 +3,53 @@
     <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
     <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
     <span id="calendarIcon" style="cursor: pointer;">📅</span>
-    <input type="date" id="calendarInput" style="display: none;">
 </div>
+
+Qualtrics.SurveyEngine.addOnload(function() {
+    let dayInput = document.getElementById("day");
+    let monthInput = document.getElementById("month");
+    let yearInput = document.getElementById("year");
+    let calendarIcon = document.getElementById("calendarIcon");
+
+    function storeDateComponents() {
+        let day = dayInput.value.trim();
+        let month = monthInput.value.trim();
+        let year = yearInput.value.trim();
+
+        // Store individual values in Qualtrics Embedded Data
+        Qualtrics.SurveyEngine.setEmbeddedData("StartDate", day);
+        Qualtrics.SurveyEngine.setEmbeddedData("StartMonth", month);
+        Qualtrics.SurveyEngine.setEmbeddedData("StartYear", year);
+
+        console.log("📌 Stored in Qualtrics:", { day, month, year });
+    }
+
+    // Attach event listeners to store values when changed
+    dayInput.addEventListener("change", storeDateComponents);
+    monthInput.addEventListener("change", storeDateComponents);
+    yearInput.addEventListener("change", storeDateComponents);
+
+    // Open calendar when clicking the icon
+    calendarIcon.addEventListener("click", function() {
+        let input = document.createElement("input");
+        input.type = "date";
+        input.style.position = "absolute";
+        input.style.opacity = "0"; // Invisible but functional
+        document.body.appendChild(input);
+        input.focus();
+        input.click();
+
+        // Capture selected date
+        input.addEventListener("change", function() {
+            if (input.value) {
+                let [year, month, day] = input.value.split("-");
+                dayInput.value = day;
+                monthInput.value = month;
+                yearInput.value = year;
+                storeDateComponents();
+            }
+            document.body.removeChild(input); // Clean up temporary input
+        });
+    });
+});
+
