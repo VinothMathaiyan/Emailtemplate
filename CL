@@ -1,39 +1,44 @@
-.date-container input {
-    border: none;
-    width: 35px; /* Slightly wider for dd and mm */
-    text-align: center;
-    font-size: 16px;
-    outline: none;
-}
+Qualtrics.SurveyEngine.addOnload(function() {
+    // Select input fields
+    let dayInput = document.getElementById("day");
+    let monthInput = document.getElementById("month");
+    let yearInput = document.getElementById("year");
+    let calendarIcon = document.getElementById("calendarIcon");
+    
+    // Create an error message div (hidden by default)
+    let errorMessage = document.createElement("div");
+    errorMessage.id = "dateError";
+    errorMessage.style.color = "red";
+    errorMessage.style.fontSize = "12px";
+    errorMessage.style.marginTop = "5px";
+    errorMessage.style.display = "none"; // Hidden initially
+    document.querySelector(".date-container").appendChild(errorMessage);
 
-#year {
-    width: 55px; /* Wider for full YYYY visibility */
-}
-.date-container input {
-    background: none;
-    border: none;
-    width: 35px;
-    text-align: center;
-    font-size: 16px;
-    outline: none;
-}
+    // Function to validate and store the date
+    function validateAndStoreDate() {
+        let day = dayInput.value.padStart(2, "0"); // Ensure 2 digits
+        let month = monthInput.value.padStart(2, "0");
+        let year = yearInput.value;
 
-.date-container {
-    display: flex;
-    align-items: center;
-    border: 2px solid #ccc; /* Light grey border for whole box */
-    border-radius: 5px;
-    padding: 5px;
-    width: fit-content;
-    background: none; /* Remove any background */
-}
+        // Check if inputs are valid
+        if (!day || !month || !year || year.length !== 4) {
+            errorMessage.innerText = "Please enter a valid date.";
+            errorMessage.style.display = "block";
+            return;
+        }
 
-/* Remove focus outline on input, but keep accessibility */
-.date-container input:focus {
-    outline: none;
-}
+        // Create date string in YYYY-MM-DD format
+        let formattedDate = `${year}-${month}-${day}`;
 
-/* Ensure blue focus on the overall box */
-.date-container:focus-within {
-    border: 2px solid blue;
-}
+        // Store in Embedded Data field
+        Qualtrics.SurveyEngine.setEmbeddedData("JS_Survey_Open_Date", formattedDate);
+
+        // Hide error if everything is fine
+        errorMessage.style.display = "none";
+    }
+
+    // Attach `onChange` event to inputs
+    dayInput.addEventListener("change", validateAndStoreDate);
+    monthInput.addEventListener("change", validateAndStoreDate);
+    yearInput.addEventListener("change", validateAndStoreDate);
+});
