@@ -1,77 +1,45 @@
-<div class="date-container">
-    <input type="text" id="day" maxlength="2" size="2" placeholder="DD"> -
-    <input type="text" id="month" maxlength="2" size="2" placeholder="MM"> -
-    <input type="text" id="year" maxlength="4" size="4" placeholder="YYYY">
-    <span id="calendarIcon" style="cursor: pointer;">📅</span>
-    <input type="date" id="calendarInput" style="display: none;">
-</div>
-
-
 Qualtrics.SurveyEngine.addOnload(function() {
-    // Select input fields
     let dayInput = document.getElementById("day");
     let monthInput = document.getElementById("month");
     let yearInput = document.getElementById("year");
     let calendarIcon = document.getElementById("calendarIcon");
-    let calendarPopup = document.getElementById("calendarInput"); // Ensure this is in the HTML
+    let calendarPopup = document.getElementById("calendarInput");
 
-    // Create an error message div (hidden by default)
-    let errorMessage = document.createElement("div");
-    errorMessage.id = "dateError";
-    errorMessage.style.color = "red";
-    errorMessage.style.fontSize = "12px";
-    errorMessage.style.marginTop = "5px";
-    errorMessage.style.display = "none"; // Initially hidden
-    document.querySelector(".date-container").appendChild(errorMessage);
+    function storeDateComponents() {
+        let day = dayInput.value.trim();
+        let month = monthInput.value.trim();
+        let year = yearInput.value.trim();
 
-    // Function to validate and store the date
-    function validateAndStoreDate() {
-        let day = dayInput.value.padStart(2, "0"); // Ensure 2 digits
-        let month = monthInput.value.padStart(2, "0");
-        let year = yearInput.value;
+        // Store individual values in Qualtrics Embedded Data
+        Qualtrics.SurveyEngine.setEmbeddedData("StartDate", day);
+        Qualtrics.SurveyEngine.setEmbeddedData("StartMonth", month);
+        Qualtrics.SurveyEngine.setEmbeddedData("StartYear", year);
 
-        // Check if inputs are valid
-        if (!day || !month || !year || year.length !== 4) {
-            errorMessage.innerText = "Please enter a valid date.";
-            errorMessage.style.display = "block";
-            return;
-        }
-
-        // Create date string in YYYY-MM-DD format
-        let formattedDate = `${year}-${month}-${day}`;
-
-        // Store in Embedded Data field
-        Qualtrics.SurveyEngine.setEmbeddedData("JS_Survey_Open_Date", formattedDate);
-
-        // Hide error if everything is fine
-        errorMessage.style.display = "none";
+        console.log("📌 Stored in Qualtrics:", { day, month, year });
     }
 
-    // Attach `onChange` event to inputs
-    dayInput.addEventListener("change", validateAndStoreDate);
-    monthInput.addEventListener("change", validateAndStoreDate);
-    yearInput.addEventListener("change", validateAndStoreDate);
+    // Attach event listeners to store values when changed
+    dayInput.addEventListener("change", storeDateComponents);
+    monthInput.addEventListener("change", storeDateComponents);
+    yearInput.addEventListener("change", storeDateComponents);
 
-    // Ensure calendar opens correctly below the icon
+    // Open calendar on icon click
     calendarIcon.addEventListener("click", function() {
-        calendarPopup.style.display = "block"; // Show the calendar input
+        calendarPopup.style.display = "block";
         calendarPopup.focus();
-        calendarPopup.click(); // Open the date picker
+        calendarPopup.click();
     });
 
-    // Handle calendar date selection
+    // When a date is picked from the calendar
     calendarPopup.addEventListener("change", function() {
         if (calendarPopup.value) {
             let [year, month, day] = calendarPopup.value.split("-");
-
             dayInput.value = day;
             monthInput.value = month;
             yearInput.value = year;
 
-            validateAndStoreDate(); // Store selected date
-
-            // Hide the popup after selection
-            calendarPopup.style.display = "none";
+            storeDateComponents(); // Save to Embedded Data
+            calendarPopup.style.display = "none"; // Hide calendar
         }
     });
 });
