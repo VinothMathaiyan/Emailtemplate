@@ -5,6 +5,11 @@ Qualtrics.SurveyEngine.addOnload(function() {
     let calendarIcon = document.getElementById("calendarIcon");
     let calendarPopup = document.getElementById("calendarInput");
 
+    if (!calendarPopup) {
+        console.error("❌ Calendar input field not found. Check your HTML.");
+        return;
+    }
+
     function storeDateComponents() {
         let day = dayInput.value.trim();
         let month = monthInput.value.trim();
@@ -23,14 +28,18 @@ Qualtrics.SurveyEngine.addOnload(function() {
     monthInput.addEventListener("change", storeDateComponents);
     yearInput.addEventListener("change", storeDateComponents);
 
-    // Open calendar on icon click
+    // Ensure calendar popup works
     calendarIcon.addEventListener("click", function() {
+        if (!calendarPopup) {
+            console.error("❌ Calendar input field is missing.");
+            return;
+        }
         calendarPopup.style.display = "block";
         calendarPopup.focus();
         calendarPopup.click();
     });
 
-    // When a date is picked from the calendar
+    // Handle date selection from calendar
     calendarPopup.addEventListener("change", function() {
         if (calendarPopup.value) {
             let [year, month, day] = calendarPopup.value.split("-");
