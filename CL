@@ -1,92 +1,144 @@
+1. Preprocessing Script (preprocessing.py)
+This script handles data cleaning, keyword substitution, and text transformation (e.g., TF-IDF). It outputs a preprocessed dataset or TF-IDF vectors.
+
 import pandas as pd
 import string
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import classification_report, adjusted_rand_score, normalized_mutual_info_score
-from sklearn.cluster import KMeans
 from nltk.corpus import stopwords
 import nltk
 
 # Download stopwords if not already done
 nltk.download('stopwords')
 
-# Step 1: Load data from the Excel file
-file_path = 'data.xlsx'
-response_data = pd.read_excel(file_path, sheet_name='Response', engine='openpyxl')
-moment_data = pd.read_excel(file_path, sheet_name='Moment', engine='openpyxl')
-keyword_data = pd.read_excel(file_path, sheet_name='keyword_dictionary', engine='openpyxl')
+def preprocess_data(file_path, keyword_path, output_path):
+    # Load data
+    data = pd.read_excel(file_path, sheet_name='Response', engine='openpyxl')
+    keyword_data = pd.read_excel(keyword_path, sheet_name='keyword_dictionary', engine='openpyxl')
 
-# Assuming the "Response" sheet has a column 'response', 
-# "Moment" sheet has a column 'stage', 
-# and "keyword_dictionary" sheet has 'Keyword' and 'Synonymn' columns
-responses = response_data['response']
-stages = moment_data['stage']  # True labels for classification
-keywords = pd.Series(keyword_data.Synonymn.values, index=keyword_data.Keyword).to_dict()
+    # Map keywords and synonyms
+    keywords = pd.Series(keyword_data.Synonymn.values, index=keyword_data.Keyword).to_dict()
 
-# Step 2: Preprocessing function (with keyword substitution)
-def preprocess_text(text):
-    # Convert text to lowercase
-    text = text.lower()
-    # Remove punctuation
-    text = text.translate(str.maketrans('', '', string.punctuation))
-    # Replace keywords with their standard versions
-    for keyword, synonym in keywords.items():
-        text = text.replace(synonym.lower(), keyword.lower())
-    # Remove stopwords
-    stop_words = set(stopwords.words('english'))
-    text = ' '.join(word for word in text.split() if word not in stop_words)
-    return text
+    # Preprocessing function
+    def preprocess_text(text):
+        text = text.lower().translate(str.maketrans('', '', string.punctuation))
+        for keyword, synonym in keywords.items():
+            text = text.replace(synonym.lower(), keyword.lower())
+        stop_words = set(stopwords.words('english'))
+        return ' '.join(word for word in text.split() if word not in stop_words)
 
-# Apply preprocessing to responses
-responses = responses.apply(preprocess_text)
+    # Apply preprocessing
+    data['response_clean'] = data['response'].apply(preprocess_text)
 
-# Step 3: Convert text into numerical features using TF-IDF Vectorizer
-vectorizer = TfidfVectorizer()
-response_vectors = vectorizer.fit_transform(responses)
+    # Save preprocessed data
+    data.to_excel(output_path, index=False)
+    print(f"Preprocessed data saved to {output_path}")
 
-# ---- Approach 1: Supervised Learning ----
-# Step 4.1: Split the data for classification
-X_train, X_test, y_train, y_test = train_test_split(responses, stages, test_size=0.2, random_state=42)
-X_train_vec = vectorizer.transform(X_train)
-X_test_vec = vectorizer.transform(X_test)
+    return data
 
-# Step 4.2: Train a Naive Bayes classifier
-clf = MultinomialNB()
-clf.fit(X_train_vec, y_train)
+if __name__ == "__main__":
+    preprocess_data('data.xlsx', 'keyword_dictionary.xlsx', 'preprocessed_data.xlsx')
 
-# Step 4.3: Evaluate the classifier
-y_pred = clf.predict(X_test_vec)
-print("Classification Report (Naive Bayes):")
-print(classification_report(y_test, y_pred))
 
-# Save classification results for comparison
-classification_results = pd.DataFrame({'Response': X_test, 'Predicted Stage': y_pred})
-classification_results.to_excel('classification_results.xlsx', index=False)
+2. Exploratory Data Analysis Script (eda.py)
+This script visualizes the data, exploring patterns like the frequency of responses by stage or word usage.
+import pandas as pd
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
-# ---- Approach 2: Unsupervised Clustering ----
-# Step 5.1: Apply K-Means clustering with 11 clusters
-num_clusters = 11
-kmeans = KMeans(n_clusters=num_clusters, random_state=42, n_init=10, max_iter=300)
-kmeans.fit(response_vectors)
+def generate_eda_report(input_path):
+    data = pd.read_excel(input_path)
 
-# Assign each response to a cluster
-response_data['Cluster'] = kmeans.labels_
+    # Distribution of stages
+    stage_counts = data['stage'].value_counts()
+    stage_counts.plot(kind='bar', title='Frequency of Stages', figsize=(10, 6))
+    plt.xlabel('Stages')
+    plt.ylabel('Count')
+    plt.show()
 
-# Step 5.2: Evaluate clustering (optional, if true labels are available)
-# Align clusters with true labels (Stages) for evaluation
-cluster_labels = kmeans.labels_  # Cluster labels
-true_labels = stages  # True stages from Moment sheet
-ari = adjusted_rand_score(true_labels, cluster_labels)
-nmi = normalized_mutual_info_score(true_labels, cluster_labels)
+    # Generate Word Cloud for responses
+    text = ' '.join(data['response_clean'].dropna())
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
+    plt.figure(figsize=(10, 6))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    plt.title('Word Cloud of Responses')
+    plt.show()
 
-print(f"Clustering Evaluation Metrics:\nAdjusted Rand Index (ARI): {ari:.2f}\nNormalized Mutual Information (NMI): {nmi:.2f}")
+if __name__ == "__main__":
+    generate_eda_report('preprocessed_data.xlsx')
 
-# Save clustering results for comparison
-clustering_results = pd.DataFrame({'Response': responses, 'Cluster': cluster_labels})
-clustering_results.to_excel('clustering_results.xlsx', index=False)
+3. Model Training Script (model.py)
+This script trains the classification model and evaluates it.
 
-# ---- Conclusion ----
-print("Classification results saved to 'classification_results.xlsx'")
-print("Clustering results saved to 'clustering_results.xlsx'")
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report
+
+def train_and_evaluate_model(input_path, output_path):
+    data = pd.read_excel(input_path)
+    X = data['response_clean']
+    y = data['stage']
+
+    # Split data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # TF-IDF Vectorization
+    vectorizer = TfidfVectorizer()
+    X_train_vec = vectorizer.fit_transform(X_train)
+    X_test_vec = vectorizer.transform(X_test)
+
+    # Train Model
+    clf = MultinomialNB()
+    clf.fit(X_train_vec, y_train)
+
+    # Evaluate Model
+    y_pred = clf.predict(X_test_vec)
+    print("Classification Report:")
+    print(classification_report(y_test, y_pred))
+
+    # Save predictions
+    predictions = pd.DataFrame({'Response': X_test, 'Predicted Stage': y_pred})
+    predictions.to_excel(output_path, index=False)
+    print(f"Predictions saved to {output_path}")
+
+if __name__ == "__main__":
+    train_and_evaluate_model('preprocessed_data.xlsx', 'model_predictions.xlsx')
+
+4. Main Orchestration Script (main.py)
+This script coordinates the pipeline.
+
+from preprocessing import preprocess_data
+from eda import generate_eda_report
+from model import train_and_evaluate_model
+
+def main():
+    # Paths
+    raw_data_path = 'data.xlsx'
+    keyword_path = 'keyword_dictionary.xlsx'
+    preprocessed_path = 'preprocessed_data.xlsx'
+    predictions_path = 'model_predictions.xlsx'
+
+    # Run preprocessing
+    preprocess_data(raw_data_path, keyword_path, preprocessed_path)
+
+    # Perform EDA
+    generate_eda_report(preprocessed_path)
+
+    # Train and evaluate model
+    train_and_evaluate_model(preprocessed_path, predictions_path)
+
+if __name__ == "__main__":
+    main()
+Workflow Summary:
+preprocessing.py: Cleans and preprocesses the data.
+
+eda.py: Explores the dataset with visualizations.
+
+model.py: Trains and evaluates the model.
+
+main.py: Executes the full pipeline.
+
+This modular structure keeps things clean, logical, and extensible. Let me know if you'd like further refinement or assistance!
 
