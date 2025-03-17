@@ -1,1 +1,92 @@
+import pandas as pd
+import string
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, adjusted_rand_score, normalized_mutual_info_score
+from sklearn.cluster import KMeans
+from nltk.corpus import stopwords
+import nltk
+
+# Download stopwords if not already done
+nltk.download('stopwords')
+
+# Step 1: Load data from the Excel file
+file_path = 'data.xlsx'
+response_data = pd.read_excel(file_path, sheet_name='Response', engine='openpyxl')
+moment_data = pd.read_excel(file_path, sheet_name='Moment', engine='openpyxl')
+keyword_data = pd.read_excel(file_path, sheet_name='keyword_dictionary', engine='openpyxl')
+
+# Assuming the "Response" sheet has a column 'response', 
+# "Moment" sheet has a column 'stage', 
+# and "keyword_dictionary" sheet has 'Keyword' and 'Synonymn' columns
+responses = response_data['response']
+stages = moment_data['stage']  # True labels for classification
+keywords = pd.Series(keyword_data.Synonymn.values, index=keyword_data.Keyword).to_dict()
+
+# Step 2: Preprocessing function (with keyword substitution)
+def preprocess_text(text):
+    # Convert text to lowercase
+    text = text.lower()
+    # Remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+    # Replace keywords with their standard versions
+    for keyword, synonym in keywords.items():
+        text = text.replace(synonym.lower(), keyword.lower())
+    # Remove stopwords
+    stop_words = set(stopwords.words('english'))
+    text = ' '.join(word for word in text.split() if word not in stop_words)
+    return text
+
+# Apply preprocessing to responses
+responses = responses.apply(preprocess_text)
+
+# Step 3: Convert text into numerical features using TF-IDF Vectorizer
+vectorizer = TfidfVectorizer()
+response_vectors = vectorizer.fit_transform(responses)
+
+# ---- Approach 1: Supervised Learning ----
+# Step 4.1: Split the data for classification
+X_train, X_test, y_train, y_test = train_test_split(responses, stages, test_size=0.2, random_state=42)
+X_train_vec = vectorizer.transform(X_train)
+X_test_vec = vectorizer.transform(X_test)
+
+# Step 4.2: Train a Naive Bayes classifier
+clf = MultinomialNB()
+clf.fit(X_train_vec, y_train)
+
+# Step 4.3: Evaluate the classifier
+y_pred = clf.predict(X_test_vec)
+print("Classification Report (Naive Bayes):")
+print(classification_report(y_test, y_pred))
+
+# Save classification results for comparison
+classification_results = pd.DataFrame({'Response': X_test, 'Predicted Stage': y_pred})
+classification_results.to_excel('classification_results.xlsx', index=False)
+
+# ---- Approach 2: Unsupervised Clustering ----
+# Step 5.1: Apply K-Means clustering with 11 clusters
+num_clusters = 11
+kmeans = KMeans(n_clusters=num_clusters, random_state=42, n_init=10, max_iter=300)
+kmeans.fit(response_vectors)
+
+# Assign each response to a cluster
+response_data['Cluster'] = kmeans.labels_
+
+# Step 5.2: Evaluate clustering (optional, if true labels are available)
+# Align clusters with true labels (Stages) for evaluation
+cluster_labels = kmeans.labels_  # Cluster labels
+true_labels = stages  # True stages from Moment sheet
+ari = adjusted_rand_score(true_labels, cluster_labels)
+nmi = normalized_mutual_info_score(true_labels, cluster_labels)
+
+print(f"Clustering Evaluation Metrics:\nAdjusted Rand Index (ARI): {ari:.2f}\nNormalized Mutual Information (NMI): {nmi:.2f}")
+
+# Save clustering results for comparison
+clustering_results = pd.DataFrame({'Response': responses, 'Cluster': cluster_labels})
+clustering_results.to_excel('clustering_results.xlsx', index=False)
+
+# ---- Conclusion ----
+print("Classification results saved to 'classification_results.xlsx'")
+print("Clustering results saved to 'clustering_results.xlsx'")
 
