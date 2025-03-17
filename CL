@@ -1,155 +1,28 @@
-Question Text1: <h2>What date would you like your survey to open?</h2> <div id="duet-date-picker-container-start">&nbsp;</div>
-Question Text2: <h2>What date would you like your survey to close?</h2> <div id="duet-date-picker-container-end">&nbsp;</div>
+Please process the uploaded CSV file. The file contains a column named Response, where each response is in a separate row. For every unique Keyword, identify its related Synonyms by grouping other rows referring to the same Keyword.
 
-Both the question text in the same page
+Generate a table with two columns:
 
-Header: <script type="module" src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.esm.js"></script><script nomodule src="https://cdn.jsdelivr.net/npm/@duetds/date-picker@1.4.0/dist/duet/duet.js"></script>
-JavaScript added in QuestionText1
-Qualtrics.SurveyEngine.addOnload(function() {
-  // Create the start date picker element
-  const startDatePicker = document.createElement('duet-date-picker');
-  startDatePicker.setAttribute('first-day-of-week', '0');
-  startDatePicker.setAttribute('identifier', 'start-date');
-  startDatePicker.setAttribute('required', 'true'); // Make the date selection required
+Keyword - The primary term that appears in the Response column.
 
-  const today = new Date().toISOString().split('T')[0];
-  startDatePicker.setAttribute('min', today);  // Set the minimum date to today's date
-  startDatePicker.setAttribute('value', today);  // Set today's date as the default value
+Synonym - All other related responses corresponding to the Keyword, separated by semicolons (;).
 
-  // Append the start date picker to the container with ID 'duet-date-picker-container-start'
-  const startContainer = document.getElementById('duet-date-picker-container-start');
-  startContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
-  startContainer.appendChild(startDatePicker);
+Ensure the output groups Responses under their appropriate Keywords. For example:
 
-  // Create the end date picker element
-  const endDatePicker = document.createElement('duet-date-picker');
-  endDatePicker.setAttribute('first-day-of-week', '0');
-  endDatePicker.setAttribute('identifier', 'end-date');
-  endDatePicker.setAttribute('required', 'true'); // Make the date selection required
+If there are rows leave, vacation, holiday, and leave is the primary term, then the output will be:
 
-  const fourDaysLater = new Date();
-  fourDaysLater.setDate(fourDaysLater.getDate() + 13); // Add 4 days to today to make 5 days inclusive
-  const fourDaysLaterISO = fourDaysLater.toISOString().split('T')[0];
-  endDatePicker.setAttribute('min', fourDaysLaterISO);  // Set the minimum date to five days later
-  endDatePicker.setAttribute('value', fourDaysLaterISO);  // Set four days later as the default value
+Keyword: leave
 
-  // Append the end date picker to the container with ID 'duet-date-picker-container-end'
-  const endContainer = document.getElementById('duet-date-picker-container-end');
-  endContainer.style.maxWidth = '90%'; // Adjust the width of the container to avoid scrolling
-  endContainer.appendChild(endDatePicker);
+Synonym: vacation; holiday.
 
-	
-  // Function to check if a date is before another date
-  function isBefore(date1, date2) {
-    return new Date(date1) < new Date(date2);
-  }
-
-  // Function to add days to a date and return the result in ISO format, including the start date in the count
-  function addDaysIncludingStart(date, days) {
-    const result = new Date(date);
-    result.setDate(result.getDate() + days - 1); // Include the start date in the count
-	  
-	  const year = result.getFullYear();
-	  const month = String(result.getMonth() + 1).padStart(2, '0');
-	  const day = String(result.getDate()).padStart(2, '0');
-	  console.log("year:", year);
-	  console.log("month:", month);
-	  console.log("day:", day);
-    return year + '-' + month + '-' + day;
-  }
-
-  // Function to check date format (YYYY-MM-DD)
-  function isValidDateFormat(date) {
-    return /^\d{4}-\d{2}-\d{2}$/.test(date);
-  }
-
-  // Function to validate dates and control the Next button state
-  function validateDates() {
-    const selectedStartDate = startDatePicker.value;
-    const selectedEndDate = endDatePicker.value;
-    const fourDaysLater = addDaysIncludingStart(selectedStartDate, 5);
-
-    if (!selectedStartDate || !selectedEndDate) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-      return;
-    }
-
-    if (!isValidDateFormat(selectedStartDate) || !isValidDateFormat(selectedEndDate)) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-      return;
-    }
-
-    if (isBefore(selectedStartDate, today)) {
-      alert('Please select a start date that is today or later.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    } else if (isBefore(selectedEndDate, fourDaysLater)) {
-      alert('Please select an end date that is at least fourteen days after the start date.');
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    } else {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', false);
-    }
-
-    // Update embedded data
-	  
-	const reminderDate = addDaysIncludingStart(selectedStartDate, 3);
-	  console.log("Reminder Date:", reminderDate);
-	  
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Open_Date', selectedStartDate);
-    Qualtrics.SurveyEngine.setEmbeddedData('JS_Survey_Close_Date', selectedEndDate);
-    Qualtrics.SurveyEngine.setEmbeddedData('Survey_Reminder_Date', reminderDate);
-  }
-
-  // Add event listeners to clear the Next button state if inputs are cleared
-  startDatePicker.addEventListener('duetChange', function(event) {
-    if (!event.detail.valueAsDate) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    }
-    const newMinEndDate = addDaysIncludingStart(event.detail.value, 5);
-    endDatePicker.setAttribute('min', newMinEndDate); // Update the minimum date for end date picker
-    validateDates();
-  });
-
-  endDatePicker.addEventListener('duetChange', function(event) {
-    if (!event.detail.valueAsDate) {
-      jQuery(".Skin #Buttons #NextButton").prop('disabled', true);
-    }
-    validateDates();
-  });
-
-	
-  // Initial validation check to enable the Next button if dates are valid
-  validateDates();
-});
-
-Qualtrics.SurveyEngine.addOnReady(function() {
-  // Ensure initial validation checks are applied to determine the state of the Next button
-  jQuery(".Skin #Buttons #NextButton").show();
-});
-
-External CSS:
- :root {
-  --duet-color-primary: #006de3;
-  --duet-color-text: #272727;
-  --duet-color-text-active: #fff;
-  --duet-color-placeholder: #666;
-  --duet-color-button: #f6f6f6;
-  --duet-color-surface: #fff;
-  --duet-color-overlay: rgba(0, 0, 0, 0.8);
-  --duet-color-border: #272727;
-
-  --duet-font: 'Barclays Effra', Helvetica, Arial, sans-serif;
-  --duet-font-normal: 400;
-  --duet-font-bold: 600;
-
-  --duet-radius: 4px;
-  --duet-z-index: 600;
-}
-
-.duet-date__dialog-content {
-    position: relative !important;
-}
-.duet-date__table {
-  border-collapse: seperate !important; 
-
-}
-.duet-date__dialog.is-active {     position: relative !important; }
+Example Input:
+Response
+leave
+vacation
+holiday
+work
+job
+occupation
+Example Expected Output:
+Keyword	Synonym
+leave	vacation; holiday
+work	job; occupation
