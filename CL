@@ -140,34 +140,5 @@ model.py: Trains and evaluates the model.
 
 main.py: Executes the full pipeline.
 
-This modular structure keeps things clean, logical, and extensible. Let me know if you'd like further refinement or assistance!
 
-User-Friendly Experience – Colleagues appreciate intuitive navigation and ease of survey creation.
-
-Flexibility in Survey Design – Supports various question types, logic (display & skip), and customization.
-
-Real-Time Data & Dashboards – Instant access to responses and analytics improves decision-making.
-
-Automation & Efficiency – Features like automated reminders, scheduling, and bulk uploads save time.
-
-Integration Capabilities – Ability to connect with HR systems, API support, and authentication features.
-
-Accessibility & Multilingual Support – Inclusive features like screen reader compatibility and language translation.
-
-Anonymity & Privacy Compliance – Secure data handling and anonymity for sensitive surveys.
-
-❌ Negative Aspects (Improvement Areas)
-Survey Logic Limitations – Need more advanced branching, randomization, and conditional logic.
-
-Customization Gaps – Requests for more theme options, branding, and custom validation rules.
-
-Reporting & Export Issues – Limited visualization options and data export flexibility.
-
-Mobile Responsiveness – Some features do not function well on mobile devices.
-
-Survey Link Management – Expiry settings, retake permissions, and single-use links need enhancement.
-
-Performance & Scalability – Slowness in handling large surveys or bulk responses.
-
-Better AI/Text Analysis – Improved sentiment analysis and auto-categorization of open-ended responses.
 
