@@ -1,144 +1,46 @@
-1. Preprocessing Script (preprocessing.py)
-This script handles data cleaning, keyword substitution, and text transformation (e.g., TF-IDF). It outputs a preprocessed dataset or TF-IDF vectors.
+Thanks for clarifying, Rajasekar! Let me refine the workflow with this update:
 
-import pandas as pd
-import string
-from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk.corpus import stopwords
-import nltk
+---
 
-# Download stopwords if not already done
-nltk.download('stopwords')
+### **Workflow for Pre-Processing and Text Analysis**
 
-def preprocess_data(file_path, keyword_path, output_path):
-    # Load data
-    data = pd.read_excel(file_path, sheet_name='Response', engine='openpyxl')
-    keyword_data = pd.read_excel(keyword_path, sheet_name='keyword_dictionary', engine='openpyxl')
+#### **1. Input File**
+- **Source:** HREx Survey Free Text Data.
+- **Contents:** Raw pretext responses from the HREx survey.
 
-    # Map keywords and synonyms
-    keywords = pd.Series(keyword_data.Synonymn.values, index=keyword_data.Keyword).to_dict()
+#### **2. Pre-Processing (Using Python)**
+- Clean data by:
+  - Removing punctuations, special characters, numbers, and irrelevant words.
+  - Converting multiline responses into single-line text for better readability.
 
-    # Preprocessing function
-    def preprocess_text(text):
-        text = text.lower().translate(str.maketrans('', '', string.punctuation))
-        for keyword, synonym in keywords.items():
-            text = text.replace(synonym.lower(), keyword.lower())
-        stop_words = set(stopwords.words('english'))
-        return ' '.join(word for word in text.split() if word not in stop_words)
+#### **3. Splitting Large Data Files**
+- **Challenge:** Copilot has a character limit of 80-90 words.
+- **Solution:** Use Python to split the HREx survey data into 5 smaller Excel files for smoother processing.
 
-    # Apply preprocessing
-    data['response_clean'] = data['response'].apply(preprocess_text)
+#### **4. Text Analysis Using Copilot**
+- Input: Split files.
+- **Outputs Produced:**
+  - **Mapped Excel File:** Text responses organized into stages and topics.
+  - **Insights Excel File:** Extracted data providing actionable insights based on stages.
 
-    # Save preprocessed data
-    data.to_excel(output_path, index=False)
-    print(f"Preprocessed data saved to {output_path}")
+#### **5. Creating Word Document**
+- Input: Mapped Excel file with text responses.
+- **Output:** Word document summarizing key topics and providing concise actionable insights.
 
-    return data
+#### **6. Generating Presentation**
+- Input: Word document.
+- Process:
+  - Use Copilot to create a PowerPoint deck.
+  - Incorporate manual adjustments to ensure alignment with stakeholder needs.
+  - Present main topics and subtopics for action-oriented decision-making.
 
-if __name__ == "__main__":
-    preprocess_data('data.xlsx', 'keyword_dictionary.xlsx', 'preprocessed_data.xlsx')
+---
 
+### **Key Deliverables**
+1. **Mapped Excel File:** HREx survey responses categorized into stages/topics.
+2. **Word Document:** Summarized insights with clear action points.
+3. **Presentation Deck:** Comprehensive visual summary for stakeholders.
 
-2. Exploratory Data Analysis Script (eda.py)
-This script visualizes the data, exploring patterns like the frequency of responses by stage or word usage.
-import pandas as pd
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+---
 
-def generate_eda_report(input_path):
-    data = pd.read_excel(input_path)
-
-    # Distribution of stages
-    stage_counts = data['stage'].value_counts()
-    stage_counts.plot(kind='bar', title='Frequency of Stages', figsize=(10, 6))
-    plt.xlabel('Stages')
-    plt.ylabel('Count')
-    plt.show()
-
-    # Generate Word Cloud for responses
-    text = ' '.join(data['response_clean'].dropna())
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text)
-    plt.figure(figsize=(10, 6))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    plt.title('Word Cloud of Responses')
-    plt.show()
-
-if __name__ == "__main__":
-    generate_eda_report('preprocessed_data.xlsx')
-
-3. Model Training Script (model.py)
-This script trains the classification model and evaluates it.
-
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import classification_report
-
-def train_and_evaluate_model(input_path, output_path):
-    data = pd.read_excel(input_path)
-    X = data['response_clean']
-    y = data['stage']
-
-    # Split data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    # TF-IDF Vectorization
-    vectorizer = TfidfVectorizer()
-    X_train_vec = vectorizer.fit_transform(X_train)
-    X_test_vec = vectorizer.transform(X_test)
-
-    # Train Model
-    clf = MultinomialNB()
-    clf.fit(X_train_vec, y_train)
-
-    # Evaluate Model
-    y_pred = clf.predict(X_test_vec)
-    print("Classification Report:")
-    print(classification_report(y_test, y_pred))
-
-    # Save predictions
-    predictions = pd.DataFrame({'Response': X_test, 'Predicted Stage': y_pred})
-    predictions.to_excel(output_path, index=False)
-    print(f"Predictions saved to {output_path}")
-
-if __name__ == "__main__":
-    train_and_evaluate_model('preprocessed_data.xlsx', 'model_predictions.xlsx')
-
-4. Main Orchestration Script (main.py)
-This script coordinates the pipeline.
-
-from preprocessing import preprocess_data
-from eda import generate_eda_report
-from model import train_and_evaluate_model
-
-def main():
-    # Paths
-    raw_data_path = 'data.xlsx'
-    keyword_path = 'keyword_dictionary.xlsx'
-    preprocessed_path = 'preprocessed_data.xlsx'
-    predictions_path = 'model_predictions.xlsx'
-
-    # Run preprocessing
-    preprocess_data(raw_data_path, keyword_path, preprocessed_path)
-
-    # Perform EDA
-    generate_eda_report(preprocessed_path)
-
-    # Train and evaluate model
-    train_and_evaluate_model(preprocessed_path, predictions_path)
-
-if __name__ == "__main__":
-    main()
-Workflow Summary:
-preprocessing.py: Cleans and preprocesses the data.
-
-eda.py: Explores the dataset with visualizations.
-
-model.py: Trains and evaluates the model.
-
-main.py: Executes the full pipeline.
-
-
-
+Does this workflow align with your vision? Let me know if you'd like me to tweak anything!
