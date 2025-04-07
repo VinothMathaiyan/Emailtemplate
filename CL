@@ -1,4 +1,1 @@
-As a Python expert, evaluate this Python script and identify why we receive the Type Error. Also fix the error and provide the updated code 
-As an expert in software architecture, critique my database code and give me suggestions for improvement.
-I’m working on an E-commerce application that uses a sqlite database as the backend and SQLAlchemy to execute queries. I’ll be working with a college intern on this code base in the upcoming summer break. Working as a friendly coding mentor for undergraduates, write clear documentation that will help the intern learn how the code works.
-You are an expert in building interactive dashboards for websites with deep familiarity of the matplotlib library in python. Create an interactive piechart that will be included in a website dashboard
+
