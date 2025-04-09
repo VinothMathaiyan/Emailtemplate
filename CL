@@ -1,1 +1,46 @@
+Subject: Streamlining Your Access Requests: Colleague Listening Team and Process Overview
 
+Dear Colleagues,
+
+As part of our ongoing commitment to creating an engaging and productive work environment, we, the Colleague Listening Team, continuously strive to understand your experiences and gather valuable feedback. We use surveys and programs like Engagement, Pulse, 360, and others to listen to your voices and improve our organizational culture. We are fortunate to have access to the Qualtrics Enterprise License, a tool that helps us run these crucial programs and better understand the collective needs and perspectives within our organization.
+
+In our efforts to optimize the experience for all colleagues, we’ve identified a need to streamline how we handle access requests to ensure efficiency and save valuable time. We recognize that many of you might not be fully aware of the exact process for raising requests and the specific links for different types of access within the Colleague Listening Platform. With this in mind, we’ve created a clearer process to help you navigate these tasks and access what you need without unnecessary delays.
+
+Here’s why we’re doing this:
+
+Streamlining Requests: Instead of reaching out to our team individually or being uncertain of the right process, this guidance will help you quickly access the resources you need and ensure we’re able to assist you more effectively.
+
+Encouraging Program Participation: By ensuring the proper use of our enterprise Qualtrics license, we can continue to run more programs that are aligned with organizational goals and standards. This will improve feedback collection and decision-making at every level.
+
+Saving Time: By following a standardized approach, you’ll help us work more efficiently, allowing us to process requests faster and reduce the chances of delays caused by confusion or miscommunication.
+
+To ensure you’re able to navigate the process smoothly, please refer to the following request types and their respective links:
+
+Request for Qualtrics User Access
+
+If you need access to Qualtrics, please raise your request using the [Qualtrics User Access Request Link].
+
+Survey Request for Colleague Listening Team Support
+
+If you need the Colleague Listening Team to create a survey for you, please raise a ticket through [Jira Survey Request Link].
+
+Survey Tool Assessment
+
+If you wish to get feedback on the effectiveness of a survey before launching it, please use the [Survey Tool Assessment Request Link].
+
+Request for Access to Existing Dashboards
+
+If you require access to dashboards like Learning, Leaving, Hiring Manager, New Joiner, please use the [Dashboard Access Request Link] on the HR Hub Portal.
+(Note: Approval from the respective HRBP team is required.)
+
+In addition to these links, we’ve created a Confluence page that includes the full process overview, a step-by-step guide, and additional resources to help clarify any uncertainties. We encourage you to refer to this page whenever you have any questions about the process.
+
+By following this streamlined process, you’ll not only help reduce unnecessary work and confusion for our team but also ensure that we’re all aligned and working towards the same organizational goals. This approach will save everyone time and ensure that we can continue listening to you effectively and efficiently.
+
+We appreciate your cooperation and your continued participation in helping us build a better workplace. Should you have any questions or need further assistance, don’t hesitate to reach out. However, we encourage you to refer to the provided links and resources to get the support you need.
+
+Thank you for your attention, and we look forward to hearing more from you through these important programs!
+
+Best regards,
+[Your Name]
+Colleague Listening Team
