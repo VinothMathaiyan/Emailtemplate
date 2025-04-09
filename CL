@@ -1,46 +1,67 @@
-Subject: Streamlining Your Access Requests: Colleague Listening Team and Process Overview
+Subject: Next Steps for Survey Tool Assessment and Transition Process
 
-Dear Colleagues,
+Dear [Senior Leaders, Tech Team, Viva Team],
 
-As part of our ongoing commitment to creating an engaging and productive work environment, we, the Colleague Listening Team, continuously strive to understand your experiences and gather valuable feedback. We use surveys and programs like Engagement, Pulse, 360, and others to listen to your voices and improve our organizational culture. We are fortunate to have access to the Qualtrics Enterprise License, a tool that helps us run these crucial programs and better understand the collective needs and perspectives within our organization.
+I hope you are all doing well. I wanted to provide a status update on the business requirements gathering for our survey tool assessment and the upcoming transition to a new tool, with a particular focus on the Viva Suite for the GLINT program.
 
-In our efforts to optimize the experience for all colleagues, we’ve identified a need to streamline how we handle access requests to ensure efficiency and save valuable time. We recognize that many of you might not be fully aware of the exact process for raising requests and the specific links for different types of access within the Colleague Listening Platform. With this in mind, we’ve created a clearer process to help you navigate these tasks and access what you need without unnecessary delays.
+As you know, we have successfully gathered business requirements from various stakeholders involved in the colleague listening programs. This includes feedback from HR and non-HR teams who are currently using Qualtrics for various surveys and programs. The next step in the process is to move forward with liaising with the Viva team, who is our next potential partner for the GLINT program, and the tech team, who will review the gathered business requirements.
 
-Here’s why we’re doing this:
+Here’s an outline of the steps we are expecting as we move forward:
 
-Streamlining Requests: Instead of reaching out to our team individually or being uncertain of the right process, this guidance will help you quickly access the resources you need and ensure we’re able to assist you more effectively.
+Gap Analysis: The tech team will review the business requirements we’ve gathered and conduct a gap analysis. This will help us understand where the current solutions might not align with our needs or where additional features may be required.
 
-Encouraging Program Participation: By ensuring the proper use of our enterprise Qualtrics license, we can continue to run more programs that are aligned with organizational goals and standards. This will improve feedback collection and decision-making at every level.
+Review by Architecture Team: Once the gap analysis is completed by the tech team, it will be submitted to the architecture team for review. This will ensure the solution is scalable, secure, and aligned with the organization’s overall IT infrastructure.
 
-Saving Time: By following a standardized approach, you’ll help us work more efficiently, allowing us to process requests faster and reduce the chances of delays caused by confusion or miscommunication.
+Next Steps & Clarifications: We need clarity from the tech team on the following points:
 
-To ensure you’re able to navigate the process smoothly, please refer to the following request types and their respective links:
+Roles and Responsibilities: Who will be responsible for each part of the transition process? What are the key roles within the tech team, Viva team, and architecture team?
 
-Request for Qualtrics User Access
+Decision Authority: Which individuals or teams will have decision-making authority throughout this process?
 
-If you need access to Qualtrics, please raise your request using the [Qualtrics User Access Request Link].
+Milestones and Timelines: What are the key milestones we should expect? What is the timeline for each stage, including when we should expect the tool’s proposed solution to be ready for evaluation?
 
-Survey Request for Colleague Listening Team Support
+Evaluation and Validation: How will we ensure that the new tool will meet all the business requirements gathered so far? What metrics or validation criteria will be used to assess the tool’s readiness?
 
-If you need the Colleague Listening Team to create a survey for you, please raise a ticket through [Jira Survey Request Link].
+Frequency of Engagement: We’d like to establish a regular cadence of communication throughout this process. Is it preferable to have weekly or bi-weekly meetings to ensure timely discussions and updates?
 
-Survey Tool Assessment
+Target Date for Stakeholder Engagement: Based on the gap analysis, we aim to have a clear plan and timeline to present to our stakeholders. We’d like to finalize a target date for releasing the outcome of the assessment to stakeholders.
 
-If you wish to get feedback on the effectiveness of a survey before launching it, please use the [Survey Tool Assessment Request Link].
+We are committed to ensuring that this transition is seamless and aligns with all business requirements while also meeting the technical, security, and scalability needs of our organization.
 
-Request for Access to Existing Dashboards
+Please let us know your thoughts on the proposed next steps, and kindly advise on any additional details we should consider to ensure we move forward efficiently. We appreciate your support and collaboration on this important project.
 
-If you require access to dashboards like Learning, Leaving, Hiring Manager, New Joiner, please use the [Dashboard Access Request Link] on the HR Hub Portal.
-(Note: Approval from the respective HRBP team is required.)
+Thank you for your time and attention to this matter. Looking forward to your feedback.
 
-In addition to these links, we’ve created a Confluence page that includes the full process overview, a step-by-step guide, and additional resources to help clarify any uncertainties. We encourage you to refer to this page whenever you have any questions about the process.
 
-By following this streamlined process, you’ll not only help reduce unnecessary work and confusion for our team but also ensure that we’re all aligned and working towards the same organizational goals. This approach will save everyone time and ensure that we can continue listening to you effectively and efficiently.
+----------------------------------
 
-We appreciate your cooperation and your continued participation in helping us build a better workplace. Should you have any questions or need further assistance, don’t hesitate to reach out. However, we encourage you to refer to the provided links and resources to get the support you need.
 
-Thank you for your attention, and we look forward to hearing more from you through these important programs!
+Subject: Gathering Business Requirements for Future Colleague Listening Tool
 
-Best regards,
-[Your Name]
-Colleague Listening Team
+Dear [Team/Stakeholder],
+
+I hope this message finds you well. As you may be aware, our organization currently uses Qualtrics to run our colleague listening programs, capturing feedback across various colleague journeys such as engagement, onboarding, learning, and more. This tool has been integral to our efforts in measuring and enhancing the employee experience.
+
+However, as our Qualtrics license will be expiring in 2026, we are exploring potential alternatives to support our business needs going forward. At this stage, it remains uncertain whether we will transition to a new tool or continue with Qualtrics, but we are keen to ensure that any future platform fully supports our diverse requirements.
+
+To better understand the needs of all stakeholders involved in the colleague listening program, we are gathering business requirements in the form of user stories. This includes feedback from both HR and non-HR teams who are directly dependent on Qualtrics in some capacity—whether they are running HR-specific programs such as learning and leaving, or business-driven initiatives like customer satisfaction and audit programs.
+
+As part of this process, we have:
+
+Collected business requirements from all relevant stakeholders, including product owners, HR and non-HR colleagues, and other dependent teams.
+
+Consolidated and removed duplicates from the collected requirements, refining them further for clarity.
+
+Prioritized these requirements, categorizing them into "must-have" features, "good-to-have" features, and optional improvements.
+
+Your insights and feedback are critical as we continue to refine these requirements. We want to ensure that the future tool we adopt will effectively serve the needs of all users involved in colleague listening, with an emphasis on streamlined processes and improved user experience.
+
+We kindly request your continued input on the following:
+
+Are there additional features or capabilities that should be considered for the new tool?
+
+What challenges are you currently facing with Qualtrics, and how could they be addressed in a new platform?
+
+We are in the process of finalizing the requirements and plan to present them for further review and alignment soon.
+
+Thank you for your time and ongoing support. If you have any questions or would like to provide additional insights, please feel free to reach out.
