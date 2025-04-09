@@ -1,67 +1,89 @@
-Subject: Next Steps for Survey Tool Assessment and Transition Process
 
-Dear [Senior Leaders, Tech Team, Viva Team],
+Process Delays: Concerns about slow approval times and cumbersome procedures.
 
-I hope you are all doing well. I wanted to provide a status update on the business requirements gathering for our survey tool assessment and the upcoming transition to a new tool, with a particular focus on the Viva Suite for the GLINT program.
+Technical Issues: Difficulties with uploading interview feedback forms and incorrect HR records.
 
-As you know, we have successfully gathered business requirements from various stakeholders involved in the colleague listening programs. This includes feedback from HR and non-HR teams who are currently using Qualtrics for various surveys and programs. The next step in the process is to move forward with liaising with the Viva team, who is our next potential partner for the GLINT program, and the tech team, who will review the gathered business requirements.
+System Migrations: Issues arising from recent changes in systems or tools.
 
-Here’s an outline of the steps we are expecting as we move forward:
+Communication Gaps: Lack of notifications and inconsistencies in the process.
 
-Gap Analysis: The tech team will review the business requirements we’ve gathered and conduct a gap analysis. This will help us understand where the current solutions might not align with our needs or where additional features may be required.
+Based on these points, here are some potential topics and keywords:
 
-Review by Architecture Team: Once the gap analysis is completed by the tech team, it will be submitted to the architecture team for review. This will ensure the solution is scalable, secure, and aligned with the organization’s overall IT infrastructure.
+Topic: Approval Process Efficiency
 
-Next Steps & Clarifications: We need clarity from the tech team on the following points:
+Subtopics: Time delays, Streamlining procedures, SLA improvements
 
-Roles and Responsibilities: Who will be responsible for each part of the transition process? What are the key roles within the tech team, Viva team, and architecture team?
+Keywords: Approval time, Delays, Streamlining, Efficiency
 
-Decision Authority: Which individuals or teams will have decision-making authority throughout this process?
+Topic: Technical Challenges
 
-Milestones and Timelines: What are the key milestones we should expect? What is the timeline for each stage, including when we should expect the tool’s proposed solution to be ready for evaluation?
+Subtopics: Form uploads, System errors, HR records
 
-Evaluation and Validation: How will we ensure that the new tool will meet all the business requirements gathered so far? What metrics or validation criteria will be used to assess the tool’s readiness?
+Keywords: Technical issues, Upload errors, HR records, System migration
 
-Frequency of Engagement: We’d like to establish a regular cadence of communication throughout this process. Is it preferable to have weekly or bi-weekly meetings to ensure timely discussions and updates?
+Topic: Communication and Consistency
 
-Target Date for Stakeholder Engagement: Based on the gap analysis, we aim to have a clear plan and timeline to present to our stakeholders. We’d like to finalize a target date for releasing the outcome of the assessment to stakeholders.
+Subtopics: Notifications, Inconsistencies, Team coordination
 
-We are committed to ensuring that this transition is seamless and aligns with all business requirements while also meeting the technical, security, and scalability needs of our organization.
+Keywords: Communication gaps, Inconsistencies, Notifications, Coordination
+Topic 1: Process Delays and Inefficiencies
 
-Please let us know your thoughts on the proposed next steps, and kindly advise on any additional details we should consider to ensure we move forward efficiently. We appreciate your support and collaboration on this important project.
+Subtopics: Long hiring cycles, Delays in interviews, Repeated postponements
 
-Thank you for your time and attention to this matter. Looking forward to your feedback.
+Keywords: Delays, Inefficiencies, Long cycle, Postponed meetings
+
+Topic 2: Technical and System Issues
+
+Subtopics: System migrations, Incorrect HR records, Technical glitches
+
+Keywords: System migration, Technical issues, Incorrect records
+
+Topic 3: Communication and Coordination
+
+Subtopics: Involvement of business, Misalignment of hiring managers, Email miscommunication
+
+Keywords: Communication, Coordination, Misalignment, Email issues
+
+Topic 4: Resource Allocation and Role Clarity
+
+Subtopics: Role misalignment, Centralized vs. Localized hiring, Resource allocation
+
+Keywords: Role clarity, Resource allocation, Centralized hiring
 
 
-----------------------------------
 
+Topic: Recruitment Process Challenges
 
-Subject: Gathering Business Requirements for Future Colleague Listening Tool
+Subtopics: Process delays, System inefficiencies, Approval bottlenecks, Workday issues, Onboarding challenges
 
-Dear [Team/Stakeholder],
+Keywords: Delays, Tedious process, Inefficiency, Workday, System errors, Multiple approvals, Time-consuming, Lack of support, No ETA
 
-I hope this message finds you well. As you may be aware, our organization currently uses Qualtrics to run our colleague listening programs, capturing feedback across various colleague journeys such as engagement, onboarding, learning, and more. This tool has been integral to our efforts in measuring and enhancing the employee experience.
+Topic: Workday System Issues
 
-However, as our Qualtrics license will be expiring in 2026, we are exploring potential alternatives to support our business needs going forward. At this stage, it remains uncertain whether we will transition to a new tool or continue with Qualtrics, but we are keen to ensure that any future platform fully supports our diverse requirements.
+Subtopics: Lack of integration, Unintuitive interface, Errors in vacancy management, Inaccurate process tracking
 
-To better understand the needs of all stakeholders involved in the colleague listening program, we are gathering business requirements in the form of user stories. This includes feedback from both HR and non-HR teams who are directly dependent on Qualtrics in some capacity—whether they are running HR-specific programs such as learning and leaving, or business-driven initiatives like customer satisfaction and audit programs.
+Keywords: Workday issues, System glitches, Inaccurate tracking, Vacancy mismanagement, Unhelpful system, No audit logs
 
-As part of this process, we have:
+Topic: Communication and Coordination Problems
 
-Collected business requirements from all relevant stakeholders, including product owners, HR and non-HR colleagues, and other dependent teams.
+Subtopics: Lack of updates, Poor approval flow, Delays in candidate progress
 
-Consolidated and removed duplicates from the collected requirements, refining them further for clarity.
+Keywords: No updates, Poor communication, Email overload, Inefficient coordination
 
-Prioritized these requirements, categorizing them into "must-have" features, "good-to-have" features, and optional improvements.
+Topic: Need for Process Streamlining and Automation
 
-Your insights and feedback are critical as we continue to refine these requirements. We want to ensure that the future tool we adopt will effectively serve the needs of all users involved in colleague listening, with an emphasis on streamlined processes and improved user experience.
+Subtopics: Simplification of approval process, Automation of approvals, Real-time tracking
 
-We kindly request your continued input on the following:
+Keywords: Automation, Streamlining, Efficiency, Real-time updates, Fewer approval steps, Simplified workflow
 
-Are there additional features or capabilities that should be considered for the new tool?
+Summary:
+The feedback highlights significant frustrations with both the recruitment process and the tools used, especially Workday. 
+Key concerns include lengthy approval timelines, multiple redundant steps, system inefficiencies, and the lack of transparency in the process.
+There are numerous issues related to Workday, such as delays, lack of intuitive design, no proper audit trail, and errors in vacancy management.
+Onboarding and coordination are also challenging, with users feeling unsupported and struggling with the system's complexity. 
+Overall, the process is seen as overly complicated, time-consuming, and in need of major improvements, particularly in automation, approval flow, and system usability.
 
-What challenges are you currently facing with Qualtrics, and how could they be addressed in a new platform?
-
-We are in the process of finalizing the requirements and plan to present them for further review and alignment soon.
-
-Thank you for your time and ongoing support. If you have any questions or would like to provide additional insights, please feel free to reach out.
+The feedback from hiring managers highlights significant concerns about the inefficiency and complexity of the recruitment process. 
+Key issues include prolonged hiring cycles, technical glitches, misalignment of roles, and ineffective communication. 
+Many respondents emphasized the need for streamlining processes, enhancing system efficiency, and ensuring proper alignment and involvement of all stakeholders. 
+Overall, the process is seen as overly bureaucratic, slow, and in need of urgent improvements.
