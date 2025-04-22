@@ -1,3 +1,250 @@
+As a People Insights Analyst,
+I want the dashboard to include benchmarking data,
+So that I can compare our survey results with external references and understand where we stand in the industry.
+
+Outcome Metric / Expected Behavior:
+
+Dashboard displays internal scores side by side with external benchmark values.
+
+Visual indicators (e.g., arrows or deltas) show performance gaps.
+
+Benchmark sources and date of data are clearly referenced.
+
+
+
+As a Survey Program Manager,
+I want to identify and align external benchmark sources that match our organization’s profile (e.g., industry, size, revenue),
+So that we can use accurate and meaningful comparisons in our dashboard reports.
+
+Outcome Metric / Expected Behavior:
+
+Admin can select from a library of benchmarks (e.g., Qualtrics Benchmarks, Gallup, Gartner).
+
+Benchmark alignment is configurable based on sector, region, or company size.
+
+Metadata on source and matching criteria is accessible.
+
+
+
+As a Business Stakeholder,
+I want detailed reporting capabilities in the dashboard,
+So that I can derive actionable insights and track performance metrics over time.
+
+Outcome Metric / Expected Behavior:
+
+Reports include CSAT/NPS trends, participation rates, engagement scores, sentiment breakdown.
+
+Reports can be filtered by demographic attributes (e.g., function, tenure).
+
+Export options include PPT, PDF, and Excel.
+
+
+As a Line Manager,
+I want the dashboard to show insights specific to my team or department,
+So that I can take relevant actions based on team feedback.
+
+Outcome Metric / Expected Behavior:
+
+SSO-based role mapping filters data shown to the user.
+
+Line managers only see feedback and data relevant to their reporting line.
+
+Custom views persist across sessions.
+
+
+
+As an IT Administrator,
+I want the survey tool to support integration with our SSO system,
+So that users can access it securely without managing separate credentials.
+
+Outcome Metric / Expected Behavior:
+
+SSO authentication enabled via SAML 2.0 or OAuth.
+
+Users are auto-provisioned based on corporate directory.
+
+Login errors reduced to <2% across the user base.
+
+
+
+As an IT Support Specialist,
+I want the SSO to function consistently across multiple browsers (e.g., Chrome, Edge, Firefox),
+So that users don’t face access issues due to browser limitations.
+
+Outcome Metric / Expected Behavior:
+
+Successful SSO login tested across 3 major browsers.
+
+Cross-browser compatibility documented and monitored.
+
+User support tickets related to login reduced by 90%.
+
+As a Security Officer,
+I want the SSO system to block access to users outside of our organization,
+So that survey data remains protected and only authorized employees can view or participate.
+
+Outcome Metric / Expected Behavior:
+
+Domain-based restriction prevents external email domains.
+
+Guest users are denied access automatically.
+
+Audit logs track and flag unauthorized access attempts.
+
+
+As a Team Manager,
+I want the ability to send predefined surveys (e.g., “Team Feedback”, “Speak Up”, “Team Effectiveness”) to my team,
+So that I can gather timely feedback and improve team dynamics.
+
+Outcome Metric / Expected Behavior:
+
+Managers access a portal listing all available survey templates.
+
+Surveys are automatically sent to team members based on Org Hierarchy.
+
+Completion rate >70% within 1 week of launch.
+
+
+
+As a Team Manager,
+I want to choose from a list of prebuilt, approved survey templates,
+So that I can launch surveys without needing to build questions from scratch or wait for admin approval.
+
+Outcome Metric / Expected Behavior:
+
+Library includes at least 3 templates with standardized questions.
+
+Template usage tracked and feedback collected on usefulness.
+
+Survey launch time reduced from days to minutes.
+
+
+
+As a Survey Designer,
+I want access to a library of industry-leading, validated survey questions,
+So that I can design high-quality, consistent, and benchmarkable surveys without starting from scratch.
+Outcome / Expected Behavior:
+
+Ability to browse categorized questions (e.g., engagement, experience, DEI).
+
+Searchable library with tags and guidance on where and how to use questions.
+
+Increased survey creation efficiency and question quality.
+
+
+
+As a Data Privacy Officer,
+I want the ability to configure confidentiality rules (e.g., hide identifiable fields and free text responses),
+So that we maintain compliance with data protection policies and protect respondent anonymity.
+Outcome / Expected Behavior:
+
+System hides fields like email/name in outputs.
+
+Free text anonymization setting can be enabled per project.
+
+Data export complies with GDPR/local policy requirements.
+
+
+
+As a Survey Program Admin,
+I want open-text questions to be automatically tokenized before survey goes live,
+So that sensitive information is redacted and insights can still be generated without compromising privacy.
+Outcome / Expected Behavior:
+
+Free-text is pre-processed using NLP/tokenization before analysis.
+
+System highlights flagged terms (names, locations, identifiers).
+
+Admins get alerts for manual review if confidence is low.
+
+
+
+As a Data Analyst,
+I want automated routines to clean survey data (e.g., remove invalid/incomplete entries, check for updates),
+So that I can focus on analysis instead of manual data correction.
+Outcome / Expected Behavior:
+
+Invalid responses (e.g., nulls, duplicates) flagged and cleaned automatically.
+
+Logs available for changes applied.
+
+Pre-cleaning reduces manual data QA effort by >80%.
+
+
+
+As a Compliance Manager,
+I want to configure data retention rules (e.g., auto-delete after X months),
+So that we comply with internal data governance policies and minimize risk.
+Outcome / Expected Behavior:
+
+Admin-defined retention periods per survey project.
+
+Alerts before data expiry.
+
+Automatic data archiving/deletion as per policy.
+
+
+
+As a Line Manager,
+I want the ability to send out predefined surveys (e.g., Team Feedback, Speak Up, Team Effectiveness),
+So that I can gather feedback relevant to my team at appropriate moments without waiting for organization-wide surveys.
+Expected Behavior / Outcome:
+Managers can select from an approved set of survey templates.
+Surveys can be triggered ad hoc to targeted team members.
+Access and usage are governed by role-based permissions.
+
+
+s a Survey Program Admin,
+I want the ability to activate an “Always-On” mode for certain surveys,
+So that feedback can be collected continuously without closing and reopening the survey each time.
+Expected Behavior / Outcome:
+
+Admins can toggle a survey as always-on.
+
+Responses are logged continuously over time.
+
+Clear indication in reporting dashboards that survey is in always-on mode.
+
+As a Survey Program Admin,
+I want to configure custom open and close dates for surveys,
+So that I can align data collection with our business calendar, e.g., quarterly pulses or annual reviews.
+Expected Behavior / Outcome:
+
+Start and end dates are configurable within the survey setup UI.
+
+System sends notifications/reminders based on open/close dates.
+
+Survey auto-closes when end date is reached.
+
+As a Leader reviewing survey results,
+I want to see embedded links or learning resources (e.g., from Learning Lab) in the dashboard,
+So that I can take immediate action or learn how to address specific feedback areas.
+Expected Behavior / Outcome:
+
+Charts and metric tiles can include links or image previews.
+
+Clicking a link opens a new tab/resource (e.g., related training).
+
+Media is contextual to the result (e.g., low engagement → link to leadership development content).
+
+As a Leader,
+I want the ability to create and track action plans directly from my survey dashboard,
+So that I can respond to team feedback in a structured, transparent, and timely way.
+Expected Behavior / Outcome:
+
+"Create Action Plan" button available on relevant result sections.
+
+Plan includes owner, due date, and status tracking.
+
+Dashboard shows progress against active action plans.
+
+
+Column	What it shows	How to decide
+Add / Improve / Retain	Is this feature new, needs improvement, or stays the same?	Ask: Is this already in our current tool?
+Priority (High / Medium / Low)	How critical is this to delivering the MVP (minimum viable product)?	Ask: Can we launch without it? What’s the impact if it’s missing?
+
+
+-------
 
 Process Delays: Concerns about slow approval times and cumbersome procedures.
 
