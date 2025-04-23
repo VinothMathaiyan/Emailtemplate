@@ -1,336 +1,431 @@
-As a People Insights Analyst,
-I want the dashboard to include benchmarking data,
-So that I can compare our survey results with external references and understand where we stand in the industry.
+Preview Mode User Story:
 
-Outcome Metric / Expected Behavior:
+As a survey creator,
 
-Dashboard displays internal scores side by side with external benchmark values.
+I want to preview changes applied to the survey layout across all devices (mobile, tablet, desktop),
 
-Visual indicators (e.g., arrows or deltas) show performance gaps.
+So that I can test the survey changes without impacting live users.
 
-Benchmark sources and date of data are clearly referenced.
+Acceptance Criteria:
 
+The tool provides a preview mode that can be accessed across all devices.
 
+A preview link is available for testing changes before publishing.
 
-As a Survey Program Manager,
-I want to identify and align external benchmark sources that match our organization’s profile (e.g., industry, size, revenue),
-So that we can use accurate and meaningful comparisons in our dashboard reports.
+Question Pagination User Story:
 
-Outcome Metric / Expected Behavior:
+As a survey creator,
 
-Admin can select from a library of benchmarks (e.g., Qualtrics Benchmarks, Gallup, Gartner).
+I want customization options to control the number of questions per page,
 
-Benchmark alignment is configurable based on sector, region, or company size.
+So that I can enhance readability and reduce dropout rates.
 
-Metadata on source and matching criteria is accessible.
+Acceptance Criteria:
 
+The tool allows setting a specific number of questions per page.
 
+A static page break option is available to further control the survey layout.
 
-As a Business Stakeholder,
-I want detailed reporting capabilities in the dashboard,
-So that I can derive actionable insights and track performance metrics over time.
+Display Logic User Story:
 
-Outcome Metric / Expected Behavior:
+As a survey creator,
 
-Reports include CSAT/NPS trends, participation rates, engagement scores, sentiment breakdown.
+I want to have options to control the display logic for questions, either on the same page or on different pages,
 
-Reports can be filtered by demographic attributes (e.g., function, tenure).
+So that I can create a dynamic and user-friendly survey experience.
 
-Export options include PPT, PDF, and Excel.
+Acceptance Criteria:
 
+The tool allows configuring display logic for questions to appear based on previous responses.
 
-As a Line Manager,
-I want the dashboard to show insights specific to my team or department,
-So that I can take relevant actions based on team feedback.
+Options to display questions on the same page or on different pages are clearly specified.
 
-Outcome Metric / Expected Behavior:
+Response Scale Types User Story:
 
-SSO-based role mapping filters data shown to the user.
+As a survey creator,
 
-Line managers only see feedback and data relevant to their reporting line.
+I want different question and response scale types,
 
-Custom views persist across sessions.
+So that I can deep dive into specific topics and derive actionable insights.
 
+Acceptance Criteria:
 
+The tool provides a variety of question and response scale types to facilitate in-depth analysis.
 
-As an IT Administrator,
-I want the survey tool to support integration with our SSO system,
-So that users can access it securely without managing separate credentials.
+Does this sound aligned with what you were looking for?
 
-Outcome Metric / Expected Behavior:
 
-SSO authentication enabled via SAML 2.0 or OAuth.
 
-Users are auto-provisioned based on corporate directory.
 
-Login errors reduced to <2% across the user base.
 
 
+You said:
+“Yes, I continue with the other items, okay.”
+00:03
 
-As an IT Support Specialist,
-I want the SSO to function consistently across multiple browsers (e.g., Chrome, Edge, Firefox),
-So that users don’t face access issues due to browser limitations.
+ChatGPT said:
+Sure, let's keep going. Please share the next items or feedback you have, and
 
-Outcome Metric / Expected Behavior:
+You said:
+Transcript Unavailable
+02:07
+ChatGPT said:
+Alright, let's refine these based on the feedback:
 
-Successful SSO login tested across 3 major browsers.
+Display Logic Testing User Story:
 
-Cross-browser compatibility documented and monitored.
+As a survey creator,
 
-User support tickets related to login reduced by 90%.
+I want a real-time preview mode that allows me to test display logic rules before deployment,
 
-As a Security Officer,
-I want the SSO system to block access to users outside of our organization,
-So that survey data remains protected and only authorized employees can view or participate.
+So that I can maintain data accuracy and relevance.
 
-Outcome Metric / Expected Behavior:
+Acceptance Criteria:
 
-Domain-based restriction prevents external email domains.
+The tool sends error messages for any display logic rule issues.
 
-Guest users are denied access automatically.
+Allows testing of display logic rules in a real-time preview before the survey is live.
 
-Audit logs track and flag unauthorized access attempts.
+Dashboard Customization User Story:
 
+As a report user,
 
-As a Team Manager,
-I want the ability to send predefined surveys (e.g., “Team Feedback”, “Speak Up”, “Team Effectiveness”) to my team,
-So that I can gather timely feedback and improve team dynamics.
+You said:
+please continue with the user story
+ChatGPT said:
+Sure! Continuing from where we left off — here’s the next refined user story based on your last input about dashboard customization:
 
-Outcome Metric / Expected Behavior:
+2. Dashboard Customization User Story
+As a report user (e.g., People Partner, HR leader),
 
-Managers access a portal listing all available survey templates.
+I want customizable dashboards and exports (e.g., to PowerPoint or PDF),
 
-Surveys are automatically sent to team members based on Org Hierarchy.
+So that I can tailor insights for different stakeholders and reporting needs.
 
-Completion rate >70% within 1 week of launch.
+Acceptance Criteria:
 
+The tool supports custom dashboard views (e.g., filtering by team, region, demographic).
 
+Export functionality supports editable PowerPoint/PDF formats.
 
-As a Team Manager,
-I want to choose from a list of prebuilt, approved survey templates,
-So that I can launch surveys without needing to build questions from scratch or wait for admin approval.
+Visuals are retained during export (charts, graphs, etc.).
 
-Outcome Metric / Expected Behavior:
+User-specific access levels can be set (e.g., Manager sees only their team’s data).
 
-Library includes at least 3 templates with standardized questions.
+If you’ve got more feedback or features to translate into user stories, just keep them coming — happy to help write them all up!
 
-Template usage tracked and feedback collected on usefulness.
 
-Survey launch time reduced from days to minutes.
 
 
 
-As a Survey Designer,
-I want access to a library of industry-leading, validated survey questions,
-So that I can design high-quality, consistent, and benchmarkable surveys without starting from scratch.
-Outcome / Expected Behavior:
 
-Ability to browse categorized questions (e.g., engagement, experience, DEI).
 
-Searchable library with tags and guidance on where and how to use questions.
+You said:
+Hi, I want the user stories and I mean not all the points to be included in acceptance criteria. Whatever you have added in the acceptance criteria needs to be into the goal item. So here the supplier has to evaluate each user story so in that case acceptance criteria adding all the user stories may not help me. Can you please break the user stories I have explained so far like exporting different options, extracting into a different format, and identifiable information, what is this, and about the hierarchy filters and then collecting I mean real-time responses functionality to add I mean the field very relevant to it. So all these things need to be added as a different user story. Can you please help with me?
 
-Increased survey creation efficiency and question quality.
 
+ChatGPT said:
+Got it — thanks for clarifying! You want each goal or feature separated into its own distinct user story, without crowding the "Acceptance Criteria" section. This will help your supplier evaluate feasibility clearly per requirement.
 
+Here’s a refined breakdown of the user stories we’ve worked on so far, now split by unique goals:
 
-As a Data Privacy Officer,
-I want the ability to configure confidentiality rules (e.g., hide identifiable fields and free text responses),
-So that we maintain compliance with data protection policies and protect respondent anonymity.
-Outcome / Expected Behavior:
+🧪 Preview and Testing Capabilities
+1. Preview Mode for Survey Design
+As a survey creator,
 
-System hides fields like email/name in outputs.
+I want to preview changes to survey layout across devices (desktop, mobile, tablet),
 
-Free text anonymization setting can be enabled per project.
+So that I can ensure a consistent experience before publishing.
 
-Data export complies with GDPR/local policy requirements.
+2. Real-Time Logic Testing
+As a survey creator,
 
+I want a real-time preview that lets me test display logic and branching,
 
+So that I can ensure logic works as expected before making the survey live.
 
-As a Survey Program Admin,
-I want open-text questions to be automatically tokenized before survey goes live,
-So that sensitive information is redacted and insights can still be generated without compromising privacy.
-Outcome / Expected Behavior:
+3. Display Logic Validation
+As a survey creator,
 
-Free-text is pre-processed using NLP/tokenization before analysis.
+I want the system to flag any errors in display logic during setup,
 
-System highlights flagged terms (names, locations, identifiers).
+So that I can correct them proactively and avoid data issues.
 
-Admins get alerts for manual review if confidence is low.
+📄 Survey Layout and Display
+4. Control Question Pagination
+As a survey creator,
 
+I want the ability to define how many questions appear per page,
 
+So that I can manage cognitive load for participants.
 
-As a Data Analyst,
-I want automated routines to clean survey data (e.g., remove invalid/incomplete entries, check for updates),
-So that I can focus on analysis instead of manual data correction.
-Outcome / Expected Behavior:
+5. Flexible Display Logic (Same Page vs. Separate Page)
+As a survey creator,
 
-Invalid responses (e.g., nulls, duplicates) flagged and cleaned automatically.
+I want to control whether follow-up questions appear on the same page or a new page,
 
-Logs available for changes applied.
+So that I can design the survey flow for better user experience.
 
-Pre-cleaning reduces manual data QA effort by >80%.
+📊 Dashboard and Reporting
+6. Customizable Dashboards
+As a report user,
 
+I want to tailor dashboard views based on audience (e.g., HR vs. leadership),
 
+So that each stakeholder sees what is relevant to them.
 
-As a Compliance Manager,
-I want to configure data retention rules (e.g., auto-delete after X months),
-So that we comply with internal data governance policies and minimize risk.
-Outcome / Expected Behavior:
+7. Hierarchy-Based Filtering
+As a report user,
 
-Admin-defined retention periods per survey project.
+I want dashboards to include hierarchy filters (e.g., department, team, manager),
 
-Alerts before data expiry.
+So that users can drill down to relevant results.
 
-Automatic data archiving/deletion as per policy.
+8. Exporting Dashboards to Editable Formats
+As a report user,
 
+I want to export dashboard visuals into editable PowerPoint or PDF formats,
 
+So that I can reuse charts in business presentations.
 
-As a Line Manager,
-I want the ability to send out predefined surveys (e.g., Team Feedback, Speak Up, Team Effectiveness),
-So that I can gather feedback relevant to my team at appropriate moments without waiting for organization-wide surveys.
-Expected Behavior / Outcome:
-Managers can select from an approved set of survey templates.
-Surveys can be triggered ad hoc to targeted team members.
-Access and usage are governed by role-based permissions.
+9. Selective Data Export
+As a report user,
 
+I want to extract filtered data (e.g., only for one team or region),
 
-s a Survey Program Admin,
-I want the ability to activate an “Always-On” mode for certain surveys,
-So that feedback can be collected continuously without closing and reopening the survey each time.
-Expected Behavior / Outcome:
+So that I can run more focused analyses offline.
 
-Admins can toggle a survey as always-on.
+🔐 Data Privacy and Identifiability
+10. Identifiable vs. Anonymous Response Control
+As a survey admin,
 
-Responses are logged continuously over time.
+I want to control whether responses are identifiable or anonymous,
 
-Clear indication in reporting dashboards that survey is in always-on mode.
+So that we can meet privacy requirements for different use cases.
 
-As a Survey Program Admin,
-I want to configure custom open and close dates for surveys,
-So that I can align data collection with our business calendar, e.g., quarterly pulses or annual reviews.
-Expected Behavior / Outcome:
+📥 Response Collection Features
+11. Real-Time Response Monitoring
+As a survey admin,
 
-Start and end dates are configurable within the survey setup UI.
+I want to track response rates and submission counts in real time,
 
-System sends notifications/reminders based on open/close dates.
+So that I can intervene early if participation is low.
 
-Survey auto-closes when end date is reached.
+Would you like me to group them under categories in a document, or prepare a table format for sharing with your supplier? Also, feel free to send the next set of features or feedback you want turned into user stories — I’ll keep building the list.
 
-As a Leader reviewing survey results,
-I want to see embedded links or learning resources (e.g., from Learning Lab) in the dashboard,
-So that I can take immediate action or learn how to address specific feedback areas.
-Expected Behavior / Outcome:
 
-Charts and metric tiles can include links or image previews.
 
-Clicking a link opens a new tab/resource (e.g., related training).
 
-Media is contextual to the result (e.g., low engagement → link to leadership development content).
 
-As a Leader,
-I want the ability to create and track action plans directly from my survey dashboard,
-So that I can respond to team feedback in a structured, transparent, and timely way.
-Expected Behavior / Outcome:
 
-"Create Action Plan" button available on relevant result sections.
 
-Plan includes owner, due date, and status tracking.
+You said:
+I need the user stories to be break into, as I mentioned, differently, like based on the feedback. The feedback is, can we also ask the control to restrict the duplicate response in SurveyBuild? The feedback for the user story is, the dashboard to display real-time updated data of duplicate submissions, if applicable. But the feedback received is, can we also include the control to restrict the duplicate response in SurveyBuild?
 
-Dashboard shows progress against active action plans.
 
+ChatGPT said:
+Perfect — thanks for that specific example. I now clearly understand that:
 
-Column	What it shows	How to decide
-Add / Improve / Retain	Is this feature new, needs improvement, or stays the same?	Ask: Is this already in our current tool?
-Priority (High / Medium / Low)	How critical is this to delivering the MVP (minimum viable product)?	Ask: Can we launch without it? What’s the impact if it’s missing?
+You want each feedback point broken into its own user story,
 
+The feedback text should be preserved (so the supplier can trace it back),
 
--------
+The user story should align directly with that feedback,
 
-Process Delays: Concerns about slow approval times and cumbersome procedures.
+And no need to cram too much into one story — each functionality or capability gets its own.
 
-Technical Issues: Difficulties with uploading interview feedback forms and incorrect HR records.
+Let’s take your example feedback and break it down the way you're asking:
 
-System Migrations: Issues arising from recent changes in systems or tools.
+✅ Feedback-Based User Story Breakdown
+🧩 Feedback 1: “Can we also include the control to restrict the duplicate response in SurveyBuild?”
+User Story Title: Restrict Duplicate Submissions
 
-Communication Gaps: Lack of notifications and inconsistencies in the process.
+User Story:
+As a survey admin,
+I want to have control to prevent duplicate submissions in SurveyBuild,
+So that I can ensure each respondent completes the survey only once.
 
-Based on these points, here are some potential topics and keywords:
+Feedback Source: "Can we also include the control to restrict the duplicate response in SurveyBuild?"
 
-Topic: Approval Process Efficiency
+🧩 Feedback 2: “Dashboard to display real-time updated data of duplicate submissions, if applicable.”
+User Story Title: Display Duplicate Submissions in Dashboard
 
-Subtopics: Time delays, Streamlining procedures, SLA improvements
+User Story:
+As a dashboard viewer,
+I want the dashboard to display real-time data on duplicate survey submissions,
+So that I can monitor and manage data integrity during the collection period.
 
-Keywords: Approval time, Delays, Streamlining, Efficiency
+Feedback Source: "Dashboard to display real-time updated data of duplicate submissions, if applicable."
 
-Topic: Technical Challenges
+Would you like me to help break down the other feedback you’ve already shared earlier into the same structure? If so, I can go ahead and do that now — just confirm if you want the full set done this way.
 
-Subtopics: Form uploads, System errors, HR records
 
-Keywords: Technical issues, Upload errors, HR records, System migration
 
-Topic: Communication and Consistency
 
-Subtopics: Notifications, Inconsistencies, Team coordination
 
-Keywords: Communication gaps, Inconsistencies, Notifications, Coordination
-Topic 1: Process Delays and Inefficiencies
 
-Subtopics: Long hiring cycles, Delays in interviews, Repeated postponements
 
-Keywords: Delays, Inefficiencies, Long cycle, Postponed meetings
+You said:
+The user story is the dashboard to have visualization to track survey participation through response rate. And the feedback is can we have a functionality to compare the response rate over a period of time with the historical data sources.
+ChatGPT said:
+Great — here's how we'll break it down based on your structure:
 
-Topic 2: Technical and System Issues
+✅ Feedback-Based User Story Breakdown
+🧩 Original User Story: Dashboard to have visualization to track survey participation through response rate.
+User Story Title: Visualize Survey Response Rate in Dashboard
 
-Subtopics: System migrations, Incorrect HR records, Technical glitches
+User Story:
+As a dashboard user,
+I want to see visualizations that track survey participation via response rate,
+So that I can monitor how many people are engaging with the survey in real time.
 
-Keywords: System migration, Technical issues, Incorrect records
+Feedback Source: "Dashboard to have visualization to track survey participation through response rate."
 
-Topic 3: Communication and Coordination
+🧩 Feedback: Can we have a functionality to compare the response rate over a period of time with the historical data sources?
+User Story Title: Compare Current Response Rate with Historical Data
 
-Subtopics: Involvement of business, Misalignment of hiring managers, Email miscommunication
+User Story:
+As a dashboard user,
+I want to compare the current response rate against historical response data from previous surveys,
+So that I can assess trends in participation over time.
 
-Keywords: Communication, Coordination, Misalignment, Email issues
+Feedback Source: "Can we have a functionality to compare the response rate over a period of time with the historical data sources?"
 
-Topic 4: Resource Allocation and Role Clarity
+Let me know the next one you’d like me to break down, or if you'd like me to loop back to the previous batch and reformat those in this same style.
 
-Subtopics: Role misalignment, Centralized vs. Localized hiring, Resource allocation
 
-Keywords: Role clarity, Resource allocation, Centralized hiring
 
 
 
-Topic: Recruitment Process Challenges
 
-Subtopics: Process delays, System inefficiencies, Approval bottlenecks, Workday issues, Onboarding challenges
 
-Keywords: Delays, Tedious process, Inefficiency, Workday, System errors, Multiple approvals, Time-consuming, Lack of support, No ETA
+You said:
+The current user story is to create views based on custom filters. And the feedback is, what do you mean by custom view or custom filter? Can you add example outcome? Could you please help me with the custom filter example outcome? Why? Because here the custom filter meant here is, it's more like a visualization tool, custom filter. We have a fixed filters, but we also include other items as well. For example, for the general release, the filters will be kind of region or corporate grid. But when it comes to the custom filter, they can add more filters. My user has the privilege to add more filters. Can you try to bring in using your knowledge?
 
-Topic: Workday System Issues
 
-Subtopics: Lack of integration, Unintuitive interface, Errors in vacancy management, Inaccurate process tracking
+ChatGPT said:
+Absolutely — that context helps a lot. You're describing a dashboard feature where users can apply both fixed filters (like region, business unit) and add their own additional filters dynamically — this is commonly called “self-service filtering” in visualization tools like Qlik, Tableau, or Qualtrics dashboards.
 
-Keywords: Workday issues, System glitches, Inaccurate tracking, Vacancy mismanagement, Unhelpful system, No audit logs
+Let’s go ahead and structure this into a proper user story with an example outcome that shows what “custom filter” really means — so your supplier has no ambiguity.
 
-Topic: Communication and Coordination Problems
+✅ Feedback-Based User Story Breakdown
+🧩 Original User Story: Create views based on custom filters.
+User Story Title: Enable Custom Filters for Personalized Dashboard Views
 
-Subtopics: Lack of updates, Poor approval flow, Delays in candidate progress
+User Story:
+As a dashboard user,
+I want the ability to apply custom filters beyond the standard ones provided (e.g., region or corporate grid),
+So that I can personalize the data view based on additional dimensions relevant to my role.
 
-Keywords: No updates, Poor communication, Email overload, Inefficient coordination
+Example Outcome:
+A People Partner in APAC filters the dashboard not only by “Region = APAC” (a fixed filter), but also adds a custom filter like “Tenure > 2 years” or “Job Level = 4+” to view trends specific to experienced employees.
 
-Topic: Need for Process Streamlining and Automation
+Feedback Source: "What do you mean by custom view or custom filter? Can you add example outcome?"
 
-Subtopics: Simplification of approval process, Automation of approvals, Real-time tracking
+Let me know if you'd like a second user story to capture the difference between fixed filters (default) and custom filters (user-defined) — or if this single story covers it for you. Also happy to rewrite older stories in this exact style if needed.
 
-Keywords: Automation, Streamlining, Efficiency, Real-time updates, Fewer approval steps, Simplified workflow
 
-Summary:
-The feedback highlights significant frustrations with both the recruitment process and the tools used, especially Workday. 
-Key concerns include lengthy approval timelines, multiple redundant steps, system inefficiencies, and the lack of transparency in the process.
-There are numerous issues related to Workday, such as delays, lack of intuitive design, no proper audit trail, and errors in vacancy management.
-Onboarding and coordination are also challenging, with users feeling unsupported and struggling with the system's complexity. 
-Overall, the process is seen as overly complicated, time-consuming, and in need of major improvements, particularly in automation, approval flow, and system usability.
 
-The feedback from hiring managers highlights significant concerns about the inefficiency and complexity of the recruitment process. 
-Key issues include prolonged hiring cycles, technical glitches, misalignment of roles, and ineffective communication. 
-Many respondents emphasized the need for streamlining processes, enhancing system efficiency, and ensuring proper alignment and involvement of all stakeholders. 
-Overall, the process is seen as overly bureaucratic, slow, and in need of urgent improvements.
+
+
+
+
+You said:
+The user story is to compare response across surveys for benchmarking, so I can explore tailor-made insights and in-depth analysis according to the business needs. And the feedback is, include one or more item to compare with external benchmarking. And can you please update the user story based on the feedback?
+ChatGPT said:
+Absolutely! Based on your original user story and the feedback, the request expands the scope to allow comparison not just across internal surveys, but also against external benchmarks — this could mean industry standards, external datasets, or vendor-provided benchmarks.
+
+Here’s how I’ve updated the user story to reflect both:
+
+✅ Feedback-Based User Story Breakdown
+🧩 Updated User Story: Compare response across surveys for benchmarking, so I can explore tailor-made insights and in-depth analysis according to the business needs.
+User Story Title: Benchmark Survey Results Internally and Externally
+
+User Story:
+As a dashboard user or analyst,
+I want the ability to compare survey responses across multiple internal surveys and with one or more external benchmark datasets,
+So that I can tailor insights to business needs and identify whether our results are on par with industry or market standards.
+
+Example Outcome:
+A Business HR user can compare engagement scores from this year’s Employee Experience survey to:
+
+Last year’s survey (internal benchmark)
+
+The average benchmark for the tech industry provided by an external vendor
+
+Feedback Source: "Include one or more item to compare with external benchmarking."
+
+Let me know if you'd like to isolate the external benchmark comparison as its own story, or if you'd prefer this as a bundled story. I can also help phrase that for technical feasibility discussion if needed!
+
+
+
+
+
+
+
+You said:
+The system to integrate the dashboard visualization tool, so I can visualize data effectively. Feedback is, if you can provide examples, that would be great. The next user story is the tool to provide heatmaps to highlight key areas of concern. I can identify and address critical issues. Can we include an outcome or acceptance criteria for this one? The next user story is the tool to provide heatmaps to highlight key areas of high engagement. So I can recognize and leverage areas of high engagement. Can you please add an outcome metric for this one?
+ChatGPT said:
+Absolutely — here’s how we can enhance each user story you mentioned based on the feedback. I’ve included:
+
+Example outcome for the dashboard integration story.
+
+Outcome or acceptance criteria for the heatmap stories — one for areas of concern, and one for areas of high engagement.
+
+🧩 User Story 1: Dashboard Integration
+User Story Title: Integrate Dashboard Visualization Tool
+
+User Story:
+As a user of the insights platform,
+I want the system to integrate with a dashboard visualization tool,
+So that I can visualize and interact with data more effectively.
+
+Example Outcome:
+The survey data collected in SurveyBuild automatically feeds into Qlik Sense, where users can apply filters (e.g., Region, Department), view trends over time, and export charts for reporting.
+
+🧩 User Story 2: Heatmap for Areas of Concern
+User Story Title: Highlight Areas of Concern with Heatmaps
+
+User Story:
+As a business stakeholder,
+I want the tool to provide heatmaps to highlight low-performing segments or topics,
+So that I can identify and address critical issues quickly.
+
+Outcome / Acceptance Criteria:
+
+Heatmap cells automatically change color based on thresholds (e.g., red for <50% favorability).
+
+Areas with low sentiment scores or low satisfaction ratings are flagged visually.
+
+Users can click on a highlighted area to drill down into specific feedback.
+
+🧩 User Story 3: Heatmap for High Engagement
+User Story Title: Highlight Areas of High Engagement with Heatmaps
+
+User Story:
+As a business stakeholder,
+I want the tool to highlight areas of high engagement using heatmaps,
+So that I can recognize and leverage what’s working well.
+
+Outcome Metric:
+
+Segments or departments with >80% favorability in engagement topics are highlighted in green.
+
+A summary panel shows the top 3 areas contributing to high engagement across the organization.
+
+Insights from high-performing areas can be exported as learnings or best practices.
+
+Let me know if you'd like these rewritten for tech implementation or included in a user story doc format — happy to help!
+
+
+
+
+
+
+
+You said:
+I need your help in writing user stories regarding benchmarking. Consider we have benchmarks in Survey Dashboard. When it comes to Survey Dashboard benchmarks, we need to understand what are the external sources aligned to our same organizational or financial benchmarks that we can be included. More details on the report requirements on the Dashboard. I want each item I am saying as a separate user story with a persona relevant to Survey Tool about Dashboard, more details on the Dashboard, report requirements, ability to include benchmarks, and on the SSO side, I need several user stories related to SSO tool to support single sign-on feature and it has to work on multiple browser and the ability to integrate the SSO and also the ability to not allowing the users outside organizations. All these things as a separate user story and with respect to other user stories, I want the ability to send, I mean the ability for a manager to send out a predefined survey. Example, team feedback, speak up, team effectiveness, kind of. Can you please write each user story for the items I have mentioned?
+
+
+ChatGPT said:
+Absolutely — here are the user stories you've requested, broken down into individual items with relevant personas. I've grouped them into themes: Benchmarking, Dashboard Reporting, SSO Integration, and Survey Distribution by Managers.
