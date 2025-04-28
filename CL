@@ -1,33 +1,37 @@
-Business Requirement Prioritization:
+I would like to provide an update regarding two issues we encountered with the Manager-Led survey setup and the actions taken:
 
-High Priority: Must-Have requirements.
+Issue 1: Quota-Based Report Scheduling Logic
 
-Medium Priority: Good-to-Have requirements.
+In the Manager-Led survey, we set a threshold for report scheduling: once a line manager has 3 survey completions, a workflow triggers an email containing a report link, scheduled to be sent at survey closure.
+However, we identified a problem — when multiple respondents (e.g., the 4th and 5th) complete the survey simultaneously, the quota count can jump directly from 3 to 5 without passing through 4 incrementally. As a result, the workflow that was designed to trigger at exactly 3 completions fails to initiate for these managers.
 
-Low Priority: Nice-to-Have requirements.
+The support team confirmed that this is expected behavior due to how the system handles concurrent completions and unfortunately, no standard fix is available. They advised handling such cases manually.
 
-Tech Team Assessment:
+To minimize manual intervention, I proposed an alternate solution:
 
-Focus on High Priority and Existing items.
+Pull the Response ID of the manager (requestor) and introduce an embedded data field, 'Report Sent', initially set to 'No'.
 
-Determine if current tools meet these requirements or if improvements are needed.
+Modify the workflow trigger condition to:
 
-Key Questions for Tech Team:
+Check if the quota count is greater than or equal to 4 (instead of exactly 3).
 
-Identify the key contact for decision-making.
+Verify that 'Report Sent' is 'No'.
 
-Confirm who is responsible for decisions and when reviews will take place.
+Upon meeting the trigger conditions, the workflow will:
 
-Request a gap analysis to identify any discrepancies.
+Schedule the report.
 
-Coordination with Talent Team:
+Update the 'Report Sent' field to 'Yes' for the manager.
 
-Share the gap analysis findings with Lara and the Talent team.
+This approach ensures that even if the quota count jumps (e.g., from 3 to 5), the report is triggered only once per manager and avoids multiple workflow runs as the 'Report Sent' field controls repeated execution.
 
-Weekly Update Meetings:
+This solution has been reviewed and approved by Alisdair, and I have now implemented it. I would appreciate your support in testing the logic to confirm it works as expected across different scenarios.
 
-Schedule weekly calls to discuss status and action items.
+Separately, we also addressed the link expiry issue for the scheduled reports, which was resolved and tested last week. The report links are now functioning without expiration concerns.
 
-Participants include both the Tech Team and Viva Engagement Team.
+Issue 2: Calendar Accessibility
 
-Ensure clarity on responsibilities and next steps during these updates.
+The calendar (date picker) component built by the support team is not fully accessible. Upon raising this, the support team clarified that accessibility checks for custom-coded components must be completed before project sign-off. After sign-off, they are unable to offer fixes for such items.
+Despite exploring all potential solutions, no feasible fix was found without significant redevelopment. As a result, we will proceed with the current setup.
+
+Please let me know if you would like me to arrange a session to walk through the updated logic and testing 
