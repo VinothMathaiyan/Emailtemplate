@@ -1,37 +1,54 @@
-I would like to provide an update regarding two issues we encountered with the Manager-Led survey setup and the actions taken:
+We are currently working on enhancing our feedback survey analysis for the Hiring Manager and New Joiner surveys. The existing model that we use for generating topics, subtopics, and keywords from open-ended responses has shown some limitations, and we would like to refine it further to better align with the specific stages in the hiring and new joiner journey.
 
-Issue 1: Quota-Based Report Scheduling Logic
+The process involves multiple stages (five to seven) in both the hiring and new joiner journeys, and we aim to extract the most relevant, neutral keywords from the responses. It’s crucial that the keywords remain generic and unbiased, not leaning towards any positive or negative sentiment. These keywords should align with the stages and topics of the respective journeys to offer better insights into the feedback.
 
-In the Manager-Led survey, we set a threshold for report scheduling: once a line manager has 3 survey completions, a workflow triggers an email containing a report link, scheduled to be sent at survey closure.
-However, we identified a problem — when multiple respondents (e.g., the 4th and 5th) complete the survey simultaneously, the quota count can jump directly from 3 to 5 without passing through 4 incrementally. As a result, the workflow that was designed to trigger at exactly 3 completions fails to initiate for these managers.
+We are seeking your support to help us fine-tune the model so that it effectively captures these aspects and provides more meaningful data. Your expertise in this area would be highly valuable for ensuring that the model can produce the necessary output in a way that is aligned with our business objectives.
 
-The support team confirmed that this is expected behavior due to how the system handles concurrent completions and unfortunately, no standard fix is available. They advised handling such cases manually.
+Please let me know if you need any further details on the survey or the current model, and how we can best collaborate to achieve this.
 
-To minimize manual intervention, I proposed an alternate solution:
+Looking forward to your support.
 
-Pull the Response ID of the manager (requestor) and introduce an embedded data field, 'Report Sent', initially set to 'No'.
+I hope you are doing well.
 
-Modify the workflow trigger condition to:
+We are currently reviewing the feedback survey process for the Hiring Manager and New Joiner journeys and have encountered a few challenges with the existing text analysis model that we are using. The current model, which utilizes TextIQ and XM Discover, has been producing keywords and topics that are no longer relevant to the current context, especially with outdated topics like COVID-19 workplace concerns that are no longer applicable to the stages that the hiring managers and new joiners are experiencing. Additionally, some critical and trending topics are not captured in the current model, and this is impacting our ability to gain meaningful insights.
 
-Check if the quota count is greater than or equal to 4 (instead of exactly 3).
+To address this, we need to redefine the existing models to focus on the most relevant, current, and neutral keywords that align better with the stages of the Hiring and New Joiner journeys. The goal is to identify keywords and topics that are not biased toward positive or negative sentiments but are more reflective of neutral, trending themes.
 
-Verify that 'Report Sent' is 'No'.
+The process is currently quite time-consuming if done manually, and we believe your team’s automation based on Python code could significantly improve efficiency and output quality. Specifically, we would like your help in generating these neutral and trending keywords, along with relevant topics and subtopics. This will allow us to refine the TextIQ and XM Discover models and ensure that we’re capturing the most meaningful data for our analysis.
 
-Upon meeting the trigger conditions, the workflow will:
+Once we have your support in generating these keywords and redefining the models, we will take this approach to the journey owners for approval. They will need to understand why the current model needs further refinement and how the new approach will help us deliver more efficient and insightful data.
 
-Schedule the report.
+Could you please let us know if you’re able to assist with this and any next steps we need to follow to move forward?
 
-Update the 'Report Sent' field to 'Yes' for the manager.
+Thank you in advance for your help. We are confident that your expertise will enable us to improve the quality and relevance of our data insights.
 
-This approach ensures that even if the quota count jumps (e.g., from 3 to 5), the report is triggered only once per manager and avoids multiple workflow runs as the 'Report Sent' field controls repeated execution.
 
-This solution has been reviewed and approved by Alisdair, and I have now implemented it. I would appreciate your support in testing the logic to confirm it works as expected across different scenarios.
 
-Separately, we also addressed the link expiry issue for the scheduled reports, which was resolved and tested last week. The report links are now functioning without expiration concerns.
 
-Issue 2: Calendar Accessibility
+Thank you for your response and for clarifying the timeline regarding the Yokohama patch.
 
-The calendar (date picker) component built by the support team is not fully accessible. Upon raising this, the support team clarified that accessibility checks for custom-coded components must be completed before project sign-off. After sign-off, they are unable to offer fixes for such items.
-Despite exploring all potential solutions, no feasible fix was found without significant redevelopment. As a result, we will proceed with the current setup.
+We understand that the patch will only be available after May and that it would be best to plan any testing or discussions post-upgrade. Based on this, we’ve asked the Qualtrics team to tentatively schedule a call with their engineering team during the first week of June.
 
-Please let me know if you would like me to arrange a session to walk through the updated logic and testing 
+We’ll confirm the exact date and time closer to the call and will ensure it aligns with your availability.
+
+Thanks again for your guidance — we’ll keep you updated.
+
+
+Thank you for sharing the details of your upcoming MS Forms survey and your approach to distributing it via Teams channels.
+
+We had a couple of follow-up questions to better understand the control measures planned for the survey:
+
+Population Control for Specific Regions:
+You mentioned that the survey will not target populations from Germany and China. Since the link will be shared through Teams, we would appreciate it if you could clarify how the population control is being implemented in this context. Specifically, is there a restriction or mechanism in place within Teams to exclude access for colleagues in those regions, or are there any other control measures planned to manage this?
+
+Handling of Open-End Responses with Copilot:
+We understand the team intends to retain open-end responses and leverage Copilot for insights. To ensure alignment with data privacy practices, we would like to understand how the team plans to manage sensitive and personally identifiable information (PII) that may be captured in those responses.
+Could you please share:
+
+The process in place to detect and remove sensitive information.
+
+The escalation approach for any flagged concerns.
+
+The specific Copilot prompt being used to process and generate insights from open text responses.
+
+Knowing the prompt would also help us explore a consistent and safe approach across other teams who are using similar methods.
