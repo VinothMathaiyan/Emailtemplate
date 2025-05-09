@@ -1,54 +1,44 @@
-We are currently working on enhancing our feedback survey analysis for the Hiring Manager and New Joiner surveys. The existing model that we use for generating topics, subtopics, and keywords from open-ended responses has shown some limitations, and we would like to refine it further to better align with the specific stages in the hiring and new joiner journey.
+Subject: Process Steps for OneCert Feed File Management (Post-Exception Period)
 
-The process involves multiple stages (five to seven) in both the hiring and new joiner journeys, and we aim to extract the most relevant, neutral keywords from the responses. It’s crucial that the keywords remain generic and unbiased, not leaning towards any positive or negative sentiment. These keywords should align with the stages and topics of the respective journeys to offer better insights into the feedback.
+Hi [Team/Name],
 
-We are seeking your support to help us fine-tune the model so that it effectively captures these aspects and provides more meaningful data. Your expertise in this area would be highly valuable for ensuring that the model can produce the necessary output in a way that is aligned with our business objectives.
+I’m writing to outline the current process steps we are following for the OneCert feed file management, particularly after the exception period granted by the tech team has ended.
 
-Please let me know if you need any further details on the survey or the current model, and how we can best collaborate to achieve this.
+Background:
+Our user access management requests are handled through the request portal maintained by the tech team. To ensure accuracy and alignment with leaver and mover processes, the tech team requires daily updates of user details. While the long-term plan is to automate this via integration between the HR tech portal and Qualtrics, this integration is not yet in place. As a result, the feed file is currently being managed manually.
 
-Looking forward to your support.
+Previously, an exception allowed us to share the feed file weekly, as the application had only recently gone live in the request portal. This exception was valid until the end of April. Now that we are in May, we are expected to submit the file on a daily basis.
 
-I hope you are doing well.
+Current Manual Process:
+Until the integration is completed, the following manual process is being followed daily:
 
-We are currently reviewing the feedback survey process for the Hiring Manager and New Joiner journeys and have encountered a few challenges with the existing text analysis model that we are using. The current model, which utilizes TextIQ and XM Discover, has been producing keywords and topics that are no longer relevant to the current context, especially with outdated topics like COVID-19 workplace concerns that are no longer applicable to the stages that the hiring managers and new joiners are experiencing. Additionally, some critical and trending topics are not captured in the current model, and this is impacting our ability to gain meaningful insights.
+Prepare the User Feed File:
 
-To address this, we need to redefine the existing models to focus on the most relevant, current, and neutral keywords that align better with the stages of the Hiring and New Joiner journeys. The goal is to identify keywords and topics that are not biased toward positive or negative sentiments but are more reflective of neutral, trending themes.
+The file includes only privileged users (excluding default users).
 
-The process is currently quite time-consuming if done manually, and we believe your team’s automation based on Python code could significantly improve efficiency and output quality. Specifically, we would like your help in generating these neutral and trending keywords, along with relevant topics and subtopics. This will allow us to refine the TextIQ and XM Discover models and ensure that we’re capturing the most meaningful data for our analysis.
+It is formatted with the required headers as specified by the tech team.
 
-Once we have your support in generating these keywords and redefining the models, we will take this approach to the journey owners for approval. They will need to understand why the current model needs further refinement and how the new approach will help us deliver more efficient and insightful data.
+Convert Data to Required Format:
 
-Could you please let us know if you’re able to assist with this and any next steps we need to follow to move forward?
+The row values are structured as per the format expected for the feed processing.
 
-Thank you in advance for your help. We are confident that your expertise will enable us to improve the quality and relevance of our data insights.
+Submit Feed File:
 
+The completed file is submitted daily via the incident management portal.
 
+Tech Team Action:
 
+The tech team picks up the feed file.
 
-Thank you for your response and for clarifying the timeline regarding the Yokohama patch.
+They run validations against current active user data to detect any leaver or inactive accounts.
 
-We understand that the patch will only be available after May and that it would be best to plan any testing or discussions post-upgrade. Based on this, we’ve asked the Qualtrics team to tentatively schedule a call with their engineering team during the first week of June.
+If discrepancies are found (e.g. disabled accounts), the tech team informs us to remove access from our systems accordingly.
 
-We’ll confirm the exact date and time closer to the call and will ensure it aligns with your availability.
+Next Steps:
+We understand that to move away from manual handling, integration needs to be set up. For that:
 
-Thanks again for your guidance — we’ll keep you updated.
+We will coordinate with the Qualtrics engineering team to enable automation.
 
+The user feed will be routed to a designated SFTP path.
 
-Thank you for sharing the details of your upcoming MS Forms survey and your approach to distributing it via Teams channels.
-
-We had a couple of follow-up questions to better understand the control measures planned for the survey:
-
-Population Control for Specific Regions:
-You mentioned that the survey will not target populations from Germany and China. Since the link will be shared through Teams, we would appreciate it if you could clarify how the population control is being implemented in this context. Specifically, is there a restriction or mechanism in place within Teams to exclude access for colleagues in those regions, or are there any other control measures planned to manage this?
-
-Handling of Open-End Responses with Copilot:
-We understand the team intends to retain open-end responses and leverage Copilot for insights. To ensure alignment with data privacy practices, we would like to understand how the team plans to manage sensitive and personally identifiable information (PII) that may be captured in those responses.
-Could you please share:
-
-The process in place to detect and remove sensitive information.
-
-The escalation approach for any flagged concerns.
-
-The specific Copilot prompt being used to process and generate insights from open text responses.
-
-Knowing the prompt would also help us explore a consistent and safe approach across other teams who are using similar methods.
+The tech team can then directly pick the file from there for their checks.
