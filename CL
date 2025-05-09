@@ -1,44 +1,19 @@
-Subject: Process Steps for OneCert Feed File Management (Post-Exception Period)
+I hope you are doing well.
 
-Hi [Team/Name],
+I’m reaching out regarding the OneCert feed file management process. As you know, we were previously granted an exception to submit the user feed file manually on a weekly basis due to the automation setup not being in place yet. This exception was approved for an initial period of two months and we truly appreciate your support during that time.
 
-I’m writing to outline the current process steps we are following for the OneCert feed file management, particularly after the exception period granted by the tech team has ended.
+Now that the exception period has concluded, we understand from our recent discussion that there won’t be any further extensions permitted by default. However, we are currently facing some challenges in implementing the automation within the expected timeline. Due to technical dependencies and coordination with the Qualtrics engineering team, we are unable to complete the setup as quickly as anticipated.
 
-Background:
-Our user access management requests are handled through the request portal maintained by the tech team. To ensure accuracy and alignment with leaver and mover processes, the tech team requires daily updates of user details. While the long-term plan is to automate this via integration between the HR tech portal and Qualtrics, this integration is not yet in place. As a result, the feed file is currently being managed manually.
+Given these circumstances, we would like to inquire if there’s any formal way to request a short extension of the exception period—ideally for another 2 to 3 months—so that we can continue the manual weekly submission while working toward the automation.
 
-Previously, an exception allowed us to share the feed file weekly, as the application had only recently gone live in the request portal. This exception was valid until the end of April. Now that we are in May, we are expected to submit the file on a daily basis.
+I remember you had mentioned earlier that we either:
 
-Current Manual Process:
-Until the integration is completed, the following manual process is being followed daily:
+Submit the feed file manually on a daily basis via the incident portal, or
 
-Prepare the User Feed File:
+Raise an error if that is not feasible.
 
-The file includes only privileged users (excluding default users).
+Before proceeding with either of these options, we wanted to check if there is an escalation path or a senior contact who we can reach out to for requesting an extended exception, considering the situation.
 
-It is formatted with the required headers as specified by the tech team.
+We would really appreciate your guidance on whether such an exception extension can be considered again, and if so, the right process or person we should contact for this request.
 
-Convert Data to Required Format:
-
-The row values are structured as per the format expected for the feed processing.
-
-Submit Feed File:
-
-The completed file is submitted daily via the incident management portal.
-
-Tech Team Action:
-
-The tech team picks up the feed file.
-
-They run validations against current active user data to detect any leaver or inactive accounts.
-
-If discrepancies are found (e.g. disabled accounts), the tech team informs us to remove access from our systems accordingly.
-
-Next Steps:
-We understand that to move away from manual handling, integration needs to be set up. For that:
-
-We will coordinate with the Qualtrics engineering team to enable automation.
-
-The user feed will be routed to a designated SFTP path.
-
-The tech team can then directly pick the file from there for their checks.
+Thanks again for all your continued support.
