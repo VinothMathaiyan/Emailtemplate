@@ -1,95 +1,25 @@
-The Qualtrics Employee Experience Survey Tool serves as a strategic platform for gathering critical insights related to colleague engagement, satisfaction, and overall experience. As part of our commitment to continuous improvement in employee engagement, the Qualtrics tool allows us to collect feedback from employees across various stages of their journey with the organization, from onboarding through to exit.
+Objective: Analyze hiring manager survey responses across the recruitment stages for key topics and relevant keywords.
 
-This feedback collection process enables real-time insights into employee sentiment, allowing leadership to respond promptly to emerging trends, identify areas for improvement, and drive targeted action plans. The tool's robust data analytics capabilities ensure that feedback is analyzed systematically and can be used to inform decisions at both the department and organizational levels.
+Inputs:
 
-By integrating the Qualtrics survey tool into the Lean Control framework, we aim to standardize the development and implementation of changes within the survey process. This approach ensures that all enhancements and modifications are aligned with technical best practices, allowing for continuous refinement of the survey tool, ensuring that we are gathering the most relevant and actionable insights.
+Free-text responses at various hiring stages:
 
-The main goal of this initiative is to improve the quality and speed of decision-making based on employee feedback, providing data-driven insights that support employee engagement and organizational development. The transition to a more technical and standardized approach will also improve the overall reliability and scalability of the system as it continues to grow.
+Seeking Business Approval to Hire
 
+Starting the Hiring Process
 
+Agreeing on a Candidate Shortlist
 
-Feedback Collection
+Preparing for Interviews
 
-The tool must allow for the collection of feedback from employees at various stages of their journey (e.g., onboarding, ongoing engagement, and exit).
+Interviewing Candidates
 
-The survey must be accessible via single sign-on for all employees within the designated user group.
+Selecting Successful Candidate & Contract Signing
 
-The survey tool must support multiple question formats (e.g., multiple-choice, Likert scale, open-ended) to ensure diverse feedback collection.
+Preparing to Receive the New Colleague
 
-Data Analytics and Insights
+A. Preparing to Onboard the New Joiner
 
-The tool must be able to analyze collected data in real-time and generate actionable insights.
+B. Specific Challenges Faced During Onboarding
 
-Insights must be available in a dashboard format for both leaders and HR to review key trends, sentiments, and areas of concern.
-
-The system must automatically categorize feedback into key themes, such as engagement, satisfaction, and areas for improvement.
-
-Actionable Reporting
-
-The tool must produce reports that allow for easy segmentation of data based on demographic and organizational factors (e.g., department, location, seniority).
-
-Reports must include key performance indicators (KPIs) that track engagement, satisfaction, and sentiment trends.
-
-The tool must allow for customizable reporting to accommodate specific departmental or organizational needs.
-
-Integration with Lean Control Framework
-
-The tool must be integrated with the Lean Control tool, ensuring that all feedback-related development and changes are tracked and managed in a standardized manner.
-
-Any enhancements or modifications to the survey tool must follow the organization’s technical and development standards.
-
-The integration must support change tracking and versioning to ensure transparency and accountability in the feedback collection process.
-
-User Experience
-
-The survey tool must be intuitive and easy to navigate for employees and managers, ensuring high completion rates.
-
-Employees must receive confirmation that their feedback has been successfully submitted, with the ability to track survey participation status.
-
-Security and Compliance
-
-The tool must ensure that all data collected is secure and complies with relevant data protection regulations (e.g., GDPR, CCPA).
-
-Employee feedback, including any personally identifiable information (PII), must be handled with the utmost confidentiality.
-
-The system must allow for pseudonymization or anonymization of sensitive data where required.
-
-Feedback Follow-up
-
-The tool must enable automatic notifications and reminders for employees and managers to complete surveys as required.
-
-There must be a mechanism to escalate critical feedback or concerns raised during the survey process, ensuring timely follow-up from relevant teams.
-
-
-
-
-
-
-
-----
-The Qualtrics Employee Experience Survey Tool provides an advanced platform for collecting, analyzing, and acting upon employee feedback across multiple touchpoints in the employee lifecycle. This product empowers the bank to gauge employee engagement, satisfaction, and sentiment in real time, facilitating data-driven decisions for improving organizational culture, performance, and overall employee well-being. Through automated surveys, customizable question formats, and integration with existing systems, the tool enables the bank to efficiently capture critical insights and manage employee experiences at scale.
-
-
-
-In our bank, the Qualtrics Employee Experience Survey Tool will be primarily used for assessing employee engagement and satisfaction at various stages of the employee lifecycle, such as onboarding, performance reviews, and exit surveys. By leveraging automated surveys distributed via secure channels (e.g., email, single sign-on), the bank can ensure broad participation while maintaining a high level of confidentiality and security.
-
-The tool will help HR teams and leaders gain actionable insights into areas such as work culture, leadership effectiveness, and employee morale. With these insights, managers can make informed decisions about improving work environments, addressing employee concerns, and aligning HR strategies with business objectives. Moreover, the integration of the tool with the Lean Control framework will allow the bank to systematically track survey results, monitor trends over time, and continuously refine employee experience strategies.
-
-This product is pivotal in fostering a feedback-driven culture where employees’ voices are heard, and decisions are data-backed, ultimately leading to a more engaged and satisfied workforce within the bank.
-
-
-
-
-The Qualtrics Employee Experience Survey Tool contains sensitive employee feedback data, including personal opinions, satisfaction ratings, and potentially identifying information. To ensure that this data is handled appropriately, it is essential to implement strict access controls.
-
-Confidentiality and Privacy: Employee surveys often contain personal or sensitive information. Limiting access to this tool ensures that only authorized personnel, such as HR professionals and senior managers, can view or analyze the results. This helps protect the confidentiality of employee responses and prevents unauthorized access to private data, aligning with data protection regulations like GDPR.
-
-Data Integrity: Restricting access helps maintain the integrity of the data by ensuring that only those with proper training and understanding can modify or interpret the survey results. This prevents accidental or intentional misinterpretation of sensitive data, which could lead to incorrect decisions or actions.
-
-Security Concerns: The survey tool stores valuable organizational data that, if accessed by the wrong individuals, could pose a security risk. Limiting access ensures that sensitive information is only shared with trusted individuals who are required to have access as part of their job roles.
-
-Compliance with Legal and Ethical Standards: Many organizations, including banks, are required to adhere to strict legal and ethical standards regarding employee data. Limiting access ensures compliance with internal policies and external regulations, minimizing the risk of legal repercussions.
-
-Protecting the Employee Experience: The primary goal of the tool is to improve the employee experience. By restricting access, we ensure that the data is used responsibly and only by those who are directly involved in making decisions that impact employees. This helps to maintain trust with employees and ensures that their feedback is used appropriately.
-
-By limiting access to qualified users, we can protect the integrity, security, and confidentiality of the employee data while enabling the right people to take action based on the insights provided by the tool.
+Expected Output: A comprehensive analysis of key topics and keywords found in the survey responses.
