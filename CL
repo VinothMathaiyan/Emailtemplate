@@ -64,3 +64,94 @@ Propose a sustainable fix to avoid this repeated manual rework for every upgrade
 We’d be grateful for your inputs and proposed next steps on both issues. Please let us know if further details or logs are required from our side to assist with the investigation.
 
 Looking forward to your response and support in resolving these integration concerns.
+
+
+--------
+Subject: Integration Issues Between UEL (ServiceNow) and Qualtrics – Token Expiry, Upgrade Behavior, and Follow-up from Discussion
+
+Hi [Recipient's Name],
+
+Following our recent call with the Qualtrics team, as discussed, I’m documenting the key integration challenges we’re facing between UEL (ServiceNow) and Qualtrics, along with the actions we’re planning and the support needed. This email is intended to summarize the critical issues, outline our testing approach, and ensure alignment before the upcoming Yokohama upgrade.
+
+🔹 Background
+We currently have a live integration between Qualtrics and UEL (ServiceNow) that automatically triggers a survey when an HR case is closed. This mechanism helps us collect real-time feedback on colleague experience post-case closure.
+
+🔹 Issue 1: OAuth Token Expiry Leading to Task Creation Failures
+What’s Happening: Approximately every 100 days, task creation in ServiceNow fails. This pattern has occurred in November, February, and again last week.
+
+Root Cause Identified by ServiceNow: The Qualtrics refresh token is configured to expire after 100 days. Once expired, it leads to authentication failure, and task creation stops.
+
+Current Impact: No task in ServiceNow means no survey is nudged, which has led to a decline in response rates.
+
+Assumption vs Reality:
+
+ServiceNow initially assumed Qualtrics handles token refresh dynamically, but this mechanism is not enabled in Qualtrics currently.
+
+Next Steps:
+
+Qualtrics Engineering is reviewing this and has requested endpoint-level details.
+
+We strongly recommend enabling a dynamic token refresh mechanism as a permanent fix.
+
+If dynamic refresh isn’t feasible, we’d like to understand how other clients are handling static refresh—any industry best practices or alternate setups would be valuable to explore.
+
+🔹 Issue 2: Integration Disruption After ServiceNow Upgrades
+Typical Process: ServiceNow upgrades (e.g., Vancouver, Utah, San Diego, now Yokohama) happen every 4 months. We use multiple instances (DEV, UAT, TEST, RTP) to validate each upgrade’s compatibility with our workflows before pushing to production.
+
+Observed Problem:
+
+Post-upgrade, non-production instances often show disabled connections or invalid account errors.
+
+Attempting to refresh or re-authenticate credentials using the same setup usually fails.
+
+As a workaround, we’ve had to create a new Qualtrics account and build the workflow from scratch.
+
+Why This is Painful: It’s time-consuming, error-prone, and inefficient to rebuild everything manually each upgrade.
+
+Monitoring Plan for Yokohama Upgrade:
+
+We are closely monitoring the pre-upgrade state of key instances (TEST, UAT, and/or DEV).
+
+After the upgrade, we will capture and share snapshots of the before/after states if we observe failures, to help the Qualtrics team analyze logs and changes.
+
+This will allow for root cause identification—whether the issue is due to ServiceNow behavior, token handling, or something else in the IS system.
+
+Support from ServiceNow Team (Barclays):
+
+They have committed to informing us with a test plan at least two weeks in advance, giving Qualtrics Engineering and Support teams time to prepare.
+
+🔹 Summary of Actions & Information Needed
+Qualtrics Engineering to confirm:
+
+If dynamic token refresh can be implemented.
+
+If not, what are the best practices followed by other clients for managing static token expiry.
+
+What may be causing instance disconnection post-upgrade, and whether there’s a solution to preserve integration across upgrades.
+
+Barclays (ServiceNow Team) will:
+
+Share the upgrade test plan in advance.
+
+Continue coordination during the Yokohama release cycle.
+
+🔹 Environment Details (Placeholders for Reference)
+We are also including account and survey references for clarity. Please find the placeholders below:
+
+🔸 Sandbox Environments
+Account ID: [To be filled]
+
+Surveys used:
+
+UAT: [Survey ID / Name]
+
+TEST: [Survey ID / Name]
+
+DEV: [Survey ID / Name]
+
+🔸 Production Environment (RTP)
+Account ID: [To be filled]
+
+Live Survey Name / ID: [To be filled]
+
+Please let us know if any additional information is required from our side. We look forward to collaborating on resolving these issues efficiently and ensuring a smooth upgrade and continued success of the integration.
