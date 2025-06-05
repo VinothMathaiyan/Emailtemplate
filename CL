@@ -155,3 +155,33 @@ Account ID: [To be filled]
 Live Survey Name / ID: [To be filled]
 
 Please let us know if any additional information is required from our side. We look forward to collaborating on resolving these issues efficiently and ensuring a smooth upgrade and continued success of the integration.
+
+
+---------
+
+I wanted to share an important update and some clarification regarding the recent decline in response rates observed in the survey data. As you may be aware, we encountered an integration issue related to the token refresh failure between Qualtrics and ServiceNow. This issue caused the automatic task creation in ServiceNow to fail, which in turn affected survey delivery.
+
+To clarify, the issue was not with the email invite or reminder mechanism itself. Both invites and reminders from Qualtrics have been functioning as intended.
+
+🔹 What Actually Happened:
+Due to the token expiry, the integration between Qualtrics and ServiceNow was broken.
+
+As a result, no task (which normally contains the survey link) was created in ServiceNow when HR cases were closed.
+
+This disruption began last Monday and lasted for about six business days.
+
+Since the task was not created, the system nudge or prompt that normally encourages colleagues to complete the survey was absent.
+
+This is the primary reason for the observed 30–40% drop in response rates.
+
+🔹 Current Status:
+The issue was identified and resolved two days ago, and the account credentials have been refreshed.
+
+The integration is now functioning correctly, and tasks are once again being created in ServiceNow with the appropriate survey links.
+
+🔹 What to Expect:
+Although the issue has been fixed, responses for the past 6–7 days may continue to show a decline, as there were no associated tasks during that period.
+
+We expect that, starting early next week (by Monday), the response rate will begin to normalize as tasks are now being created properly again.
+
+I’ve also explained this to [Name of the team member, if applicable], and we will continue to monitor the situation closely. Please feel free to reach out if you need any additional information or support.
