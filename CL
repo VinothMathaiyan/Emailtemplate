@@ -1,20 +1,66 @@
-I wanted to provide an update regarding our upcoming call initially scheduled to discuss the ServiceNow Yokohama upgrade and the connector fix by the Qualtrics team. As per the latest update from the ServiceNow team, the Yokohama upgrade will require an additional week. Consequently, we are looking at rescheduling our call to the third week of June.
+Subject: Issues with UEL (ServiceNow) and Qualtrics Integration – Token Expiry and Environment Upgrade Challenges
 
-However, before we finalize this new schedule, I want to bring to your attention a recurring issue that has been affecting our integration between Qualtrics and ServiceNow. Over the past six months, we have encountered frequent credential refresh issues. The most recent occurrences were on November 29, 2024, mid-February 2025, and once again in the past week. This issue has led to failed task creations due to unauthorized errors, requiring us to re-establish the connection by refreshing the same credentials multiple times.
+Hi [Recipient's Name],
 
-Despite raising this concern with both the Qualtrics and ServiceNow teams, we have not received a clear response or accountability regarding the root cause. This lack of resolution is impacting our workflow and integration efficiency.
+I hope you're doing well.
 
-Therefore, I propose that during our rescheduled meeting, we focus on discussing this credential refresh issue in detail. Our primary objective should be to identify the root cause and determine a sustainable solution.
+I’m reaching out to highlight two critical issues we’ve been encountering with the integration between Qualtrics and UEL (our ServiceNow instance), which we use to trigger HR case closure surveys. Below is the context and detailed breakdown of the problems we are facing:
 
+Background
+We have a live integration between Qualtrics and ServiceNow that automatically triggers a survey upon the closure of an HR case in ServiceNow. This allows us to collect timely feedback on colleague experiences with the service provided.
 
-I wanted to provide an update regarding our upcoming call, which we initially planned to discuss the ServiceNow Yokohama upgrade and the connector fix by the Qualtrics team. Given that the Yokohama upgrade will require an additional week, we are looking at rescheduling our call to the third week of June.
+Issue 1: OAuth Token Expiry – Impacting Task Creation
+Problem: We have observed a recurring pattern where the integration fails to create a task in ServiceNow every ~100 days. This issue was first noticed in November, then again in February, and most recently last week.
 
-In addition to discussing the credential refresh issue, I would like to include some additional questions that have come up from the ServiceNow team:
+Root Cause Identified: The ServiceNow team investigated and confirmed that the Qualtrics refresh token is configured with a 100-day expiry. Once expired, the token is no longer valid, which leads to failures in task creation in ServiceNow.
 
-Why is Qualtrics not requesting a new refresh token dynamically from ServiceNow?
+Impact: As the task isn’t created, the Qualtrics survey isn't nudged, resulting in a drop in survey response rates.
 
-Is there a design misunderstanding that requires the token to be static? If so, we need to discuss updating the token validity to a longer period and scheduling regular activities to refresh it, as per other integrations.
+Assumptions and Gaps:
 
-To effectively address these points and understand the backend design perspective, I propose we have the engineering or design teams from both Qualtrics and ServiceNow join the call. This will help us drill down further on the issue and explore any potential design or engineering considerations.
+The ServiceNow team initially assumed that Qualtrics would handle token auto-refresh dynamically, but this is currently not in place.
 
-Please let me know your availability for the third week of June so we can finalize the schedule.
+The Qualtrics Engineering team has requested endpoint and configuration details and is now evaluating the possibility of enabling dynamic token refresh.
+
+Temporary Workaround Proposed by ServiceNow:
+
+Extend the token expiry duration to 200 or even 365 days.
+
+However, this still requires manual intervention to refresh credentials before expiry and is not scalable or sustainable.
+
+Our Ask: We request the Qualtrics Engineering team to explore and confirm if a dynamic refresh token mechanism can be implemented on your side, so this issue can be resolved permanently and the integration can be made robust.
+
+Issue 2: Instance Connectivity Post-ServiceNow Upgrade
+Background: ServiceNow undergoes regular upgrades (e.g., Vancouver, Washington DC, Utah, San Diego, and now Yokohama), typically every 4 months.
+
+Testing Process: We use various ServiceNow environments (UAT, DEV, TEST, RTP) to validate upgrade compatibility before deploying changes to Production.
+
+Problem Observed: After each upgrade, when we attempt to test the integration in non-production instances:
+
+The connection between Qualtrics and ServiceNow fails.
+
+Errors such as "connection disabled" or "invalid account" appear.
+
+Troubleshooting Steps Tried:
+
+Refreshing credentials using the existing setup.
+
+Re-authenticating the same account — often still results in errors.
+
+Workaround: The only successful method has been to:
+
+Create an entirely new account in Qualtrics.
+
+Rebuild the entire workflow and mapping from scratch, which is time-consuming and inefficient.
+
+Our Ask: We would appreciate it if the Qualtrics Engineering team could:
+
+Investigate why the integration disconnects after ServiceNow upgrades.
+
+Clarify whether this is related to ServiceNow’s upgrade process, token/credential handling in Qualtrics, or something else.
+
+Propose a sustainable fix to avoid this repeated manual rework for every upgrade cycle.
+
+We’d be grateful for your inputs and proposed next steps on both issues. Please let us know if further details or logs are required from our side to assist with the investigation.
+
+Looking forward to your response and support in resolving these integration concerns.
