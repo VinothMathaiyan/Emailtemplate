@@ -1,45 +1,4 @@
-Title:
-Total Responses – Journey Ratings (1 to 5)
-
-Information Text:
-This widget displays the total number of journey-level responses where participants selected a valid rating on a 5-point scale (1 to 5). Responses marked as "Not Applicable" are excluded from this count.
-Out of an expected ~88,000 responses (8,000 respondents × 11 journeys), 56,904 responses were provided with a rating between 1 and 5.
-
-✅ Widget 2: Total Number of "Not Applicable" Responses
-Title:
-Total Responses – Marked as Not Applicable
-
-Information Text:
-This widget shows the number of journey responses where participants selected "Not Applicable," indicating the journey did not apply to them.
-Out of an expected 88,000 journey responses, 28,496 were marked as "Not Applicable" by the respondents.
-
-✅ Widget 3: Percentage of Valid Journey Ratings
-Title:
-Percentage of Responses – Rated (1 to 5)
-
-Information Text:
-This widget represents the proportion of all journey responses that received a rating between 1 and 5, excluding any "Not Applicable" selections.
-Valid ratings account for 67% of the total 88,000 journey responses.
-
-✅ Widget 4: Percentage of Not Applicable Responses
-Title:
-Percentage of Responses – Not Applicable
-
-Information Text:
-This widget displays the percentage of journey responses where participants selected "Not Applicable," indicating the journey was not relevant to them.
-These responses account for 33% of the total 88,000 journey responses.
-
---
-
-
-Widget 1: Total Responses – Journey Ratings (1 to 5)
-Contextual Note:
-Each respondent was shown 11 randomly selected journeys from a set of 57. Ratings displayed here include only those journeys marked as relevant and rated between 1 and 5.
-
-✅ Widget 2: Total Responses – Marked as Not Applicable
-Contextual Note:
-"Not Applicable" responses reflect instances where a journey was shown but deemed irrelevant by the respondent — often due to their role (e.g., colleague vs. people leader).
-
-✅ Widget 3: Percentage of Responses – Rated (1 to 5)
-Contextual Note:
-This percentage is based only on journeys shown to respondents. It helps gauge the overall engagement level with journeys that were considered relevant.
+This widget shows the percentage of journey responses rated 4 or 5 by colleagues, indicating a satisfied or very satisfied experience with the journey.
+Only responses with a valid rating between 1 to 5 are considered for this calculation. "Not Applicable" responses are excluded from both the numerator and denominator.
+The satisfaction score is calculated as:
+(Number of 4 & 5 ratings ÷ Total 1–5 ratings for the journey) × 100
