@@ -1,4 +1,37 @@
-This widget shows the percentage of journey responses rated 4 or 5 by colleagues, indicating a satisfied or very satisfied experience with the journey.
-Only responses with a valid rating between 1 to 5 are considered for this calculation. "Not Applicable" responses are excluded from both the numerator and denominator.
+This chart displays the percentage distribution of journey experience ratings on a 5-point scale — from Very Dissatisfied (1) to Very Satisfied (5) — provided by colleagues.
+Only valid responses (1 to 5) are included in the calculation. Responses marked as “Not Applicable” are excluded.
+Each bar represents the proportion of total valid responses falling into that specific rating category.
+
+
+Journey Satisfaction Comparison – Colleague vs. People Leader
+
+Information Text:
+This chart presents a comparison of satisfaction ratings between colleagues and people leaders, based on their responses to applicable journeys.
+The satisfaction score reflects the percentage of respondents who selected a rating of 4 or 5 on the 5-point scale (Satisfied or Very Satisfied).
+Only valid responses (1 to 5) are included in the base; responses marked as “Not Applicable” are excluded.
+
+Example:
+If the overall satisfaction score is 64%, it is made up of 67% from colleagues and 56% from people leaders who rated their respective journeys as 4 or 5.
+
+Overall HR Experience Satisfaction Score
+
+Information Text:
+This chart displays the percentage of respondents (colleagues and people leaders) who rated their overall experience with HR services as Satisfied (4) or Very Satisfied (5) on a 5-point scale.
+This question was asked to all participants, not based on randomization.
+The base includes only those who provided a valid response (1 to 5). Non-responses (blanks) are excluded from the calculation.
 The satisfaction score is calculated as:
-(Number of 4 & 5 ratings ÷ Total 1–5 ratings for the journey) × 100
+(Number of 4 & 5 ratings ÷ Total number of valid responses) × 100
+
+Contextual Note:
+This question reflects the overall perception of HR services and experiences, irrespective of journey-specific interactions. Results include both colleagues and people leaders who provided a rating.
+
+Correlation: Journey Satisfaction vs. Overall HR Experience
+
+Information Text:
+This chart illustrates the relationship between favorable ratings (4 or 5) given to individual journey experiences and the favorable rating (4 or 5) given to the overall HR experience.
+It helps identify which specific journey experiences are most strongly correlated with a positive overall perception of HR services.
+The calculation is based on valid responses only, where both the journey and the overall HR experience questions were answered (1 to 5 scale). "Not Applicable" and blanks are excluded.
+
+Contextual Note:
+This insight helps prioritize journey improvements that are most likely to impact overall HR satisfaction. Strong correlations indicate that satisfaction in specific journeys (e.g., onboarding) aligns with overall HR experience ratings.
+
