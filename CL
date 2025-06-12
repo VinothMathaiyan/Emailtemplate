@@ -1,187 +1,45 @@
-Subject: Issues with UEL (ServiceNow) and Qualtrics Integration – Token Expiry and Environment Upgrade Challenges
+Title:
+Total Responses – Journey Ratings (1 to 5)
 
-Hi [Recipient's Name],
+Information Text:
+This widget displays the total number of journey-level responses where participants selected a valid rating on a 5-point scale (1 to 5). Responses marked as "Not Applicable" are excluded from this count.
+Out of an expected ~88,000 responses (8,000 respondents × 11 journeys), 56,904 responses were provided with a rating between 1 and 5.
 
-I hope you're doing well.
+✅ Widget 2: Total Number of "Not Applicable" Responses
+Title:
+Total Responses – Marked as Not Applicable
 
-I’m reaching out to highlight two critical issues we’ve been encountering with the integration between Qualtrics and UEL (our ServiceNow instance), which we use to trigger HR case closure surveys. Below is the context and detailed breakdown of the problems we are facing:
+Information Text:
+This widget shows the number of journey responses where participants selected "Not Applicable," indicating the journey did not apply to them.
+Out of an expected 88,000 journey responses, 28,496 were marked as "Not Applicable" by the respondents.
 
-Background
-We have a live integration between Qualtrics and ServiceNow that automatically triggers a survey upon the closure of an HR case in ServiceNow. This allows us to collect timely feedback on colleague experiences with the service provided.
+✅ Widget 3: Percentage of Valid Journey Ratings
+Title:
+Percentage of Responses – Rated (1 to 5)
 
-Issue 1: OAuth Token Expiry – Impacting Task Creation
-Problem: We have observed a recurring pattern where the integration fails to create a task in ServiceNow every ~100 days. This issue was first noticed in November, then again in February, and most recently last week.
+Information Text:
+This widget represents the proportion of all journey responses that received a rating between 1 and 5, excluding any "Not Applicable" selections.
+Valid ratings account for 67% of the total 88,000 journey responses.
 
-Root Cause Identified: The ServiceNow team investigated and confirmed that the Qualtrics refresh token is configured with a 100-day expiry. Once expired, the token is no longer valid, which leads to failures in task creation in ServiceNow.
+✅ Widget 4: Percentage of Not Applicable Responses
+Title:
+Percentage of Responses – Not Applicable
 
-Impact: As the task isn’t created, the Qualtrics survey isn't nudged, resulting in a drop in survey response rates.
+Information Text:
+This widget displays the percentage of journey responses where participants selected "Not Applicable," indicating the journey was not relevant to them.
+These responses account for 33% of the total 88,000 journey responses.
 
-Assumptions and Gaps:
+--
 
-The ServiceNow team initially assumed that Qualtrics would handle token auto-refresh dynamically, but this is currently not in place.
 
-The Qualtrics Engineering team has requested endpoint and configuration details and is now evaluating the possibility of enabling dynamic token refresh.
+Widget 1: Total Responses – Journey Ratings (1 to 5)
+Contextual Note:
+Each respondent was shown 11 randomly selected journeys from a set of 57. Ratings displayed here include only those journeys marked as relevant and rated between 1 and 5.
 
-Temporary Workaround Proposed by ServiceNow:
+✅ Widget 2: Total Responses – Marked as Not Applicable
+Contextual Note:
+"Not Applicable" responses reflect instances where a journey was shown but deemed irrelevant by the respondent — often due to their role (e.g., colleague vs. people leader).
 
-Extend the token expiry duration to 200 or even 365 days.
-
-However, this still requires manual intervention to refresh credentials before expiry and is not scalable or sustainable.
-
-Our Ask: We request the Qualtrics Engineering team to explore and confirm if a dynamic refresh token mechanism can be implemented on your side, so this issue can be resolved permanently and the integration can be made robust.
-
-Issue 2: Instance Connectivity Post-ServiceNow Upgrade
-Background: ServiceNow undergoes regular upgrades (e.g., Vancouver, Washington DC, Utah, San Diego, and now Yokohama), typically every 4 months.
-
-Testing Process: We use various ServiceNow environments (UAT, DEV, TEST, RTP) to validate upgrade compatibility before deploying changes to Production.
-
-Problem Observed: After each upgrade, when we attempt to test the integration in non-production instances:
-
-The connection between Qualtrics and ServiceNow fails.
-
-Errors such as "connection disabled" or "invalid account" appear.
-
-Troubleshooting Steps Tried:
-
-Refreshing credentials using the existing setup.
-
-Re-authenticating the same account — often still results in errors.
-
-Workaround: The only successful method has been to:
-
-Create an entirely new account in Qualtrics.
-
-Rebuild the entire workflow and mapping from scratch, which is time-consuming and inefficient.
-
-Our Ask: We would appreciate it if the Qualtrics Engineering team could:
-
-Investigate why the integration disconnects after ServiceNow upgrades.
-
-Clarify whether this is related to ServiceNow’s upgrade process, token/credential handling in Qualtrics, or something else.
-
-Propose a sustainable fix to avoid this repeated manual rework for every upgrade cycle.
-
-We’d be grateful for your inputs and proposed next steps on both issues. Please let us know if further details or logs are required from our side to assist with the investigation.
-
-Looking forward to your response and support in resolving these integration concerns.
-
-
---------
-Subject: Integration Issues Between UEL (ServiceNow) and Qualtrics – Token Expiry, Upgrade Behavior, and Follow-up from Discussion
-
-Hi [Recipient's Name],
-
-Following our recent call with the Qualtrics team, as discussed, I’m documenting the key integration challenges we’re facing between UEL (ServiceNow) and Qualtrics, along with the actions we’re planning and the support needed. This email is intended to summarize the critical issues, outline our testing approach, and ensure alignment before the upcoming Yokohama upgrade.
-
-🔹 Background
-We currently have a live integration between Qualtrics and UEL (ServiceNow) that automatically triggers a survey when an HR case is closed. This mechanism helps us collect real-time feedback on colleague experience post-case closure.
-
-🔹 Issue 1: OAuth Token Expiry Leading to Task Creation Failures
-What’s Happening: Approximately every 100 days, task creation in ServiceNow fails. This pattern has occurred in November, February, and again last week.
-
-Root Cause Identified by ServiceNow: The Qualtrics refresh token is configured to expire after 100 days. Once expired, it leads to authentication failure, and task creation stops.
-
-Current Impact: No task in ServiceNow means no survey is nudged, which has led to a decline in response rates.
-
-Assumption vs Reality:
-
-ServiceNow initially assumed Qualtrics handles token refresh dynamically, but this mechanism is not enabled in Qualtrics currently.
-
-Next Steps:
-
-Qualtrics Engineering is reviewing this and has requested endpoint-level details.
-
-We strongly recommend enabling a dynamic token refresh mechanism as a permanent fix.
-
-If dynamic refresh isn’t feasible, we’d like to understand how other clients are handling static refresh—any industry best practices or alternate setups would be valuable to explore.
-
-🔹 Issue 2: Integration Disruption After ServiceNow Upgrades
-Typical Process: ServiceNow upgrades (e.g., Vancouver, Utah, San Diego, now Yokohama) happen every 4 months. We use multiple instances (DEV, UAT, TEST, RTP) to validate each upgrade’s compatibility with our workflows before pushing to production.
-
-Observed Problem:
-
-Post-upgrade, non-production instances often show disabled connections or invalid account errors.
-
-Attempting to refresh or re-authenticate credentials using the same setup usually fails.
-
-As a workaround, we’ve had to create a new Qualtrics account and build the workflow from scratch.
-
-Why This is Painful: It’s time-consuming, error-prone, and inefficient to rebuild everything manually each upgrade.
-
-Monitoring Plan for Yokohama Upgrade:
-
-We are closely monitoring the pre-upgrade state of key instances (TEST, UAT, and/or DEV).
-
-After the upgrade, we will capture and share snapshots of the before/after states if we observe failures, to help the Qualtrics team analyze logs and changes.
-
-This will allow for root cause identification—whether the issue is due to ServiceNow behavior, token handling, or something else in the IS system.
-
-Support from ServiceNow Team (Barclays):
-
-They have committed to informing us with a test plan at least two weeks in advance, giving Qualtrics Engineering and Support teams time to prepare.
-
-🔹 Summary of Actions & Information Needed
-Qualtrics Engineering to confirm:
-
-If dynamic token refresh can be implemented.
-
-If not, what are the best practices followed by other clients for managing static token expiry.
-
-What may be causing instance disconnection post-upgrade, and whether there’s a solution to preserve integration across upgrades.
-
-Barclays (ServiceNow Team) will:
-
-Share the upgrade test plan in advance.
-
-Continue coordination during the Yokohama release cycle.
-
-🔹 Environment Details (Placeholders for Reference)
-We are also including account and survey references for clarity. Please find the placeholders below:
-
-🔸 Sandbox Environments
-Account ID: [To be filled]
-
-Surveys used:
-
-UAT: [Survey ID / Name]
-
-TEST: [Survey ID / Name]
-
-DEV: [Survey ID / Name]
-
-🔸 Production Environment (RTP)
-Account ID: [To be filled]
-
-Live Survey Name / ID: [To be filled]
-
-Please let us know if any additional information is required from our side. We look forward to collaborating on resolving these issues efficiently and ensuring a smooth upgrade and continued success of the integration.
-
-
----------
-
-I wanted to share an important update and some clarification regarding the recent decline in response rates observed in the survey data. As you may be aware, we encountered an integration issue related to the token refresh failure between Qualtrics and ServiceNow. This issue caused the automatic task creation in ServiceNow to fail, which in turn affected survey delivery.
-
-To clarify, the issue was not with the email invite or reminder mechanism itself. Both invites and reminders from Qualtrics have been functioning as intended.
-
-🔹 What Actually Happened:
-Due to the token expiry, the integration between Qualtrics and ServiceNow was broken.
-
-As a result, no task (which normally contains the survey link) was created in ServiceNow when HR cases were closed.
-
-This disruption began last Monday and lasted for about six business days.
-
-Since the task was not created, the system nudge or prompt that normally encourages colleagues to complete the survey was absent.
-
-This is the primary reason for the observed 30–40% drop in response rates.
-
-🔹 Current Status:
-The issue was identified and resolved two days ago, and the account credentials have been refreshed.
-
-The integration is now functioning correctly, and tasks are once again being created in ServiceNow with the appropriate survey links.
-
-🔹 What to Expect:
-Although the issue has been fixed, responses for the past 6–7 days may continue to show a decline, as there were no associated tasks during that period.
-
-We expect that, starting early next week (by Monday), the response rate will begin to normalize as tasks are now being created properly again.
-
-I’ve also explained this to [Name of the team member, if applicable], and we will continue to monitor the situation closely. Please feel free to reach out if you need any additional information or support.
+✅ Widget 3: Percentage of Responses – Rated (1 to 5)
+Contextual Note:
+This percentage is based only on journeys shown to respondents. It helps gauge the overall engagement level with journeys that were considered relevant.
