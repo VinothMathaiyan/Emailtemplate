@@ -1,37 +1,286 @@
-This chart displays the percentage distribution of journey experience ratings on a 5-point scale — from Very Dissatisfied (1) to Very Satisfied (5) — provided by colleagues.
-Only valid responses (1 to 5) are included in the calculation. Responses marked as “Not Applicable” are excluded.
-Each bar represents the proportion of total valid responses falling into that specific rating category.
+JIRA Summary (Title):
+Create dedicated CX Analytics dashboard queue in HR Hub & enhance request form logic
+
+Problem Statement
+Currently, dashboard access requests for Qualtrics dashboards are submitted via the HR Hub portal in ServiceNow. These requests are routed to a shared queue managed by the Reporting team, rather than directly to the CX Analytics team responsible for provisioning.
+
+This setup introduces the following challenges:
+
+Delayed access provisioning due to intermediate handoffs
+
+SLA breaches as requests age before being assigned to our team
+
+Lack of notifications to the correct team upon request submission
+
+No visibility into how many requests are being received or processed by the CX Analytics team
+
+Manual triage effort to identify the correct approver based on dashboard type
+
+Colleague confusion and back-and-forth regarding correct approvers and dashboard names
+
+Additionally, the current request form does not capture:
+
+The specific dashboard the user is requesting access to
+
+The correct approver based on the dashboard selected
+
+Value Creation
+By implementing a dedicated queue for CX Analytics in HR Hub and updating the form logic to dynamically select dashboards and approvers:
+
+Requests will be routed directly to the responsible team
+
+SLA performance will improve with reduced hand-off delays
+
+Automatic assignment and notification rules will ensure timely action
+
+Colleague experience will be smoother, with accurate dashboard and approver info shown upfront
+
+CX Analytics will gain better reporting visibility into volume, types of requests, SLA adherence, and trends in dashboard access usage
+
+Requirement Owner
+Jesinth Nalini (CX Analytics Team)
+
+Business Tester
+[Insert Name Here] – ideally someone from CX Analytics who will validate the new workflow in UAT (e.g. Priya Sundaram)
+
+As a colleague, I want to
+Submit a request in HR Hub for access to a Qualtrics dashboard, and:
+
+Select the specific dashboard from a dropdown list
+
+Automatically see and route to the correct approver
+
+Have the request go directly to the CX Analytics queue
+
+Receive access quickly, without unnecessary back-and-forth or SLA breaches
+
+Benefit
+
+Faster turnaround and fewer delays in dashboard access
+
+Elimination of back-and-forth due to incorrect queue routing or approver mismatch
+
+Improved SLA compliance and better tracking of requests handled by the CX Analytics team
+
+Ability to report and analyze trends in dashboard access provisioning
+
+Platform / Component Impacted
+
+ServiceNow HR Hub
+
+Request form changes (dashboard dropdown, conditional approver logic)
+
+Routing rules and notification settings
+
+Queue setup for CX Analytics team
+
+Qualtrics Dashboards
+
+Access management process (provisioning remains unchanged, but more efficiently initiated)
+
+Acceptance Criteria
+
+ New dedicated queue: “CX Analytics – Dashboard Access” is created in HR Hub
+
+ Dashboard list is added to the request form as a dropdown
+
+ Approver list changes dynamically based on selected dashboard (e.g., View → Approver A, HR Experience → Approver B)
+
+ Requests route directly to the CX Analytics queue (not Reporting)
+
+ Notifications go to the CX Analytics group upon ticket creation
+
+ CX Analytics can track number of incoming requests, open tickets, SLA compliance
+
+ End-to-end UAT is completed and signed off by Business Tester
+
+Let me know if you'd like me to turn this into a Word or JIRA Markdown format, or if you want help drafting the actual approver logic or dashboard dropdown list as a table for developers.
 
 
-Journey Satisfaction Comparison – Colleague vs. People Leader
 
-Information Text:
-This chart presents a comparison of satisfaction ratings between colleagues and people leaders, based on their responses to applicable journeys.
-The satisfaction score reflects the percentage of respondents who selected a rating of 4 or 5 on the 5-point scale (Satisfied or Very Satisfied).
-Only valid responses (1 to 5) are included in the base; responses marked as “Not Applicable” are excluded.
 
-Example:
-If the overall satisfaction score is 64%, it is made up of 67% from colleagues and 56% from people leaders who rated their respective journeys as 4 or 5.
 
-Overall HR Experience Satisfaction Score
 
-Information Text:
-This chart displays the percentage of respondents (colleagues and people leaders) who rated their overall experience with HR services as Satisfied (4) or Very Satisfied (5) on a 5-point scale.
-This question was asked to all participants, not based on randomization.
-The base includes only those who provided a valid response (1 to 5). Non-responses (blanks) are excluded from the calculation.
-The satisfaction score is calculated as:
-(Number of 4 & 5 ratings ÷ Total number of valid responses) × 100
 
-Contextual Note:
-This question reflects the overall perception of HR services and experiences, irrespective of journey-specific interactions. Results include both colleagues and people leaders who provided a rating.
 
-Correlation: Journey Satisfaction vs. Overall HR Experience
+You said:
+As a, I want to , so that is missing
 
-Information Text:
-This chart illustrates the relationship between favorable ratings (4 or 5) given to individual journey experiences and the favorable rating (4 or 5) given to the overall HR experience.
-It helps identify which specific journey experiences are most strongly correlated with a positive overall perception of HR services.
-The calculation is based on valid responses only, where both the journey and the overall HR experience questions were answered (1 to 5 scale). "Not Applicable" and blanks are excluded.
 
-Contextual Note:
-This insight helps prioritize journey improvements that are most likely to impact overall HR satisfaction. Strong correlations indicate that satisfaction in specific journeys (e.g., onboarding) aligns with overall HR experience ratings.
+ChatGPT said:
+Great catch — let me explicitly include the “As a / I want to / So that” format (user story format), as used in agile and JIRA best practices. Here's the updated section added properly:
 
+✅ User Story (Full Format)
+As a
+CX Analytics team member responsible for dashboard access provisioning,
+
+I want to
+receive Qualtrics dashboard access requests directly in a dedicated queue with the correct dashboard and approver pre-selected in the HR Hub form,
+
+So that
+
+we can eliminate delays caused by intermediate routing through the Reporting team
+
+we can meet SLA expectations by acting immediately on requests
+
+colleagues have a smoother and clearer experience
+
+we can track request volume, turnaround time, and access patterns for continuous improvement
+
+And here's the revised complete ticket with the User Story inserted in the right spot:
+
+📝 JIRA Ticket Template (Revised with User Story)
+JIRA Summary (Title):
+Create dedicated CX Analytics dashboard queue in HR Hub & enhance request form logic
+
+Problem Statement
+Currently, dashboard access requests for Qualtrics dashboards are submitted via the HR Hub portal in ServiceNow. These requests are routed to a shared queue managed by the Reporting team, rather than directly to the CX Analytics team responsible for provisioning.
+
+This setup introduces the following challenges:
+
+Delayed access provisioning due to intermediate handoffs
+
+SLA breaches as requests age before being assigned to our team
+
+Lack of notifications to the correct team upon request submission
+
+No visibility into how many requests are being received or processed by the CX Analytics team
+
+Manual triage effort to identify the correct approver based on dashboard type
+
+Colleague confusion and back-and-forth regarding correct approvers and dashboard names
+
+User Story
+
+As a CX Analytics team member responsible for dashboard access provisioning,
+I want to receive Qualtrics dashboard access requests directly in a dedicated queue with the correct dashboard and approver pre-selected in the HR Hub form,
+So that
+
+we can eliminate delays caused by intermediate routing through the Reporting team
+
+we can meet SLA expectations by acting immediately on requests
+
+colleagues have a smoother and clearer experience
+
+we can track request volume, turnaround time, and access patterns for continuous improvement
+
+Value Creation
+By implementing a dedicated queue for CX Analytics in HR Hub and updating the form logic to dynamically select dashboards and approvers:
+
+Requests will be routed directly to the responsible team
+
+SLA performance will improve with reduced hand-off delays
+
+Automatic assignment and notification rules will ensure timely action
+
+Colleague experience will be smoother, with accurate dashboard and approver info shown upfront
+
+CX Analytics will gain better reporting visibility into volume, types of requests, SLA adherence, and trends in dashboard access usage
+
+Requirement Owner
+Jesinth Nalini (CX Analytics Team)
+
+Business Tester
+[Insert Name] (e.g. Priya Sundaram)
+
+Benefit
+
+Faster turnaround and fewer delays in dashboard access
+
+Elimination of back-and-forth due to incorrect queue routing or approver mismatch
+
+Improved SLA compliance and better tracking of requests handled by the CX Analytics team
+
+Ability to report and analyze trends in dashboard access provisioning
+
+Platform / Component Impacted
+
+ServiceNow HR Hub
+
+Request form changes (dashboard dropdown, conditional approver logic)
+
+Routing rules and notification settings
+
+Queue setup for CX Analytics team
+
+Qualtrics Dashboards
+
+Access management process (provisioning remains unchanged, but more efficiently initiated)
+
+Acceptance Criteria
+
+ New dedicated queue: “CX Analytics – Dashboard Access” is created in HR Hub
+
+ Dashboard list is added to the request form as a dropdown
+
+ Approver list changes dynamically based on selected dashboard
+
+ Requests route directly to the CX Analytics queue (not Reporting)
+
+ Notifications go to the CX Analytics group upon ticket creation
+
+ CX Analytics can track number of incoming requests, open tickets, SLA compliance
+
+ End-to-end UAT is completed and signed off by Business Tester
+
+Let me know if you'd like a visual mockup of the updated form or approval matrix table included.
+
+
+
+
+
+
+
+
+You said:
+So, in our HR, we are actually using four pillars, experience, effectiveness, efficiency, and control. I just want you to identify how this particular request fit into any of this pillar. Is it about the user experience or the process effectiveness or, sorry, effectiveness or efficiency, or is it something control? Can you please add a benefit description with which filter, sorry, which pillar it actually fit into?
+
+
+ChatGPT said:
+Absolutely — your organization’s four HR pillars (Experience, Effectiveness, Efficiency, and Control) provide a useful framework for framing this request’s strategic value. Based on the nature of your request (i.e., improving the dashboard access request process), here's a breakdown of how it maps to those pillars — and which ones it most directly supports:
+
+✅ Which HR Pillar Does This Support?
+Your request contributes most strongly to the following HR Pillars:
+
+1. Experience ✅
+Why:
+
+Colleagues face fewer back-and-forths due to missing/incorrect approvers
+
+They get timely access to dashboards with minimal confusion
+
+The request form is clearer, more guided, and easier to complete
+
+Avoids frustration due to SLA breaches or unclear status
+
+🟢 Primary Pillar Fit: Experience – because the change directly improves the colleague journey when requesting access
+
+2. Efficiency ✅
+Why:
+
+Eliminates redundant queue assignment (no middleman team)
+
+Reduces manual triage efforts to identify dashboards and approvers
+
+Enables faster provisioning with fewer manual steps
+
+Supports faster SLA resolution and lower cycle times
+
+🟡 Secondary Pillar Fit: Efficiency – because the process becomes leaner and faster
+
+3. Effectiveness
+This request indirectly supports Effectiveness by enabling the CX Analytics team to better track and manage request volumes and performance, but it’s not the primary benefit area.
+
+4. Control
+This request is less about Control (e.g., compliance, audit, policy enforcement), though dynamic approver logic may help ensure correct routing in line with approval policy.
+
+📌 Final Suggested Addition to the JIRA Ticket (Benefit + Pillar Mapping)
+Strategic HR Pillar Alignment
+
+This request primarily supports the Experience and Efficiency pillars of our HR operating model:
+
+Experience: Improves the colleague journey by providing a streamlined, accurate, and timely dashboard access process with clear guidance and fewer delays
+
+Efficiency: Reduces manual hand-offs, unnecessary queue sharing, and back-and-forths, resulting in faster access provisioning and better SLA compliance
+
+Let me know if you'd like this reworded for PowerPoint, Confluence, or if you want to align it with any KPIs or metrics for your pillar tracking.
