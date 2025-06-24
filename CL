@@ -1,69 +1,43 @@
-We wanted to provide some additional clarification regarding our requirement for the onboarding survey analysis, to ensure we are aligned and avoid any potential rework.
+Application Name:
+Qualtrics – Employee Experience Platform
 
-Context:
-We are running two surveys as part of the onboarding feedback initiative:
+Application Description:
+The Qualtrics Employee Experience Platform is a cloud-based survey and analytics tool designed to support end-to-end employee feedback programs across the organization. It enables HR and business teams to create, distribute, and analyze surveys focused on various touchpoints throughout the employee lifecycle.
 
-Candidate Survey (New Joiner Experience)
+The platform is primarily used to capture employee sentiment, experience, and feedback at critical moments, helping the organization drive a more engaged, productive, and supported workforce.
 
-Hiring Manager Survey (Recruitment Experience)
+Core Capabilities:
+Engagement Surveys: Measure employee engagement across teams, functions, or geographies to understand drivers and areas of improvement.
 
-Each survey is structured around 7–8 key stages of the hiring/onboarding journey. For example:
+Lifecycle Programs: Deploy automated surveys at key stages such as onboarding, exit, internal mobility, and more to track and improve the employee journey.
 
-Hiring Manager Survey Stages: Requirement gathering, application approval, interview process, candidate selection, offer release, logistics, onboarding day, etc.
+Ad Hoc and Pulse Surveys: Run quick, targeted surveys to gather feedback on specific programs, policies, or moments.
 
-Candidate Survey Stages: Job application, communication, interview experience, offer release, offer acceptance, joining day, onboarding app usage, and the first-week experience.
+Actionable Dashboards & Reports: Provide real-time dashboards for HR, People Partners, and Business Leaders to monitor trends, drill into results, and take informed actions.
 
-Each stage includes:
+Role-Based Access: Ensure data confidentiality and appropriate visibility based on user roles and access rights.
 
-A rating question
+Who Uses This Application:
+HR Teams: For designing and running enterprise-wide engagement, onboarding, and lifecycle surveys.
 
-A corresponding open-ended question
+People Partners: To access team-specific insights and collaborate with leaders on action planning.
 
-Given this structure, we are receiving a high volume of qualitative responses.
+Business Leaders & Managers: To view feedback results relevant to their teams and departments and take informed actions.
 
-Our Ask:
-Our key requirement is to extract meaningful themes and sub-topics from the open-ended responses at each stage—not just surface-level keywords. Specifically, we are looking for:
+Survey Program Owners/Analysts: For advanced reporting, theme detection, and continuous program optimization.
 
-Sub-Themes/Topics:
+Business Value & Benefits:
+Employee-Centric Decision Making: Helps leadership make data-driven decisions rooted in real employee feedback.
 
-For each stage, what are the emerging topics discussed by respondents?
+Continuous Listening: Enables timely and relevant feedback collection throughout the employee lifecycle.
 
-Are the responses about a problem, challenge, positive experience, or an area of improvement?
+Improved Engagement & Retention: By identifying what matters most to employees, the organization can proactively address issues and improve experience.
 
-Example:
-For the "Interview" stage, possible sub-themes could be:
+Scalability & Flexibility: Supports both global enterprise-level surveys and localized, team-specific initiatives.
 
-Lack of panel availability
+Automation & Efficiency: Workflow automations reduce manual effort in survey distribution, reminders, and report generation.
 
-Unclear communication
+Hosting & Integration:
+Cloud-hosted SaaS solution (Qualtrics XM Platform)
 
-Delay in feedback
-
-Positive panel behavior
-
-Contextual Clarity Beyond Keywords:
-While keyword tagging is helpful, on its own it does not provide sufficient insight. We need a more context-aware grouping of responses to derive actionable insights. Ideally:
-
-The analysis should cluster responses under relevant themes or sentiments (e.g., delays, clarity, fairness, friendliness).
-
-If possible, link representative comments to each theme for illustration.
-
-Keyword Combination/Collocation Analysis:
-Please go beyond individual word tagging. We are also interested in:
-
-Combination of terms or phrases that frequently occur together and convey a specific meaning.
-
-Identifying if certain words are consistently mentioned together (e.g., "panel delay," "logistics confusion," "smooth onboarding app").
-
-This will help us understand not just what is being mentioned, but also how it is being expressed contextually.
-
-Summary of Needs:
-Requirement	Details
-Thematic Grouping	Identify meaningful sub-themes from open-end responses per stage
-Sentiment/Context Tagging	Classify responses into areas like challenge, improvement, positive
-Beyond Keywords	Avoid only listing keywords; focus on interpretation and grouping
-Phrase-Level Insights	Surface recurring meaningful phrases or combinations of keywords
-
-We appreciate your effort and would love to work together closely on this. Please let us know if a quick sync is needed to walk through our expectations in more detail.
-
-Looking forward to your support.
+Integrated with internal systems for employee metadata management and role-based access control
