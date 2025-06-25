@@ -1,111 +1,124 @@
-Project Description for Lean Control Platform Onboarding
-Tool: Qualtrics Survey Platform
-Owner: [Your Team / Department Name]
-Product Type: Third-Party SaaS Tool
-Primary Purpose: Colleague Listening & Employee Experience Surveys
-🔹 Overview of the Product and Business Use Case
-Qualtrics is a third-party survey and experience management platform used extensively across our organization to support and scale colleague listening initiatives. It forms the central platform for collecting employee feedback, monitoring sentiment, and capturing insights that support continuous improvement of the employee experience.
+Will the scope of the change create new, amend, or remove existing data for the process?
+✅ Yes
+Notes:
+The Qualtrics platform captures new survey response data from colleagues, primarily related to employee experience. This includes new free-text and structured feedback across onboarding, exit, and HR service touchpoints. However, it does not amend or delete core system-of-record data in HR platforms.
 
-The tool is used to design, distribute, and analyze various employee surveys across the lifecycle of a colleague’s journey—from onboarding to exit. These surveys play a vital role in understanding engagement, learning effectiveness, organizational support, and HR service quality.
+2. Will the scope of the change consume new data that was not used before this change or change the source of data consumption?
+✅ Yes
+Notes:
+Operational data from systems like Workday, ServiceNow, and HRDP is now being integrated into Qualtrics for survey distribution logic, segmentation, and reporting. This includes metadata such as employee role, department, and lifecycle event timestamps.
 
-🔹 Survey Types in Scope
-The following surveys are actively managed within the Qualtrics platform:
+3. Will the scope of the change remove a business application (ITBA) from production or the process?
+❌ No
+Notes:
+No existing business applications are being decommissioned or removed. Qualtrics is being introduced as an additional experience management platform to complement current systems.
 
-Always-On Lifecycle Surveys
+4. Will the scope of the change introduce a new business application (ITBA) that was not used in the process previously?
+✅ Yes
+Notes:
+Qualtrics is a new third-party SaaS tool being introduced and integrated for survey-based employee experience insights. It was not previously part of the official process landscape managed under LCT.
 
-Onboarding Experience Survey
+5. Does the scope of development include new or changes to management of relevant records within the applications being created or modified?
+✅ Yes (Minimal)
+Notes:
+While Qualtrics manages survey records, this pertains mainly to survey responses and metadata. There is no development of new communication tools or custom record management systems within this initiative. Responses are retained for reporting and audit purposes under platform policies.
 
-Exit Survey / Leaver Experience
+6. Might the change involve data being held externally or transmitted to third parties?
+✅ Yes
+Notes:
+Qualtrics is a cloud-based SaaS platform, and therefore employee feedback data is stored and processed externally in accordance with contractual agreements and security frameworks. Only necessary data is transmitted, and access is limited to authorized users.
 
-Learning & Training Feedback Surveys
+7. Might the change entail using, storing, or accessing information capable of identifying an individual data subject?
+✅ Yes
+Notes:
+The survey platform may store personally identifiable information (PII) such as employee name, email, and organizational metadata, especially for targeted lifecycle surveys. However, responses can also be anonymized based on survey design. Data handling complies with data privacy and GDPR standards.
 
-Mandatory Training Feedback Surveys
+8. Might the solution require new operational technology locations to be operational (e.g., facilities or staff in new locations)?
+❌ No
+Notes:
+There is no new physical infrastructure, facility setup, or regional expansion associated with this tool implementation. All operations remain within existing global HR technology support frameworks.
 
-Ad Hoc Feedback Surveys for special initiatives
+9. Could any third parties be involved in the development, delivery, or support of the solution?
+✅ Yes
+Notes:
+Yes. The Qualtrics Engineering Team supports implementation, integration, and configuration activities. No development or custom coding is performed internally. Internal stakeholders manage content and workflow configurations with vendor support.
 
-Scheduled Programmatic Surveys
+10. Will your product, business outcome, feature delivery create or change a user interface or digital documentation (e.g., PDF)?
+✅ Yes
+Notes:
+Survey templates and dashboards are created using Qualtrics’ UI builder. These changes are drag-and-drop configurations with no code. PDFs may be generated for reporting purposes from dashboards.
 
-YourView Survey (Bi-annual Enterprise-Wide Engagement Survey)
+11. Will your UI changes be classified as a small change (e.g., edits to existing copy, adding data elements to an existing table or forms, or impact less than 300 users)?
+✅ Yes
+Notes:
+Yes, changes such as editing question copy or dashboard filters are considered small changes. They are non-code, impact limited audiences, and are fully configurable via platform UI.
 
-HR Experience Survey (Bi-annual pulse on HR service effectiveness)
+12. Might the solution be used by consumers, clients, prospects, members of the public, or other external stakeholders? (i.e., not just colleagues)
+❌ No
+Notes:
+The Qualtrics survey solution is used internally only, for active and former colleagues, HR teams, and managers. No public-facing surveys or external audiences are included in this scope.
 
-Targeted Pulse Surveys – driven by organizational or strategic events
+13. Does the scope of this work include adoption of or migration to any AWS, Salesforce, APN, or other external cloud?
+✅ Yes (SaaS hosted)
+Notes:
+Yes, Qualtrics is hosted on Amazon Web Services (AWS) as its backend infrastructure. However, this is managed fully by the vendor. There is no internal cloud development or migration initiative as part of this project.
 
-These surveys enable leaders and HR to take data-driven actions and are essential for meeting strategic goals related to engagement, retention, onboarding effectiveness, and and HR service quality.
 
-🔹 No-Code / Low-Code Model
-While Qualtrics is a feature-rich platform, it operates under a no-code/low-code model for end users. There are no development or custom software code changes made by the internal product team. Instead, survey designs are created via:
+Does the scope of this product or any enhancement to this product involve the development, deployment, or adoption of any human productivity tracking capabilities?
+❌ No
+Notes:
+Qualtrics is used exclusively for employee feedback collection via surveys. It does not track productivity, performance, or behavioral analytics like screen time or task completion rates.
 
-Drag-and-drop question builders
+2. If the answer is yes, then please confirm if agreement has been obtained from the data usage working group and provide details of the agreement.
+➡️ Not applicable
+Because there is no human productivity tracking involved.
 
-Predefined logic flows
+3. Does this BO introduce or make changes to the access model for the application being changed? Includes any interface requiring identification, authentication, or authorization of users or systems?
+✅ Yes (minimal)
+Notes:
+Qualtrics uses existing SSO/SAML-based authentication via our organization’s Identity Access Management (IAM). There is no custom authentication method. Access management is governed by existing provisioning processes. This is not a new access model, but aligns with internal standards.
 
-Manual content upload (from stakeholder-approved documents like Word files)
+4. Does this BO have an impact on controls protecting data at rest or in transit or in use?
+✅ Yes (standard controls)
+Notes:
+Survey response data is protected using Qualtrics’ in-built encryption for both data at rest and in transit. No live production data is used in non-prod/test environments. PII is only collected where required, and data masking or pseudonymization is applied where appropriate. The tool operates within standard data privacy frameworks.
 
-Utilization of built-in dashboarding and analytics tools
+5. Does this BO have an impact to existing or introduce new network architecture?
+❌ No
+Notes:
+Qualtrics is a cloud-based SaaS platform. No internal network changes, firewall modifications, or architecture redesigns are involved.
 
-All configuration changes are performed within the platform UI by trained survey admins—there is no direct source-code or application-level development involved from our organization.
+6. Does this BO impact an existing application or the development of a new application? Includes existing or new code, API calls, or connections.
+✅ Yes (integration only)
+Notes:
+There is no custom application development or code deployment. However, Qualtrics is integrated with ServiceNow and other internal systems using pre-configured API connectors (e.g., for lifecycle survey triggers). No internal codebase is changed.
 
-🔹 Integrations Involved
-Although the product itself is a SaaS solution, integrations with internal systems justify its inclusion in the Lean Control platform:
+7. Does this BO require the onboarding of a new third-party service or change the scope of an existing third-party service? Includes configuration or features of existing cloud environment.
+✅ Yes
+Notes:
+Qualtrics is a new third-party SaaS product being onboarded into the LCT. It does not require hosting in our environment but does involve configuration changes (e.g., enabling connectors, user roles, dashboard design). No change to cloud infrastructure setup.
 
-ServiceNow:
-Integrated to trigger surveys post-HR case closure (via API/Workflow), supporting real-time feedback loops.
+8. Does this BO create a new or impact an existing baseline build configuration (e.g., secure config docs, servers, containers, deviations from patterns)?
+❌ No
+Notes:
+There is no baseline build configuration impacted. Qualtrics is a pre-built SaaS platform. No containers, VMs, or custom deployments are part of this implementation.
 
-Workday / HRDP / Data Alley:
-Integrated for operational metadata, such as employee role, department, region, and lifecycle events (e.g., start date, end date), enabling targeted feedback and segmentation.
+9. Does this BO have an impact on the logging and monitoring solution used by the application product or change the security monitoring needs?
+✅ Yes (minimal, handled by vendor)
+Notes:
+Qualtrics includes its own logging, audit trails, and monitoring mechanisms. No new internal SIEM configurations are introduced. However, regular platform usage reports can be exported if required.
 
-SFTP Integration:
-Used to share or receive feed files for privileged user access and automated record updates.
+10. Does this BO introduce a new cryptography or impact existing cryptography solutions and controls?
+❌ No
+Notes:
+Qualtrics uses native encryption (AES 256-bit) managed by the vendor. There is no change to internal cryptographic systems or policies.
 
-These integrations ensure secure, governed, and consistent experience data pipelines, which are vital for downstream dashboards and stakeholder reporting.
+11. Are you making an architectural change, adopting new technology, or using a new technology supplier?
+✅ Yes (new supplier)
+Notes:
+Yes, Qualtrics is a new technology supplier for colleague listening and experience surveys. However, this is SaaS-based with minimal architectural dependency.
 
-🔹 Why Qualtrics Needs to Be Onboarded to Lean Control (LCT)
-Despite being a third-party platform with no internal coding, Qualtrics must be onboarded to the Lean Control Tool (LCT) due to:
-
-Third-party data handling responsibilities involving sensitive employee feedback.
-
-System integrations with HR and IT platforms which fall under architecture and data governance review.
-
-Regular enhancements and configuration changes that impact how data is collected and reported.
-
-Continuous operation and organizational impact – Qualtrics is used across all regions and functions and is business-critical for both HR and People Strategy teams.
-
-🔹 Change Management & Risk Consideration
-Changes made within the Qualtrics tool are:
-
-Configuration-based only (no software development).
-
-Approved internally via stakeholder alignment before launch.
-
-Logged and maintained within internal Confluence documentation.
-
-Tested in pre-production environments where applicable before rollout.
-
-The risk level is low from a technical deployment standpoint but high in terms of reputational and business continuity if the tool is misused or data breaches occur. Thus, controlled access and visibility through LCT is justified.
-
-🔹 Business Justification / Impact
-Supports strategic HR and People Analytics programs.
-
-Enables real-time feedback from over [insert number] employees globally.
-
-Drives action planning, EX improvement, and continuous listening culture.
-
-Supports regulatory compliance (GDPR, Works Council feedback norms).
-
-Improves colleague engagement, onboarding satisfaction, and retention.
-
-🔹 Next Steps & Request for Approval
-We request the engagement and architecture teams to:
-
-Review the product capability and integrations outlined.
-
-Acknowledge the no-code nature of configuration changes.
-
-Approve Qualtrics for inclusion into the Lean Control Platform (LCT).
-
-Confirm governance steps for documenting any future enhancement changes.
-
-If you’d like this draft formatted into a formal Word or Confluence document, I can provide that too.
-
-Let me know if you'd like to tailor it further to your specific audience or tribe. 
+12. Is this change creating a new IT service offering or IT service production instance in the ServiceNow configuration management database (CMDB)?
+✅ Yes
+Notes:
+Qualtrics will be registered as a new IT service in CMDB as part of the product onboarding and compliance requirement under Lean Control. This includes configuration and service categorization.
