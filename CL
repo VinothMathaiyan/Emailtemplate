@@ -31,4 +31,81 @@ HR Experience Survey (Bi-annual pulse on HR service effectiveness)
 
 Targeted Pulse Surveys – driven by organizational or strategic events
 
-These surveys enable leaders and HR to take data-driven actions and are essential for meeting strategic goals related to engagement, retention, onboarding effectiveness, and HR service 
+These surveys enable leaders and HR to take data-driven actions and are essential for meeting strategic goals related to engagement, retention, onboarding effectiveness, and and HR service quality.
+
+🔹 No-Code / Low-Code Model
+While Qualtrics is a feature-rich platform, it operates under a no-code/low-code model for end users. There are no development or custom software code changes made by the internal product team. Instead, survey designs are created via:
+
+Drag-and-drop question builders
+
+Predefined logic flows
+
+Manual content upload (from stakeholder-approved documents like Word files)
+
+Utilization of built-in dashboarding and analytics tools
+
+All configuration changes are performed within the platform UI by trained survey admins—there is no direct source-code or application-level development involved from our organization.
+
+🔹 Integrations Involved
+Although the product itself is a SaaS solution, integrations with internal systems justify its inclusion in the Lean Control platform:
+
+ServiceNow:
+Integrated to trigger surveys post-HR case closure (via API/Workflow), supporting real-time feedback loops.
+
+Workday / HRDP / Data Alley:
+Integrated for operational metadata, such as employee role, department, region, and lifecycle events (e.g., start date, end date), enabling targeted feedback and segmentation.
+
+SFTP Integration:
+Used to share or receive feed files for privileged user access and automated record updates.
+
+These integrations ensure secure, governed, and consistent experience data pipelines, which are vital for downstream dashboards and stakeholder reporting.
+
+🔹 Why Qualtrics Needs to Be Onboarded to Lean Control (LCT)
+Despite being a third-party platform with no internal coding, Qualtrics must be onboarded to the Lean Control Tool (LCT) due to:
+
+Third-party data handling responsibilities involving sensitive employee feedback.
+
+System integrations with HR and IT platforms which fall under architecture and data governance review.
+
+Regular enhancements and configuration changes that impact how data is collected and reported.
+
+Continuous operation and organizational impact – Qualtrics is used across all regions and functions and is business-critical for both HR and People Strategy teams.
+
+🔹 Change Management & Risk Consideration
+Changes made within the Qualtrics tool are:
+
+Configuration-based only (no software development).
+
+Approved internally via stakeholder alignment before launch.
+
+Logged and maintained within internal Confluence documentation.
+
+Tested in pre-production environments where applicable before rollout.
+
+The risk level is low from a technical deployment standpoint but high in terms of reputational and business continuity if the tool is misused or data breaches occur. Thus, controlled access and visibility through LCT is justified.
+
+🔹 Business Justification / Impact
+Supports strategic HR and People Analytics programs.
+
+Enables real-time feedback from over [insert number] employees globally.
+
+Drives action planning, EX improvement, and continuous listening culture.
+
+Supports regulatory compliance (GDPR, Works Council feedback norms).
+
+Improves colleague engagement, onboarding satisfaction, and retention.
+
+🔹 Next Steps & Request for Approval
+We request the engagement and architecture teams to:
+
+Review the product capability and integrations outlined.
+
+Acknowledge the no-code nature of configuration changes.
+
+Approve Qualtrics for inclusion into the Lean Control Platform (LCT).
+
+Confirm governance steps for documenting any future enhancement changes.
+
+If you’d like this draft formatted into a formal Word or Confluence document, I can provide that too.
+
+Let me know if you'd like to tailor it further to your specific audience or tribe. 
