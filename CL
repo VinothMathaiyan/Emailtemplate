@@ -1,43 +1,34 @@
-Application Name:
-Qualtrics – Employee Experience Platform
+Project Description for Lean Control Platform Onboarding
+Tool: Qualtrics Survey Platform
+Owner: [Your Team / Department Name]
+Product Type: Third-Party SaaS Tool
+Primary Purpose: Colleague Listening & Employee Experience Surveys
+🔹 Overview of the Product and Business Use Case
+Qualtrics is a third-party survey and experience management platform used extensively across our organization to support and scale colleague listening initiatives. It forms the central platform for collecting employee feedback, monitoring sentiment, and capturing insights that support continuous improvement of the employee experience.
 
-Application Description:
-The Qualtrics Employee Experience Platform is a cloud-based survey and analytics tool designed to support end-to-end employee feedback programs across the organization. It enables HR and business teams to create, distribute, and analyze surveys focused on various touchpoints throughout the employee lifecycle.
+The tool is used to design, distribute, and analyze various employee surveys across the lifecycle of a colleague’s journey—from onboarding to exit. These surveys play a vital role in understanding engagement, learning effectiveness, organizational support, and HR service quality.
 
-The platform is primarily used to capture employee sentiment, experience, and feedback at critical moments, helping the organization drive a more engaged, productive, and supported workforce.
+🔹 Survey Types in Scope
+The following surveys are actively managed within the Qualtrics platform:
 
-Core Capabilities:
-Engagement Surveys: Measure employee engagement across teams, functions, or geographies to understand drivers and areas of improvement.
+Always-On Lifecycle Surveys
 
-Lifecycle Programs: Deploy automated surveys at key stages such as onboarding, exit, internal mobility, and more to track and improve the employee journey.
+Onboarding Experience Survey
 
-Ad Hoc and Pulse Surveys: Run quick, targeted surveys to gather feedback on specific programs, policies, or moments.
+Exit Survey / Leaver Experience
 
-Actionable Dashboards & Reports: Provide real-time dashboards for HR, People Partners, and Business Leaders to monitor trends, drill into results, and take informed actions.
+Learning & Training Feedback Surveys
 
-Role-Based Access: Ensure data confidentiality and appropriate visibility based on user roles and access rights.
+Mandatory Training Feedback Surveys
 
-Who Uses This Application:
-HR Teams: For designing and running enterprise-wide engagement, onboarding, and lifecycle surveys.
+Ad Hoc Feedback Surveys for special initiatives
 
-People Partners: To access team-specific insights and collaborate with leaders on action planning.
+Scheduled Programmatic Surveys
 
-Business Leaders & Managers: To view feedback results relevant to their teams and departments and take informed actions.
+YourView Survey (Bi-annual Enterprise-Wide Engagement Survey)
 
-Survey Program Owners/Analysts: For advanced reporting, theme detection, and continuous program optimization.
+HR Experience Survey (Bi-annual pulse on HR service effectiveness)
 
-Business Value & Benefits:
-Employee-Centric Decision Making: Helps leadership make data-driven decisions rooted in real employee feedback.
+Targeted Pulse Surveys – driven by organizational or strategic events
 
-Continuous Listening: Enables timely and relevant feedback collection throughout the employee lifecycle.
-
-Improved Engagement & Retention: By identifying what matters most to employees, the organization can proactively address issues and improve experience.
-
-Scalability & Flexibility: Supports both global enterprise-level surveys and localized, team-specific initiatives.
-
-Automation & Efficiency: Workflow automations reduce manual effort in survey distribution, reminders, and report generation.
-
-Hosting & Integration:
-Cloud-hosted SaaS solution (Qualtrics XM Platform)
-
-Integrated with internal systems for employee metadata management and role-based access control
+These surveys enable leaders and HR to take data-driven actions and are essential for meeting strategic goals related to engagement, retention, onboarding effectiveness, and HR service 
