@@ -1,98 +1,23 @@
-Job Discovery & Role Understanding
-Focus: How candidates find roles and understand what the job entails.
+Theme 1: Ease and Simplicity of the Application Process
+Focus: How intuitive, accessible, and smooth the application process was — from finding the job to submitting the application.
 
-Included Keywords:
+Keywords:
+Easy navigate, easy apply, process straightforward, process pretty, straightforward process, process went well, great experience, simple easy, easy straightforward, process felt easy, satisfied application, simple straightforward, submitting application, satisfied process, application smooth, applied job, role easy, online application, applied role, clear process, easy use, simple straightforward, application form, straightforward easy, easy application, easy apply, clear, easy, roles, responsibilities, self-explanatory, process-grade, quick, easy, process-slow, application-straightforward, role-process, easy-straight, role-application, simple-apply, feel-like, role-online, process-relatively, easy-application, fairly-easy, felt-application, process-application, submit-application, straight-forward-application, system-easy, forward-process
 
-Register interest
+✅ Theme 2: Clarity and Accuracy of Job and Role Information
+Focus: Quality, clarity, and completeness of job adverts, role descriptions, and application-related content.
 
-Job search
+Keywords:
+Job advert description, advert informative, job description, role description, relevant job, job advertisement, job profile, job roles, description accurate, information job, information role, description job, roles, responsibilities, description-detailed, understanding-role, job-board, description-detailed, adwords-descriptive
 
-Internal job board (IJB)
+✅ Theme 3: Communication and Status Updates
+Focus: Candidate and hiring manager experience with communication, feedback, updates, and clarity on application status.
 
-Search
+Keywords:
+Keep informed, quick response, quick efficient, received email, process communication, regular updates, good communication, response-time, kept update, status application, recruitment team, onboarding team, line-manager, talent acquisition, internal-candidate, asked-relevant, be-right, feel-like, went smooth, good interview, process-interview, clear-application, interview-questions, day-day, application-good, feel-relevant, onboarding-smooth, background-check
 
-Advert
+✅ Theme 4: Timeliness and Process Duration
+Focus: Perception of speed, delays, and overall time taken to progress through the application and approval process.
 
-LinkedIn
-
-Follow
-
-Job description
-
-Job information
-
-Job role
-
-Company information
-
-Qualification
-
-🔹 2. Application Process Experience
-Focus: Candidate experience during the job application and submission process.
-
-Included Keywords:
-
-Job application process
-
-Online application
-
-Apply
-
-CV
-
-Resume
-
-Document upload
-
-Information requested
-
-Questions
-
-Internal candidate
-
-Internal transfer
-
-🔹 3. Assessment, Screening & Diversity
-Focus: Evaluation and fairness in the screening process.
-
-Included Keywords:
-
-Assessment
-
-Online assessment
-
-Screen
-
-Profile
-
-Diversity
-
-Source candidate
-
-Candidate pool
-
-🔹 4. Recruitment Workflow & System Efficiency
-Focus: Back-end processes, system interactions, and overall flow of application approval and posting.
-
-Included Keywords:
-
-Approval
-
-Posting
-
-Refer a friend
-
-Job application process (also relates here as a cross-point)
-
-Recruitment
-
-Apply (also a cross-point)
-
-✅ Summary of Subtopics (for use in dashboards/survey results):
-Job Discovery & Role Understanding – Clarity, access, and visibility of roles.
-
-Application Process Experience – Ease and usability of the application journey.
-
-Assessment, Screening & Diversity – Fairness and transparency in candidate evaluation.
-
-Recruitment Workflow & System Efficiency – Operational flow, approvals, and system interactions.
+Keywords:
+Long time, took months, start date, took long, took time, process long, process slow, quick process, early straightforward, online test, test easy, online assessment, online assessment, process applying, process-issue, complete-application, interview-rounds, process-lengthy, application-interview, job-offer, timely-manner
