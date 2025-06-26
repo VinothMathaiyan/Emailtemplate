@@ -409,4 +409,198 @@ scss
 Copy
 Edit
 (portal OR workday OR system OR website OR platform OR navigate OR upload OR structured OR issues OR progress OR status) AND (application OR process OR compe OR cover)
-Would you like this in a spreadsheet format for Text iQ import or want me to continue with other themes like:
+
+
+
+---------*************---
+ Application Submission Experience
+🔍 How easy or difficult it was to apply and complete the application process.
+
+Keywords:
+
+application process
+
+application easy, easy apply, easy application, easy process, easy follow, easy straightforward, easy use, easy understand, easy navigate, easy compe, easy straight, easy online, easy submit, easy simple, easy access
+
+submit application, submitting application, application online, online application, application form, application simple, application smooth, straightforward application, application straightforward, application job, application interview, applied job, applied role, application good, application experience, application portal, actual application, structured easy, application status, application progress, application clear, application onboarding
+
+process apply, process application, process online, process good, process great, process simple, process pretty, process smooth, process straightforward, process seamless, process fast, process streamlined, process felt, process clear, process easy, process long, process lengthy, process multiple, process slow, process bit, process straight, process time, process issues, process handled, process managed, process ran, process explained, process including, process job, process kept, process organized, process relatively, process ok, process informative
+
+applied got, applying job, applying position, apply job, apply role
+
+application fairly, actual role, initial application, simple application, simple straight, simple easy, simple straightforward, simple compe, straightforward easy, forward easy, forward process, simple apply, fairly straightforward, fairly easy, pretty simple, pretty smooth
+
+application went, entire application, onboarding process, onboarding app, onboarding smooth, onboarding team
+
+status application, updates application, updated process, smooth transition
+
+cover ter, upload cover, application workday, workday application, workday process, workday easy, application straight
+
+system easy, portal user, job portal
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("application" AND ("submit" OR "easy" OR "online" OR "form" OR "smooth" OR "straightforward" OR "good" OR "interview" OR "compe"))
+OR
+("apply" AND ("job" OR "role"))
+OR
+("process" AND ("apply" OR "simple" OR "easy" OR "smooth" OR "online" OR "straightforward" OR "application"))
+2. Job Description Clarity
+🔍 How informative and clear the job description or advert was.
+
+Keywords:
+
+job description, description informative, description clear, description accurate, description detailed, description job, description provided, description vague, clearly explained, clear application, clear steps, clear instructions, clear straightforward, clear concise, clear role, clear informative, clear easy, clear process, clear communication, clear understand, clear simple
+
+advert description, advert informative, advert clear, advert descriptive, job advert, job advertisement, job adverts, job post, job board, job spec, information job, information provided, informative job, informative online, informative application
+
+role description, role clear, role advertised, role specific, role expectations, role informative, description role
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("description" AND ("informative" OR "clear" OR "detailed" OR "vague" OR "accurate"))
+OR
+("advert" AND ("description" OR "informative" OR "clear" OR "descriptive"))
+OR
+("job" AND ("advert" OR "description" OR "information" OR "spec"))
+3. Interview Experience
+🔍 How candidates experienced the interview rounds.
+
+Keywords:
+
+interview process, interview questions, interview smooth, interview stage, interview rounds, interview till, interview date, interview experience, interview offer, interview great, smooth interview, invited interview, face face, coffee chat, interviews onboarding, interviews scheduled, initial interview, interview scheduled
+
+questions asked, asked interview, asked relevant, question relevant, feel questions, answer questions, relevant questions, felt relevant
+
+process interview, process interviews, stage process, assessment center, assessment centre, screening process
+
+got interview, enjoyed interview, prep interview, prepare interview
+
+manager hr, ring manager, ring process, ring team, line manager, contacted ring
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("interview" AND ("questions" OR "rounds" OR "smooth" OR "offer" OR "great" OR "stage" OR "scheduled"))
+OR
+("questions" AND ("asked" OR "relevant" OR "felt"))
+4. Testing & Assessment
+🔍 Experience with online tests, aptitude assessments, values tests, etc.
+
+Keywords:
+
+online test, online tests, online assessment, aptitude tests, online testing
+
+test easy, test relevant, test felt, compe application, compe questions, compe test, compe online
+
+values test, assessment centre, assessment center
+
+test good, test fine
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("test" AND ("online" OR "easy" OR "relevant" OR "felt" OR "good" OR "fine"))
+OR
+("compe" AND ("test" OR "application" OR "questions" OR "online"))
+5. Role Understanding & Fit
+🔍 Candidate clarity about the role expectations and match.
+
+Keywords:
+
+job role, role description, role application, role expectations, role requirements, understanding role, understand role, explained role, aligned role, role advertised, role responsibilities, roles responsibilities, actual role, current role, previous role, role new, role different, role profile, role online, internal job, internal candidate, internal applicant, role process, role good, role smooth, required role, specific role, accurate application, actual application, role applying, role relevant, day day
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("role" AND ("description" OR "expectations" OR "understanding" OR "requirements" OR "advertised" OR "actual" OR "responsibilities"))
+OR
+("job" AND "role")
+6. Communication Experience
+🔍 How well the candidate was kept informed and updated.
+
+Keywords:
+
+good communication, clear communication, lack communication, communication hr, communication process, response time, prompt response, regular updates, timely updates, timely update, timely manner, response hr, provided clear, provided good, good clear, good satisfied, got timely, received email, rejection email, feedback interviews, response times, response process, updates application, kept informed, kept updated, kept date
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("communication" OR "response" OR "update" OR "email" OR "feedback" OR "kept")
+AND
+("timely" OR "clear" OR "regular" OR "good" OR "informed")
+7. Timeline and Duration
+🔍 How long the process took and whether it met expectations.
+
+Keywords:
+
+process took, process lengthy, process long, process slow, process time, time frame, took months, took long, took far, took weeks, took month, took time, long time, longer expected, length time, far long, time taken, time consuming, time application, time interview, time long, time time
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("process" OR "application" OR "time")
+AND
+("took" OR "long" OR "lengthy" OR "slow" OR "weeks" OR "months" OR "duration")
+8. Overall Sentiment & Satisfaction
+🔍 How satisfied the candidate was overall.
+
+Keywords:
+
+good experience, experience good, experience positive, great experience, smooth experience, amazing experience, happy process, overall experience, overall process, overall application, overall good, overall satisfied, satisfied process, satisfied application, satisfied job, selected satisfied
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("experience" OR "process" OR "application" OR "overall")
+AND
+("good" OR "great" OR "positive" OR "smooth" OR "amazing" OR "satisfied" OR "happy")
+9. Onboarding & Offer Experience
+🔍 Final stages after the interview – offer, onboarding, and handover.
+
+Keywords:
+
+onboarding process, onboarding smooth, onboarding team, onboarding app, boarding process, smooth onboarding, offered role, offered job, job offer, acceptance, joining process, background check, background checks, previous employer, offer ter, return offer
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("onboarding" OR "offered" OR "offer" OR "background check" OR "joining" OR "previous employer")
+10. System and Technical Experience
+🔍 User interface or experience with Workday, portals, etc.
+
+Keywords:
+
+hr system, hr team, talent acquisition, ta team, support hr, application workday, workday system, workday process, workday application, workday easy, hr got, manager hr, contacted ring
+
+system easy, portal user, job portal, platform experience, digital experience
+
+Text iQ Syntax Example:
+
+arduino
+Copy
+Edit
+("workday" OR "system" OR "portal" OR "HR")
+AND
+("easy" OR "support" OR "team" OR "application")
+✅ Next Steps:
