@@ -272,3 +272,141 @@ portal and (user, application)
 application and (user, website)
 platform and (intuitive)
 self and explanatory
+
+
+-------------------------------
+
+ Theme 1: Application Submission Experience
+🔍 How easy or difficult it was to apply and complete the application process.
+
+🧩 Keywords Included:
+arduino
+Copy
+Edit
+application process
+application easy
+apply role, apply job
+submitting application, submit application
+online application, application form, application online
+application smooth, straightforward application, application straightforward
+simple apply, easy apply, easy application
+application interview, process apply, applied job, applied role
+cover ter, application good, compe application
+🔧 Text iQ Logic Syntax:
+arduino
+Copy
+Edit
+(application AND (process OR easy OR smooth OR online OR form OR straightforward OR interview OR good OR compe OR apply OR job OR role OR submit OR submitting OR applied OR application OR cover))
+✅ Theme 2: Job and Role Understanding
+🔍 Clarity of the job role, advert, and expectations shared during application.
+
+🧩 Keywords Included:
+pgsql
+Copy
+Edit
+job description, job role, role description, description informative, description clear, description detailed, description accurate, description role, job profile, job spec, description provided, description job, description application
+advert description, job advert, advert informative, advert clear, advert descriptive
+role responsibilities, role expectations, role requirements
+relevant role, relevant job, specific role, aligned role, actual role, understanding role, understand role, explained role, information role, role clear, role good, role informative
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+((job OR role OR advert OR description) AND (clear OR informative OR detailed OR accurate OR responsibilities OR expectations OR requirements OR provided OR relevant OR specific OR aligned OR actual OR understanding OR explained OR good OR profile OR spec))
+✅ Theme 3: Online Test and Assessment Experience
+🔍 Feedback on online tests, assessments, aptitude tests, and test relevance or difficulty.
+
+🧩 Keywords Included:
+bash
+Copy
+Edit
+online test, online tests, online assessment, online testing
+test relevant, test easy, test felt, test good, test gave, test fine
+aptitude tests
+assessment centre, assessment center
+compe test, compe online, compe questions
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+(test OR assessment OR aptitude OR online OR compe OR centre OR center) AND (relevant OR easy OR good OR felt OR gave OR fine OR questions)
+✅ Theme 4: Interview Experience
+🔍 How the candidate perceived the interview stage, including fairness, relevance, scheduling, and clarity.
+
+🧩 Keywords Included:
+arduino
+Copy
+Edit
+interview process, interview rounds, interview scheduled, interview till, interview offer, interview smooth, interview experience, interview date, interview questions, interview stage, interview great
+questions asked, questions relevant, relevant questions, asked relevant, question relevant
+face face, coffee chat, line manager, ring manager, ring process
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+(interview OR questions OR asked OR round OR scheduled OR stage OR smooth OR great OR offer OR manager OR face OR chat OR ring) AND (process OR experience OR relevant OR asked OR date OR till)
+✅ Theme 5: Time Taken and Delays
+🔍 How long the application or recruitment journey took, and perceptions of efficiency or delay.
+
+🧩 Keywords Included:
+css
+Copy
+Edit
+process took, took long, long time, took months, took time, took weeks, took far, far long, longer expected, length time
+wait time, wait long
+time application, time taken, time long, time frame, time interview, time consuming, time time
+🔧 Text iQ Logic Syntax:
+perl
+Copy
+Edit
+(time OR took OR wait OR long OR far OR weeks OR months OR consuming OR frame OR length) AND (application OR process OR interview)
+✅ Theme 6: Communication and Updates
+🔍 How well the applicant was kept informed and communicated with during the application process.
+
+🧩 Keywords Included:
+arduino
+Copy
+Edit
+kept informed, kept updated, regular updates, timely updates, timely update, timely manner, updates application, updated process
+received email, sent email, rejection email
+response time, quick responses, prompt response, response hr, provided clear, provided good, gave insight, gave good
+communication hr, communication process, informed role, informed job, informed step, follow ups
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+(communication OR informed OR updates OR email OR rejection OR follow OR kept OR provided OR gave OR response OR quick OR prompt) AND (application OR role OR job OR hr OR process)
+✅ Theme 7: Onboarding and Offer Experience
+🔍 Experience post-offer, including onboarding, HR interaction, and final offer handling.
+
+🧩 Keywords Included:
+arduino
+Copy
+Edit
+onboarding process, onboarding smooth, onboarding team, onboarding app
+offered role, offered job, job offer, offer ter
+ta team, hr team, hr got, hr system, manager hr, support hr
+joining process, boarding process, interviews onboarding
+smooth onboarding
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+(onboarding OR hr OR team OR offer OR joining OR support OR ta OR smooth OR app OR process OR system OR boarding) AND (role OR job OR experience)
+✅ Theme 8: System and Platform Experience
+🔍 Experience with application platforms like Workday or portals; ease of use, technical issues.
+
+🧩 Keywords Included:
+sql
+Copy
+Edit
+application portal, portal user, application website, application online
+workday application, workday process, workday system, workday easy, pre workday
+navigate compe, upload cover, structured easy, system easy, actual application, application progress
+issues application, application status, process application, performance review
+🔧 Text iQ Logic Syntax:
+scss
+Copy
+Edit
+(portal OR workday OR system OR website OR platform OR navigate OR upload OR structured OR issues OR progress OR status) AND (application OR process OR compe OR cover)
+Would you like this in a spreadsheet format for Text iQ import or want me to continue with other themes like:
