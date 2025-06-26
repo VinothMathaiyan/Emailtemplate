@@ -1,23 +1,274 @@
-Theme 1: Ease and Simplicity of the Application Process
-Focus: How intuitive, accessible, and smooth the application process was — from finding the job to submitting the application.
+ 1. Application Submission
+Keywords Included:
 
-Keywords:
-Easy navigate, easy apply, process straightforward, process pretty, straightforward process, process went well, great experience, simple easy, easy straightforward, process felt easy, satisfied application, simple straightforward, submitting application, satisfied process, application smooth, applied job, role easy, online application, applied role, clear process, easy use, simple straightforward, application form, straightforward easy, easy application, easy apply, clear, easy, roles, responsibilities, self-explanatory, process-grade, quick, easy, process-slow, application-straightforward, role-process, easy-straight, role-application, simple-apply, feel-like, role-online, process-relatively, easy-application, fairly-easy, felt-application, process-application, submit-application, straight-forward-application, system-easy, forward-process
+application process
 
-✅ Theme 2: Clarity and Accuracy of Job and Role Information
-Focus: Quality, clarity, and completeness of job adverts, role descriptions, and application-related content.
+submit application, submitting application
 
-Keywords:
-Job advert description, advert informative, job description, role description, relevant job, job advertisement, job profile, job roles, description accurate, information job, information role, description job, roles, responsibilities, description-detailed, understanding-role, job-board, description-detailed, adwords-descriptive
+application online, online application
 
-✅ Theme 3: Communication and Status Updates
-Focus: Candidate and hiring manager experience with communication, feedback, updates, and clarity on application status.
+application form, online form
 
-Keywords:
-Keep informed, quick response, quick efficient, received email, process communication, regular updates, good communication, response-time, kept update, status application, recruitment team, onboarding team, line-manager, talent acquisition, internal-candidate, asked-relevant, be-right, feel-like, went smooth, good interview, process-interview, clear-application, interview-questions, day-day, application-good, feel-relevant, onboarding-smooth, background-check
+application smooth, smooth application
 
-✅ Theme 4: Timeliness and Process Duration
-Focus: Perception of speed, delays, and overall time taken to progress through the application and approval process.
+straightforward application, application straightforward
 
-Keywords:
-Long time, took months, start date, took long, took time, process long, process slow, quick process, early straightforward, online test, test easy, online assessment, online assessment, process applying, process-issue, complete-application, interview-rounds, process-lengthy, application-interview, job-offer, timely-manner
+easy application
+
+application interview
+
+application good
+
+compe application
+
+apply job, apply role
+
+Keyword Logic:
+application and (submit, submitting, online, form, smooth, straightforward, interview, good, compe, apply)
+
+✅ 2. Process Simplicity & Clarity
+Keywords Included:
+
+process smooth, smooth process
+
+process easy, easy process
+
+process simple, simple process
+
+process clear, clear process
+
+process straightforward, straightforward process
+
+simple easy, simple straight
+
+easy follow, easy navigate
+
+easy understand, easy use
+
+easy compe, easy straightforward, easy access
+
+user friendly
+
+clear easy, clear steps
+
+forward process
+
+Keyword Logic:
+process and (smooth, easy, simple, clear, straightforward)
+easy and (follow, navigate, understand, use, compe, straightforward, access)
+clear and (easy, steps)
+user and friendly
+
+✅ 3. Job Role & Description Clarity
+Keywords Included:
+
+job description
+
+description informative, description accurate, description detailed, description clear
+
+advert description, advert informative, advert descriptive, advert clear
+
+job advert, job advertisement
+
+job role, role description, role responsibilities, roles responsibilities
+
+job profile, role profile, role expectations, role online
+
+specific role, actual role, required role
+
+role clear, role provided
+
+relevant role, relevant job, relevant questions
+
+understanding role, understand role, informed role
+
+informative role, informative job, informative online
+
+information job, information role, information provided
+
+Keyword Logic:
+description and (job, informative, accurate, detailed, clear)
+advert and (description, informative, descriptive, clear)
+role and (description, responsibilities, profile, expectations, online, specific, actual, required, clear, provided)
+relevant and (role, job, questions)
+understand and (role)
+informative and (role, job, online)
+information and (job, role, provided)
+
+✅ 4. Interview & Assessment Experience
+Keywords Included:
+
+interview process
+
+interview questions, questions relevant, questions asked
+
+asked relevant
+
+interview experience, interview stage, interview rounds, final round
+
+online test, online tests, online assessment, test relevant, test easy, test good, test comped, test gave, compe test
+
+initial interview, face face, face issue
+
+interview great, interview felt
+
+screening process
+
+assessment centre
+
+Keyword Logic:
+interview and (process, questions, experience, stage, rounds, final, initial, great, felt)
+questions and (relevant, asked)
+test and (online, relevant, easy, good, comped, gave)
+face and (face, issue)
+screening and process
+assessment and (centre)
+
+✅ 5. Communication & Feedback
+Keywords Included:
+
+kept informed, kept updated, regular updates, timely updates
+
+response time, prompt response, quick response, response hr
+
+clear communication, good communication
+
+feedback interviews
+
+contact ring, ring manager, ring process, communication ring
+
+communication hr, communication recruitment
+
+support hr, team responsive, hr team, recruitment team
+
+hr got, hr system, hr process, hr contact
+
+ta team, talent acquisition
+
+received email, sent email
+
+rejection email
+
+quick responses
+
+communication good
+
+Keyword Logic:
+kept and (informed, updated)
+response and (time, prompt, quick, hr)
+communication and (clear, good, hr, recruitment, ring)
+ring and (manager, process, contact)
+team and (responsive, hr, recruitment)
+hr and (got, system, process, contact)
+ta and team
+email and (received, sent, rejection)
+support and hr
+
+✅ 6. Timeline & Duration
+Keywords Included:
+
+process took, process time
+
+took months, took long, took time, took far
+
+long time, longer expected, long process, time long, wait time, wait long, long winded
+
+process lengthy
+
+time interview, time application, time required, time consuming, time taken, expected timeline
+
+timely manner, timely update
+
+months later, day day
+
+far long
+
+Keyword Logic:
+took and (months, long, time, far)
+time and (long, interview, application, required, consuming, taken, expected)
+process and (took, time, lengthy, long)
+wait and (time, long)
+timely and (manner, update)
+
+✅ 7. Onboarding & Offer Experience
+Keywords Included:
+
+onboarding process, onboarding smooth, onboarding team, onboarding app, application onboarding, boarding process
+
+start date, role start
+
+job offer, offered role, offered job, offer ter, return offer, verbal offer
+
+background check, background checks
+
+joining process, smooth transition
+
+internal candidate, internal job, internal applicant
+
+accepted offer, got offer
+
+Keyword Logic:
+onboarding and (process, smooth, team, app, application)
+offer and (job, role, ter, return, verbal, accepted)
+start and (date, role)
+background and (check, checks)
+internal and (candidate, job, applicant)
+joining and process
+smooth and transition
+
+✅ 8. Overall Sentiment – Positive Experience
+Keywords Included:
+
+good experience, great experience, amazing experience, overall experience, overall good
+
+experience good, experience smooth, smooth experience
+
+happy process, good job, good overall
+
+satisfied application, satisfied job, satisfied process, satisfied overall
+
+feel like, felt like, felt job, felt relevant, felt application, felt questions, felt advert
+
+enjoyed interview, helped lot, helped understand, helped prepare
+
+got job, got interview, got hr, got role
+
+selected satisfied, gave good, gave insight, gave rating
+
+thank opportunity
+
+appreciate experience
+
+Keyword Logic:
+experience and (good, great, amazing, overall, smooth)
+satisfied and (application, job, process, overall)
+felt and (like, job, relevant, application, questions, advert)
+got and (job, interview, hr, role)
+happy and process
+helped and (lot, understand, prepare)
+gave and (good, insight, rating)
+thank and opportunity
+
+✅ 9. Platform & Usability
+Keywords Included:
+
+easy navigate, user friendly, easy access
+
+system easy, application portal, workday system, workday application, workday process
+
+platform intuitive, application website, portal user
+
+application user
+
+self explanatory, knew exactly
+
+actual application, navigate compe
+
+Keyword Logic:
+easy and (navigate, access)
+user and friendly
+system or workday
+portal and (user, application)
+application and (user, website)
+platform and (intuitive)
+self and explanatory
