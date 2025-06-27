@@ -1,13 +1,25 @@
-Technology Discussion Subtopics – Thematic Grouping
-Subtopic	Theme Description	Keywords
-1. Device & Hardware Setup	Topics related to physical equipment used by colleagues.	Monitor, Keyboard, Mouse, Laptop, PC, Desktop, Computer, Tablet, Webcam, Device, Equipment, Hardware
-2. System Access & Login Issues	Problems related to account setup, password issues, login failures, or access rights.	Access Problems, Login, Password, Passwords, Password Policy, RSA Token, Identity Access Management, IAM, IT Access, System Access, SSO, System Approver, Manual Requests, Setup Delays
-3. Software Tools & Installation	Conversations about installing, downloading, or using applications and tools.	Installation, Install, Download, Software, Python, IntelliJ, Chrome, Windows, Windows 10, Windows 7, Server, Reboot
-4. Collaboration Tools & Communication Platforms	Usage or issues with platforms used for meetings and communication.	Webex, Teams, Microsoft Teams, Zoom, Connect App, Phone Book, Intranet, SharePoint
-5. Tech Support & Troubleshooting	Issues escalated to or supported by IT. Includes general tech issues and service desk interactions.	TechBar, IT Support, IT Issue, Tech Issue, Call, SLA, Service First, Support
-6. System Setup & Configuration	Conversations about configuring systems or workspaces.	System Setup, Setup Delays, My Workspace, System Issues, System Access, System Approver
-7. Software Platforms / Enterprise Systems	Discussion about company-specific or external enterprise systems.	Workday, Fieldglass, Tallyo, MyHR, MyID, BRID, Bridge, ANZ System, Githang, Cisive
-8. Onboarding Technology Experience	Comments about tech availability or delays during onboarding.	No Onboarding Support, Setup Delays, Manual Requests, Equipment, System Setup
-9. Remote Work Enablement	Technology enabling remote work.	Work from Home, VDI, Citrix, Connect App
-10. Policy & Security Protocols	IT governance, access control, and security discussions.	Password Policy, RSA Token, Identity Access Management, System Approver, IT Access, Policy, SSO
-11. Technology Overall Sentiment / Generic Mentions	Generic feedback about technology experience.	Technology, Tech, IT, App, Brain, Higher Right
+As discussed yesterday, I walked you through how Text iQ works — both on the backend (how parent and child topics are structured using keywords) and how they appear on the dashboard for users. I also explained the multiple layers involved and how this setup helps in giving more meaningful insights to our stakeholders.
+
+For example, I’ve created a parent-child topic structure for the application stage, covering the different phases a candidate typically goes through — from job search, viewing the advert, understanding the role, submitting the application, to waiting for communication.
+
+Now that we are working closely with the Data Science and Behavioral Science teams to refine the model further, we’re in the process of building stage-specific subtopics. To do this right, we really need feedback from journey owners and dashboard users — not just to validate the approach, but also to ask if there are any additional topics of interest that they’d like to see included.
+
+Since this was part of the earlier agreement with the teams, and the Data Science team is looking to wrap up this stream soon (they’ve been working on this for over a week), it’s important we gather this feedback in time — ideally by Monday.
+
+Could you please help schedule a call with the relevant journey owners? I’ll be happy to join and support the discussion, explain the current structure, and help respond to any questions that may come up.
+
+Thanks so much,
+[Your Name]
+
+
+
+As discussed, I wanted to follow up and summarize our conversation regarding the Text iQ setup for the Hiring Manager dashboard. Since you mentioned you weren’t fully aware of how the backend logic works, I walked you through the current structure — specifically how parent and child topics are driven by keywords, and how they appear in the dashboard.
+
+I also explained how the application journey typically unfolds from a candidate's perspective — starting from job search, viewing the advert, understanding the role, applying, filling out forms, uploading the resume, and waiting for communication. These stages were considered during our earlier planning phase with the Data Science and Behavioral Science teams, where the idea was to move beyond high-level topics (like "Interview" or "Access") and refine them into stage-specific subtopics to help journey owners drill down further for actionable insights.
+
+Currently, however, the dashboard displays only flat-level topics and keyword groupings, without offering stakeholders the ability to explore deeper into specific stages like “Application,” “Interview,” or “Onboarding.” This limits the usefulness of the dashboard from a user perspective.
+
+As part of our earlier alignment with the Data Science team, we were expected to validate with journey owners and stakeholders whether any specific themes or areas of interest should be included, and to explain our approach of refining the topics further. Since that step hasn’t been completed yet, and the Data Science team is now seeking final input before closing this stream of work (targeted for Monday), I believe it’s important we schedule a discussion urgently.
+
+Would you be able to arrange a call with the relevant journey owners or users at the earliest convenience — preferably today or tomorrow? Please do include me in the invite so I can walk through our approach and ensure we gather any last inputs before sharing feedback with the Data Science team.
+
