@@ -1,25 +1,79 @@
-As discussed yesterday, I walked you through how Text iQ works — both on the backend (how parent and child topics are structured using keywords) and how they appear on the dashboard for users. I also explained the multiple layers involved and how this setup helps in giving more meaningful insights to our stakeholders.
 
-For example, I’ve created a parent-child topic structure for the application stage, covering the different phases a candidate typically goes through — from job search, viewing the advert, understanding the role, submitting the application, to waiting for communication.
+🔧 Refinement of Text iQ Model for Deeper Topic Analysis in Onboarding Journeys
 
-Now that we are working closely with the Data Science and Behavioral Science teams to refine the model further, we’re in the process of building stage-specific subtopics. To do this right, we really need feedback from journey owners and dashboard users — not just to validate the approach, but also to ask if there are any additional topics of interest that they’d like to see included.
+Description:
+The current Text iQ topic model was created over three years ago and may no longer reflect the language and system landscape accurately. It lacks the granularity required to enable stakeholders and dashboard users to drill down into specific stages such as hiring or new joiner experiences. Additionally, several existing topics may be outdated, no longer relevant, or misaligned with recent changes in system setup, communication flow, and terminology.
 
-Since this was part of the earlier agreement with the teams, and the Data Science team is looking to wrap up this stream soon (they’ve been working on this for over a week), it’s important we gather this feedback in time — ideally by Monday.
+We are initiating a refinement exercise to fully leverage the capabilities of Text iQ and ensure alignment with actual user experience and feedback. This includes reviewing current topics, updating keywords, and introducing stage-specific subtopics to improve topic precision and insight generation.
 
-Could you please help schedule a call with the relevant journey owners? I’ll be happy to join and support the discussion, explain the current structure, and help respond to any questions that may come up.
+This work will be done collaboratively with the Data Science and Behavioral Science teams and will cover two primary services under the Onboarding journey:
 
-Thanks so much,
-[Your Name]
+Hiring Manager Experience
 
+New Joiner Experience
 
+The refined topics will also be implemented in XM Discover, and a summary page will be created for stakeholder reference and dashboard usage.
 
-As discussed, I wanted to follow up and summarize our conversation regarding the Text iQ setup for the Hiring Manager dashboard. Since you mentioned you weren’t fully aware of how the backend logic works, I walked you through the current structure — specifically how parent and child topics are driven by keywords, and how they appear in the dashboard.
+Acceptance Criteria:
+ Requirement explained and clarified with Data Science team
 
-I also explained how the application journey typically unfolds from a candidate's perspective — starting from job search, viewing the advert, understanding the role, applying, filling out forms, uploading the resume, and waiting for communication. These stages were considered during our earlier planning phase with the Data Science and Behavioral Science teams, where the idea was to move beyond high-level topics (like "Interview" or "Access") and refine them into stage-specific subtopics to help journey owners drill down further for actionable insights.
+ Data Science team presents initial approach and logic
 
-Currently, however, the dashboard displays only flat-level topics and keyword groupings, without offering stakeholders the ability to explore deeper into specific stages like “Application,” “Interview,” or “Onboarding.” This limits the usefulness of the dashboard from a user perspective.
+ Feedback loop established to refine draft model
 
-As part of our earlier alignment with the Data Science team, we were expected to validate with journey owners and stakeholders whether any specific themes or areas of interest should be included, and to explain our approach of refining the topics further. Since that step hasn’t been completed yet, and the Data Science team is now seeking final input before closing this stream of work (targeted for Monday), I believe it’s important we schedule a discussion urgently.
+ Finalized stage-specific topics and keywords for Hiring & New Joiner
 
-Would you be able to arrange a call with the relevant journey owners or users at the earliest convenience — preferably today or tomorrow? Please do include me in the invite so I can walk through our approach and ensure we gather any last inputs before sharing feedback with the Data Science team.
+ Feedback gathered from journey owners and incorporated
 
+ Updated model implemented in Text iQ (with tagging support)
+
+ Aligned implementation in XM Discover with Qualtrics Support
+
+ Summary page created and presented to dashboard owners
+
+Subtasks:
+📍 Explain requirement to Data Science team
+
+Walkthrough of current model gaps and need for refinement
+
+Clarify expectations around stage-specific subtopics
+
+📊 Data Science team to propose initial topic refinement approach
+
+Share topic model logic, keyword strategy, and structure
+
+🔁 Review and give feedback on initial model
+
+Evaluate keyword matches and topic relevance
+
+Identify missing or outdated terms
+
+🤝 Align on final version with Data Science and Behavioral Science teams
+
+Confirm parent-child relationships
+
+Validate subtopic logic
+
+📞 Schedule and conduct session with journey owners
+
+Present refined topic structure
+
+Gather feedback and additional topic suggestions
+
+🔄 Incorporate journey owner feedback into final topic model
+
+Update keywords and structure based on discussion
+
+🛠️ Implement final topics and keywords in Text iQ
+
+Coordinate with tagging or data ops peer (e.g., [Peer Name])
+
+🧠 Align XM Discover implementation with Qualtrics Support
+
+Ensure model and structure reflect Text iQ changes
+
+📄 Create and present summary page to owners
+
+Provide high-level overview and structure
+
+Enable better dashboard navigation and topic 
