@@ -1,1 +1,74 @@
-> “You are reviewing survey text data from an Excel file categorized by year (2024 and 2025). > For each year, extract the following: > > 1. A 10–15 word summary of overall sentiment, using clear, presentation-friendly language. > 2. Three key themes (each theme should be ~2–3 words). > 3. Three topics per theme, each ≤7 words, derived from recurring ideas in the responses. > 4. The count of responses that align with each theme (based on keyword or pattern matching). > > 🧠 Guidelines: > - Be concise and slide-ready. Use impactful yet simple phrasing. > - Each theme and topic should reflect noticeable trends, sentiments, or concerns in that year. > - Group responses by dominant themes even if they partially overlap. > - Maintain consistency in language across both years for visual balance in the circular slide layout. > > 📄 Output Format: > > --- > ### 🔵 2025 Summary > [10–15 word overview capturing key sentiments and feedback from 2025] > > - Theme 1: [e.g., Leadership Support] (e.g., 52 responses) > - Topic 1: [e.g., Leaders engage more actively] > - Topic 2: > - Topic 3: > > - Theme 2: [e.g., Career Growth] (e.g., 37 responses) > - Topic 1: > - Topic 2: > - Topic 3: > > - Theme 3: [e.g., Wellbeing & Balance] (e.g., 29 responses) > - Topic 1: > - Topic 2: > - Topic 3: > > --- > ### 🟠 2024 Summary > [10–15 word overview capturing key sentiments and feedback from 2024] > > - Theme 1: [e.g., Training Effectiveness] (e.g., 41 responses) > - Topic 1: [e.g., Practical skills not covered fully] > - Topic 2: > - Topic 3: > > - Theme 2: > - Topic 1: > - Topic 2: > - Topic 3: > > - Theme 3: > - Topic 1: > - Topic 2: > - Topic 3:
+Current-State Access Management Process
+
+1. Dashboard Access Management (via HR Hub)
+
+Process Steps:
+
+The requester navigates to the HR Hub portal.
+
+Selects the tab labeled "Colleague Surveys & Dashboard Access".
+
+Fills out a common request form, which includes:
+
+Dashboard name (entered manually)
+
+Approver name (entered manually)
+
+Business justification
+
+The request is submitted and enters a shared queue that includes both Reporting and Colleague Listening team requests.
+
+The Reporting team reviews the request and, if it pertains to Colleague Listening, reassigns it accordingly.
+
+The Colleague Listening (CL) team receives the reassigned ticket and:
+
+Checks the dashboard name. If unclear, they follow up with the requester.
+
+Verifies the approver. If incorrect, they contact the correct approver for confirmation.
+
+Once the dashboard name and approver details are confirmed, the CL team provisions dashboard access.
+
+Current Challenges:
+
+No dedicated queue for Colleague Listening in the portal.
+
+Dashboard name and approver are entered in free text, which leads to confusion and delays.
+
+2. User Access Management for Qualtrics Tool (via MyIT)
+
+Process Steps:
+
+Requester raises a MyIT request to access the Qualtrics tool.
+
+The CL team reviews the business justification.
+
+Upon validation, the CL team provisions access in Qualtrics.
+
+JML Limitation:
+
+There is no Joiner-Mover-Leaver (JML) integration with the Qualtrics tool.
+
+The system is not connected to HR lifecycle systems, so access is not automatically updated based on employment status changes.
+
+Mitigation Measures:
+
+The Tech team monitors for mover/leaver events manually.
+
+If an employee is identified as a mover or leaver, the Tech team raises a ticket.
+
+The CL team receives the ticket and revokes access manually in Qualtrics.
+
+Additionally, the CL team conducts periodic checks with the Talent team to validate whether existing user access is still relevant and should be retained.
+
+Summary of Risk Mitigation for Mover/Leaver Events:
+
+Although JML integration is missing, the risk is managed through:
+
+Manual detection by Tech team.
+
+Ticket-based revocation process.
+
+Periodic manual audits involving the Talent team.
+
+This dual-layered process ensures that unauthorized access is reduced even without an automated JML system.
+
