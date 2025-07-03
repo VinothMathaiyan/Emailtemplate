@@ -1,1228 +1,175 @@
-Job Discovery & Role Understanding
-Covers how candidates find, explore, and assess fit for roles.
 
-Keywords:
-job description, job advert, role description, job profile, role requirements, responsibilities, job post, job application, advertised role, role advertised, role information, role expectations, job specification, description provided, role suitability, job board, job portal, role details, description job
 
-Text iQ Syntax:
-("job description" OR "job advert" OR "role description" OR "job profile" OR "role requirements" OR responsibilities OR "job post" OR "job application" OR "advertised role" OR "role advertised" OR "role information" OR "role expectations" OR "job specification" OR "description provided" OR "role suitability" OR "job board" OR "job portal" OR "role details" OR "description job")
+1. User Access Management (via MyIT Request Portal / IAG-BARCPINT)
 
-2. Application Submission Process
-Covers how candidates apply, their experience with tools or steps.
+Requester fills form with:
 
-Keywords:
-application process, applied job, submitting application, submit application, application form, application website, application progress, application status, application experience, online application, application portal, application straightforward, application procedure, applied role, applying job, applying role, application submitted, upload cover, upload document, cover ter
+Required user type
 
-Text iQ Syntax:
-("application process" OR "applied job" OR "submitting application" OR "submit application" OR "application form" OR "application website" OR "application progress" OR "application status" OR "application experience" OR "online application" OR "application portal" OR "application straightforward" OR "application procedure" OR "applied role" OR "applying job" OR "applying role" OR "application submitted" OR "upload cover" OR "upload document" OR "cover ter")
+Business justification
 
-3. Assessment Experience
-Experience with tests or screening steps in the application stage.
+Line Manager receives notification and approves
 
-Keywords:
-online test, online assessment, aptitude tests, assessment centre, screening process, tests relevant, test questions, test experience, test completion, assessment step, initial assessment, verbal test, test submission, assessment center
+Application Owner reviews justification & role
 
-Text iQ Syntax:
-("online test" OR "online assessment" OR "aptitude tests" OR "assessment centre" OR "screening process" OR "tests relevant" OR "test questions" OR "test experience" OR "test completion" OR "assessment step" OR "initial assessment" OR "verbal test" OR "test submission" OR "assessment center")
+If valid → Application Owner approves
 
-4. System & Platform Interaction
-Candidate's experience interacting with platforms like Workday, portals.
+Provisioning Team grants access
 
-Keywords:
-workday application, application portal, job portal, job board, portal access, system navigation, workday process, platform experience, application system, access platform, workday submission, platform used, workday portal, job site, portal user
+Managed entirely with Tech Team support
 
-Text iQ Syntax:
-("workday application" OR "application portal" OR "job portal" OR "job board" OR "portal access" OR "system navigation" OR "workday process" OR "platform experience" OR "application system" OR "access platform" OR "workday submission" OR "platform used" OR "workday portal" OR "job site" OR "portal user")
+2. Dashboard Access Management (via HR Hub Portal)
 
-5. Communication & Updates
-Engagement and updates from recruiters, systems, or portals.
+Requester uses Reporting team’s generic form
 
-Keywords:
-recruitment team, recruiter contact, communication application, status update, update received, application updates, hr contact, received response, recruitment communication, email updates, contacted recruiter, communication from hr, response time, timely update, follow ups, response received
+No dedicated queue for Qualtrics dashboards
 
-Text iQ Syntax:
-("recruitment team" OR "recruiter contact" OR "communication application" OR "status update" OR "update received" OR "application updates" OR "hr contact" OR "received response" OR "recruitment communication" OR "email updates" OR "contacted recruiter" OR "communication from hr" OR "response time" OR "timely update" OR "follow ups" OR "response received")
+No dropdown for selecting dashboards
 
-6. Timelines & Delays
-Covers duration, waiting time, and speed of progress.
+No automated approver mapping
 
-Keywords:
-wait time, response time, took long, lengthy process, delays, time consuming, application delay, long process, waiting period, time taken, application timelines, delay updates, wait response, progress delay, time frame, took months, took weeks, processing time
+Request assigned to Reporting Team → Forwarded to Colleague Listening Team
 
-Text iQ Syntax:
-("wait time" OR "response time" OR "took long" OR "lengthy process" OR delays OR "time consuming" OR "application delay" OR "long process" OR "waiting period" OR "time taken" OR "application timelines" OR "delay updates" OR "wait response" OR "progress delay" OR "time frame" OR "took months" OR "took weeks" OR "processing time")
+CL team follows up:
 
----------------------------
+If dashboard name is unclear → Follow-up with requester
 
-Interview Scheduling & Coordination
+If approver incorrect → Contact correct approver
 
-How interviews were planned, scheduled, and communicated.
+After validations, access is provisioned
 
-Keywords:
-scheduling interview, interview scheduled, scheduled time, date time, interview date, interview scheduled, interview arranged, schedule interview, scheduled quickly, scheduling support, interview planned, time interview, scheduling process, time slots, schedule given
+Slide 2: Challenges with Current State
 
-Text iQ Syntax:
-("scheduling interview" OR "interview scheduled" OR "scheduled time" OR "date time" OR "interview date" OR "interview arranged" OR "schedule interview" OR "scheduled quickly" OR "scheduling support" OR "interview planned" OR "time interview" OR "scheduling process" OR "time slots" OR "schedule given")
+User Access Management (MyIT Portal)
 
-2. Interview Format & Structure
+❌ No JML Integration
 
-Details about the type and flow of interviews (rounds, types, structure).
+Joiners, Movers, Leavers not tracked
 
-Keywords:
-interview rounds, round interview, second interview, final interview, structured interview, interview structure, face face, separate interviews, interview stage, interview format, interview followed, interview processes, process structured
+System does not automatically update/revoke access
 
-Text iQ Syntax:
-("interview rounds" OR "round interview" OR "second interview" OR "final interview" OR "structured interview" OR "interview structure" OR "face face" OR "separate interviews" OR "interview stage" OR "interview format" OR "interview followed" OR "interview processes" OR "process structured")
+❌ Qualtrics not integrated with HR systems
 
-3. Interview Content & Questioning
+🔁 Manual provisioning and revocation
 
-Refers to the nature of the questions asked and their relevance to the role.
+🕒 Delayed removal of leavers → Data security risk
 
-Keywords:
-relevant questions, technical questions, competency based, questions interview, questions asked, based questions, questions role, answering questions, asked questions, role play, role expectation, skills assessed, competencies assessed, question time, questions time, thought provoking
+🔧 Requires tech & data team intervention
 
-Text iQ Syntax:
-("relevant questions" OR "technical questions" OR "competency based" OR "questions interview" OR "questions asked" OR "based questions" OR "questions role" OR "answering questions" OR "asked questions" OR "role play" OR "role expectation" OR "skills assessed" OR "competencies assessed" OR "question time" OR "questions time" OR "thought provoking")
+Dashboard Access Management (HR Hub)
 
-4. Interviewer Professionalism & Behavior
+❌ No dedicated form/queue for Qualtrics dashboard access
 
-Perception of the interviewer's approach, tone, and behavior.
+❌ Dashboard & approver not structured fields (free text only)
 
-Keywords:
-interviewer professional, interviewers professional, interviewers polite, interviewers friendly, interviewers welcoming, interviewer kind, interviewer supportive, interviewer clear, professional manner, conducted professionally, interviewer welcoming, interviewer great, interviewer ease, interviewer asked, interviewer nice, interviewers knowledgeable, interviewers patient
+🔁 Manual follow-ups with requester & approvers
 
-Text iQ Syntax:
-("interviewer professional" OR "interviewers professional" OR "interviewers polite" OR "interviewers friendly" OR "interviewers welcoming" OR "interviewer kind" OR "interviewer supportive" OR "interviewer clear" OR "professional manner" OR "conducted professionally" OR "interviewer welcoming" OR "interviewer great" OR "interviewer ease" OR "interviewer asked" OR "interviewer nice" OR "interviewers knowledgeable" OR "interviewers patient")
+🕒 Delay in meeting SLA timelines
 
-5. Candidate Comfort & Experience During Interview
+❌ No lifecycle-based access (Joiner/Mover/Leaver)
 
-Refers to how the interview made candidates feel during the session.
+Slide 3: Future State – Proposed Improvements
 
-Keywords:
-felt comfortable, feel relaxed, interview relaxed, relaxed helped, felt relaxed, interview comfortable, comfortable interview, comfortable feel, settle nerves, calm nerves, created comfortable, allowed showcase, comfortable allowed, comfortable questions, able ease, feel welcome, welcoming feel
+✅ User Access Management Integration
 
-Text iQ Syntax:
-("felt comfortable" OR "feel relaxed" OR "interview relaxed" OR "relaxed helped" OR "felt relaxed" OR "interview comfortable" OR "comfortable interview" OR "comfortable feel" OR "settle nerves" OR "calm nerves" OR "created comfortable" OR "allowed showcase" OR "comfortable allowed" OR "comfortable questions" OR "able ease" OR "feel welcome" OR "welcoming feel")
+Connect Qualtrics with HR JML data
 
-6. Interview Preparation & Support
+Automate access provisioning/revocation
 
-Includes all support or preparation assistance given before or during the interview.
+Enable system-level sync with MyIT or other request platform
 
-Keywords:
-prepare interview, prep interview, helped prepare, helped relax, helped feel, helped calm, helped understand, support interview, support hr, support team, support provided, information prep, interview explained, interview information, informed interview
+Prevent orphaned users & reduce manual workload
 
-Text iQ Syntax:
-("prepare interview" OR "prep interview" OR "helped prepare" OR "helped relax" OR "helped feel" OR "helped calm" OR "helped understand" OR "support interview" OR "support hr" OR "support team" OR "support provided" OR "information prep" OR "interview explained" OR "interview information" OR "informed interview")
+Tech Team + Data Team required to establish data feed & automation
 
-7. Feedback & Outcome
+✅ Dashboard Access Management Workflow Enhancement
 
-Mentions of interview feedback and post-interview updates.
+Create dedicated queue for Qualtrics dashboards in HR Hub
 
-Keywords:
-feedback provided, interview feedback, feedback received, received feedback, constructive feedback, feedback interviews, quality feedback, got feedback, feedback interview, post interview, interview outcome, outcome feedback
+Form improvements:
 
-Text iQ Syntax:
-("feedback provided" OR "interview feedback" OR "feedback received" OR "received feedback" OR "constructive feedback" OR "feedback interviews" OR "quality feedback" OR "got feedback" OR "feedback interview" OR "post interview" OR "interview outcome" OR "outcome feedback")
+Dashboard name → dropdown selection
 
--------------------
+Approver auto-mapped based on dashboard
 
-Login and Start Working
-This theme captures employee experiences related to systems access, login readiness, laptop provisioning, and the ability to begin work from day one.
+Reduce back-and-forth and requester confusion
 
-✅ Subtopic 1: System Access and Login Readiness
-Keywords:
+Auto-routing to correct team (Colleague Listening)
 
-login and access
+SLA compliance improvement
 
-access and systems
+Joiner/Mover/Leaver logic to be integrated using colleague HR data
 
-access and laptop
+Rationale for Request to ServiceNow, Tech & Data Teams
 
-system and access
+Current processes are manual, fragmented & inconsistent
 
-unable and login
+Direct impact on data governance, compliance & SLA
 
-login and credentials
+Automation + integration will:
 
-login and details
+Improve turnaround time
 
-access and removed
+Reduce errors and manual overhead
 
-revoked and access
+Strengthen data access control
 
-unable and log
-
-domain and access
-
-password and login
-
-login and process
-
-login and issues
-
-credentials and onboarding
-
-system and issues
-
-vpn and access
-
-unable and access
-
-login and app
-
-Text iQ syntax:
-
-pgsql
-Copy
-Edit
-(login and access) or (access and systems) or (system and access) or (unable and login) or 
-(login and credentials) or (login and details) or (access and removed) or (revoked and access) or
-(unable and log) or (domain and access) or (password and login) or (login and process) or
-(login and issues) or (credentials and onboarding) or (vpn and access) or (unable and access) or 
-(login and app)
-✅ Subtopic 2: Laptop Provisioning and Device Setup
-Keywords:
-
-laptop and day
-
-received and laptop
-
-given and laptop
-
-collect and laptop
-
-setup and laptop
-
-laptop and access
-
-laptop and ready
-
-laptop and systems
-
-new and laptop
-
-provide and laptop
-
-day and laptop
-
-laptop and delivered
-
-laptop and faulty
-
-laptop and available
-
-laptop and replaced
-
-laptop and required
-
-laptop and collection
-
-team and laptop
-
-laptop and wrong
-
-laptop and domain
-
-team and device
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(laptop and day) or (received and laptop) or (given and laptop) or (collect and laptop) or 
-(setup and laptop) or (laptop and access) or (laptop and ready) or (laptop and systems) or 
-(new and laptop) or (provide and laptop) or (day and laptop) or (laptop and delivered) or 
-(laptop and faulty) or (laptop and available) or (laptop and replaced) or (laptop and required) or 
-(laptop and collection) or (team and laptop) or (laptop and wrong) or (laptop and domain)
-✅ Subtopic 3: Delays and Escalations
-Keywords:
-
-took and days
-
-took and weeks
-
-took and time
-
-access and delay
-
-week and access
-
-waited and access
-
-days and access
-
-long and time
-
-days and resolve
-
-delay and day
-
-days and issues
-
-process and delay
-
-access and slow
-
-login and delay
-
-raised and request
-
-support and delay
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(took and days) or (took and weeks) or (took and time) or (access and delay) or (week and access) or 
-(waited and access) or (days and access) or (long and time) or (days and resolve) or (delay and day) or 
-(days and issues) or (process and delay) or (access and slow) or (login and delay) or 
-(raised and request) or (support and delay)
-✅ Subtopic 4: Access Support and Resolution
-Keywords:
-
-service and desk
-
-tech and support
-
-contact and support
-
-support and team
-
-help and desk
-
-support and hr
-
-support and access
-
-remote and support
-
-line and manager
-
-ring and manager
-
-team and help
-
-support and enable
-
-tech and team
-
-request and access
-
-issue and resolved
-
-support and ticket
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(service and desk) or (tech and support) or (contact and support) or (support and team) or 
-(help and desk) or (support and hr) or (support and access) or (remote and support) or 
-(line and manager) or (ring and manager) or (team and help) or (support and enable) or 
-(tech and team) or (request and access) or (issue and resolved) or (support and ticket)
-✅ Subtopic 5: Email and Communication Tools Access
-Keywords:
-
-access and email
-
-access and outlook
-
-teams and outlook
-
-teams and email
-
-access and teams
-
-access and intranet
-
-email and access
-
-access and network
-
-outlook and access
-
-email and box
-
-email and address
-
-internal and email
-
-access and drives
-
-access and shared
-
-share and drive
-
-login and teams
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(access and email) or (access and outlook) or (teams and outlook) or (teams and email) or 
-(access and teams) or (access and intranet) or (email and access) or (access and network) or 
-(outlook and access) or (email and box) or (email and address) or (internal and email) or 
-(access and drives) or (access and shared) or (share and drive) or (login and teams)
-✅ Subtopic 6: Password, Tokens, and Security Setup
-Keywords:
-
-reset and password
-
-password and set
-
-temporary and password
-
-password and onboarding
-
-password and expired
-
-password and changed
-
-soft and token
-
-rsa and token
-
-token and clear
-
-security and questions
-
-account and locked
-
-wrong and password
-
-generate and password
-
-password and work
-
-password and login
-
-login and token
-
-passwords and required
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(reset and password) or (password and set) or (temporary and password) or (password and onboarding) or 
-(password and expired) or (password and changed) or (soft and token) or (rsa and token) or 
-(token and clear) or (security and questions) or (account and locked) or (wrong and password) or 
-(generate and password) or (password and work) or (password and login) or (login and token) or 
-(passwords and required)
-
------------
-Onboarding App Experience
-Covers feedback related to new joiners’ interactions with the onboarding app — its usability, accessibility, information availability, and technical performance.
-
-✅ Subtopic 1: App Usability & Navigation
-Keywords:
-
-easy and use
-
-user and friendly
-
-simple and easy
-
-use and navigate
-
-app and intuitive
-
-easy and navigate
-
-app and user
-
-app and interface
-
-friendly and interface
-
-friendly and easy
-
-self and explanatory
-
-app and informative
-
-app and helpful
-
-app and useful
-
-app and convenient
-
-app and fine
-
-app and straightforward
-
-clear and steps
-
-app and great
-
-great and app
-
-simple and follow
-
-app and easy
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(easy and use) or (user and friendly) or (simple and easy) or (use and navigate) or
-(app and intuitive) or (easy and navigate) or (app and user) or (app and interface) or 
-(friendly and interface) or (friendly and easy) or (self and explanatory) or (app and informative) or 
-(app and helpful) or (app and useful) or (app and convenient) or (app and fine) or 
-(app and straightforward) or (clear and steps) or (app and great) or (great and app) or 
-(simple and follow) or (app and easy)
-✅ Subtopic 2: Access & Login Issues
-Keywords:
-
-unable and login
-
-unable and access
-
-access and app
-
-issues and logging
-
-login and password
-
-app and password
-
-password and reset
-
-lost and access
-
-login and app
-
-credentials and onboarding
-
-password and onboarding
-
-password and app
-
-password and change
-
-nt and use
-
-app and nt
-
-app and issues
-
-forgot and password
-
-account and locked
-
-password and expired
-
-logging and app
-
-login and details
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(unable and login) or (unable and access) or (access and app) or (issues and logging) or 
-(login and password) or (app and password) or (password and reset) or (lost and access) or 
-(login and app) or (credentials and onboarding) or (password and onboarding) or (password and app) or 
-(password and change) or (nt and use) or (app and nt) or (app and issues) or 
-(forgot and password) or (account and locked) or (password and expired) or 
-(logging and app) or (login and details)
-✅ Subtopic 3: Information Availability & Relevance
-Keywords:
-
-information and app
-
-app and provide
-
-relevant and information
-
-necessary and information
-
-onboarding and information
-
-information and needed
-
-information and provided
-
-information and required
-
-good and information
-
-informative and easy
-
-app and informative
-
-useful and information
-
-app and clear
-
-information and onboarding
-
-useful and provided
-
-documents and signed
-
-view and contract
-
-contract and signed
-
-sign and contract
-
-review and contract
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(information and app) or (app and provide) or (relevant and information) or (necessary and information) or 
-(onboarding and information) or (information and needed) or (information and provided) or 
-(information and required) or (good and information) or (informative and easy) or 
-(app and informative) or (useful and information) or (app and clear) or 
-(information and onboarding) or (useful and provided) or (documents and signed) or 
-(view and contract) or (contract and signed) or (sign and contract) or (review and contract)
-✅ Subtopic 4: App Features & Functionality
-Keywords:
-
-track and progress
-
-progress and onboarding
-
-app and tracking
-
-app and updates
-
-track and application
-
-onboarding and status
-
-app and status
-
-view and status
-
-app and work
-
-able and track
-
-tracker and onboarding
-
-updates and app
-
-app and gave
-
-receive and email
-
-app and notifications
-
-welcome and portal
-
-countdown and start
-
-outstanding and tasks
-
-check and progress
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(track and progress) or (progress and onboarding) or (app and tracking) or (app and updates) or 
-(track and application) or (onboarding and status) or (app and status) or (view and status) or 
-(app and work) or (able and track) or (tracker and onboarding) or (updates and app) or 
-(app and gave) or (receive and email) or (app and notifications) or (welcome and portal) or 
-(countdown and start) or (outstanding and tasks) or (check and progress)
-✅ Subtopic 5: Technical Issues & Glitches
-Keywords:
-
-app and glitchy
-
-app and slow
-
-app and crash
-
-app and bug
-
-app and stop
-
-broken and links
-
-app and froze
-
-unable and download
-
-app and technical
-
-technical and issues
-
-app and crash
-
-stopped and working
-
-download and app
-
-couldn’t and login
-
-app and loading
-
-login and failed
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(app and glitchy) or (app and slow) or (app and crash) or (app and bug) or 
-(app and stop) or (broken and links) or (app and froze) or (unable and download) or 
-(app and technical) or (technical and issues) or (app and crash) or (stopped and working) or 
-(download and app) or (couldn’t and login) or (app and loading) or (login and failed)
-✅ Subtopic 6: General Sentiment & Experience
-Keywords:
-
-onboarding and experience
-
-great and experience
-
-good and experience
-
-helpful and app
-
-amazing and app
-
-love and app
-
-overall and satisfied
-
-good and app
-
-app and great
-
-great and tool
-
-app and fantastic
-
-smooth and process
-
-pretty and easy
-
-positive and experience
-
-satisfied and onboarding
-
-Text iQ syntax:
-
-scss
-Copy
-Edit
-(onboarding and experience) or (great and experience) or (good and experience) or (helpful and app) or 
-(amazing and app) or (love and app) or (overall and satisfied) or (good and app) or 
-(app and great) or (great and tool) or (app and fantastic) or (smooth and process) or 
-(pretty and easy) or (positive and experience) or (satisfied and onboarding)
-
-
------------------------------------
-
-Role Clarity & Job Understanding
-Keywords / Bigrams:
-
-role informed, role entailed, role quickly, role felt, clear role, unclear job, know role, job process, job keeping, current role, existing role
-
-Regex / Syntax Patterns:
-
-(?i)(role|job).*(clear|unclear|informed|described|felt|process|expectation)
-
-(?i)know.*role
-
-(?i)unclear.*(job|role)
-
-2. 👩‍💼 Manager & Team Support
-Keywords / Bigrams:
-
-manager informed, manager gave, manager received, manager open, manager able, team welcomed, team helpful, team available, team leaders, team experience, welcomed warmly
-
-Regex / Syntax Patterns:
-
-(?i)(manager|team).*(support|welcom|available|help|informed|able)
-
-(?i)manager.*(checked|support|took|prior)
-
-(?i)team.*(welcomed|ready|help|introduced)
-
-3. 🖥️ System Access & Technology
-Keywords / Bigrams:
-
-access card, system issues, system updated, easy access, unable provide, onboarding apps, intranet client, link sign, links onboarding
-
-Regex / Syntax Patterns:
-
-(?i)(system|access|link|app).*(issue|error|delayed|not working|missing)
-
-(?i)unable.*(login|access|provide)
-
-(?i)system.*(updated|available|working|issues)
-
-4. 📩 Communication & Updates
-Keywords / Bigrams:
-
-communication slow, poor communication, long communication, feedback updates, communication agency, emails onboarding, updates provided, kept informed, communication better, got response, information available, told hr
-
-Regex / Syntax Patterns:
-
-(?i)(communication|email|feedback|update).*(slow|poor|none|better|not received)
-
-(?i)(no|not).*(communication|update|email)
-
-(?i)(team|hr).*informed
-
-5. 📄 Screening & Background Checks (especially ReRight)
-Keywords / Bigrams:
-
-background process, long background, background checks, reright screening, reright company, screening screening, screening time, issues background, external company, fair screening, screening questions
-
-Regex / Syntax Patterns:
-
-(?i)(screening|background|reright).*(delay|long|issue|problem|check|repeated)
-
-(?i)reright.*(delay|problem|process|screening)
-
-(?i)background.*check
-
-6. ✍️ Offer & Contract Process
-Keywords / Bigrams:
-
-offer given, offer months, offer revoked, contract issued, contract time, wrong contract, contract offer, given offer, received offer, accepted offer, offer experience
-
-Regex / Syntax Patterns:
-
-(?i)(offer|contract).*(delay|wrong|revoked|not received|issued)
-
-(?i)received.*(offer|contract)
-
-(?i)(offer|contract).*accepted
-
-7. 🧑‍🏫 Training, Induction & Enablement
-Keywords / Bigrams:
-
-training sessions, induction program, tngs provided, helped prepare, training schedule, navigate day, docs required
-
-Regex / Syntax Patterns:
-
-(?i)(training|induction|learning|prepare).*(not received|missed|given|attended)
-
-(?i)tngs.*(explained|provided)
-
-(?i)training.*(session|schedule|program)
-
-8. ⏱️ Timeline & Delay Management
-Keywords / Bigrams:
-
-time contract, long communication, weeks started, delay hr, weeks months, longer thought, joining got, delayed week, slow process, time expected
-
-Regex / Syntax Patterns:
-
-(?i)(time|delay|week|month|long).*(start|onboard|receive|join)
-
-(?i)(delayed|slow|waiting|long).*process
-
-(?i)(weeks|months).*start
-
-9. 👥 Belonging & Social Onboarding
-Keywords / Bigrams:
-
-felt welcomed, welcomed warmly, felt excited, feel happy, new colleagues, making feel, feel communication, joined team, extremely excited, welcoming informative
-
-Regex / Syntax Patterns:
-
-(?i)feel.*(welcomed|excited|comfortable|happy|included)
-
-(?i)(welcomed|welcoming).*team
-
-(?i)new.*colleague
-
-10. 🔁 Internal Moves / Transfers
-Keywords / Bigrams:
-
-internal movement, internal mover, moved role, moving entity, compely new, comped good, existing team, role secondment
-
-Regex / Syntax Patterns:
-
-(?i)(internal|moved|moving|transfer|secondment).*role
-
-(?i)compely.*(new|moved|onboarded)
-
-
--------------------------
-
-other features in the app
-
-App Accessibility & Usability
-Keywords / Bigrams:
-
-use app, user friendly, easier use, able use, app better, sure app, nt app, app working, mobile app, use apps, app nt, welcome portal, track onboarding, easy access, easily accessible, system password
-
-Syntax Patterns / Regex:
-
-(?i)use.*app
-
-(?i)(app|portal).*(working|friendly|not working|difficult|unable|track|mobile)
-
-(?i)easi(er|ly).*use
-
-2. 🧑‍💼 Manager & Contact Information
-Keywords / Bigrams:
-
-line manager, manager contact, manager details, lm information, reporting manager, connect line, ring manager, contact hr, hr line, contact details, number reporting, direct contact, point contact
-
-Syntax Patterns / Regex:
-
-(?i)(manager|contact|hr).*details
-
-(?i)(line|reporting).*manager
-
-(?i)(contact|number|ring|connect).*manager
-
-3. 📅 Day 1 / Preboarding Readiness
-Keywords / Bigrams:
-
-day checklist, expect day, day expectations, info day, day joining, ready day, day example, day contact, day tngs, use day, meet team, mandatory training, tngs day
-
-Syntax Patterns / Regex:
-
-(?i)day.*(checklist|expect|ready|contact|info|meet)
-
-(?i)(mandatory|preboard|expect).*(training|day)
-
-(?i)tngs.*day
-
-4. 💼 Role, Team & Business Information
-Keywords / Bigrams:
-
-information role, specific role, job description, job role, team structure, introduction team, new role, team members, team help, team information, mentor team, specific business, business area, new joiner, new joiners, new starter
-
-Syntax Patterns / Regex:
-
-(?i)(job|role|team|business|joiner|starter).*(info|description|structure|introduction|specific)
-
-(?i)new.*(joiner|starter|team|role)
-
-5. 🔐 Access, Login & ID Management
-Keywords / Bigrams:
-
-system access, access app, access contract, access hr, access requests, request access, reset password, username password, login information, password set, able access, able open, view contract, download offer, contract details, id card, photo card, upload photo
-
-Syntax Patterns / Regex:
-
-(?i)access.*(system|app|contract|hr|requests)
-
-(?i)(login|reset|username|password).*
-
-(?i)(view|download).*contract
-
-6. 🛠️ Equipment, Desk & Workplace Logistics
-Keywords / Bigrams:
-
-desk booking, office map, home equipment, mobile phones, gate pass, photo card, security desk, order equipment, work home, home working, working properly, work place
-
-Syntax Patterns / Regex:
-
-(?i)(home|office|desk|gate|equipment).*
-
-(?i)(book|map|pass|working|order).*
-
-7. 💬 Communication & Support via App
-Keywords / Bigrams:
-
-hr help, team help, ability communicate, comment access, help lot, contact hr, onboarding team, included app, ability view, aware onboarding, aware app
-
-Syntax Patterns / Regex:
-
-(?i)(help|support|communicat).*
-
-(?i)(hr|team).*help
-
-(?i)aware.*(app|onboarding)
-
-8. 🎯 Integration with Workflow & Status Tracking
-Keywords / Bigrams:
-
-onboarding process, onboarding progress, boarding app, use onboarding, onboarding team, track onboarding, nt know, screening stage, prior joining, joining date, start date
-
+Cross-functional ownership is critical to build a scalable, sustainable model
 
 ---------
+The UofU Survey is a major, enterprise-wide engagement initiative conducted annually. As part of its execution, access to the associated Qualtrics dashboards—used by HR teams, HR Business Partners (HRBPs), and business managers to interpret and act on survey data—must be reviewed and updated each cycle.
 
-Onboarding App Experience"
-This complements the earlier two sets and focuses on features, usability, and information gaps.
+🧾 Current Access Management Approach
+Baseline Access Provided from Previous Year
 
-1. 🔍 App Accessibility & Usability
-Keywords / Bigrams:
+Each year, the stakeholder team shares the dashboard user list from the previous cycle with the Colleague Listening (CL) team.
 
-use app, user friendly, easier use, able use, app better, sure app, nt app, app working, mobile app, use apps, app nt, welcome portal, track onboarding, easy access, easily accessible, system password
+Manual Exclusion of Leavers
 
-Syntax Patterns / Regex:
+The CL team manually cross-checks the list to remove individuals who have left the organization.
 
-(?i)use.*app
+This is done by comparing the previous list against current HR records.
 
-(?i)(app|portal).*(working|friendly|not working|difficult|unable|track|mobile)
+Validation & Role Changes
 
-(?i)easi(er|ly).*use
+The updated list is shared with HRBPs and Business Managers for review.
 
-2. 🧑‍💼 Manager & Contact Information
-Keywords / Bigrams:
+They validate the removals and provide input on any role changes or updates needed:
 
-line manager, manager contact, manager details, lm information, reporting manager, connect line, ring manager, contact hr, hr line, contact details, number reporting, direct contact, point contact
+If a user’s role has changed (e.g. moved to a new business unit), access is either revoked or adjusted.
 
-Syntax Patterns / Regex:
+If a new user needs access due to structural or role change, the Business Manager instructs the CL team accordingly.
 
-(?i)(manager|contact|hr).*details
+Access Provisioning by CL Team
 
-(?i)(line|reporting).*manager
+After validation and final approval from business leads or HRBPs, the CL team manually updates the dashboard access in Qualtrics.
 
-(?i)(contact|number|ring|connect).*manager
+⚠️ Key Challenges with Current State
+❌ Highly manual process
+Every year the access list must be rebuilt, verified, and processed manually by several teams.
 
-3. 📅 Day 1 / Preboarding Readiness
-Keywords / Bigrams:
+❌ No automated feed from HR systems
+There’s no live sync with HR systems to automatically detect leavers, movers, or new joiners.
 
-day checklist, expect day, day expectations, info day, day joining, ready day, day example, day contact, day tngs, use day, meet team, mandatory training, tngs day
+🕒 Time-consuming validation steps
+Multiple back-and-forths between CL team, HRBPs, and business managers introduce delays and raise the risk of error.
 
-Syntax Patterns / Regex:
+🧩 Dependent on manual knowledge and stakeholder memory
+Identifying role changes and approvers depends heavily on inputs from business teams, without system-driven visibility.
 
-(?i)day.*(checklist|expect|ready|contact|info|meet)
+✅ Why This Needs Improvement
+To ensure data access remains secure, timely, and accurate—especially in a sensitive, enterprise-wide survey like UofU—we need:
 
-(?i)(mandatory|preboard|expect).*(training|day)
+🔄 Integration with HR systems for real-time joiner, mover, leaver (JML) updates
 
-(?i)tngs.*day
+🗂️ Automated user mapping based on current organizational roles and reporting lines
 
-4. 💼 Role, Team & Business Information
-Keywords / Bigrams:
+📥 Dynamic access provisioning workflows, reducing manual dependencies
 
-information role, specific role, job description, job role, team structure, introduction team, new role, team members, team help, team information, mentor team, specific business, business area, new joiner, new joiners, new starter
+📊 Dedicated dashboard access queue in ServiceNow (or HR Hub), with:
 
-Syntax Patterns / Regex:
+Predefined dashboard dropdowns
 
-(?i)(job|role|team|business|joiner|starter).*(info|description|structure|introduction|specific)
+Auto-assigned approvers
 
-(?i)new.*(joiner|starter|team|role)
-
-5. 🔐 Access, Login & ID Management
-Keywords / Bigrams:
-
-system access, access app, access contract, access hr, access requests, request access, reset password, username password, login information, password set, able access, able open, view contract, download offer, contract details, id card, photo card, upload photo
-
-Syntax Patterns / Regex:
-
-(?i)access.*(system|app|contract|hr|requests)
-
-(?i)(login|reset|username|password).*
-
-(?i)(view|download).*contract
-
-6. 🛠️ Equipment, Desk & Workplace Logistics
-Keywords / Bigrams:
-
-desk booking, office map, home equipment, mobile phones, gate pass, photo card, security desk, order equipment, work home, home working, working properly, work place
-
-Syntax Patterns / Regex:
-
-(?i)(home|office|desk|gate|equipment).*
-
-(?i)(book|map|pass|working|order).*
-
-7. 💬 Communication & Support via App
-Keywords / Bigrams:
-
-hr help, team help, ability communicate, comment access, help lot, contact hr, onboarding team, included app, ability view, aware onboarding, aware app
-
-Syntax Patterns / Regex:
-
-(?i)(help|support|communicat).*
-
-(?i)(hr|team).*help
-
-(?i)aware.*(app|onboarding)
-
-8. 🎯 Integration with Workflow & Status Tracking
-Keywords / Bigrams:
-
-onboarding process, onboarding progress, boarding app, use onboarding, onboarding team, track onboarding, nt know, screening stage, prior joining, joining date, start date
-
-Syntax Patterns / Regex:
-
-(?i)onboarding.*(progress|track|team|process)
-
-(?i)(start|join).*date
-
-(?i)prior.*joining
-----
-
-
-Overall recruitment
-
-Team Support & Onboarding Helpfulness
-Top Keywords: new team, team helpful, boarding process, smooth onboarding, kept loop, onboarding app, onboarding team, joining date, helpful friendly, offer ter
-
-Syntax Example:
-"Team helpful" OR "onboarding app" OR "smooth onboarding" OR "onboarding team"
-
-✅ Theme 2: Interview & Screening Transparency
-Top Keywords: feel like, screening process, ring process, interview offer, recruitment team, interview process, offer process, stage screening, application interview, felt supported
-
-Syntax Example:
-"interview process" OR "screening process" OR "felt supported"
-
-✅ Theme 3: Delays & Process Length
-Top Keywords: process long, time took, offer day, end end, took long, multiple times, took month, long process, took weeks, took time
-
-Syntax Example:
-"took time" OR "process long" OR "took weeks" OR "multiple times"
-
-✅ Theme 4: Overall Satisfaction & Experience
-Top Keywords: happy overall, went smooth, great support, prior joining, happy process, overall good, overall experience, good communication, great experience, process felt
-
-Syntax Example:
-"great support" OR "happy overall" OR "went smooth" OR "overall experience"
-
-✅ Theme 5: Recruitment Journey Feedback
-Top Keywords: happy process, overall recruitment, experience overall, new role, overall satisfied, application process, starting new, recruitment process, new joiner, smooth experience
-
-Syntax Example:
-"overall recruitment" OR "experience overall" OR "application process"
-
-✅ Theme 6: Background Checks & HR Help
-Top Keywords: background check, best experience, helpful friendly, felt welcomed, kept informed, satisfied process, kept date, communication hr, satisfied overall, information needed
-
-Syntax Example:
-"background check" OR "helpful friendly" OR "kept informed" OR "satisfied process"
-
-✅ Theme 7: Communication & Offer Process
-Top Keywords: satisfied experience, offer start, great communication, offer process, re right, communication clear, kept informed, great experience, information provided, offer ter
-
-Syntax Example:
---------
-
-Timeliness & Delays
-Theme Description: Refers to speed, responsiveness, and delays throughout hiring and onboarding.
-
-Keywords / Bigrams:
-
-long background, delay hr, time updates, time contract, weeks started, takes long, offer months, offer delayed, recruitment freeze, long notice, start week, weeks offer, slow process, unnecessarily long
-
-Regex Syntax:
-
-(?i)(delay|slow|long|wait|months|weeks|freeze|notice).*
-
-(?i)(offer|contract).*delay
-
-2. 💬 Communication Quality & Transparency
-Theme Description: How clear, timely, and helpful communication was across teams.
-
-Keywords / Bigrams:
-
-long communication, communication screening, feedback updates, got response, respond queries, contact hr, emails coming, contact kept, tried contact, direct communication, email received, reached times, single point, lack communication
-
-Regex Syntax:
-
-(?i)(communication|response|contact|email|feedback|follow).*
-
-(?i)(transparent|clear).*communication
-
-3. 📲 App & Portal Usability
-Theme Description: User experience with the onboarding app or HR portals.
-
-Keywords / Bigrams:
-
-use app, app working, mobile app, easy access, track onboarding, user friendly, access app, reset password, view contract, system access, onboarding progress, nt app
-
-Regex Syntax:
-
-(?i)(app|portal|system).*access
-
-(?i)(easy|friendly|use|working).*app
-
-4. 👤 Hiring Manager & Team Support
-Theme Description: Contact with hiring manager or team members; helpfulness of team.
-
-Keywords / Bigrams:
-
-manager contact, line manager, team support, team available, manager gave, manager received, connect line, team help, manager welcoming, mentor team, team leaders
-
-Regex Syntax:
-
-(?i)(manager|team|mentor|line).*
-
-(?i)(connect|support|welcoming).*
-
-5. 📄 Preboarding & Offer Experience
-Theme Description: Experience after verbal offer, including offer letters, contract, and screening.
-
-Keywords / Bigrams:
-
-offer given, contract issued, offer months, contract start, contract signed, offer revoked, download offer, provided offer, screening process, passed background, successful screening, checks process
-
-Regex Syntax:
-
-(?i)(offer|contract|screening|checks).*
-
-(?i)(passed|given|revoked|signed).*
-
-6. 📅 Joining & First Day Readiness
-Theme Description: Preparedness for Day 1 — access, equipment, expectations.
-
-Keywords / Bigrams:
-
-day checklist, ready day, day joining, home equipment, office map, desk booking, start week, meet team, expect day, gate pass, upload photo, welcome portal
-
-Regex Syntax:
-
-(?i)(day|start|joining).*
-
-(?i)(ready|checklist|equipment|meet|photo).*
-
-7. 👥 Culture & Welcome
-Theme Description: First impressions of company culture, colleagues, and support.
-
-Keywords / Bigrams:
-
-welcomed warmly, welcomed colleagues, team welcoming, feel happy, experience pleasant, welcoming good, felt excited, smooth experience, nice touch, extremely excited
-
-Regex Syntax:
-
-(?i)(welcome|happy|feel|nice|smooth|pleasant|excited).*
-
-8. 🧭 Clarity of Information
-Theme Description: Whether information shared was sufficient, clear, and timely.
-
-Keywords / Bigrams:
-
-information app, information specific, role informed, job description, clear guidance, specific role, provided guidance, proper information, info day, need information
-
-Regex Syntax:
-
-(?i)(info|information|clear|guidance|description|specific).*
-
-9. ⚙️ Access, Systems, and Setup
-Theme Description: Challenges with IT access, logins, documents, and onboarding systems.
-
-Keywords / Bigrams:
-
-system access, access contract, access hr, access requests, reset password, username password, documents sent, submitted documents, login information, unable provide
-
-Regex Syntax:
-
-(?i)(access|password|login|documents|submit|system).*
-
-10. 🗣️ Interview Experience & Process
-Theme Description: Feedback on interview rounds and communications.
-
-Keywords / Bigrams:
-
-interview informed, interview successful, interview months, second interview, results interview, interview chasing, recruitment agency, internal movement, talent team
-
-Regex Syntax:
-
-(?i)(interview|round|recruitment|agency|talent).*
+Lifecycle logic to manage access over time
