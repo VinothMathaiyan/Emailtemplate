@@ -170,6 +170,47 @@ To ensure data access remains secure, timely, and accurate—especially in a sen
 
 Predefined dashboard dropdowns
 
+
+There are currently two distinct access management processes followed for the Qualtrics platform:
+
+1. User Access Management (via MyIT Request Portal or IAG-BARCpint):
+Employees who need access to Qualtrics must raise a request through the official MyIT portal or IAG-BARCpint. In the form, they must specify the type of access they are requesting and provide a business justification. This request is first routed to their Line Manager for approval. Once approved, it goes to the Application Owner who validates the justification and the requested role. If deemed appropriate, the Application Owner approves the request, and it is sent to the Provisioning Team for access enablement. This entire workflow relies on the Tech Team's infrastructure and does not integrate with any HR system for lifecycle tracking.
+
+2. Dashboard Access Management (via HR Hub Portal):
+There is no dedicated queue for Qualtrics dashboards in HR Hub. Users raise access requests through a generic reporting form that was originally meant for the Reporting Team. The form does not have specific fields for dashboard name or approver; instead, these details are often written within the free-text business justification field. When such a request is submitted, the Reporting Team initially receives it, and only upon identifying it as related to Colleague Listening does it get reassigned. The Colleague Listening team then has to follow up with the requester for missing or unclear dashboard names, and contact the appropriate approver separately to confirm authorization. This manual and fragmented process leads to delays and inefficiencies.
+
+---To overcome the current challenges and build a secure, efficient, and scalable access management system for Qualtrics, we propose the following future-state enhancements:
+
+User Access Management:
+- Integrate Qualtrics with the organization's HR systems to enable JML-based automation. When an employee joins, moves, or leaves, their Qualtrics access should be automatically updated or revoked. This would significantly reduce manual effort and security risk.
+- Establish a real-time data feed between HR systems and Qualtrics, facilitated by the Data Team, to ensure accurate user lifecycle management.
+
+Dashboard Access Management:
+- Develop a dedicated queue in ServiceNow or HR Hub specifically for Qualtrics dashboard access. This queue should include:
+  • A dropdown list of available dashboards
+  • Automated mapping of dashboards to appropriate approvers
+  • Built-in approval workflows and automatic routing to the Colleague Listening team
+- These enhancements will reduce dependency on manual follow-ups, enable faster processing, and help meet SLA targets.
+
+Ask to Stakeholders:
+- We request support from the Tech Team to develop and implement these new automated workflows and ServiceNow integrations.
+- We also request the Data Team to provide a reliable and secure data feed of HR lifecycle events to support automated access provisioning in Qualtrics.
+
+
+
+The current state of access management for Qualtrics presents multiple operational and governance challenges:
+
+User Access Management:
+- The system is not integrated with HR’s Joiner-Mover-Leaver (JML) processes. As a result, user access provisioning and revocation are managed manually. If an employee changes roles or leaves the organization, this change is not automatically reflected in the Qualtrics access control. Without real-time HR data integration, there's a significant risk that inappropriate access is retained.
+- Additionally, due to the lack of automated synchronization, the manual effort required from the Application Owner and Provisioning Team increases administrative overhead and the risk of error.
+
+Dashboard Access Management:
+- The absence of a dedicated Qualtrics dashboard access queue means that all requests are routed through a generic reporting form. This form does not capture essential metadata, such as the dashboard being requested or the appropriate approver.
+- There is no automated logic to map dashboards to approvers, leading to delays as the Colleague Listening team must manually reach out to both the requester and the approver.
+- As with user access, there is no JML integration. This means that dashboards may continue to be accessible by users who no longer need or should have access, especially after role changes or exits.
+---
+
+
 Auto-assigned approvers
 
 Lifecycle logic to manage access over time
