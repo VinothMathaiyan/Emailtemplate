@@ -1,216 +1,324 @@
+Step-by-Step Plan to Prepare the RFP
+1. Establish the Core Objectives of the RFP
+Start by clearly defining the intent:
 
+Evaluate and select a new Employee Experience survey platform before December 2026.
 
-1. User Access Management (via MyIT Request Portal / IAG-BARCPINT)
+Ensure the new platform supports all current use cases: engagement, lifecycle, 360, pulses, etc.
 
-Requester fills form with:
+Ensure integrations (Workday, HR case tools, LMS, etc.) are maintained or improved.
 
-Required user type
+Ensure smooth data migration and minimal disruption.
 
-Business justification
+2. Create a Cross-Functional Working Group
+Include stakeholders from:
 
-Line Manager receives notification and approves
+Colleague Listening / People Analytics
 
-Application Owner reviews justification & role
+HR Tech / Systems
 
-If valid → Application Owner approves
+Data Privacy & Security
 
-Provisioning Team grants access
+IT (Integrations)
 
-Managed entirely with Tech Team support
+Procurement / Vendor Management
 
-2. Dashboard Access Management (via HR Hub Portal)
+Legal & Compliance
 
-Requester uses Reporting team’s generic form
+Business stakeholders (e.g., HRBPs, Talent Management)
 
-No dedicated queue for Qualtrics dashboards
+3. Define and Structure the RFP Document
+Your RFP document should have the following sections:
 
-No dropdown for selecting dashboards
+📄 RFP Document Structure (Draft Outline)
+1. Executive Summary
+Overview of the current state (using Qualtrics)
 
-No automated approver mapping
+Objective: Seeking a vendor to support employee listening needs post-2026
 
-Request assigned to Reporting Team → Forwarded to Colleague Listening Team
+Overview of required survey types and integrations
 
-CL team follows up:
+2. Company Background
+Brief about your organization
 
-If dashboard name is unclear → Follow-up with requester
+Organizational structure (global/local survey usage)
 
-If approver incorrect → Contact correct approver
+Current EX ecosystem
 
-After validations, access is provisioned
+3. Project Background
+Current tool: Qualtrics EX
 
-Slide 2: Challenges with Current State
+Types of surveys: engagement (biannual), HR experience (53+ journeys), onboarding, exit, 360, sentiment, etc.
 
-User Access Management (MyIT Portal)
+Stakeholder landscape
 
-❌ No JML Integration
+Use of Qualtrics IDP, dashboards, action planning, and text analytics
 
-Joiners, Movers, Leavers not tracked
+Expiry of current contract: December 2026
 
-System does not automatically update/revoke access
+Target to complete transition and go-live: Q3–Q4 2026
 
-❌ Qualtrics not integrated with HR systems
+4. Business & Functional Requirements
+Organize this into themes:
 
-🔁 Manual provisioning and revocation
+Survey Capability Requirements
+Engagement surveys (large-scale, pulse)
 
-🕒 Delayed removal of leavers → Data security risk
+Lifecycle surveys (onboarding, exit, promotion, parental leave, etc.)
 
-🔧 Requires tech & data team intervention
+360 feedback (multi-rater with role-based views)
 
-Dashboard Access Management (HR Hub)
+Polls and ad hoc surveys
 
-❌ No dedicated form/queue for Qualtrics dashboard access
+Sentiment surveys (ongoing)
 
-❌ Dashboard & approver not structured fields (free text only)
+Anonymous & confidential handling
 
-🔁 Manual follow-ups with requester & approvers
+Distribution & Communication
+Email & SMS delivery
 
-🕒 Delay in meeting SLA timelines
+Reminder logic
 
-❌ No lifecycle-based access (Joiner/Mover/Leaver)
+Workday triggered surveys
 
-Slide 3: Future State – Proposed Improvements
+Multi-language support
 
-✅ User Access Management Integration
+Conditional logic and quotas
 
-Connect Qualtrics with HR JML data
+Dashboards & Reporting
+Executive and team dashboards
 
-Automate access provisioning/revocation
+Role-based access
 
-Enable system-level sync with MyIT or other request platform
+Text analytics/NLP for open-ends
 
-Prevent orphaned users & reduce manual workload
+Heatmaps, benchmarks
 
-Tech Team + Data Team required to establish data feed & automation
+Action planning capabilities
 
-✅ Dashboard Access Management Workflow Enhancement
+Integrations
+Workday (to trigger lifecycle and learning surveys)
 
-Create dedicated queue for Qualtrics dashboards in HR Hub
+HR Case Tools (e.g., ServiceNow for feedback post-case resolution)
 
-Form improvements:
+LMS (mandatory training feedback)
 
-Dashboard name → dropdown selection
+Daily headcount file sync (e.g., SFTP/API from HR data warehouse)
 
-Approver auto-mapped based on dashboard
+Security & Compliance
+GDPR compliance
 
-Reduce back-and-forth and requester confusion
+Data encryption (at rest and in transit)
 
-Auto-routing to correct team (Colleague Listening)
+Access controls & audit logs
 
-SLA compliance improvement
+SSO / SAML-based authentication
 
-Joiner/Mover/Leaver logic to be integrated using colleague HR data
+Admin & Configuration
+Role-based user permissions
 
-Rationale for Request to ServiceNow, Tech & Data Teams
+Delegation support
 
-Current processes are manual, fragmented & inconsistent
+Template libraries
 
-Direct impact on data governance, compliance & SLA
+Survey testing tools
 
-Automation + integration will:
+Configurable workflows
 
-Improve turnaround time
+Support & SLA
+Implementation support
 
-Reduce errors and manual overhead
+Post go-live support (tiered or dedicated)
 
-Strengthen data access control
+SLAs for issue resolution
 
-Cross-functional ownership is critical to build a scalable, sustainable model
+Documentation and knowledge base
 
----------
-The UofU Survey is a major, enterprise-wide engagement initiative conducted annually. As part of its execution, access to the associated Qualtrics dashboards—used by HR teams, HR Business Partners (HRBPs), and business managers to interpret and act on survey data—must be reviewed and updated each cycle.
+5. Data Migration Requirements
+This is critical. Vendors should respond to:
 
-🧾 Current Access Management Approach
-Baseline Access Provided from Previous Year
+Migration of historical data (2018–2026)
 
-Each year, the stakeholder team shares the dashboard user list from the previous cycle with the Colleague Listening (CL) team.
+Format and volume of existing data
 
-Manual Exclusion of Leavers
+Migration of metadata: project setup, survey logic, dashboards, translations
 
-The CL team manually cross-checks the list to remove individuals who have left the organization.
+File format compatibility
 
-This is done by comparing the previous list against current HR records.
+Timeline for migration
 
-Validation & Role Changes
+Validation and sign-off approach
 
-The updated list is shared with HRBPs and Business Managers for review.
+Historical benchmarking continuity
 
-They validate the removals and provide input on any role changes or updates needed:
+Security of data during migration
 
-If a user’s role has changed (e.g. moved to a new business unit), access is either revoked or adjusted.
+Cost of migration (if any)
 
-If a new user needs access due to structural or role change, the Business Manager instructs the CL team accordingly.
+Example Data Assets to Migrate:
 
-Access Provisioning by CL Team
+Response data
 
-After validation and final approval from business leads or HRBPs, the CL team manually updates the dashboard access in Qualtrics.
+Dashboards
 
-⚠️ Key Challenges with Current State
-❌ Highly manual process
-Every year the access list must be rebuilt, verified, and processed manually by several teams.
+Metadata (survey structure, roles, workflows)
 
-❌ No automated feed from HR systems
-There’s no live sync with HR systems to automatically detect leavers, movers, or new joiners.
+Embedded data (e.g., org data, demographics)
 
-🕒 Time-consuming validation steps
-Multiple back-and-forths between CL team, HRBPs, and business managers introduce delays and raise the risk of error.
+Text responses with themes (especially if using Text iQ/NLP)
 
-🧩 Dependent on manual knowledge and stakeholder memory
-Identifying role changes and approvers depends heavily on inputs from business teams, without system-driven visibility.
+6. Implementation Timeline
+Ask the vendor to provide:
 
-✅ Why This Needs Improvement
-To ensure data access remains secure, timely, and accurate—especially in a sensitive, enterprise-wide survey like UofU—we need:
+Project plan with key milestones
 
-🔄 Integration with HR systems for real-time joiner, mover, leaver (JML) updates
+Expected implementation duration
 
-🗂️ Automated user mapping based on current organizational roles and reporting lines
+UAT and parallel run plan
 
-📥 Dynamic access provisioning workflows, reducing manual dependencies
+Data migration timeline
 
-📊 Dedicated dashboard access queue in ServiceNow (or HR Hub), with:
+Training & change management
 
-Predefined dashboard dropdowns
+7. Evaluation Criteria
+Let vendors know how you will score:
 
+Fit to functional requirements
 
-There are currently two distinct access management processes followed for the Qualtrics platform:
+Integration capability
 
-1. User Access Management (via MyIT Request Portal or IAG-BARCpint):
-Employees who need access to Qualtrics must raise a request through the official MyIT portal or IAG-BARCpint. In the form, they must specify the type of access they are requesting and provide a business justification. This request is first routed to their Line Manager for approval. Once approved, it goes to the Application Owner who validates the justification and the requested role. If deemed appropriate, the Application Owner approves the request, and it is sent to the Provisioning Team for access enablement. This entire workflow relies on the Tech Team's infrastructure and does not integrate with any HR system for lifecycle tracking.
+UX for respondents and admins
 
-2. Dashboard Access Management (via HR Hub Portal):
-There is no dedicated queue for Qualtrics dashboards in HR Hub. Users raise access requests through a generic reporting form that was originally meant for the Reporting Team. The form does not have specific fields for dashboard name or approver; instead, these details are often written within the free-text business justification field. When such a request is submitted, the Reporting Team initially receives it, and only upon identifying it as related to Colleague Listening does it get reassigned. The Colleague Listening team then has to follow up with the requester for missing or unclear dashboard names, and contact the appropriate approver separately to confirm authorization. This manual and fragmented process leads to delays and inefficiencies.
+Data security and compliance
 
----To overcome the current challenges and build a secure, efficient, and scalable access management system for Qualtrics, we propose the following future-state enhancements:
+Cost (TCO: licensing, support, migration)
 
-User Access Management:
-- Integrate Qualtrics with the organization's HR systems to enable JML-based automation. When an employee joins, moves, or leaves, their Qualtrics access should be automatically updated or revoked. This would significantly reduce manual effort and security risk.
-- Establish a real-time data feed between HR systems and Qualtrics, facilitated by the Data Team, to ensure accurate user lifecycle management.
+Vendor experience in EX space
 
-Dashboard Access Management:
-- Develop a dedicated queue in ServiceNow or HR Hub specifically for Qualtrics dashboard access. This queue should include:
-  • A dropdown list of available dashboards
-  • Automated mapping of dashboards to appropriate approvers
-  • Built-in approval workflows and automatic routing to the Colleague Listening team
-- These enhancements will reduce dependency on manual follow-ups, enable faster processing, and help meet SLA targets.
+Implementation & support model
 
-Ask to Stakeholders:
-- We request support from the Tech Team to develop and implement these new automated workflows and ServiceNow integrations.
-- We also request the Data Team to provide a reliable and secure data feed of HR lifecycle events to support automated access provisioning in Qualtrics.
+8. Submission Instructions
+Format: Word/PDF + Excel for requirement matrix
 
+Deadline for questions
 
+Proposal submission deadline
 
-The current state of access management for Qualtrics presents multiple operational and governance challenges:
+Contact person
 
-User Access Management:
-- The system is not integrated with HR’s Joiner-Mover-Leaver (JML) processes. As a result, user access provisioning and revocation are managed manually. If an employee changes roles or leaves the organization, this change is not automatically reflected in the Qualtrics access control. Without real-time HR data integration, there's a significant risk that inappropriate access is retained.
-- Additionally, due to the lack of automated synchronization, the manual effort required from the Application Owner and Provisioning Team increases administrative overhead and the risk of error.
+📦 Attachments You Should Include
+Requirement checklist (Excel format with Must-have / Nice-to-have)
 
-Dashboard Access Management:
-- The absence of a dedicated Qualtrics dashboard access queue means that all requests are routed through a generic reporting form. This form does not capture essential metadata, such as the dashboard being requested or the appropriate approver.
-- There is no automated logic to map dashboards to approvers, leading to delays as the Colleague Listening team must manually reach out to both the requester and the approver.
-- As with user access, there is no JML integration. This means that dashboards may continue to be accessible by users who no longer need or should have access, especially after role changes or exits.
----
+Sample survey types (e.g., screenshots or descriptions)
 
+Volume stats (approximate responses per year)
 
-Auto-assigned approvers
+Data structure examples (e.g., fields used, embedded data examples)
 
-Lifecycle logic to manage access over time
+Integration flow diagrams (e.g., Workday to Qualtrics)
+
+🧠 Tips for Creating the RFP
+Be vendor-agnostic: Don’t tailor it to Qualtrics or Glint.
+
+Prioritize your must-have and nice-to-have requirements.
+
+Make sure legal and infosec reviews are baked in before release.
+
+Create a scorecard in Excel for the evaluation team.
+
+Plan for vendor demos and use case-based walkthroughs.
+
+🗓 Suggested Timeline
+Phase	Duration	Suggested Dates
+RFP Drafting	3–4 weeks	July 2025
+Internal Review	2 weeks	August 2025
+Vendor Response Period	4–6 weeks	Sep–Oct 2025
+Evaluation & Demos	4 weeks	Nov 2025
+Shortlisting & Final Selection	2–3 weeks	Dec 2025
+Contracting	2–3 months	Jan–Mar 2026
+Implementation Start	Q2 2026	Apr 2026
+Full Go-live	Q3–Q4 2026	Before Dec 2026
+
+
+
+RFP Requirements Checklist
+You can copy this into Excel with the following columns:
+
+Category	Requirement	Must-Have (Y/N)	Notes / Comments
+
+🔹 A. Survey Capabilities
+Category	Requirement	Must-Have	Notes
+Survey Support	Supports engagement surveys (large-scale)	Y	Biannual organization-wide
+Survey Support	Supports lifecycle surveys (onboarding, exit, promotion, leave, etc.)	Y	50+ journeys currently
+Survey Support	Supports 360 feedback (multi-rater, customizable rater roles)	Y	With anonymity rules
+Survey Support	Supports pulse surveys and quick polls	Y	Lightweight, flexible
+Survey Support	Supports sentiment tracking / always-on surveys	Y	Mood/emotion capture
+Survey Support	Allows conditional logic, display logic, quotas	Y	Needed for personalization
+Survey Support	Supports anonymity and confidentiality options	Y	Role-based access rules
+Survey Support	Multi-language survey support with translation management	Y	20+ languages possible
+
+🔹 B. Distribution & Automation
+Category	Requirement	Must-Have	Notes
+Delivery	Email and SMS invitations/reminders	Y	Email preferred, SMS optional
+Delivery	Reminder logic (e.g., # days after invite)	Y	With suppression logic
+Triggering	Ability to schedule and automate survey triggers	Y	e.g., onboarding at Day 7
+Workday Integration	Trigger lifecycle surveys based on Workday events	Y	Hire, exit, return from leave
+Workday Integration	Integrate with Workday Studio/Web Services	Y	Workday is the master system
+LMS Integration	Trigger surveys post training completion	Y	Via LMS or data feed
+Case System Integration	Trigger HR case feedback surveys post-resolution	Y	E.g., via ServiceNow
+
+🔹 C. Reporting & Dashboards
+Category	Requirement	Must-Have	Notes
+Dashboards	Role-based dashboards (HRBP, Leader, Exec)	Y	Customizable and secure
+Dashboards	Real-time updates	Y	For live pulse surveys
+Dashboards	Filter/slice by demographics	Y	e.g., Function, Grade, Tenure
+Dashboards	Text analytics/NLP for open-end responses	Y	Must support tagging, themes
+Dashboards	Action planning tools for managers	Y	Linked to survey feedback
+Benchmarks	Supports internal and external benchmarking	Y	Historical and industry-level
+Exporting	Ability to export data in CSV/XLS/JSON formats	Y	For internal reporting
+
+🔹 D. Integration & Data Flow
+Category	Requirement	Must-Have	Notes
+Data Ingestion	Supports daily headcount file import (SFTP/API)	Y	Including embedded data
+Data Ingestion	Integration with internal HR data platform	Y	Via SFTP or API
+User Authentication	SSO integration (SAML 2.0, Azure AD)	Y	For admin and dashboard access
+APIs	Well-documented APIs for survey triggering, data push/pull	Y	For automation and scale
+
+🔹 E. Data Migration
+Category	Requirement	Must-Have	Notes
+Historical Data	Ability to migrate past survey responses	Y	At least past 5 years
+Metadata	Ability to migrate survey structure & logic	Y	Not just raw data
+Dashboards	Rebuild or import existing dashboards	Y	Or recreate with vendor help
+Benchmarks	Maintain historical benchmarks post-migration	Y	For trend analysis
+Migration Timeline	Define a clear timeline for data migration	Y	Should allow parallel runs
+Migration Support	Vendor provides migration support team	Y	To manage complexity
+
+🔹 F. Security & Compliance
+Category	Requirement	Must-Have	Notes
+GDPR	Platform must be fully GDPR compliant	Y	EU-based processing possible
+Data Residency	Data storage location options	Y	Preferred: EU/US/India choice
+Encryption	Data encrypted in transit and at rest	Y	AES-256 or equivalent
+Access Control	Role-based user access control	Y	With audit trails
+Audit Logs	Admin/user action logging	Y	For compliance tracking
+Anonymity	Respondent anonymity options	Y	Critical for EX surveys
+
+🔹 G. Admin, Support & Usability
+Category	Requirement	Must-Have	Notes
+User Roles	Support for different admin roles (edit/view-only)	Y	For decentralization
+Template Library	Pre-built survey templates (Engagement, Onboarding)	N	Helpful but not critical
+Testing Tools	Preview & test surveys with logic before launch	Y	With test data options
+Knowledge Base	Access to help articles & documentation	Y	For self-service
+Training	Implementation and admin training support	Y	Onboarding the HR team
+Support Model	Dedicated success manager or tiered support	Y	During and post-implementation
+Uptime Guarantee	99.9% or higher uptime SLA	Y	Include in contract
+Scalability	Platform should scale to 50,000+ colleagues	Y	Future proofing
+
+🔹 H. Commercials & Contracting
+Category	Requirement	Must-Have	Notes
+Pricing Model	Transparent pricing with break-up	Y	User-based or usage-based
+Migration Cost	Migration support cost detailed	Y	Preferably bundled
+Contract Flexibility	Multi-year options, exit clauses	Y	Risk mitigation
+Implementation Plan	Clear phased approach shared	Y	Include migration and UAT
+Proof of Concept	Willingness to do sandbox/Pilot	N	Optional but valuable
+
+📥 Next Steps
