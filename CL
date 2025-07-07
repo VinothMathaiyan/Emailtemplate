@@ -1,324 +1,90 @@
-Step-by-Step Plan to Prepare the RFP
-1. Establish the Core Objectives of the RFP
-Start by clearly defining the intent:
 
-Evaluate and select a new Employee Experience survey platform before December 2026.
-
-Ensure the new platform supports all current use cases: engagement, lifecycle, 360, pulses, etc.
-
-Ensure integrations (Workday, HR case tools, LMS, etc.) are maintained or improved.
-
-Ensure smooth data migration and minimal disruption.
-
-2. Create a Cross-Functional Working Group
-Include stakeholders from:
-
-Colleague Listening / People Analytics
-
-HR Tech / Systems
-
-Data Privacy & Security
-
-IT (Integrations)
-
-Procurement / Vendor Management
-
-Legal & Compliance
-
-Business stakeholders (e.g., HRBPs, Talent Management)
-
-3. Define and Structure the RFP Document
-Your RFP document should have the following sections:
-
-📄 RFP Document Structure (Draft Outline)
-1. Executive Summary
-Overview of the current state (using Qualtrics)
-
-Objective: Seeking a vendor to support employee listening needs post-2026
-
-Overview of required survey types and integrations
-
-2. Company Background
-Brief about your organization
-
-Organizational structure (global/local survey usage)
-
-Current EX ecosystem
-
-3. Project Background
-Current tool: Qualtrics EX
-
-Types of surveys: engagement (biannual), HR experience (53+ journeys), onboarding, exit, 360, sentiment, etc.
-
-Stakeholder landscape
-
-Use of Qualtrics IDP, dashboards, action planning, and text analytics
-
-Expiry of current contract: December 2026
-
-Target to complete transition and go-live: Q3–Q4 2026
-
-4. Business & Functional Requirements
-Organize this into themes:
-
-Survey Capability Requirements
-Engagement surveys (large-scale, pulse)
-
-Lifecycle surveys (onboarding, exit, promotion, parental leave, etc.)
-
-360 feedback (multi-rater with role-based views)
-
-Polls and ad hoc surveys
-
-Sentiment surveys (ongoing)
-
-Anonymous & confidential handling
-
-Distribution & Communication
-Email & SMS delivery
-
-Reminder logic
-
-Workday triggered surveys
-
-Multi-language support
-
-Conditional logic and quotas
-
-Dashboards & Reporting
-Executive and team dashboards
-
-Role-based access
-
-Text analytics/NLP for open-ends
-
-Heatmaps, benchmarks
-
-Action planning capabilities
-
-Integrations
-Workday (to trigger lifecycle and learning surveys)
-
-HR Case Tools (e.g., ServiceNow for feedback post-case resolution)
-
-LMS (mandatory training feedback)
-
-Daily headcount file sync (e.g., SFTP/API from HR data warehouse)
-
-Security & Compliance
-GDPR compliance
-
-Data encryption (at rest and in transit)
-
-Access controls & audit logs
-
-SSO / SAML-based authentication
-
-Admin & Configuration
-Role-based user permissions
-
-Delegation support
-
-Template libraries
-
-Survey testing tools
-
-Configurable workflows
-
-Support & SLA
-Implementation support
-
-Post go-live support (tiered or dedicated)
-
-SLAs for issue resolution
-
-Documentation and knowledge base
-
-5. Data Migration Requirements
-This is critical. Vendors should respond to:
-
-Migration of historical data (2018–2026)
-
-Format and volume of existing data
-
-Migration of metadata: project setup, survey logic, dashboards, translations
-
-File format compatibility
-
-Timeline for migration
-
-Validation and sign-off approach
-
-Historical benchmarking continuity
-
-Security of data during migration
-
-Cost of migration (if any)
-
-Example Data Assets to Migrate:
-
-Response data
-
-Dashboards
-
-Metadata (survey structure, roles, workflows)
-
-Embedded data (e.g., org data, demographics)
-
-Text responses with themes (especially if using Text iQ/NLP)
-
-6. Implementation Timeline
-Ask the vendor to provide:
-
-Project plan with key milestones
-
-Expected implementation duration
-
-UAT and parallel run plan
-
-Data migration timeline
-
-Training & change management
-
-7. Evaluation Criteria
-Let vendors know how you will score:
-
-Fit to functional requirements
-
-Integration capability
-
-UX for respondents and admins
-
-Data security and compliance
-
-Cost (TCO: licensing, support, migration)
-
-Vendor experience in EX space
-
-Implementation & support model
-
-8. Submission Instructions
-Format: Word/PDF + Excel for requirement matrix
-
-Deadline for questions
-
-Proposal submission deadline
-
-Contact person
-
-📦 Attachments You Should Include
-Requirement checklist (Excel format with Must-have / Nice-to-have)
-
-Sample survey types (e.g., screenshots or descriptions)
-
-Volume stats (approximate responses per year)
-
-Data structure examples (e.g., fields used, embedded data examples)
-
-Integration flow diagrams (e.g., Workday to Qualtrics)
-
-🧠 Tips for Creating the RFP
-Be vendor-agnostic: Don’t tailor it to Qualtrics or Glint.
-
-Prioritize your must-have and nice-to-have requirements.
-
-Make sure legal and infosec reviews are baked in before release.
-
-Create a scorecard in Excel for the evaluation team.
-
-Plan for vendor demos and use case-based walkthroughs.
-
-🗓 Suggested Timeline
-Phase	Duration	Suggested Dates
-RFP Drafting	3–4 weeks	July 2025
-Internal Review	2 weeks	August 2025
-Vendor Response Period	4–6 weeks	Sep–Oct 2025
-Evaluation & Demos	4 weeks	Nov 2025
-Shortlisting & Final Selection	2–3 weeks	Dec 2025
-Contracting	2–3 months	Jan–Mar 2026
-Implementation Start	Q2 2026	Apr 2026
-Full Go-live	Q3–Q4 2026	Before Dec 2026
-
-
-
-RFP Requirements Checklist
-You can copy this into Excel with the following columns:
-
-Category	Requirement	Must-Have (Y/N)	Notes / Comments
-
-🔹 A. Survey Capabilities
-Category	Requirement	Must-Have	Notes
-Survey Support	Supports engagement surveys (large-scale)	Y	Biannual organization-wide
-Survey Support	Supports lifecycle surveys (onboarding, exit, promotion, leave, etc.)	Y	50+ journeys currently
-Survey Support	Supports 360 feedback (multi-rater, customizable rater roles)	Y	With anonymity rules
-Survey Support	Supports pulse surveys and quick polls	Y	Lightweight, flexible
-Survey Support	Supports sentiment tracking / always-on surveys	Y	Mood/emotion capture
-Survey Support	Allows conditional logic, display logic, quotas	Y	Needed for personalization
-Survey Support	Supports anonymity and confidentiality options	Y	Role-based access rules
-Survey Support	Multi-language survey support with translation management	Y	20+ languages possible
-
-🔹 B. Distribution & Automation
-Category	Requirement	Must-Have	Notes
-Delivery	Email and SMS invitations/reminders	Y	Email preferred, SMS optional
-Delivery	Reminder logic (e.g., # days after invite)	Y	With suppression logic
-Triggering	Ability to schedule and automate survey triggers	Y	e.g., onboarding at Day 7
-Workday Integration	Trigger lifecycle surveys based on Workday events	Y	Hire, exit, return from leave
-Workday Integration	Integrate with Workday Studio/Web Services	Y	Workday is the master system
-LMS Integration	Trigger surveys post training completion	Y	Via LMS or data feed
-Case System Integration	Trigger HR case feedback surveys post-resolution	Y	E.g., via ServiceNow
-
-🔹 C. Reporting & Dashboards
-Category	Requirement	Must-Have	Notes
-Dashboards	Role-based dashboards (HRBP, Leader, Exec)	Y	Customizable and secure
-Dashboards	Real-time updates	Y	For live pulse surveys
-Dashboards	Filter/slice by demographics	Y	e.g., Function, Grade, Tenure
-Dashboards	Text analytics/NLP for open-end responses	Y	Must support tagging, themes
-Dashboards	Action planning tools for managers	Y	Linked to survey feedback
-Benchmarks	Supports internal and external benchmarking	Y	Historical and industry-level
-Exporting	Ability to export data in CSV/XLS/JSON formats	Y	For internal reporting
-
-🔹 D. Integration & Data Flow
-Category	Requirement	Must-Have	Notes
-Data Ingestion	Supports daily headcount file import (SFTP/API)	Y	Including embedded data
-Data Ingestion	Integration with internal HR data platform	Y	Via SFTP or API
-User Authentication	SSO integration (SAML 2.0, Azure AD)	Y	For admin and dashboard access
-APIs	Well-documented APIs for survey triggering, data push/pull	Y	For automation and scale
-
-🔹 E. Data Migration
-Category	Requirement	Must-Have	Notes
-Historical Data	Ability to migrate past survey responses	Y	At least past 5 years
-Metadata	Ability to migrate survey structure & logic	Y	Not just raw data
-Dashboards	Rebuild or import existing dashboards	Y	Or recreate with vendor help
-Benchmarks	Maintain historical benchmarks post-migration	Y	For trend analysis
-Migration Timeline	Define a clear timeline for data migration	Y	Should allow parallel runs
-Migration Support	Vendor provides migration support team	Y	To manage complexity
-
-🔹 F. Security & Compliance
-Category	Requirement	Must-Have	Notes
-GDPR	Platform must be fully GDPR compliant	Y	EU-based processing possible
-Data Residency	Data storage location options	Y	Preferred: EU/US/India choice
-Encryption	Data encrypted in transit and at rest	Y	AES-256 or equivalent
-Access Control	Role-based user access control	Y	With audit trails
-Audit Logs	Admin/user action logging	Y	For compliance tracking
-Anonymity	Respondent anonymity options	Y	Critical for EX surveys
-
-🔹 G. Admin, Support & Usability
-Category	Requirement	Must-Have	Notes
-User Roles	Support for different admin roles (edit/view-only)	Y	For decentralization
-Template Library	Pre-built survey templates (Engagement, Onboarding)	N	Helpful but not critical
-Testing Tools	Preview & test surveys with logic before launch	Y	With test data options
-Knowledge Base	Access to help articles & documentation	Y	For self-service
-Training	Implementation and admin training support	Y	Onboarding the HR team
-Support Model	Dedicated success manager or tiered support	Y	During and post-implementation
-Uptime Guarantee	99.9% or higher uptime SLA	Y	Include in contract
-Scalability	Platform should scale to 50,000+ colleagues	Y	Future proofing
-
-🔹 H. Commercials & Contracting
-Category	Requirement	Must-Have	Notes
-Pricing Model	Transparent pricing with break-up	Y	User-based or usage-based
-Migration Cost	Migration support cost detailed	Y	Preferably bundled
-Contract Flexibility	Multi-year options, exit clauses	Y	Risk mitigation
-Implementation Plan	Clear phased approach shared	Y	Include migration and UAT
-Proof of Concept	Willingness to do sandbox/Pilot	N	Optional but valuable
-
-📥 Next Steps
+vinoth mathaiyan <vinoth.m13579@gmail.com>
+9:29 AM (0 minutes ago)
+to me
+
+You've provided a comprehensive overview of your training module's performance across various demographics and aspects. Here's a summary of key insights and action items for each page, incorporating your observations and potential next steps:
+Page 1: Preferred Access Method
+Key Insights:
+ * High Preference for Task Cards: Task cards are the most popular access method, indicating users find them convenient and effective for accessing training.
+ * Low Preference for Email Links: Email links are the least preferred method, suggesting they may not be an efficient or preferred way for colleagues to initiate training.
+Action Items:
+ * Optimize Task Card Experience: Continue to prioritize and enhance the task card experience, ensuring it remains user-friendly and easily discoverable.
+ * Re-evaluate Email Link Strategy: Investigate the specific reasons for low email link preference. Is it due to email fatigue, poor formatting, lack of clear call-to-action, or simply a preference for other methods? Consider reducing reliance on email links or redesigning their content and purpose.
+ * Promote Preferred Methods: Actively promote and guide users towards using task cards as the primary access method.
+Page 2: Overall Experience
+Key Insights:
+ * Strong Overall Favorability: The training module generally enjoys a positive reception, with 72% overall favorability. This is a significant strength.
+ * Consistency Across Q1 and Q2: The positive trend is consistent between Q1 and Q2, indicating sustained positive user experience.
+ * Age Group Discrepancies: While generally positive, there's a slight dip in favorability and higher unfavorable/neutral scores in the 40-50 year age group (14% and 11% unfavorable respectively, with increased neutrals in 40-45 and 45-50). Older age groups (55-65 and >65) surprisingly show very high favorability (79-80%).
+ * Length of Service Consistency: Favorable experiences are consistent across all lengths of service, though the 0-3 year group has a slightly higher unfavorable (13%).
+ * Corporate Grade Consistency (Mostly): Generally favorable, with VPs and AVPs showing some unfavorable (8%) and neutral (19-23%) scores, and lower grades having slightly higher neutral (22%) and unfavorable (10%).
+ * Country and Region Variations: India shows exceptionally high favorability (94%), while UK and US have lower favorability (65-73%) and higher unfavorable/neutral scores (e.g., UK 12% unfavorable, US 16% neutral). APAC and America regions also show good favorability, but UK still stands out with higher unfavorable/neutral (23% neutral, 12% unfavorable).
+ * Gender Consistency: Both male and female employees report high favorability (70-74%) with relatively low unfavorable scores.
+Action Items:
+ * Deep Dive into 40-50 Age Group: Conduct targeted qualitative research (interviews, focus groups) with colleagues in the 40-50 age group to understand the specific reasons for their lower favorability and higher neutral/unfavorable responses. This might be related to content relevance, technology familiarity, or time constraints.
+ * Address Specific UK/US/APAC/America Regional Feedback: Investigate the lower favorability in UK, US, and certain regions. Are there cultural differences, specific content issues, or technical challenges unique to these locations that contribute to lower scores?
+ * Leverage Success Stories: Highlight the exceptionally high favorability in India and older age groups (>55) to understand best practices that can be replicated.
+Page 3: Relevance
+Key Insights:
+ * Good Overall Relevance: The training content is generally perceived as relevant, with 71% favorable.
+ * Age Group Pockets of Unfavorability/Neutral: Similar to overall experience, 30-35, 40-45, 45-50, and 50-55 age groups show higher unfavorable (12-15%) and neutral scores (12-21%). Notably, the 55-60 age group has 25% neutral score.
+ * Corporate Grade Nuances: While mostly favorable, VPs and AVPs show higher neutral (15-22%) and unfavorable (12-13%) scores, and BA4 has 16% unfavorable.
+ * Country and Region Variations Persist: UK (64% favorable, 16% unfavorable, 20% neutral) and US (68% favorable, 16% unfavorable, 20% neutral) again show lower favorability and higher unfavorable/neutral compared to India (89% favorable, 8% neutral).
+ * Gender Consistency: Male and female responses are largely similar in terms of relevance.
+Action Items:
+ * Targeted Content Review for Specific Age/Grade/Region Groups: Review the content and delivery for the age groups (30-55), corporate grades (VPs, AVPs, BA4), and regions (UK, US) with lower relevance scores. Are there specific examples or case studies that could be made more relatable to their roles and experiences?
+ * Improve "What's in it for me?" Messaging: For the groups with higher neutral/unfavorable relevance scores, explicitly connect the training content to their daily tasks, career progression, and the impact on their roles.
+ * Utilize Free Text Data: Analyze free text responses for insights into why certain age groups, grades, or regions found the content less relevant.
+Page 4: Time Spent and Navigation
+Key Insights:
+ * Appropriate Time Spent for Most: 72% favorability for appropriate time spent is good, with 17% unfavorable.
+ * Age Group Variation in Time Appropriateness: The 45-50 age group stands out with 26% unfavorable regarding time spent, and 12% neutral.
+ * Director-Level Concern for Time Spent: Directors show a very high 36% unfavorable score for time spent, along with 58% favorable, indicating a significant segment of directors finding the time commitment inappropriate. VPs also show 14% unfavorable.
+ * Regional Differences in Time Appropriateness: UK (25% unfavorable) and America (20% unfavorable) have higher rates of finding the time spent inappropriate.
+ * Excellent Navigation: Navigation is a clear strength, with 91% favorability, 3% unfavorable, and 5% neutral. This indicates a very intuitive and user-friendly interface.
+Action Items:
+ * Investigate Time Constraints for Directors and 45-50 Age Group: Conduct interviews or surveys specifically with directors and the 45-50 age group to understand why they found the time spent inappropriate. Is it too long, or too short? Is it difficulty in setting aside dedicated time due to their workload? Consider microlearning modules or more flexible completion options for these groups.
+ * Address UK/America Time Concerns: Explore if workload, time zone differences, or specific cultural norms in the UK and America contribute to the perceived inappropriateness of time spent.
+ * Maintain and Leverage Strong Navigation: Continue to ensure navigation remains intuitive. Consider highlighting the ease of navigation in promotional materials or onboarding to encourage usage. Analyze the 3% unfavorable for navigation to catch any minor usability issues.
+Page 5: Engagement, Applications, and Relevance (Combined from your description)
+Key Insights:
+ * Lower Engagement Overall: Engagement ("number of training modules relevant to my work") has a lower favorability of 59%, with 29% unfavorable and 12% neutral. This is a critical area for improvement.
+ * Significant Engagement Issues at MD/Director Levels: MDs show a staggering 67% unfavorable for engagement, with only 25% favorable. Directors also show similar patterns. This indicates a major disconnect for senior leadership.
+ * Broad Unfavorability in Engagement by Gender: Both male (27%) and female (31%) employees show high unfavorable scores for engagement.
+ * Regional Engagement Disparities: APAC (36% unfavorable), UK (25% unfavorable), and SEMEA (34% unfavorable) have notably high unfavorable scores for engagement.
+ * Moderate Application Success: 69% of colleagues are able to apply what they learned, which is good, but 16% unfavorable suggests room for improvement.
+ * Application Challenges at Director Level: Directors again show significant challenges in applying learning, with 67% unfavorable, and only 33% favorable.
+ * Consistency of Application by Gender: Similar favorable/unfavorable scores for application across genders.
+Action Items:
+ * Prioritize Engagement Improvement: This is the most critical area. Conduct in-depth qualitative research (focus groups, interviews) to understand why engagement is low, especially for MDs, Directors, and in APAC, UK, and SEMEA.
+ * Tailor Content for Leadership: Develop specific training content or pathways that are highly relevant and engaging for MDs and Directors. Focus on strategic applications, decision-making, and leadership development that directly impacts their roles.
+ * Address Regional Engagement Barriers: Investigate specific reasons for low engagement in APAC, UK, and SEMEA. This could involve cultural nuances, localized content needs, or different communication styles.
+ * Enhance Practical Application: For modules where application is lower, consider:
+   * More real-world scenarios and case studies.
+   * Opportunities for hands-on practice or simulations.
+   * Follow-up resources or job aids to facilitate application.
+   * Managerial support and encouragement for applying learned skills.
+ * Integrate Feedback Loop: Establish a mechanism for continuous feedback on engagement and application to enable iterative improvements.
+Page 6: Compliance Understanding
+Key Insights:
+ * Outstanding Compliance Understanding: The module is highly effective in helping colleagues understand their regulatory and legal obligations, with an impressive 85% favorability. This is a significant success.
+ * Low Unfavorable and Neutral Scores: Only 7% unfavorable and 8% neutral demonstrate the clarity and effectiveness of the content in this area.
+ * Word Cloud and Free Text Validation: The presence of a word cloud with relevant terms and 208 free text responses suggests rich qualitative data to understand the drivers of this success.
+Action Items:
+ * Leverage Best Practices: Analyze the successful elements of the compliance module (content structure, clarity, examples, tone) and apply these best practices to other training modules, especially those struggling with engagement and relevance.
+ * Categorize and Highlight Free Text Feedback: Systematically review the 208 free text responses to identify specific elements that contributed to the high understanding. Extract key positive quotes to use as testimonials.
+ * Share Success Internally: Highlight the success of the compliance module within the organization to showcase effective training development.
+Page 7: Factors Discouraging Colleagues
+Key Insights (based on a multi-select question):
+ * Too Much Content (42%): A significant proportion of colleagues feel overwhelmed by the volume of content.
+ * Lack of Direct Relevance to Role (36%): A substantial number feel the modules don't explicitly explain how they are relevant to their specific roles.
+ * General Irrelevance (31%): A considerable group believes the modules are simply not relevant to their work.
+ * Not Critical as Day Job (25%): A quarter of colleagues prioritize their daily tasks over the training.
+ * No New Information (23%): Nearly a quarter feel the modules don't offer new learning.
+Action Items:
+ * Break Down Content (Microlearning): Explore breaking down longer modules into smaller, more digestible "microlearning" chunks. This addresses the "too much content" concern.
+ * Enhance Role-Specific Relevance: For each module, explicitly state and demonstrate its relevance to various roles. Use role-specific examples, case studies, and scenarios. This directly addresses the "do not explain relevance" and "not relevant to my role" feedback.
+ * Highlight "What's New" and Value Proposition: Clearly articulate the new information or skills gained from each module. Emphasize the long-term benefits and how the training can make their day job easier or more effective, addressing the "not critical as day job" concern.
+ * Prioritize Content Refresh: Regularly review and update content to ensure it provides new and valuable information, especially for experienced colleagues who might feel the content is redundant.
+This detailed breakdown should provide you with solid insights and actionable items for your stakeholder report. Remember to use the free text responses and the "factors discouraging colleagues" data to add qualitative depth and specific examples to your findings. Good luck!
