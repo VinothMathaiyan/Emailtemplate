@@ -1,1 +1,58 @@
+Subject: Clarification on Topic & Theme Expectations for Hiring Manager and New Joiner Onboarding Surveys
 
+Dear [Data Science Team / Team Name],
+
+I hope you are doing well.
+
+I wanted to take a moment to personally acknowledge a communication gap that has arisen regarding the recent analysis of the Hiring Manager and New Joiner Onboarding Surveys (both pre- and post-payword stages, covering approximately 85,000 text responses).
+
+There was an assumption from our side that your team would not only develop keywords for the already existing topics but would also identify new topics and themes across different onboarding stages by independently analyzing the N-grams from the data. However, we now understand that the deliverables focused on extending keyword coverage for already available topics, and not on topic generation per stage—which was our expectation but was not clearly communicated upfront.
+
+As a representative of the business team, I take full responsibility for the gap in expectation-setting, and I sincerely apologize for any confusion or extra effort this may have caused.
+
+🔍 What We Were Expecting:
+To clarify, the expectation was for the data science team to:
+
+Analyze N-grams (bi/trigrams) separately for each stage of the journey (pre- and post-payword).
+
+Identify key themes (max 3–4 per stage) based on that analysis.
+
+Generate relevant keywords under each theme.
+
+Highlight coverage gaps against a base list of topics we’re providing.
+
+Where themes were missing, extend or propose new topics and share associated keywords.
+
+Example stage for a New Joiner:
+Application Stage – Themes could include:
+
+Job search
+
+Application experience
+
+Psychometric test
+
+Communication clarity
+(We will provide base keywords and suggested missing topics separately – placeholder below.)
+
+We understand that this is a more collaborative and iterative approach, and as the business team is newly set up, we rely on your expertise to guide the analysis from a data perspective.
+
+✅ Next Steps:
+To ensure better alignment going forward, we propose the following:
+
+Treat this as part of an ongoing collaboration between our teams.
+
+Define a repeatable, structured process for future onboarding survey analyses.
+
+Co-create a plan and timeline for completing the current deliverables and setting up a framework for upcoming work.
+
+📄 Placeholder: Missing Topics & Keywords (To Be Filled In)
+Onboarding Stage	Suggested Missing Topic	Base Keywords/Example Phrases
+Application	Job Search Experience	job search, looking for role, job board
+Application	Psychometric Test	assessment, test, aptitude test, timed test
+Interview	Panel Structure Clarity	who interviewing, unclear panel, interviewers
+Offer & Joining	Offer Clarity	offer letter, salary confusion, joining date
+IT & Systems Access	Equipment Delays	no laptop, login delay, access issues
+...	...	...
+
+(You can expand this table based on the specific gaps and suggestions from your internal team or stakeholders.)
