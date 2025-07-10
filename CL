@@ -1,27 +1,15 @@
-Following up on this request raised by the HR Ops team regarding the inclusion of:
+Thank you for your detailed analysis and for highlighting the concern around bias in the topic composition—particularly the presence of negative terms such as "no" or "not," which could potentially skew interpretation.
 
-Case closure comments
+We acknowledge and agree that some of the keywords we initially provided may have introduced this bias, and we will revisit the list to refine and remove any negatively framed or misleading terms to improve the quality and objectivity of the analysis.
 
-Initial request comments entered by the requester
+That said, we would like to emphasize that there are a few important themes that seem to be missing from the current output, and we believe it’s worth reviewing them again—especially with regard to their coverage and relevance before and after Workday implementation. We are happy to support this by:
 
-…in the HR case closure survey and associated communications via Qualtrics.
+Reassessing and enriching the keyword list with more neutral and representative terms
 
-We would like to clarify that these two data points are currently not being passed from ServiceNow to Qualtrics. As a result, the Qualtrics team cannot proceed with implementing this change unless the necessary data is made available in the payload.
+Mapping them to the Ngram outputs to validate theme presence and prevalence
 
-Please refer to the attached email from Nick, where this limitation was initially confirmed. While there appears to be some confusion—particularly where Paul mentioned that the change lies with the Qualtrics team—it is important to highlight that:
+Would it also be possible for your team to explore regenerating the topics based on the cleaned-up keyword list, or suggest an alternate approach to uncover themes that may have been missed due to the initial bias?
 
-The change can only be implemented in Qualtrics if the relevant fields are first passed from ServiceNow.
+We understand and respect the rationale for flagging these themes as TBR (To Be Reviewed), but we believe a second look—guided by a more refined keyword set—might help us better capture the lived experiences of new joiners and hiring managers.
 
-Therefore, we would like to reiterate:
-
-The responsibility to pass these fields lies with the ServiceNow team.
-
-Implementation in Qualtrics can begin only after:
-
-The required fields (case closure comment and requester comment) are confirmed to be available in the payload
-
-Formal approval is received from Nick (or a designated approver) regarding the data sharing
-
-Until then, this ticket remains with the ServiceNow team for action.
-
-Please let us know once the data field changes are approved and implemented on the ServiceNow side so we can move forward from our end
+Appreciate your continued support on this. Please let us know if you need anything further from our end.
