@@ -1,18 +1,27 @@
-regarding the implementation of logic to exclude Flexible Working cases from triggering the HR Case Survey upon case closure.
+Following up on this request raised by the HR Ops team regarding the inclusion of:
 
-To summarize:
+Case closure comments
 
-The HR Ops team initially raised a concern that cases directly handled by People Leaders (without HR Ops involvement) should not be surveyed.
+Initial request comments entered by the requester
 
-However, the final decision has come from the business, and they have confirmed that Flexible Working cases should not be surveyed under any circumstances.
+…in the HR case closure survey and associated communications via Qualtrics.
 
-Therefore, no feedback collection—neither via survey nor any other form—is required for such cases.
+We would like to clarify that these two data points are currently not being passed from ServiceNow to Qualtrics. As a result, the Qualtrics team cannot proceed with implementing this change unless the necessary data is made available in the payload.
 
-To proceed with implementing this logic in the workflow, we need to identify the correct reference field and the corresponding value that indicates a Flexible Working case.
-You had kindly agreed to help with this. Could you please confirm:
+Please refer to the attached email from Nick, where this limitation was initially confirmed. While there appears to be some confusion—particularly where Paul mentioned that the change lies with the Qualtrics team—it is important to highlight that:
 
-The name of the reference field to be used
+The change can only be implemented in Qualtrics if the relevant fields are first passed from ServiceNow.
 
-The exact value(s) we should check against
+Therefore, we would like to reiterate:
 
-Once we receive this from you, we will update the Jira ticket accordingly and include it in the estimated deliverables for this change
+The responsibility to pass these fields lies with the ServiceNow team.
+
+Implementation in Qualtrics can begin only after:
+
+The required fields (case closure comment and requester comment) are confirmed to be available in the payload
+
+Formal approval is received from Nick (or a designated approver) regarding the data sharing
+
+Until then, this ticket remains with the ServiceNow team for action.
+
+Please let us know once the data field changes are approved and implemented on the ServiceNow side so we can move forward from our end
