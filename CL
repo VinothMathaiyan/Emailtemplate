@@ -1,1 +1,18 @@
+regarding the implementation of logic to exclude Flexible Working cases from triggering the HR Case Survey upon case closure.
 
+To summarize:
+
+The HR Ops team initially raised a concern that cases directly handled by People Leaders (without HR Ops involvement) should not be surveyed.
+
+However, the final decision has come from the business, and they have confirmed that Flexible Working cases should not be surveyed under any circumstances.
+
+Therefore, no feedback collection—neither via survey nor any other form—is required for such cases.
+
+To proceed with implementing this logic in the workflow, we need to identify the correct reference field and the corresponding value that indicates a Flexible Working case.
+You had kindly agreed to help with this. Could you please confirm:
+
+The name of the reference field to be used
+
+The exact value(s) we should check against
+
+Once we receive this from you, we will update the Jira ticket accordingly and include it in the estimated deliverables for this change
