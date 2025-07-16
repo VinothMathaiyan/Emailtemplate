@@ -1,15 +1,196 @@
-Thank you for your detailed analysis and for highlighting the concern around bias in the topic composition—particularly the presence of negative terms such as "no" or "not," which could potentially skew interpretation.
+Slide 1: Critical Path Table (with Sophia's Highlights)
+#	Decision Required	Pre-Socialization	TEP	TRB Pre-Brief	HRXCO	Critical Path / This Decision Informs
+1	Scope & Purpose
+Target audience from 2026+
+Question set + LEAD framework alignment	WBxC 14 July	25 July	TBD	17 Sept	• Impacts tooling complexity, build vs buy
+• Q1–Q2 2025: Requirement gathering completed (53+ journeys, 360)
+• Tool feasibility assessment scheduled for Q3 2025
+• TEC architect appointed; PM onboarding underway
+2	Enduring Governance
+Who decides, where it sits	WBxC 14 July	25 July	TBD	17 Sept	• Enduring decision-making structure for future tools
+• Stakeholder ownership clarity needed
+• Architect lacks prior expertise – support model planning required
+3	Dual Deployment Strategy
+360 cycle timing	WBxC 14 July	25 July	TBD	17 Sept	• Aligns with current practice: Q4 = IB (VP/AVP), Q1–Q2 = Bank-wide Dev 360
+• Avoids tool duplication; relies on staggered rollout
+• Qualtrics to remain as backup during parallel POC
+4	Technology Platform & Requirements	TBD	13–28 Aug	TBD	17 Sept	• Platform build begins Q2 2026 (user roles, data flows)
+• Glint deprioritized due to integration gaps (no GTIS role access, no BA)
+• Targeted Qualtrics exit: December 2026
+• Must support legacy data migration and APIs (Workday, ServiceNow, HRDP)
 
-We acknowledge and agree that some of the keywords we initially provided may have introduced this bias, and we will revisit the list to refine and remove any negatively framed or misleading terms to improve the quality and objectivity of the analysis.
 
-That said, we would like to emphasize that there are a few important themes that seem to be missing from the current output, and we believe it’s worth reviewing them again—especially with regard to their coverage and relevance before and after Workday implementation. We are happy to support this by:
 
-Reassessing and enriching the keyword list with more neutral and representative terms
 
-Mapping them to the Ngram outputs to validate theme presence and prevalence
 
-Would it also be possible for your team to explore regenerating the topics based on the cleaned-up keyword list, or suggest an alternate approach to uncover themes that may have been missed due to the initial bias?
 
-We understand and respect the rationale for flagging these themes as TBR (To Be Reviewed), but we believe a second look—guided by a more refined keyword set—might help us better capture the lived experiences of new joiners and hiring managers.
 
-Appreciate your continued support on this. Please let us know if you need anything further from our end.
+
+
+Slide 2: Consolidated Summary – Rox & Meera Insights
+🔁 Dual deployment refers to timing, not to using multiple tools. It's about phasing 360 cycles (IB in Q4, Dev in Q1–Q2), not duplicating work.
+
+🧩 Leverage existing Qualtrics 360 — already built, trusted, and embedded — rather than introduce new complexity prematurely.
+
+📅 The realistic transition to a new platform is 2026, after POC validation, technical integration, and governance setup.
+
+🛑 RFP language must avoid implying the future is decided — strategy is evolving and co-owned by tech, HR, and listening teams.
+
+🎯 Future tooling (like Glint) must be fit-for-purpose; not selected just because it exists. Needs must drive the choice, not availability.
+
+🤝 Work must be co-created across HR, Tech, and Listening, prioritizing simplicity, compliance, and enterprise alignment.
+
+
+
+
+
+Sophia's Highlighted Item	Where It Was Incorporated in the Table
+Q1–Q2 2025: Requirement gathering across HR (360 & non-HR) completed	Added under Row 1 (Scope & Purpose), as “Q1–Q2 2025: Requirement gathering completed (53+ journeys, 360)”
+Q3 2025: TEC prioritization + Glint review in Oct/Nov	Added under Row 1, as “Tool feasibility assessment scheduled for Q3 2025”
+Architect appointed; PM to be onboarded	Also under Row 1, as “TEC architect appointed; PM onboarding underway”
+Q2 2026: Platform build basics (roles, integration, data transfer)	Added under Row 4 (Platform & Requirements), as “Platform build begins Q2 2026 (user roles, data flows)”
+Q3–Q4 2026: MyVoice run on new platform + Qualtrics as backup	Added under Row 3 (Dual Deployment), as “Qualtrics to remain as backup during parallel POC”
+December 2026: Exit Qualtrics	Added under Row 4, as “Targeted Qualtrics exit: December 2026”
+Glint deprioritized due to Microsoft team resourcing	Added under Row 4, as “Glint deprioritized due to integration gaps (no GTIS role access, no BA)”
+
+
+
+Original Idea	After Incorporating Sophia’s Points
+Impacts feasibility of delivery on tech platform.	• Platform build begins Q2 2026 (user roles, data flows)
+• Glint deprioritized due to integration gaps (no GTIS role access, no BA)
+• Targeted Qualtrics exit: December 2026
+• Must support legacy data migration and APIs
+
+
+
+
+
+Row	Decision	Corrections (in “Critical Path / This Decision Informs”)
+1	Scope & Purpose	➕ “Q1–Q2 2025: Requirement gathering across HR completed”
+➕ “Q3 2025: TEC prioritized RFP and Glint review scheduled Oct–Nov 2025”
+2	Enduring Governance	➕ “Q4 2025: Awaiting confirmation from TEC and Procurement on scope/governance direction”
+3	Dual Deployment	➕ “Q3–Q4 2026: MyVoice rollout on new platform, Qualtrics retained as backup”
+4	Platform & Tech	➕ “Q1 2026: POC and solution architecture”
+➕ “Q2 2026: Start building platform (roles, integrations, data flows)”
+➕ “2026 Dec: Final exit from Qualtrics”
+
+
+
+FINAL, REFINED SUMMARY SLIDE (Slide 2)
+Title: Consolidated Strategic Summary – Rox & Meera
+
+Bullet Points:
+
+🔁 Dual deployment refers to timing, not using multiple tools — Q4 for IB, Q1–Q2 for development needs.
+
+⚙️ Avoid duplicating 360 processes or tools — current Qualtrics solution is capable and embedded.
+
+🛑 Future tooling decisions (e.g., Glint) are not yet finalized — planning must reflect that this is still exploratory.
+
+🧠 Strategic alignment across Tech, Listening, DCW is key to ensure seamless 2026 rollout without fragmentation.
+
+✅ Any new platform must prioritize off-the-shelf, regulated solutions with minimal customization.
+
+🎯 Co-created, phased approach avoids confusion, reduces tech sprawl, and protects colleague experience.
+
+
+
+
+
+
+ Let's restate the 3 content sources to be integrated:
+🔄 Rox & Meera Email (360 Commentary)
+✅ You want only very high-level messaging — no duplication, just one or two key directional inputs reflected in the slide.
+➤ E.g., No new 360 process; reduce duplication and maintain colleague experience.
+
+📩 Tom Carter Email
+✅ Add key action point: raise Coupa request as first step in onboarding a new vendor
+✅ Note: Vendor onboarding takes ~9 months, work backward from Dec 2026
+
+📅 RFP 5-Step Framework (From shared RFP process)
+✅ Reflect 5 RFP stages:
+
+Working Group
+
+Prepare Pack
+
+Issue Pack
+
+Evaluate
+
+Decision & Award
+✅ These are aligned to quarters: Q3–Q4 2025 and transition starts 2026
+
+✅ RECOMMENDED SLIDE CHANGES – CRITICAL PATH
+Your existing slide has two swimlanes or columns (like below):
+
+Quarter	Viva Glint Track	Survey Tool RFP Track
+Q1 2025	Requirements gathering	-
+Q2 2025	Playback & sign-off	-
+Q3 2025	Glint assessment, updated requirements	🆕 Start RFP – Working Group & Requirements Gathering
+🆕 Raise Coupa Request (Tom’s input)
+Q4 2025	Gap analysis & onboarding planning	🆕 Issue RFP & Evaluate Responses
+🆕 Tool Decision Finalized
+🆕 CL Team Training Begins
+Q1 2026	Architecture sign-off, integration planning, POC	🆕 Architecture Sign-Off
+📌 Rox/Meera Input: Avoid new 360 rollout to reduce duplication
+Q2 2026	Data prep, migration begins	Data Preparation & Migration
+Q3 2026	System config, integration	System Config & Tool Integration
+Q4 2026	Pilot, rollout, exit Qualtrics	New Tool Pilot & Exit Qualtrics
+
+✅ KEY POINTS TO ADD INTO THE SLIDE TEXT ITSELF:
+For Q3 2025 (RFP Row):
+
+“Begin RFP process: establish working group, start business requirements capture”
+
+“Raise Coupa request for new vendor onboarding (Tom Carter)”
+
+“Plan resource allocation — vendor onboarding may take ~9 months”
+
+For Q4 2025 (RFP Row):
+
+“Issue RFP, evaluate vendors (Glint, Peakon, Qualtrics)”
+
+“Tool decision finalized and team training initiated”
+
+For Q1 2026 (RFP Row):
+
+“Architecture plan, integrations, and data flows”
+
+🔄 Note from Rox/Meera: “Avoid duplicative 360 deployment — use existing solutions to ensure consistency and reduce tech load”
+
+For Header/Footnote of the Slide (Optional):
+
+“Survey Tool RFP follows ANZ’s 5-step process: working group setup, pack preparation, issue/evaluation, vendor selection, and award.”
+
+“Plan is synchronized to exit Qualtrics by Dec 2026”
+
+✅ VISUAL CUES YOU CAN USE:
+Add 📌 or 🔄 icons next to points like Tom’s note or Rox's governance input
+
+Keep swimlanes clear (one row for Glint, one for RFP)
+
+Emphasize where two paths converge (e.g., integration & rollout in Q3/Q4 2026)
+
+📎 FINAL QUICK SUMMARY
+Source	What to Add
+Rox & Meera	Just one line in Q1 2026: “Avoid duplicating 360 rollout – leverage existing tool”
+Tom Carter	In Q3 2025: “Raise Coupa request – 9-month onboarding window”
+RFP Process Steps	Align your existing Q3–Q4 2025 RFP tasks under 5 key RFP stages
+
+
+---
+
+
+
+Summary Output (Step 1 Checklist for Survey Tooling RFP)
+Activity	RFP Context for Survey Tooling
+CTO Check	Confirm if Glint/Peakon/Qualtrics cover needs; validate RFP need
+Salesforce Entry	Create "Survey Tooling RFP – Qualtrics Exit 2026" opportunity
+Confluence & SharePoint	Create central hub & folder for documentation
+Working Group & Steering Committee	Cross-functional HR, Tech, Listening, Privacy, Security
+Vendor Identification	Glint, Peakon, Qualtrics – rationale captured
+Check Existing Contracts	Liaise with sourcing + SRM
+AE Approval	Finalize business case, get scope and budget approval
+SRE & ECAM	Risk scoring, confirm data handling standards
+Coupa Request	Submit with approved business case and cost projection
