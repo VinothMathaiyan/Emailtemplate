@@ -1,876 +1,122 @@
-📘 Title: Enhancing Governance and Control Measures in Qualtrics Survey Tool
-🔶 Executive Summary
-Qualtrics plays a central role in how we gather, analyze, and act upon colleague feedback.
 
-However, current governance and compliance controls are insufficient in meeting internal risk standards and audit readiness.
+Survey Platform Strategy & RFP Initiative – Executive Summary
+Background & Context
+The current enterprise-wide contract with Qualtrics (used across HR and non-HR functions) expires in December 2026.
 
-This presentation outlines our key risk areas, existing gaps, and recommendations for control improvements.
+Given integration complexities (e.g., ServiceNow, Workday), population growth, and limitations in automation and access control, we are initiating a Request for Proposal (RFP) to evaluate future-fit survey platforms.
 
-1️⃣ Governance Pillars to Be Strengthened
-We have identified four main control areas:
+Initial engagement with Viva Glint was inconclusive; product gaps and insufficient vendor engagement prompted escalation and the need for formal vendor comparison via an RFP.
 
-Control Area	Risk Category	Current Gaps	Desired State
-User Access Management	Operational / Compliance	Manual granting/revoking access. No automated integration with HR joiner-mover-leaver data.	Automated role-based access aligned to employment status.
-Dashboard Access Management	Operational / Compliance	Ad hoc requests handled manually; risk of over-provisioning.	Rule-based access provisioning with periodic reviews.
-Content Management / Export Tracking	Data Governance / Security	No logging/tracking of export events or ownership.	Audit trail on who exports what and when.
-Data Privacy Consent Tracking	Regulatory Compliance	Manual extract from Qualtrics Support. No MI visibility on acceptance.	Automated consent reporting & proactive alerts for non-responders.
+Strategic Intent of the RFP
+Benchmark three potential providers: Qualtrics, Viva Glint (Microsoft), and Workday PECON.
 
-2️⃣ Detailed Risk Analysis and Challenges
-2.1. 🔐 User Access Management
-Current Practice:
+Evaluate solutions based on:
 
-User access is manually managed.
+Lifecycle integration (Workday PECON)
 
-Joiner-Mover-Leaver (JML) process is not integrated.
+Analytics & AI (Glint)
 
-High dependency on email or ticket-based tracking.
+Flexibility & advanced analytics (Qualtrics)
 
-Risks:
+Ensure alignment to comprehensive technical and business needs including:
 
-Users may retain access after leaving roles/org.
+SSO, integration, data migration, customization, access controls, scale formats, and AI roadmaps.
 
-No real-time validation of entitlement.
+Clarify roles, responsibilities, and governance across HR and non-HR teams to support complex business requirements and tool adoption.
 
-Increased risk of unauthorized access or data misuse.
+Procurement, Governance & Risk Management
+Procurement (Tom Carter) confirms contract renewals typically start 6–12 months in advance.
 
-Recommendations:
+Carter will raise a Coupa request with a 3-year placeholder value, following standard sourcing governance (demand challenge & CIO review).
 
-Integrate HR JML feeds (via Workday/ServiceNow) for dynamic provisioning.
+Surendra (Procurement) supports compliance through Coupa routing and coordination.
 
-Implement Role-Based Access Control (RBAC) tied to personas.
-
-Maintain access logs with time stamps and role descriptions.
-
-Quarterly access certification exercise.
-
-Ownership:
-
-People Tech or HRIS + Survey Tool Admin Team.
-
-2.2. 📊 Dashboard Access Management
-Current Practice:
-
-Access managed manually.
-
-No expiration of temporary access.
-
-No periodic review or ownership documentation.
+Escalations with Microsoft are underway to address Glint's lack of engagement and to align sourcing timelines given overlapping Microsoft renewals.
 
 Risks:
 
-Risk of data leakage, especially for dashboards with sensitive demographics or feedback.
+Potential duplication of effort if late vendor responses coincide with renewal decisions.
 
-No clear data steward or dashboard owner.
+Delay in RFP may impact continuity of critical services like YourView, Team Feedback, and 360 Feedback.
 
-Recommendations:
+Milestones & Timeline
+Activity	Target Date
+Finalize RFP scope & requirement set	July–August 2025
+Issue RFP to selected vendors	September 2025
+Vendor demos, Q&A, and proposal review	Q3 2025
+Tool selection decision	Q4 2025
+Latest cutoff to decide on Qualtrics	End Q2 2026
+Implementation & transition (if needed)	H2 2026 – 2027
 
-Introduce access request forms with approval workflows.
+Project Oversight & Stakeholder Roles
+Project Manager: Paul Clemmes to lead execution, coordination, and communication.
 
-Set expiration date on access.
+Advisory Support: RAS, supporting with requirement gathering, benchmarking examples, and vendor alignment.
 
-Automate review reminders every 3 months.
+Working Group: Cross-functional members from HR, non-HR, tech, and analytics teams to shape requirements and review options.
 
-Maintain dashboard owner registry.
+Additional knowledge-sharing and requirement workshops will be scheduled to strengthen RFP preparedness.
 
-Metrics to Track:
+Ask from Ex-Co
+Endorse the RFP plan, governance structure, and milestone timeline.
 
-Number of dashboards accessed per person.
+Support early renewal discussions with Qualtrics to avoid rushed decisions and ensure vendor cooperation.
 
-% of expired/unused accesses.
-
-Time taken to revoke access.
-
-2.3. 📁 Content Management & Export Tracking
-Current Practice:
-
-Survey data exports (e.g., Excel files) are not monitored.
-
-Lack of audit logs on export frequency, purpose, or user.
-
-Risks:
-
-Potential uncontrolled data dissemination.
-
-No audit trail for data protection impact assessments (DPIA).
-
-Recommendations:
-
-Request Qualtrics to enable logging of all export/download actions.
-
-Maintain a central log of who exported what data, when, and why.
-
-Notify owners if data is extracted from their dashboard.
-
-KPIs:
-
-Number of exports per user per month.
-
-% of exports linked to active dashboard owners.
-
-2.4. 🛡️ Data Privacy Consent Management
-Current Practice:
-
-Data privacy statement shown every 6 months.
-
-Consent info only available via manual extract from Qualtrics support.
-
-Risks:
-
-No real-time reporting on compliance.
-
-Potential breach of data processing obligations under GDPR/local laws.
-
-Recommendations:
-
-Automate the tracking of consent status in reporting layer.
-
-Generate periodic reports to identify non-consenting users.
-
-Escalate or restrict access based on non-consent.
-
-Who Should Own:
-
-Legal / Data Privacy Team + Survey Governance Lead.
-
-3️⃣ Gap Analysis Summary
-Gap	Impact	Priority	Suggested Fix
-No automated JML-based access	High - stale access, audit non-compliance	🚨 High	HR-Tech integration
-No export logs	Medium - data misuse risk	⚠️ Medium	Enable export audit trail
-Manual dashboard provisioning	High - inconsistent access rights	🚨 High	Introduce workflow-based access tool
-No real-time consent MI	Medium - data privacy risk	⚠️ Medium	Automate consent extract/reporting
-
-4️⃣ Key Controls and KPIs to Introduce
-Control	KPI	Frequency	Owner
-Access Review	% of users reviewed	Quarterly	Tool Admin
-Export Monitoring	# of exports/user/month	Monthly	Data Steward
-Consent Compliance	% of users who accepted	Bi-annually	Legal/Compliance
-Dashboard Access Review	# of expired accesses removed	Monthly	Tool Owner
-
-5️⃣ Service Level Expectations (SLA / KPA)
-Activity	SLA	KPA (Key Performance Area)
-Provision new user access	Within 24 hours	95% adherence
-Revoke leaver access	Within 12 hours of separation	99% adherence
-Dashboard access review	Every 3 months	100% dashboards reviewed
-Export logging report availability	Monthly	No missing logs
-Consent reporting	Within 5 working days post request	Complete and validated extract
-
-6️⃣ Immediate Next Steps
-Discuss proposed control improvements with Qualtrics team—check feasibility of export tracking and access automation.
-
-Connect with PeopleTech / HRIS for JML data feed integration.
-
-Identify dashboard owners and create dashboard registry.
-
-Draft roles and responsibilities matrix for each control area.
-
-Review Legal/Privacy guidelines on data processing and consent.
-
-Build a control dashboard to monitor key KPIs (ideally in Qlik or Qualtrics).
-
-7️⃣ Discussion Points for the Team
-What are the critical control risks we must address in next 3 months?
-
-How do we divide ownership: IT, HRIS, Qualtrics Admin, Legal?
-
-What metrics will we use to evaluate control performance?
-
-Can we phase the implementation: Phase 1 (Access), Phase 2 (Export Logs), Phase 3 (Consent)?
-
-
-
-----------------
-
-Updated Section – User Access Management
-📌 Current Process – Manual but Structured Workflow
-The existing User Access Management in Qualtrics follows a multi-step gated process:
-
-Access Request Initiation:
-
-The user submits a request for privileged access via the Request Portal.
-
-The request includes business justification and required user type (Viewer, Editor, Admin, etc.).
-
-Line Manager (LM) Approval:
-
-LM validates the user's need and approves the request.
-
-Application Owner Validation:
-
-The request is routed to the Application Owner to:
-
-Review the business justification.
-
-Validate the appropriateness of the requested user type.
-
-Approve or modify the access type.
-
-Provisioning Execution:
-
-Once approved, the Provisioning Team executes the access amendment in Qualtrics.
-
-Joiner-Mover-Leaver (JML) Process (Manual Oversight):
-
-A separate internal team monitors organizational movement (using HR data).
-
-If a user moves or exits, a manual incident is raised to flag their access.
-
-A recertification email is sent to the LM to validate if the access should be retained.
-
-Based on LM’s response, access is revoked or retained manually.
-
-🚨 Current Gaps and Risks
-Gap	Risk	Impact
-JML Process is disconnected from provisioning	Leaver access may remain active	Compliance and audit exposure
-Manual incident-based triggers for leaver handling	Delayed response in revocation	Data exposure during the lag window
-No system-level integration between HR data and Qualtrics	Reactive process vs. proactive control	Operational inefficiency
-Application owner dependency on LM judgment alone	Potential over-provisioning	Insider threat surface expands
-
-💡 Proposed Control Enhancement (As Suggested by Qualtrics)
-Goal: Introduce HR Data Integration to automate JML-based access provisioning and revocation.
-
-Integration Setup:
-
-Connect Qualtrics to the HRIS endpoint (e.g., Workday or SAP).
-
-Use unique User IDs or GUIDs to align system identity.
-
-Monitor status changes: Active → Inactive, BU Change, Role Change.
-
-Control Outcome:
-
-Auto-revoke access on separation (lever event).
-
-Auto-adjust access when a user moves roles or BUs (mover event).
-
-Reduce reliance on incident-based tracking and manual email trails.
-
-Feasibility:
-
-Qualtrics confirms this integration is technically feasible.
-
-Requires stakeholder alignment across HRIS, IT Security, Provisioning, and Qualtrics Admin.
-
-Implementation involves cost, time, and prioritization of integration roadmap.
-
-✅ Updated Recommendations
-Area	Recommendation	Rationale
-JML Integration	Assess cost-benefit for integrating HR feed with Qualtrics	Long-term reduction in manual errors and audit issues
-Access Expiry Policy	Introduce optional expiry date for privileged access	Enforces access recertification
-LM Validation	Require mandatory LM access revalidation every quarter	Ensures sustained need
-Audit Logging	Maintain audit trail of who approved what and when	Readiness for compliance review
-Role Governance	Define clear role matrix: Viewer, Editor, Admin, Owner	Avoid privilege creep
-
-📈 Revised KPIs & SLA Metrics for Control Performance
-Control Objective	KPI	SLA Target	Owner
-Timely access revocation post-leaver	% of leavers revoked within 24 hrs	100%	Provisioning
-Incident-to-closure time (for unaligned access)	Avg. resolution time	< 48 hrs	IAM team
-Periodic recertification coverage	% of privileged users reviewed	100% quarterly	Application Owner
-HR data integration implementation	Completion milestone & go-live	Q4 (tentative)	HRIS + IT Security
-
-🎯 Key Takeaway
-The current model is structurally sound but lacks real-time adaptability. The control weakness lies in the delayed signal-to-action gap for access revocation. The proposed HR integration is a strategic uplift that can:
-
-Significantly reduce access lag.
-
-Strengthen audit posture.
-
-Reduce manual overhead and downstream dependency on incident escalations.
-
-Would you like the next section (Dashboard Access Management) to also follow this level of depth and contextual fit—especially covering:
-
-Scale of dashboard estate (18+ dashboards).
-
-Variability of user access (viewers vs. editors vs. owners).
-
-Reporting/report scheduling concerns.
-
-Ownership and expiry-based access?
-
-----------------------
-
-
-
-Updated Section – Dashboard Access Management
-✅ 1. Current Process Overview: Dashboard Access Management
-We manage 18+ critical HR and non-HR dashboards in Qualtrics Employee Experience, including:
-
-Annual & Biannual Engagement
-
-Sentiment / Culture
-
-Pulse / Manager-led
-
-Journey Dashboards (Onboarding, Learning, Progressing, Exit)
-
-HR Case Satisfaction
-
-HR Experience
-
-Product Feedback
-
-Each dashboard has unique stakeholders:
-
-Culture dashboards → Culture Team
-
-Learning dashboards → Talent & L&D
-
-HR case dashboards → HR Services
-
-Journey dashboards → Colleague Experience (onboarding/progression)
-
-Access provisioning is handled via a shared access request form used across Reporting teams—not customized for dashboard-level granularity.
-
-🧭 2. Current Challenges in Access Provisioning
-Challenge Area	Description
-Lack of Structured Dashboard Naming	Requesters input ambiguous names (e.g., “satisfaction dashboard”) instead of the official name (e.g., “HR Case Satisfaction EX Dashboard”)
-Incorrect Approver Selection	Due to shared request form, requesters frequently pick line managers or irrelevant stakeholders instead of designated business approvers
-Shared Ownership Workflow	Form goes first to Reporting team, then to Colleague Listening team for provisioning. Adds delay and confusion
-Insufficient Access Type Clarification	Request doesn’t specify whether access is for viewing, exporting, or editing
-Manual Approver Validation	Team manually follows up with incorrect approvers, delaying the request cycle
-No Auto-Revoke on Role or Org Change	When an employee moves roles or leaves the org, access isn’t revoked unless flagged manually
-No Central Registry of Dashboard Owners	Makes it hard to verify approval authority or create access policies
-
-⚠️ 3. Key Control Gaps and Risk Implications
-Gap	Risk	Business Impact
-Ambiguous Dashboard Names	Incomplete understanding of the requested access	Provisioning errors or delay
-Unverified Approvers	Risk of unauthorized data access	Data privacy exposure
-No Role/BU Mapping	Cannot define rules by BU or role due to dashboard uniqueness	No scalable access policy
-Manual Access Revoke	Leavers and movers retain legacy access	Audit failure, data misuse risk
-Shared workflow with Reporting	Confusion in ownership and SLA failure	Stakeholder dissatisfaction
-
-🛠️ 4. Recommendations for Control Uplift
-📌 Access Request Process Overhaul:
-Introduce a dedicated Dashboard Access Request Form:
-
-Dropdown list of official dashboard names (mapped from central registry).
-
-Define access level: Viewer / Exporter / Editor.
-
-Mandatory selection of dashboard-specific approver (pre-mapped).
-
-Auto-routing to correct team (Colleague Listening, not Reporting).
-
-📌 Dashboard Registry and Role Mapping:
-Maintain a central dashboard catalogue:
-
-Dashboard Name, Owner, Description, Suggested Access Roles.
-
-Approved Business Units or Teams eligible for access.
-
-Approver Email ID or Group ID.
-
-📌 Auto-Revoke Integration (Long-Term):
-Similar to User Access, integrate HR data feed to:
-
-Flag leavers or movers.
-
-Match against current access list per dashboard.
-
-Trigger access removal automatically (or via report & approval).
-
-📌 Workflow Reassignment:
-Reconfigure request routing:
-
-Split Reporting team requests from Qualtrics Dashboard requests.
-
-Qualtrics-specific provisioning handled solely by Colleague Listening team.
-
-📈 5. SLA Expectations and KPI Monitoring
-Control Objective	KPI	SLA Target	Owner
-Dashboard Access Grant (accurate, timely)	% fulfilled within 3 working days	95%	Colleague Listening
-Approver Validation	% of correct approvers selected on first request	90%	Request Portal Admin
-Access Accuracy	% of requests that did not require clarification	85%	Requester / Approver
-Revocation Timeliness	Avg. days to revoke access post-leaver	< 2 days	IAM / Dashboard Admin
-Registry Maintenance	% of dashboards with owner & access matrix	100%	Governance Lead
-
-🧭 6. Discussion Points with Team
-How do we structure a central dashboard registry with approvers and role definitions?
-
-Should we build a custom dashboard access form or adapt the existing request platform?
-
-Can we link Qualtrics access logs to our internal audit layer to flag unapproved access?
-
-What temporary mitigation can be done until auto-revoke integration is feasible?
-
-How do we prioritize dashboards for pilot rollout of improved access workflows?
-
-✅ Immediate Actions
-Draft a dashboard registry spreadsheet (Name, Description, Owner, Eligible Roles, Approver).
-
-Propose a customized form for dashboard access – dropdowns for dashboard names and access type.
-
-Assign approvers to each dashboard (to avoid incorrect routing).
-
-Build a dashboard owner group to validate requests.
-
-Discuss with IT/Reporting about workflow bifurcation.
-
-Raise a feasibility query to Qualtrics support on role-based dashboard access revocation via API.
-
-
------------------------
-
-Unified Governance Structure:
-
-Bringing together User Access Management, Dashboard Access Management, and Content Management.
-
-Gap Analysis + Risk Mapping across all three layers.
-
-Proposed Control Framework: Frequency of checks, owners, KPIs, auditability.
-
-Additional Perspectives You May Have Missed:
-
-Blind spots.
-
-Opportunities to automate or track better.
-
-Actionable Summary you can take to your team.
-
-Let’s build the complete strategic picture.
-
-📘 Title: Strengthening Control and Content Governance in Qualtrics EX Platform
-🔶 A. OVERVIEW: What We Are Trying to Solve
-We are managing a complex Qualtrics EX environment with:
-
-Enterprise-level licensing.
-
-18+ HR and Non-HR dashboards.
-
-Surveys running across the colleague lifecycle.
-
-Current issues are no longer just about “granting access”—they now relate to whether that access is appropriate, used, maintained, and necessary, and whether data exports, privilege use, and ownership are being transparently managed.
-
-We want to transition from:
-
-From	To
-Manual, reactive control	Automated, proactive control
-Access-focused governance	Usage-based governance
-Fragmented workflows	Centralized, policy-driven model
-Limited MI	Insight-rich operational dashboards
-
-1️⃣ USER ACCESS MANAGEMENT
-📌 Process (As-Is)
-Access granted through formal workflow (portal → LM → App Owner → Provisioning).
-
-Leaver/Mover access managed via incident-based manual review and revalidation by LM.
-
-No dynamic linkage to HR data or user lifecycle automation.
-
-⚠️ Gaps
-Gap	Risk	Impact
-Manual revocation post-move/exit	Stale privileged access	Data protection audit failure
-No RBAC based on persona	Over-provisioning	Insider misuse potential
-No expiry or review mechanism	Cumulative privilege sprawl	Breach of minimum access principles
-
-✅ Controls & Metrics
-Control	Frequency	Owner	KPI
-Access recertification	Quarterly	App Owner	100% reviewed
-Leaver access check	Weekly	IAM	100% revoked within 48h
-HRIS integration	One-time + monitoring	Tech + HR	% automated
-Role definition matrix	One-time, reviewed annually	Governance Lead	% coverage across user types
-
-2️⃣ DASHBOARD ACCESS MANAGEMENT
-📌 Process (As-Is)
-Shared access form → routed via Reporting team → Colleague Listening team.
-
-Users request access without defined dashboard dropdown or approver mapping.
-
-Approval routing is often inaccurate due to form limitations.
-
-No revocation logic for movers/leavers.
-
-No dashboard registry, owner, or usage mapping.
-
-⚠️ Gaps
-Gap	Risk	Impact
-No dropdown or ID-based selection	Incorrect provisioning	Wasted effort, wrong access
-Inaccurate approvers	Unauthorised approvals	Non-compliant dashboard exposure
-No linkage to roles/BUs	Can't apply dynamic revocation	Compliance risk on separation
-Shared workflow creates confusion	SLA miss	Stakeholder dissatisfaction
-
-✅ Controls & Metrics
-Control	Frequency	Owner	KPI
-Dashboard registry with owners & approvers	One-time, reviewed quarterly	Survey Governance	100% dashboards registered
-Access logging and expiry tracking	Monthly	Provisioning Team	% expired accesses removed
-Custom form with dropdown dashboard list	Implementation	Tech / Reporting	% of requests correctly routed
-Revoke dashboard access post-move	Weekly (if HR data available)	IAM	% revoked within SLA
-
-3️⃣ CONTENT MANAGEMENT (NEW SECTION)
-Content Management is about what is being done with the access given—i.e., access doesn’t end at permission, but rather extends into usage, auditability, insight, and actionability.
-
-🎯 Content Dimensions We Need to Track
-Metric	Description	Risk if Missing
-Access Logs	Who viewed what dashboard, how often, when	No usage visibility, no audit
-Multi-Dashboard Users	Users holding access to multiple unrelated dashboards (e.g., Learning + Exit)	Misaligned access, risk of cross-functional exposure
-Inactive Users	Users who never accessed after provision	Wasted access, over-allocation
-Export Frequency	Who is exporting Excel data, how many times per dashboard	Data leakage / misuse
-Survey Creators vs. Survey Runners	Users who requested survey creator roles but never used them	Privilege without purpose
-Survey Lifecycle Use	No. of surveys created, responses received, closure timelines	Stale or unused surveys cluttering system
-Overlapping Privileges	Users with Create + Distribute + Analyze for unrelated surveys	Excessive power, weak segmentation
-
-⚠️ Gaps in Content Governance
-Gap	Risk	Control Opportunity
-No analytics on usage or exports	Data misuse goes undetected	Integrate Qualtrics usage analytics
-No owner to monitor usage	Ownership vacuum	Assign Content Governance Analyst or Owner
-Privilege granted but underused	Access may not be needed	Implement access reviews tied to usage
-No survey archival policy	Tool cluttered with stale data	Add deactivation policy for surveys after X months of inactivity
-
-✅ Controls & Metrics for Content Management
-Control	Metric	Frequency	Owner
-Dashboard Usage Analytics	Views/user/month, time spent	Monthly	Admin + Data Ops
-Excel Export Audit Logs	Exports/user/month	Monthly	Governance Lead
-Survey Creation vs. Usage	# created vs. # launched	Quarterly	Qualtrics Admin
-Access Review (based on usage)	Inactive user %	Quarterly	Provisioning
-Content Cleanup (Survey archiving)	Surveys untouched > 6 months	Quarterly	Data Hygiene Analyst
-Multi-Dashboard Mapping	# users with 3+ dashboard accesses	Monthly	Access Governance
-
-🔎 4️⃣ ADDITIONAL GOVERNANCE PERSPECTIVES YOU MAY HAVE MISSED
-Perspective	What to Consider
-Behavioral Analytics	Use Qualtrics logs to analyze behavior like heavy downloaders or infrequent viewers
-Segregation of Duties (SoD)	Ensure the same user isn’t designing, launching, analyzing, and exporting sensitive surveys
-Tool Rationalization	Are any dashboards or surveys redundant or duplicative? Should some be sunset?
-Auto-Provisioning via Business Logic	Instead of manual access, use rules like: “L&D staff auto-get Learning Dashboard access”
-Integration with SIEM or DLP tools	Export logs should be fed into Data Loss Prevention tools if high-risk data is being downloaded
-
-🚦 5️⃣ UNIFIED GAP & CONTROL CHECKLIST (SUMMARY VIEW)
-Domain	Gap	Risk	Control Recommendation	Metric
-User Access	No automated revocation	Orphaned access	JML + HR integration	Revocation SLA
-Dashboard Access	No clear owner/approver mapping	Incorrect access	Dashboard registry	Accuracy rate
-Dashboard Access	No naming standard	Confusion, misrouting	Dropdown naming convention	% correctly routed
-Content	No usage data	No accountability	Dashboard usage analytics	Views/export logs
-Content	Privilege unused	Over-provisioning	Usage-based recertification	% unused access
-Content	Survey never launched	Waste of provisioning	Launch-based creator review	Creator vs. launcher ratio
-
-✅ 6️⃣ NEXT STEPS (FOR TEAM DISCUSSION)
-Assign owners for each control area (Access, Dashboard, Content).
-
-Build dashboard registry with official names, owners, approvers, eligible roles.
-
-Discuss tool changes needed for:
-
-Custom access form
-
-HR data integration for JML
-
-Access analytics & export logs
-
-Schedule governance reviews every quarter to evaluate control health.
-
-Raise feasibility with Qualtrics on export tracking, usage analytics, auto revocation triggers.
-
-Propose policy for survey retention, archival, and sunset.
-
+Reinforce stakeholder accountability across functions to drive timely input, governance adherence, and smooth execution
 
 ------
 
+Survey Platform Strategy & RFP Initiative – Executive Summary
+Background & Current Context
+Our enterprise-wide contract with Qualtrics, the current survey platform, expires in December 2026.
 
- RACI Matrix: Control Areas for Qualtrics Survey Platform
-Activity	Survey Admin Team	Platform Owner / Qualtrics Support	Data Governance / Privacy	IT / Access Management Team	Business Stakeholders
-1. User Access Management	R	C	C	A	I
-- Provisioning access for joiners	R	C	C	A	I
-- Deprovisioning access for leavers	R	C	C	A	I
-- Periodic review of access logs	R	C	A	C	I
-- Handling privileged access controls	R	C	A	C	I
-2. Dashboard Access Management	R	C	C	A	I
-- Managing dashboard roles & permissions	R	C	C	A	I
-- Periodic review of dashboard viewers	R	C	A	C	I
-- Automating access control based on M-J-L (mover-joiner-leaver) logic	C	C	A	R	I
-- Reconciliation of unused access (stale roles)	R	C	A	C	I
-3. Content Management & Usage Insights	R	C	C	I	A
-- Monitoring dashboard usage frequency	R	C	C	I	A
-- Reviewing Excel exports and audit logs	R	C	A	I	C
-- Assessing user survey creation activity	R	C	I	I	A
-- Identifying duplicate/inactive dashboards	R	C	I	C	A
-4. Data Privacy Consent Management	C	R	A	I	I
-- Displaying and collecting periodic consent	C	R	A	I	I
-- Storing consent logs and proof	C	R	A	I	I
-- Reporting on consent expiry/refresh status	R	C	A	I	I
-5. Compliance Reporting & Gap Closure	R	C	A	C	C
-- Defining and tracking KPIs/KRIs for access & content controls	R	C	A	C	C
-- Gap analysis and mitigation planning	R	C	A	C	C
-- Escalation of access breaches or non-compliance	C	C	A	R	I
-6. Ownership Assignment & SLA Monitoring	A	C	C	R	I
-- Setting SLAs for access provisioning and revocation	R	C	A	A	I
-- Assigning data owners for dashboards/surveys	R	C	C	I	A
+The solution supports both HR and non-HR use cases, with dependencies on projects like 360 Feedback and YourView.
 
-💡 Notes:
-R (Responsible) – The party who does the work to complete the task.
+A prior review with Viva Glint to assess alignment with business needs was initiated but remained incomplete, uncovering product gaps and integration limitations.
 
-A (Accountable) – The party who is ultimately answerable for the task’s correct completion.
+This prompted the recommendation from Procurement (Tom Carter) to initiate a Request for Proposal (RFP) and concurrently explore early renewal with Qualtrics to ensure continuity and allow a fair vendor evaluation process.
 
-C (Consulted) – Parties who provide input and whose opinions are sought.
+Strategic Intent of the RFP
+Evaluate market solutions including Viva Glint, Workday PECON, and Qualtrics.
 
-I (Informed) – Parties who are kept up to date on progress.
+Ensure alignment to technical, business, and compliance requirements, including:
 
-🔍 Key Recommendations:
-Ensure clear documentation of dashboard and survey ownership (for accountability).
+Single Sign-On (SSO), automated access controls, customization, scale types, survey frameworks, AI capabilities, data migration, historical access, and integration with tools like SurveysNow.
 
-Set review cycles for:
+Capture a future-ready roadmap from vendors, particularly in the domain of AI-led colleague listening.
 
-Access reviews (quarterly/biannually).
+Address current tool limitations, support long-term needs, and reduce transition risks.
 
-Consent refresh (every 6 months).
+Key Milestones & Timeline
+Milestone	Target Date
+Finalize RFP scope & requirements	July – August 2025
+RFP issued to shortlisted vendors	September 2025
+Vendor review & selection	Q3 2025
+Decision on future platform	Q4 2025
+Final cutoff for Qualtrics decision	End of Q2 2026
+Platform transition & implementation	H2 2026 – 2027
 
-Dashboard usage (monthly).
+Governance & Stakeholder Engagement
+Working Group includes HR and non-HR product owners, technical SMEs, and cross-functional colleagues.
 
-Define minimum activity threshold for holding a dashboard access (e.g., login at least once per quarter).
+RAS provides advisory support (not project management).
 
-Automate alerting/reporting where possible using available Qualtrics logs or third-party integration (e.g., with Power Automate or ITSM).
+Paul Clemmes appointed as Project Manager to lead planning, stakeholder coordination, and RFP execution.
 
-Treat Privileged Access Controls (PAC) separately – conduct stricter logging, approvals, and time-bound access.
+Procurement (Tom Carter) to guide early renewal process and ensure compliance with governance protocols.
 
-Align with the Data Governance Council on privacy statements and compliance reporting cadence.
+Risks Identified
+Delay in vendor analysis (e.g., Microsoft Glint’s gap review) risks tool selection and migration timelines.
 
+Lack of RFP experience could slow execution; hence multiple examples are being sourced to guide format.
 
-----------------------
+Potential misalignment between tool capabilities and current survey frameworks (e.g., 10-point scale support, benchmarks).
 
+Ask from Ex-Co
+Endorse the RFP strategy and timeline to allow structured vendor evaluation and timely platform decision.
 
-Control Areas and RACI for Qualtrics Survey Platform
+Support early renewal discussion with Qualtrics, enabling parallel sourcing and safeguarding delivery risks.
 
-Slide 1: Title Slide
+Sponsor stakeholder alignment and reinforce the importance of a unified enterprise-wide approach to colleague listening
 
-Title: Strengthening Controls in Qualtrics Survey PlatformSubtitle: Access, Content, and Consent ManagementPresented to: Directors of Data Control & Management, Data Usage WG Leader, Tech Team LeadPrepared by: [Your Name]Date: [Insert Date]
 
-Slide 2: Context & Objective
-
-Context:
-
-The Qualtrics platform is used across multiple teams for lifecycle surveys, dashboards, and reporting.
-
-With growing usage, there is a need to formalize controls around user access, content usage, and data privacy.
-
-Objective:
-
-To define a structured control framework
-
-Assign ownership using the RACI model
-
-Identify areas for automation, periodic review, and compliance alignment
-
-Slide 3: Key Control Areas Overview
-
-We are focusing on 4 major control areas:
-
-User Access Management
-
-Dashboard Access Management
-
-Content Management & Usage Insights
-
-Data Privacy Consent Monitoring
-
-Each area will have:
-
-Scope of control
-
-Associated risks
-
-Recommended controls
-
-Owners and frequency
-
-Slide 4: Control Area 1 - User Access Management
-
-Scope: Provisioning, deprovisioning, reviewing access levels
-
-Risks:
-
-Unauthorised access by leavers
-
-Excessive privileged roles
-
-Controls:
-
-Align access with Joiner-Mover-Leaver (JML) logic
-
-Schedule periodic access reviews (monthly/quarterly)
-
-Maintain audit logs
-
-Track logins/inactivity
-
-Automation Possibilities: Integrate with IT access management tools
-
-Responsible Teams: Survey Admins, IT Access Team, Platform Owner
-
-Slide 5: Control Area 2 - Dashboard Access Management
-
-Scope: Viewer/editor roles for survey dashboards
-
-Risks:
-
-Stale or outdated dashboard access
-
-Dashboard visibility misalignment with job role
-
-Controls:
-
-Dashboard ownership registry
-
-Monthly/Quarterly access review
-
-Auto-remove inactive viewers (based on usage logs)
-
-Embed metadata: Owner, last updated date
-
-Responsible Teams: Survey Admin Team, Tech Team, Dashboard Creators
-
-Slide 6: Control Area 3 - Content & Usage Monitoring
-
-Scope: Dashboard usage trends, report exports, content duplication
-
-Risks:
-
-Data sprawl and duplicate dashboards
-
-Unused or outdated dashboards
-
-Controls:
-
-Usage analytics reports (logins, frequency)
-
-Duplicate/inactive dashboard detection
-
-Excel export audit logs
-
-Data owner registry for each dashboard
-
-Responsible Teams: Survey Admins, Business Analysts, Dashboard Owners
-
-Slide 7: Control Area 4 - Consent Management
-
-Scope: Displaying and collecting respondent consent
-
-Risks:
-
-Missing or outdated consents
-
-Legal exposure on data retention without consent
-
-Controls:
-
-Consent banners with checkbox at entry
-
-Proof of consent logs
-
-Consent expiry monitoring (every 6 months)
-
-Enable opt-out tracking for future surveys
-
-Responsible Teams: Privacy Office, Platform Owner, Survey Admin Team
-
-Slide 8: RACI Matrix
-
-Activity
-
-Survey Admin Team
-
-Platform Owner
-
-Data Governance
-
-IT Team
-
-Business Stakeholders
-
-User Access Management
-
-R
-
-C
-
-C
-
-A
-
-I
-
-Dashboard Access Management
-
-R
-
-C
-
-C
-
-A
-
-I
-
-Usage & Content Monitoring
-
-R
-
-C
-
-A
-
-I
-
-C
-
-Consent Management
-
-C
-
-R
-
-A
-
-I
-
-I
-
-Compliance Reporting
-
-R
-
-C
-
-A
-
-C
-
-C
-
-SLAs & Ownership
-
-A
-
-C
-
-C
-
-R
-
-I
-
-R = Responsible, A = Accountable, C = Consulted, I = Informed
-
-Slide 9: Recommendations
-
-Automate access reconciliation using Joiner-Mover-Leaver logic
-
-Implement dashboard inactivity rules for auto-revoking access
-
-Run quarterly reviews with dashboard owners
-
-Store consent logs with audit trails
-
-Define ownership registry and assign owners for all dashboards/surveys
-
-Slide 10: Next Steps
-
-Review and agree on RACI assignment
-
-Implement periodic reviews and ownership registry
-
-Automate alerts and audit logs where feasible
-
-Align with Data Governance Council for reporting cadence
-
-Build KPIs for monitoring control effectiveness
-
-Slide 11: Thank You
-
-Questions?[Your Name][Your Team/Department][Email / Contact Info]
