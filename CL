@@ -1,11 +1,77 @@
-Please share the flow diagram of the 2 stages
-Please share the flow diagram of the 2 stages
-Flow Diagram: C4 Diagram Stages 1 and 2
-Below is a flow diagram that visually represents the first two stages of the C4 architecture model for the Qualtrics-based Employee Experience and Listening Program.
 
-Stage 1: Context Level
-What it shows:
 
+Diagram: C1 (Context) and C2 (Container) Levels
+C1: Context Diagram (Level 1)
+Purpose: Illustrates the high-level system and how it interacts with external users and systems.
+
+System Overview
+System: Qualtrics-based Employee Experience and Listening Program
+
+Main Purpose: To collect, analyze, and report on employee experience and engagement using survey data.
+
+Primary Personas / Users
+HR business partners/managers: Create and manage surveys, manage access.
+
+Stakeholders/journey owners/pod leads: Request surveys, consume results.
+
+Employees: Respond to surveys.
+
+HR experts/brand admins: Oversee and consult on survey strategy and insight.
+
+Other internal consumers (e.g., analytics leads): Analyze and interpret survey data.
+
+External Systems Interacting with Qualtrics
+Workday HRDP: Provides HR master data (e.g., employee records, demographics).
+
+ServiceNow UEL: Provides engagement and operational data.
+
+SFTP Connectors: Facilitate secure data transfer from Workday and ServiceNow.
+
+Future Integrations: Potential output to Qlik Sense and Celonis for advanced analytics and process mining.
+
+Context Relationships
+Qualtrics receives data feeds from Workday HRDP and ServiceNow via SFTP.
+
+HR and business users interact directly with Qualtrics to design and launch surveys.
+
+Employees receive and respond to surveys distributed via the Qualtrics platform.
+
+Survey results are analyzed and accessed by managers, analytics leads, and other stakeholders.
+
+C2: Container Diagram (Level 2)
+Purpose: Shows the main containers (major software or infrastructure components) within the system and how they communicate.
+
+Containers Within the System
+Container	Description	External Data Flows
+Survey Module	Manages design, scheduling, and distribution of surveys	Receives triggers/data from ServiceNow and Workday via connectors
+Data Processing & ETL	Handles automation workflows, pre-survey data cleaning/transformation	Processes HRDP/ServiceNow data before ingestion
+Employee/Contact Directory	Stores refined employee/contact lists used for survey targeting	Receives updated directory entries from Workday/HRDP
+Analytics/Dashboard Module	Real-time insight and reporting interface for all personas	Uses data from storage modules and survey responses
+Customer Experience (CX) Platform	Handles customer-facing surveys and insights (if in scope)	Receives operational/customer data
+SFTP/API Connectors	Manage secure ingestion of master and engagement data	Connects to Workday, ServiceNow, future external sources
+(Future) Qlik/Celonis Export Module	Prepares data for downstream visualization/analytics platforms	Sends data outward to Qlik/Celonis
+Data Flows
+Inbound: Data flows through SFTP/API connectors into the processing layer, which cleans and refines the data before moving it to the directory and survey modules.
+
+Survey Triggering: Surveys are sent out based on configured events or data updates, triggered by ServiceNow or Workday flows.
+
+Storage & Analysis: Survey responses are captured, stored, and passed to the analytics/dashboard module for reporting.
+
+Outbound (Future): Refined, aggregated, or filtered data prepared for export to tools like Qlik Sense or Celonis.
+
+Summary Table: Personas and Main Interactions (Level 1)
+Persona / System	Interaction With Qualtrics
+HR Business Partners	Create/manage surveys, manage access
+Stakeholders/Owners	Request surveys, analyze results
+Employees	Receive and respond to surveys
+Workday HRDP	Supplies employee/master data
+ServiceNow UEL	Supplies engagement/operational data
+Analytics Leads	Consume and analyze survey data from dashboards
+SFTP Connectors	Securely transfer data into Qualtrics
+Qlik/Celonis (future)	Receive analytic outputs from Qualtrics
+
+----------------------------------------------------
+-------------------------------------------------
 System at the Center: The Qualtrics platform.
 
 Primary Personas/Users: HR business partners and managers, stakeholders, journey owners, pod leads, employees, HR experts, brand admins, and analytics leads.
