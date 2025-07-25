@@ -1,4 +1,25 @@
+I hope you're doing well.
 
+I wanted to touch base with you regarding a few observations around task ownership, availability, and communication, particularly in light of what happened yesterday.
+
+Yesterday, I noticed you logged in around 12:30 PM and were intermittently away during the day, with longer periods of inactivity. I had reassigned two other tasks to ensure you had enough focus time to complete the task I assigned to you. As we had previously discussed, I was expecting a status update by the end of the day, but unfortunately, I didn’t receive any update or communication regarding the progress. You had logged off earlier than expected, and there was no visibility on the task status.
+
+This isn't isolated to just yesterday. I’ve been noticing a recurring pattern where the login time starts post-11 AM and ends before 6 PM, often with multiple extended breaks in between. While I understand flexibility is sometimes needed, the effective working hours are averaging around 3–4 hours a day, and this is starting to impact deliverables and overall team coordination.
+
+Additionally, I’ve noticed delays in task completion, reduced attention to detail, and a lack of proactive communication. These aspects are critical—especially for someone with your experience level—when it comes to driving accountability and ensuring smooth collaboration within the team.
+
+My intention here is not to be critical but to share these observations so we can work together on a more consistent and transparent approach going forward. I’d appreciate it if you could:
+
+Keep me informed of your availability and log-off times, especially when you're assigned a priority task.
+
+Share timely status updates, even if the task isn’t completed.
+
+Reach out proactively if you’re facing challenges or require clarifications.
+
+Let’s connect if you’d like to discuss this further—I’m happy to support you where needed
+
+
+-----
 
 Diagram: C1 (Context) and C2 (Container) Levels
 C1: Context Diagram (Level 1)
