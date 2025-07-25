@@ -1,26 +1,3 @@
-I hope you're doing well.
-
-I wanted to touch base with you regarding a few observations around task ownership, availability, and communication, particularly in light of what happened yesterday.
-
-Yesterday, I noticed you logged in around 12:30 PM and were intermittently away during the day, with longer periods of inactivity. I had reassigned two other tasks to ensure you had enough focus time to complete the task I assigned to you. As we had previously discussed, I was expecting a status update by the end of the day, but unfortunately, I didn’t receive any update or communication regarding the progress. You had logged off earlier than expected, and there was no visibility on the task status.
-
-This isn't isolated to just yesterday. I’ve been noticing a recurring pattern where the login time starts post-11 AM and ends before 6 PM, often with multiple extended breaks in between. While I understand flexibility is sometimes needed, the effective working hours are averaging around 3–4 hours a day, and this is starting to impact deliverables and overall team coordination.
-
-Additionally, I’ve noticed delays in task completion, reduced attention to detail, and a lack of proactive communication. These aspects are critical—especially for someone with your experience level—when it comes to driving accountability and ensuring smooth collaboration within the team.
-
-My intention here is not to be critical but to share these observations so we can work together on a more consistent and transparent approach going forward. I’d appreciate it if you could:
-
-Keep me informed of your availability and log-off times, especially when you're assigned a priority task.
-
-Share timely status updates, even if the task isn’t completed.
-
-Reach out proactively if you’re facing challenges or require clarifications.
-
-Let’s connect if you’d like to discuss this further—I’m happy to support you where needed
-
-
------
-
 Diagram: C1 (Context) and C2 (Container) Levels
 C1: Context Diagram (Level 1)
 Purpose: Illustrates the high-level system and how it interacts with external users and systems.
@@ -463,4 +440,132 @@ Ensure all key flows are unambiguous.
 
 Consider reviewing with a stakeholder or domain expert for validation.
 
-You may use tools like draw.io, Lucidchart, or Structurizr to translate these steps into actual diagrams, using the color codes and conventions specified. This will ensure your C4 diagrams are both clear and aligned with industry standards
+
+For each container (e.g., "Qualtrics Employee Experience Platform"), C3 will detail the internal structure:
+
+What modules or services exist?
+
+How do they interact internally and with other containers?
+
+What data stores, trigger mechanisms, APIs, or scheduled jobs are involved?
+
+✅ Step-by-Step Guide to Build C3 for the Qualtrics Node
+Let’s focus on one major container from C2—"Qualtrics Employee Experience System".
+
+🔍 Here are the key guiding questions to build your C3:
+🧱 1. Survey Module
+What triggers survey creation?
+
+Manual by HR business partner?
+
+Automatic based on ServiceNow or Workday event?
+
+Is there a survey template engine or a rules engine?
+
+🔁 2. Data Ingestion & Processing
+Do you use an ETL layer or automation tool before data hits Qualtrics (e.g., to calculate service length or segment employees)?
+
+How is data validated or transformed?
+
+Any scheduler or job runner?
+
+🧾 3. Directory (Employee/Contact Database)
+Is it updated periodically or triggered on change?
+
+Is it deduplicated or merged if there are overlaps (e.g., Workday vs ServiceNow)?
+
+Does it use a metadata schema?
+
+📊 4. Analytics Module / Dashboards
+Are there predefined dashboards per persona (HRBP, manager, pod lead)?
+
+Are visualizations updated real-time or batch?
+
+Do you push KPIs to downstream tools (e.g., Qlik/Celonis)?
+
+📡 5. API / Connector Layer
+Are there custom APIs or integrations developed (for internal orchestration or external calls)?
+
+What protocols are used (REST/SFTP/GraphQL)?
+
+Is there monitoring or retry logic in place?
+
+✅ Sample Component Breakdown for C3 (Qualtrics EX System)
+Component	Role	Interacts With
+Survey Builder Engine	Allows dynamic survey creation from templates	HR Personas, Events from ServiceNow
+Trigger Manager	Schedules or auto-triggers survey send-outs	Directory, Workflow Rules
+ETL Data Prep Engine	Transforms incoming HR data	Workday, HRDP, ServiceNow
+Contact Directory	Stores and segments employee records	ETL Engine, Survey Targeting
+Analytics Processor	Aggregates results, computes KPIs	Survey DB, Dashboards
+Dashboards / Reports	Visual presentation layer	HR & Stakeholders
+SFTP Connector	Scheduled data ingestion	External Systems
+API Integration Layer	Exposes data to internal/external systems	Qlik, Celonis
+
+
+C3 – 1: Qualtrics CX Core Platform
+Key Components to Include:
+Component	Description
+Survey Builder Engine	Interface to build templated or logic-based surveys
+Logic Flow Handler	Handles skip logic, branching, custom display
+Contact Directory	Centralized repository of participant data
+Distribution Automation Engine	Sends surveys based on triggers or schedules
+Response Collector	Collects data securely, routes it to analytics
+Results Dashboard Generator	Builds real-time dashboards for stakeholders
+Workflow Designer	Internal automations based on response values
+
+🧭 Diagram Design:
+
+Arrows from Contact Directory → Survey Builder → Distribution
+
+Response flows from Collector → Dashboards + Export Connectors
+
+Link Workflow Designer to both Distribution and Logic Handler
+
+✅ C3 – 2: ServiceNow + Event Trigger Layer
+Key Components:
+Component	Description
+ServiceNow Event Bus	Emits HR case events (Exit, Joiner, Grievance)
+Custom Webhook/API	Calls Qualtrics API endpoint or pushes to queue
+Qualtrics API Listener	Listens to incoming REST calls
+Token Auth Handler	Handles ServiceNow→Qualtrics auth logic
+Survey Trigger Gateway	Validates & triggers appropriate survey type
+
+🧭 Diagram Design:
+
+Event Bus → Webhook/API → Qualtrics Listener
+
+Token Auth Handler sits as security layer
+
+Trigger Gateway routes to Automation Engine (from C3-1)
+
+✅ C3 – 3: SFTP + API Gateway Integration
+Key Components:
+Component	Description
+SFTP Upload Listener	Polls for new batch files (csv/xml/json)
+Data Parser & Validator	Reads and validates incoming files
+Directory Updater Service	Updates Contact Directory in Qualtrics
+API Gateway Layer	Manages REST requests from internal tools
+Connector Manager	Controls flow between API/SFTP and Qualtrics modules
+
+🧭 Diagram Design:
+
+SFTP → Parser → Directory Updater → Contact Directory
+
+API Gateway → Connector → Qualtrics Distribution / Logic Handler
+
+✅ C3 – 4: Automation & Scheduling Engine
+Key Components:
+Component	Description
+Scheduler Engine	Recurring survey send-outs (e.g., quarterly)
+Event Trigger Evaluator	Real-time trigger processor
+Automation Workflows UI	GUI for managing logic + schedule rules
+Survey Assignment Logic	Routes to correct survey type
+Error/Retry Handler	Handles failures and retries delivery
+
+🧭 Diagram Design:
+
+Scheduler + Trigger Evaluator → Survey Assignment Logic
+
+Survey Assignment → Automation Engine → Distribution
+
+Error Handler links across automation paths
