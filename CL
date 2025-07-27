@@ -1,571 +1,74 @@
-Diagram: C1 (Context) and C2 (Container) Levels
-C1: Context Diagram (Level 1)
-Purpose: Illustrates the high-level system and how it interacts with external users and systems.
+1. Navigation Issues in Workday
+Description: Colleagues often face difficulties locating and updating objectives within the Workday system, resulting in wasted time and frustration.
 
-System Overview
-System: Qualtrics-based Employee Experience and Listening Program
+Navigation between global and local objectives is confusing.
 
-Main Purpose: To collect, analyze, and report on employee experience and engagement using survey data.
+Frequent errors or missed updates due to unclear pathways.
 
-Primary Personas / Users
-HR business partners/managers: Create and manage surveys, manage access.
+2. Lack of Guidance
+Description: There is insufficient support or instructions for setting and managing objectives, leading to inconsistent approaches.
 
-Stakeholders/journey owners/pod leads: Request surveys, consume results.
+Users are unsure of how to align personal objectives with organizational goals.
 
-Employees: Respond to surveys.
+Step-by-step guidance is missing, leaving users dependent on guesswork.
 
-HR experts/brand admins: Oversee and consult on survey strategy and insight.
+3. Confusing Layouts and Error Messages
+Description: The system interface is not intuitive, and colleagues encounter ambiguous error messages that hinder progress.
 
-Other internal consumers (e.g., analytics leads): Analyze and interpret survey data.
+Layouts make it hard to understand where to start or resume tasks.
 
-External Systems Interacting with Qualtrics
-Workday HRDP: Provides HR master data (e.g., employee records, demographics).
+Error notifications don’t provide actionable solutions, compounding frustration.
 
-ServiceNow UEL: Provides engagement and operational data.
+4. Inadequate Documentation
+Description: Supporting help materials and documentation are insufficient or hard to find.
 
-SFTP Connectors: Facilitate secure data transfer from Workday and ServiceNow.
+Users struggle to locate resources that could clarify doubts.
 
-Future Integrations: Potential output to Qlik Sense and Celonis for advanced analytics and process mining.
+Lack of quick-reference guides increases dependency on peer support.
 
-Context Relationships
-Qualtrics receives data feeds from Workday HRDP and ServiceNow via SFTP.
+5. Complexity in Goal Setting
+Description: The objective-setting process is overwhelming, especially when trying to reconcile company-wide goals with individual performance targets.
 
-HR and business users interact directly with Qualtrics to design and launch surveys.
+Overlap between various goals causes confusion regarding priorities.
 
-Employees receive and respond to surveys distributed via the Qualtrics platform.
+Unclear criteria for what constitutes a well-defined objective.
 
-Survey results are analyzed and accessed by managers, analytics leads, and other stakeholders.
+1. Rating Scale Limitations
 
-C2: Container Diagram (Level 2)
-Purpose: Shows the main containers (major software or infrastructure components) within the system and how they communicate.
+Narrow scale, with an overused "strong" category, makes it hard to differentiate average from exceptional performers.
 
-Containers Within the System
-Container	Description	External Data Flows
-Survey Module	Manages design, scheduling, and distribution of surveys	Receives triggers/data from ServiceNow and Workday via connectors
-Data Processing & ETL	Handles automation workflows, pre-survey data cleaning/transformation	Processes HRDP/ServiceNow data before ingestion
-Employee/Contact Directory	Stores refined employee/contact lists used for survey targeting	Receives updated directory entries from Workday/HRDP
-Analytics/Dashboard Module	Real-time insight and reporting interface for all personas	Uses data from storage modules and survey responses
-Customer Experience (CX) Platform	Handles customer-facing surveys and insights (if in scope)	Receives operational/customer data
-SFTP/API Connectors	Manage secure ingestion of master and engagement data	Connects to Workday, ServiceNow, future external sources
-(Future) Qlik/Celonis Export Module	Prepares data for downstream visualization/analytics platforms	Sends data outward to Qlik/Celonis
-Data Flows
-Inbound: Data flows through SFTP/API connectors into the processing layer, which cleans and refines the data before moving it to the directory and survey modules.
+2. Disconnect Between Performance and Compensation
 
-Survey Triggering: Surveys are sent out based on configured events or data updates, triggered by ServiceNow or Workday flows.
+High achievers often see little to no additional compensation, leading to frustration and demotivation.
 
-Storage & Analysis: Survey responses are captured, stored, and passed to the analytics/dashboard module for reporting.
+3. Unclear Rating Criteria
 
-Outbound (Future): Refined, aggregated, or filtered data prepared for export to tools like Qlik Sense or Celonis.
+Perceived inconsistency and lack of transparency in how ratings are decided across different teams.
 
-Summary Table: Personas and Main Interactions (Level 1)
-Persona / System	Interaction With Qualtrics
-HR Business Partners	Create/manage surveys, manage access
-Stakeholders/Owners	Request surveys, analyze results
-Employees	Receive and respond to surveys
-Workday HRDP	Supplies employee/master data
-ServiceNow UEL	Supplies engagement/operational data
-Analytics Leads	Consume and analyze survey data from dashboards
-SFTP Connectors	Securely transfer data into Qualtrics
-Qlik/Celonis (future)	Receive analytic outputs from Qualtrics
+4. System Complexity
 
-----------------------------------------------------
--------------------------------------------------
-System at the Center: The Qualtrics platform.
+Administrative processes and navigation are cumbersome, increasing workload and errors.
 
-Primary Personas/Users: HR business partners and managers, stakeholders, journey owners, pod leads, employees, HR experts, brand admins, and analytics leads.
+5. Review Timing Issues
 
-External Systems: Workday HRDP, ServiceNow UEL, and SFTP connectors as data sources, plus future data consumers like Qlik Sense and Celonis.
+Review cycles are often poorly structured or rushed, which may compromise the fairness of ratings.
 
-Interactions: Shows how users and systems interact with Qualtrics for survey creation, management, response, and analysis.
+6. Bonus and Salary Transparency
 
-Stage 2: Container Level
-What it shows:
+Employees report uncertainty about how ratings impact their bonus and salary adjustments.
 
-Main Containers:
+7. Communication with HR
 
-Survey Module
+Insufficient communication channels hinder employees from getting timely responses to compensation queries.
 
-Data Processing & ETL
+8. Recognition of High Performance
 
-Employee/Contact Directory
+The current system under-recognizes or undervalues above-average and outstanding contributions.
 
-Analytics/Dashboard Module
+9. User Interface Challenges
 
-Customer Experience (CX) Platform
+The performance management platform is not user-friendly or intuitive, slowing down review completion.
 
-SFTP/API Connectors
+10. Policy Updates & Communication
 
-Qlik/Celonis Export Module (for future integrations)
-
-Internal Data Flows:
-
-How data moves from sources to processing, storage, survey targeting, and analytical dashboards.
-
-Interactions between containers reflect the workflow for survey distribution, response processing, and reporting.
-
-Flow Diagram of C4 Diagram Stages 1 (Context) and 2 (Container)
-Flow Diagram of C4 Diagram Stages 1 (Context) and 2 (Container)
-This diagram captures the big picture (who and what interacts with the system) and the internal structure (how key modules and data flows are set up within the Qualtrics environment) for your organization's use case.
-
-not like this apply the standard color code and principles of C4 diagram and share the level 1 and level 2 diagram sepearately with propoer flow
-not like this apply the standard color code and principles of C4 diagram and share the level 1 and level 2 diagram sepearately with propoer flow
-C4 Architecture Diagrams (Standard Color Coded)
-Below are the standard C4-style architecture diagrams for your Qualtrics-based Employee Experience and Listening Program, each rendered separately for Level 1 (Context) and Level 2 (Container). These diagrams utilize C4’s recommended colors and notation:
-
-Yellow: Personas/People
-
-Green: External systems
-
-Blue: Software systems/containers
-
-Gray: Infrastructure/connectors
-
-C4 Level 1: Context Diagram
-Key Elements:
-
-Central System: Qualtrics Employee Experience Platform (blue)
-
-Primary Personas:
-
-HR business partners/managers
-
-Stakeholders/journey owners/pod leads
-
-Employees
-
-HR experts/brand admins
-
-Analytics leads (yellow)
-
-External Systems:
-
-Workday HRDP
-
-ServiceNow UEL
-
-SFTP Connectors
-
-Future: Qlik Sense, Celonis (green)
-
-Flows: Shows which personas and systems interact with Qualtrics, and how data is sent from HRDP/ServiceNow in and potentially to Qlik/Celonis for reporting.
-
-C4 Level 1 Context Diagram with standard C4 color coding
-C4 Level 1 Context Diagram with standard C4 color coding
-C4 Level 2: Container Diagram
-Key Elements:
-
-Main Containers within Qualtrics:
-
-Survey Module
-
-Data Processing & ETL
-
-Employee/Contact Directory
-
-Analytics/Dashboard Module
-
-Customer Experience (CX) Platform (blue)
-
-Infrastructure & Connectors:
-
-SFTP/API connectors (gray)
-
-External Systems:
-
-Workday HRDP
-
-ServiceNow UEL
-
-Future: Qlik Sense, Celonis (green)
-
-Flows:
-
-Data flow from Workday/ServiceNow into the processing layer and through each internal container (survey setup, directory, and analysis modules).
-
-Outbound data flow represented for future export/integration (Qlik, Celonis).
-
-C4 Level 2 Container Diagram with standard C4 color coding and flows
-C4 Level 2 Container Diagram with standard C4 color coding and flows
-These diagrams strictly follow C4 diagramming conventions for clarity, flow direction, and color coding, simplifying both the high-level system view (Context) and internal architectural structure (Container) for your organization’s Qualtrics deployment.
-
-this is incorrect, there is no proper arrow or color code used, flow is incorrect. please go through the conversation fully and start to build the diagram
-this is incorrect, there is no proper arrow or color code used, flow is incorrect. please go through the conversation fully and start to build the diagram
-C4 Architecture Diagrams: Qualtrics Employee Experience Program
-Below are C4 diagrams constructed with strict adherence to C4 model conventions, including standardized color codes, clear directional arrows, and proper flow as discussed in your requirements and conversation history.
-
-Level 1: Context Diagram
-This diagram shows:
-
-Central System (Blue): Qualtrics Employee Experience Platform.
-
-Personas/Users (Yellow):
-
-HR business partners and managers
-
-Stakeholders, journey owners, pod leads
-
-Employees
-
-HR experts, brand admins
-
-Analytics leads
-
-External Systems (Green):
-
-Workday HRDP (HR data)
-
-ServiceNow UEL (Engagement/operational data)
-
-Future: Qlik Sense and Celonis (for analytics)
-
-Infrastructure/Connectors (Gray):
-
-SFTP/API connectors for secure data ingestion
-
-All interactions are clearly tracked by directional arrows showing how each persona or system exchanges data with the Qualtrics platform. This provides a precise, high-level context for your architecture.
-
-C4 Diagrams for Qualtrics Employee Experience Program: Level 1 (Context) and Level 2 (Container) with proper colors, arrows, and flow
-C4 Diagrams for Qualtrics Employee Experience Program: Level 1 (Context) and Level 2 (Container) with proper colors, arrows, and flow
-Level 2: Container Diagram
-This diagram details:
-
-Internal Containers (Blue):
-
-Survey Module (for creation, scheduling, distribution)
-
-Data Processing & ETL (for data cleaning and transformation)
-
-Employee/Contact Directory (stores refined lists for targeting)
-
-Analytics/Dashboard Module (handles reporting and insights)
-
-Customer Experience (CX) Platform (if applicable)
-
-Infrastructure/Connectors (Gray):
-
-SFTP/API connectors managing all secure data imports
-
-External Systems (Green):
-
-Workday HRDP, ServiceNow UEL, Qlik Sense, Celonis, and any other integrations
-
-Direction arrows accurately model the flow:
-
-HR and operational data travels from sources, through connectors, into the processing layer, and then is distributed through directories, survey modules, and dashboards.
-
-Outbound data flows toward analytical platforms for reporting as part of future integrations.
-
-Each persona interacts with the appropriate container or platform based on their role.
-
-C4 Level 2 Container Diagram for Qualtrics Employee Experience Platform with correct colors, arrows, and flow
-C4 Level 2 Container Diagram for Qualtrics Employee Experience Platform with correct colors, arrows, and flow
-These diagrams together clarify both who interacts with your system and how the system is structured internally, reflecting only the facts captured throughout our detailed conversation and strictly following C4 color and flow best practices.
-
-The Hi The. Hi Could you please guide me? on the C1 and C2 flow based on the above conversation, please?
-The Hi The. Hi Could you please guide me? on the C1 and C2 flow based on the above conversation, please?
-Guidance on C1 (Context) and C2 (Container) Flow
-Based on our detailed conversation about your Qualtrics-based Employee Experience and Listening Program, here's a practical, clear guide for understanding and synthesizing both the C1 (Context) and C2 (Container) flows, following C4 model conventions.
-
-C1: Context Level Flow
-Purpose
-To visualize the entire system's position in your organization—showing who uses it, for what purposes, and how it integrates with other systems.
-
-Key Elements
-Central System:
-Qualtrics Employee Experience Platform
-
-Personas (Users):
-
-HR business partners/managers (create/manage surveys, access)
-
-Stakeholders/journey owners/pod leads (request surveys, analyze results)
-
-Employees (receive/respond to surveys)
-
-HR experts, brand admins (oversee survey strategy)
-
-Analytics leads (consuming dashboard insights)
-
-External Systems:
-
-Workday HRDP (provides HR/master data)
-
-ServiceNow UEL (operational/engagement data)
-
-SFTP connectors (secure data transfer)
-
-Qlik Sense, Celonis (future analytics platforms)
-
-Flow Description
-Data Feeds:
-
-Workday HRDP and ServiceNow UEL send employee and engagement data via SFTP connectors to Qualtrics.
-
-Survey Interaction:
-
-HR business partners and managers use Qualtrics to design/distribute surveys.
-
-Stakeholders and journey owners request and consume survey insights.
-
-Employees receive/respond to surveys.
-
-Analysis:
-
-Data from Qualtrics' dashboards are accessed by analytics leads and other stakeholders.
-
-Future flows send data to Qlik Sense or Celonis for advanced analytics.
-
-C2: Container Level Flow
-Purpose
-To break down the major internal "containers" (logical building blocks) within the Qualtrics system, map their responsibilities, and illustrate data movement and user interaction at a deeper level.
-
-Main Containers
-Container	Role
-Survey Module	Survey design, scheduling, distribution
-Data Processing & ETL	Cleaning, transforming, enriching incoming source data
-Employee/Contact Directory	Refined lists used for survey targeting
-Analytics/Dashboard Module	Reporting, real-time insights for all user personas
-SFTP/API Connectors	Secure ingestion, automation of data inputs from sources
-Customer Experience (CX) Platform	(If applicable) Handles external/customer surveys
-Qlik/Celonis Export Module	Prepares outbound data for Qlik/Celonis (future integration)
-Flow Description
-Inbound Data:
-
-Workday HRDP/ServiceNow UEL → SFTP/API connectors → Data Processing & ETL (cleaned/transformed)
-
-Directory Update:
-
-ETL → Employee/Contact Directory (updated records for targeting)
-
-Survey Lifecycle:
-
-Directory → Survey Module (targeted distribution to employee segments)
-
-Survey responses flow into Analytics/Dashboard Module
-
-Analysis & Output:
-
-Analytics Module → Users (reports/dashboards for all personas)
-
-For future: Export prepared data to Qlik Sense/Celonis
-
-Visualizing the Flow
-While this is a text description, if you were drawing these diagrams:
-
-C1 (Context): Central "Qualtrics" box (blue), with arrows from external systems (green) and user personas (yellow), showing all inputs/outputs.
-
-C2 (Container): Internal blue boxes for each main container, gray connectors for SFTP/API, green for external systems, arrows showing data flow sequence (sources → ETL → Directory → Survey Module → Dashboard → Users/Analytics platforms).
-
-If you need further step-by-step advice for sketching or documenting the flow with specific C4 symbols, please let me know which tool (e.g., Structurizr, Lucidchart, MS Visio) you plan to use and I can tailor the instructions!
-
-please share stepwise advice
-please share stepwise advice
-Stepwise Advice for Building Your C4 C1 (Context) and C2 (Container) Diagrams
-Step 1: Clarify the Scope and Purpose
-Clearly define your main system: e.g., "Qualtrics Employee Experience and Listening Program".
-
-Write a brief description of what this system achieves for your organization.
-
-List the main goals of diagramming these levels (e.g., to communicate with stakeholders, map data flow, or guide integration).
-
-Step 2: Identify Key Personas and External Systems (Context Level)
-List all user personas: HR business partners, managers, journey owners, pod leads, HR experts, employees, analytics leads, brand admins.
-
-List all external systems interacting with your main system: Workday HRDP, ServiceNow UEL, SFTP connectors, Qlik Sense, Celonis.
-
-For each, write one line detailing their purpose/interaction with the system.
-
-Step 3: Draw the Level 1 (Context) Diagram
-Place your central system (Qualtrics EX Platform) in the middle.
-
-Place personas (yellow) and external systems (green) around it.
-
-Draw arrows indicating direction and purpose of each interaction:
-
-Data input flows (e.g., HRDP → Qualtrics)
-
-User actions (e.g., HR business partners → Qualtrics: "design surveys")
-
-Use recommended C4 colors (yellow for people, blue for central system, green for externals).
-
-Step 4: Break Down Major Internal Containers (Container Level)
-List the internal "big building blocks" inside Qualtrics:
-
-Survey Module (design and distribution)
-
-Data Processing & ETL (clean/transform source data)
-
-Employee/Contact Directory (targeting)
-
-Analytics/Dashboard Module (reporting)
-
-SFTP/API Connectors (secure data import infrastructure)
-
-Customer Experience Platform (optional, for customer surveys)
-
-Qlik/Celonis Export Module (for future exports)
-
-Briefly describe the role/function of each.
-
-Step 5: Draw the Level 2 (Container) Diagram
-Place the main system at the center with internal containers (blue) inside it.
-
-Position external systems (green) and connectors (gray) outside the boundary.
-
-Draw directional arrows showing how data moves:
-
-From external sources into SFTP/API connectors
-
-From connectors to Data Processing
-
-From Data Processing to Directory and Survey Module
-
-Survey responses to Analytics/Dashboard Module
-
-Outputs to Qlik/Celonis
-
-Ensure alignment with C4 notation and color code.
-
-Step 6: Describe Data and User Flows in Both Levels
-Summarize for each diagram how information and control flow.
-
-For C1: Who triggers actions, who receives surveys/reports, where data goes in/out.
-
-For C2: Detail sequence—source data → processing → storage/targeting → survey → analytics/dashboard → output.
-
-Step 7: Review for Completeness and Accuracy
-Confirm all personas, systems, and containers are included as discussed.
-
-Ensure all key flows are unambiguous.
-
-Consider reviewing with a stakeholder or domain expert for validation.
-
-
-For each container (e.g., "Qualtrics Employee Experience Platform"), C3 will detail the internal structure:
-
-What modules or services exist?
-
-How do they interact internally and with other containers?
-
-What data stores, trigger mechanisms, APIs, or scheduled jobs are involved?
-
-✅ Step-by-Step Guide to Build C3 for the Qualtrics Node
-Let’s focus on one major container from C2—"Qualtrics Employee Experience System".
-
-🔍 Here are the key guiding questions to build your C3:
-🧱 1. Survey Module
-What triggers survey creation?
-
-Manual by HR business partner?
-
-Automatic based on ServiceNow or Workday event?
-
-Is there a survey template engine or a rules engine?
-
-🔁 2. Data Ingestion & Processing
-Do you use an ETL layer or automation tool before data hits Qualtrics (e.g., to calculate service length or segment employees)?
-
-How is data validated or transformed?
-
-Any scheduler or job runner?
-
-🧾 3. Directory (Employee/Contact Database)
-Is it updated periodically or triggered on change?
-
-Is it deduplicated or merged if there are overlaps (e.g., Workday vs ServiceNow)?
-
-Does it use a metadata schema?
-
-📊 4. Analytics Module / Dashboards
-Are there predefined dashboards per persona (HRBP, manager, pod lead)?
-
-Are visualizations updated real-time or batch?
-
-Do you push KPIs to downstream tools (e.g., Qlik/Celonis)?
-
-📡 5. API / Connector Layer
-Are there custom APIs or integrations developed (for internal orchestration or external calls)?
-
-What protocols are used (REST/SFTP/GraphQL)?
-
-Is there monitoring or retry logic in place?
-
-✅ Sample Component Breakdown for C3 (Qualtrics EX System)
-Component	Role	Interacts With
-Survey Builder Engine	Allows dynamic survey creation from templates	HR Personas, Events from ServiceNow
-Trigger Manager	Schedules or auto-triggers survey send-outs	Directory, Workflow Rules
-ETL Data Prep Engine	Transforms incoming HR data	Workday, HRDP, ServiceNow
-Contact Directory	Stores and segments employee records	ETL Engine, Survey Targeting
-Analytics Processor	Aggregates results, computes KPIs	Survey DB, Dashboards
-Dashboards / Reports	Visual presentation layer	HR & Stakeholders
-SFTP Connector	Scheduled data ingestion	External Systems
-API Integration Layer	Exposes data to internal/external systems	Qlik, Celonis
-
-
-C3 – 1: Qualtrics CX Core Platform
-Key Components to Include:
-Component	Description
-Survey Builder Engine	Interface to build templated or logic-based surveys
-Logic Flow Handler	Handles skip logic, branching, custom display
-Contact Directory	Centralized repository of participant data
-Distribution Automation Engine	Sends surveys based on triggers or schedules
-Response Collector	Collects data securely, routes it to analytics
-Results Dashboard Generator	Builds real-time dashboards for stakeholders
-Workflow Designer	Internal automations based on response values
-
-🧭 Diagram Design:
-
-Arrows from Contact Directory → Survey Builder → Distribution
-
-Response flows from Collector → Dashboards + Export Connectors
-
-Link Workflow Designer to both Distribution and Logic Handler
-
-✅ C3 – 2: ServiceNow + Event Trigger Layer
-Key Components:
-Component	Description
-ServiceNow Event Bus	Emits HR case events (Exit, Joiner, Grievance)
-Custom Webhook/API	Calls Qualtrics API endpoint or pushes to queue
-Qualtrics API Listener	Listens to incoming REST calls
-Token Auth Handler	Handles ServiceNow→Qualtrics auth logic
-Survey Trigger Gateway	Validates & triggers appropriate survey type
-
-🧭 Diagram Design:
-
-Event Bus → Webhook/API → Qualtrics Listener
-
-Token Auth Handler sits as security layer
-
-Trigger Gateway routes to Automation Engine (from C3-1)
-
-✅ C3 – 3: SFTP + API Gateway Integration
-Key Components:
-Component	Description
-SFTP Upload Listener	Polls for new batch files (csv/xml/json)
-Data Parser & Validator	Reads and validates incoming files
-Directory Updater Service	Updates Contact Directory in Qualtrics
-API Gateway Layer	Manages REST requests from internal tools
-Connector Manager	Controls flow between API/SFTP and Qualtrics modules
-
-🧭 Diagram Design:
-
-SFTP → Parser → Directory Updater → Contact Directory
-
-API Gateway → Connector → Qualtrics Distribution / Logic Handler
-
-✅ C3 – 4: Automation & Scheduling Engine
-Key Components:
-Component	Description
-Scheduler Engine	Recurring survey send-outs (e.g., quarterly)
-Event Trigger Evaluator	Real-time trigger processor
-Automation Workflows UI	GUI for managing logic + schedule rules
-Survey Assignment Logic	Routes to correct survey type
-Error/Retry Handler	Handles failures and retries delivery
-
-🧭 Diagram Design:
-
-Scheduler + Trigger Evaluator → Survey Assignment Logic
-
-Survey Assignment → Automation Engine → Distribution
-
-Error Handler links across automation paths
+There is a need for more proactive, clear, and regular updates regarding performance management policies.
