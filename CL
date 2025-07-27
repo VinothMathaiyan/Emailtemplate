@@ -1,1 +1,180 @@
+Level 1 (System Context – C1)
+Goal:
+Show the big picture: key systems, personas, and high-level data flows.
 
+Visual:
+Draw six boxes:
+
+HR System (People Insights / Minerva / HRDP)
+
+Workday (learning module)
+
+ServiceNow (case/ticket system)
+
+Qualtrics EX (Employee Experience)
+
+Qualtrics CX (Customer Experience)
+
+Dashboards (BI portal for HR managers, analysts, data scientists)
+
+Add personas:
+
+Colleague (survey respondent)
+
+Qualtrics Admin (builds surveys and workflows)
+
+HR Business Manager / Analyst (consumes dashboards)
+
+Arrows:
+
+HRDP → Qualtrics EX
+
+Workday → Qualtrics EX
+
+ServiceNow → Qualtrics CX
+
+Qualtrics EX/CX → Dashboards
+
+Colleague → Qualtrics → (response flows)
+
+Admin → Qualtrics EX/CX
+
+Annotate:
+
+Indicate SFTP (sftp.fra1.qualtrics.com, port 22, 00:30 every day)
+
+JSON/API triggers, Qualtrics‑ServiceNow connector
+
+
+
+
+-------
+
+Level 2 (Containers – C2)
+Focus on each system and its internal containers, plus integrations.
+
+System: Qualtrics EX & CX Platform
+Container: Qualtrics ETL Workflow Engine
+Type: SaaS-managed container
+Tech: Qualtrics ETL, Web Service API, SFTP Task
+
+Container: Survey Engine + Workflows
+Tech: Survey Flow, JSON Event trigger, ServiceNow task
+
+Container: Dashboard & Reporting (Qualtrics-built dashboards or external BI export)
+
+System: HRDP / Minerva
+Container: Minerva Hierarchy + Employee & Recruitment Files (SFTP drop)
+Type: Batch files (CSV) delivered via SFTP (ftp.fra1.qualtrics.com port 22)
+
+System: Workday
+Container: Integration Services
+Tech: Workday Integration Services, SFTP file delivery, Business Object APIs
+Container: Learning Data Files (CSV dropped to SFTP)
+
+System: ServiceNow
+Container: ServiceNow HRSD / Case Mgmt platform
+Container: Qualtrics Spoke (Integration Hub)
+Tech: OAuth-based connector, JSON Event-based integration
+
+
+Arrows between containers:
+From HRDP SFTP → Qualtrics ETL Workflow Engine (via SFTP extraction)
+From Workday Integration Services → SFTP → Qualtrics ETL
+From ServiceNow Case Mgmt → Qualtrics Survey Engine (via Qualtrics Spoke JSON event trigger)
+From Survey Engine → ServiceNow (via ServiceNow task action)
+From Survey Engine → Dashboard & Reporting container
+Personas: Admin → Survey Engine; Colleague → Survey Engine; Dashboard consumers ← Dashboard container
+
+---------------------------------------
+
+Level 3 (Components – C3)
+Drill into each container’s major sub‑components or processes.
+
+Qualtrics ETL Workflow Engine
+	Component: SFTP Extract Task
+		Implements: SSH key or password authentication, reads files prefixed e.g. “minerva_*.csv”
+
+Component: Data Loader / Directory Task
+	Maps files into XM Directory, applies data massaging/derived fields
+
+Component: Workflow Scheduler (00:30 daily pipeline runner)
+
+
+
+Qualtrics Survey Engine + Workflows
+Component: Survey Flow (friendly branching, embedded data)
+Component: JSON Event Listener (ServiceNow case closure triggers a survey)
+Component: Response-redirect Tasks (create/update ServiceNow cases via ServiceNow task action)
+Component: Dashboard Export (writes results, pushes to dashboard container)
+
+Workday Integration Services
+Component: Learning Data Export job (recurring daily)
+Component: File generation & drop to SFTP server
+
+HRDP / Minerva stack
+Component: Data extraction from People Insight (Minerva)
+Component: File creation – Active employee, recruitment
+Component: Drop to SFTP
+
+ServiceNow
+Component: Case Table (cases, closures)
+Component: Event Publisher (when case status changes to closed)
+Component: Qualtrics Spoke OAuth-client registration
+Component: JSON payload dispatch to Qualtrics EX/CX
+
+Arrows annotations: include data schema types, triggers:
+	E.g. “active_employee.csv → SFTP → Qualtrics ETL (CSV import)”
+	“Workday_learning.csv → CSV prefix learning_…”
+		“ServiceNow case_closed JSON → Qualtrics JSON Event (payload includes caseID, resolver, satisfaction)”		
+	“Survey response → ServiceNow task create incident (if negative CSAT)”
+	“Derived embedded data → branch logic → dashboard data export.”
+
+
+-------------------------
+
+Level 4 (Code / C4)
+Zoom into specific tasks, fields, endpoints.
+
+Example: SFTP Extract Task
+	Name: Minerva Active Employee Import
+	Description: SSH‑key authentication to sftp.fra1.qualtrics.com:22, picks prefix active_*, loads into XM Directory
+	Technology: Qualtrics ETL “Extract data from SFTP files” task (port 22, key or password auth)
+	T	ype: File Extractor
+
+Example: Workday Learning Export
+	Name: Workday Learning Export Job
+	Description: Workday Integration Service scheduled extract of learning records, drops file learning_yyyyMMdd.csv to SFTP
+
+Example: JSON Event Listener
+	Name: CaseClosedJSON
+	Description: Qualtrics Workflow action “Started when event is received”, event type=ServiceNow case_closed with JSON schema
+	Tech: Qualtrics JSON Event in Survey Workflow
+
+
+Example: ServiceNow Task Action
+	Name: CreateIncidentIfNegative
+	Description: Within Qualtrics Workflow: condition (embedded CSAT <3), task = "Create new record" on ServiceNow incident table via Qualtrics extension
+	Tech: Qualtrics ServiceNow Task (OAuth integration)
+
+
+Arrows for C4:
+Label with specific file names/prefixes, field mappings (e.g. employeeID, department, learning_hours).
+Label JSON event payload examples: { "case_id": ..., "status":"closed", "resolution_time":..., "colleague_id":...}.
+Dashboard export: file or API push with responseID, embedded data fields, responses.
+
+✅ Summary Guidance
+Once you build Confluence:
+
+C1 – draw big boxes & personas with high‑level arrows and annotation like “daily SFTP”, “JSON trigger”.
+
+C2 – zoom into each system, show containers and inter‑container arrows.
+
+C3 – inside each container draw main component boxes (extract, scheduler, flow engine, event handler).
+
+C4 – zoom into a single component (e.g. SFTP Extract Task), list name, description, tech, type, protocols, file names, JSON schema, arrow labels.
+
+Label everything with C4-style metadata (name, description, technology, type).
+Use consistent icons or colors for personas, systems, containers, components, code-level elements.
+Annotate arrow directions, triggers (schedule, event).
+In text explanation, tie each arrow label to what data & field maps happen.
