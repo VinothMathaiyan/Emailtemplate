@@ -1,3 +1,269 @@
+
+
+Title: Enterprise Risk, Cost, and Dependency Assessment for Qualtrics Dashboard Access Management Enhancement
+
+1. Executive Summary
+
+This document outlines the business and technical risks, dependencies, cost considerations, and proposed timeline involved in transitioning Qualtrics dashboard access management from the existing ServiceNow-based workaround to a more structured and sustainable model, potentially through the enterprise Request Portal. This transformation has been prompted by escalations from the ServiceNow and CDO teams, and requires alignment with Enterprise Risk Controls, the Tech Directors, and the CDO stakeholders.
+
+2. Current State Overview
+
+Tool Usage: Qualtrics is being used as the HR enterprise colleague listening platform for 18+ HR products (e.g., Engagement, New Joiner, Exit, Health Check, Mandatory Learning, etc.).
+
+Platforms: Both Qualtrics Employee Experience (EX) and Customer Experience (CX) platforms are in use.
+
+Integrations:
+
+Workday (via FSFTP)
+
+ServiceNow (via event triggers, Qualtrics Manager Access App)
+
+HRDP (via FSFTP)
+
+Access Management Structure:
+
+Tool-level access: Managed through a Request Portal — includes Survey Edit, Dashboard Edit, Participant Import.
+
+Dashboard-level access: Currently managed through ServiceNow-based HR Hub shared queue and open-text fields — error-prone, lacks validation logic, and has no integration with approval workflows.
+
+3. Problem Statement
+
+The current ServiceNow-based dashboard access management workflow is manual, inefficient, and error-prone:
+
+No drop-down list of dashboards
+
+Approvers manually chosen by requester — often incorrect
+
+Incorrect user details and dashboard names frequently submitted
+
+Reporting team manually validates and forwards to colleague listening team
+
+The proposed solution is to migrate dashboard access management to the Request Portal, similar to the tool-level access process.
+
+4. Proposed Change Overview
+
+Introduce a new ITSI number for a new application in the Request Portal
+
+Define fixed dashboard list (18+) in form dropdown
+
+Configure logic to auto-select business approver based on dashboard
+
+Capture access level type (view/download/line-level)
+
+Trigger sequential approval workflow: Line Manager → Business Approver → Provisioning Team
+
+Provision roles via automated or manual OneSearch feed file sent to MFT/SFTP daily
+
+5. Key Risks
+
+#
+
+Risk Area
+
+Description
+
+Impact
+
+Mitigation
+
+R1
+
+Feed File Complexity
+
+OneSearch file needs to be created by combining EX & CX user roles across 18+ dashboards
+
+High
+
+Feasibility to be confirmed with Qualtrics Support
+
+R2
+
+AD Group Unavailability
+
+Automation via AD groups not feasible for EX roles
+
+High
+
+Manual provisioning required unless future AD group mapping is set up
+
+R3
+
+Manual Provisioning Unsustainable
+
+Daily feed file creation requires significant support effort
+
+Critical
+
+Confirm CX export feasibility and automate as much as possible
+
+R4
+
+Timeline Misalignment with ORAC
+
+Only 1-2 month manual provisioning exemption allowed
+
+High
+
+Parallelize ITSI creation, request build, and feed feasibility check
+
+R5
+
+Business Approver Logic
+
+Multiple dashboards with different business units, roles, and approvers
+
+High
+
+Require business ownership alignment per dashboard
+
+R6
+
+Data Privacy
+
+Improper provisioning could lead to data access violations
+
+Critical
+
+Secure approval workflow and restrict feed file exposure
+
+6. Dependencies
+
+Request Portal Team: For form creation, logic setup, workflow configuration
+
+RTB Team: To generate new ITSI number for the dashboard access app
+
+Barclays Provisioning Team: For OneSearch file ingestion and validation
+
+Qualtrics Support: To validate export feasibility from both EX & CX
+
+Colleague Listening / Reporting Team: For OneSearch file design and daily feed generation
+
+MFT/SFTP Team: For secure file movement and monitoring
+
+Line Managers & Business Approvers: Must be clearly defined per dashboard
+
+7. Cost Implications
+
+Development Cost:
+
+Request Portal form build and backend logic
+
+OneSearch feed generation automation (Python/PowerShell scripting)
+
+Support Cost:
+
+Daily feed maintenance if automation not feasible
+
+Troubleshooting incorrect entries / provisioning errors
+
+License/Tooling:
+
+Potential increase in MFT support cost if volume rises
+
+FTE Time:
+
+Business resource for dashboard mapping and approver assignment
+
+8. Timeline
+
+Phase
+
+Activity
+
+Duration
+
+Owner
+
+P1
+
+ITSI Request Submission & Creation
+
+1 week
+
+RTB Team
+
+P2
+
+Request Portal Form Design
+
+2-3 weeks
+
+Request Portal Team
+
+P3
+
+Feed File Structure Design
+
+1-2 weeks
+
+Reporting Team + Qualtrics Support
+
+P4
+
+Feasibility Validation (CX & EX Exports)
+
+2 weeks
+
+Qualtrics Support
+
+P5
+
+Approver Mapping Finalization
+
+1 week
+
+Business Product Owners
+
+P6
+
+Feed Automation Setup (if feasible)
+
+3 weeks
+
+Reporting Team + MFT
+
+P7
+
+ORAC Risk Exception Closure
+
+Continuous
+
+Tech Risk Team
+
+P8
+
+Go-Live & Monitoring
+
+1 week
+
+All Stakeholders
+
+9. Open Questions for Review Board (HREXCO, CDO, Tech Leads)
+
+Is there executive sponsorship to maintain ongoing OneSearch feed if AD Group automation isn’t feasible?
+
+Can the CDO/Tech team help coordinate with Qualtrics Support to expedite export feasibility check for EX?
+
+Can a dedicated FTE be assigned to feed file validation until automation is in place?
+
+Should this provisioning be transitioned into a broader Identity Access Management (IAM) initiative?
+
+Are we allowed to enforce fixed approvers for dashboards, or do we need self-selection flexibility?
+
+What’s the maximum period for which ORAC exception can be granted for manual feed files?
+
+10. Recommendations
+
+Proceed with ITSI request and Request Portal form design in parallel
+
+Immediately initiate discussion with Qualtrics Support for EX export feasibility
+
+Design unified OneSearch feed structure with all role mappings
+
+Align with business on fixed approvers per dashboard
+
+Secure executive sign-off for short-term manual effort
+..............................................................................
 Level 1 (System Context – C1)
 Goal:
 Show the big picture: key systems, personas, and high-level data flows.
