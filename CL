@@ -1,33 +1,360 @@
-Subject: Request for Feasibility Assessment: Dashboard User Extraction and Role Provisioning in Qualtrics EX/CX
+
+Clarification on Granular (Row‑/Column‑Level) Access Control for Employee vs Contact Directories
 
 Dear Qualtrics Support Team,
 
-I hope you are doing well.
+We recently performed testing in our sandbox environment to understand the behavior and implications of Granular Access Control—specifically, Employee Record Access Control (row-level restrictions) and column-level (data access) tags, introduced around two years ago.
 
-We are currently working on enhancing our dashboard access management process for Qualtrics, and would appreciate your support in assessing the following feasibility aspects related to both the Employee Experience (EX) and Customer Experience (CX) platforms.
+Summary of findings to date:
 
-1. Feasibility of Extracting Dashboard Users for OneSearch Feed
-We would like to explore the possibility of extracting the list of existing dashboard users along with their roles across all our EX and CX dashboards. Specifically, we are seeking to understand:
+The employee directory access controls (row restrictions, import controls, and data access tagging) operate as expected, limiting project admins in EX projects to specified employees (e.g., by department or region) when using the global employee directory, in accordance with official documentation 
 
-Whether it is feasible to export user-role mappings at a dashboard level from both EX and CX platforms.
 
-If the export can be done through Qualtrics APIs or via scheduled report downloads.
+However, contact directory (CX directory) and dashboard data restrictions were not impacted by these settings. Project admins can still view response data and use dashboards unaffected, since data access tags only prevent individual field-level visibility and exports; aggregate dashboards remain visible if thresholds aren’t breached 
 
-Whether these exports can be automated (daily or weekly) in a format that is compatible with OneSearch provisioning.
+We confirmed: enabling Employee Record Access Control only affects import behavior via the global EX directory. It does not restrict:
 
-Any documentation or references for extracting user-role metadata in bulk.
+viewing or downloading CX directory contacts
 
-This extraction is a critical requirement to support manual provisioning during our transition to an automated dashboard access workflow.
+access to dashboard data in CX projects
 
-2. Integration with External HR Tech Tool for Automated Dashboard Role Provisioning
-In parallel, we are evaluating the feasibility of provisioning Qualtrics dashboard roles using our internal HR Tech request tool (outside of ServiceNow).
+or metadata fields outside EX context
 
-We would appreciate your inputs on:
+Clarification requests:
 
-Whether Qualtrics EX and CX support API-based provisioning of dashboard role access (e.g., view-only, download, line-level data access).
+Is there a plan to extend row-level or column-level controls to the Contact (CX) Directory or CX Dashboard viewers?
 
-If such provisioning can be triggered from external tools by passing user details, dashboard IDs, and role types through secure API endpoints.
+If we enable Employee Record Access Control in production:
 
-Any restrictions or platform-specific limitations that we should be aware of.
+Will privileged users (approx. 140) require manual or automatic role assignment? What happens if a new global directory user has no role—will they lose access (e.g. import)?
 
-Available documentation or best practices for integrating Qualtrics dashboard role provisioning with third-party request management tools.
+Are there any unintended consequences (e.g. for dashboard access or data export) when the feature is enabled for employee data only?
+
+During testing, we observed that:
+
+If files include blocked sensitive headers (such as “Gender”), those rows are rejected unless the uploaded file renames them (e.g. “Gender New”), which introduces additional columns. This impairs bulk imports.
+
+Are there best practices or mitigations to prevent this (e.g. header mapping, configurable error handling)?
+
+Given our recent contact deduplication effort—from approximately 800,000 records down to 150,000—we need reassurance of strong control over duplicates going forward:
+
+What measures are currently implemented for duplicate prevention or automatic merging in the Contact Directory? 
+
+
+Could you share your timeline for deploying enhancements or control measures for directory hygiene across both contacts and employees?
+
+We had discussed these points last week, and I want to ensure we have documented alignment before enabling this feature in production. If needed, I can schedule a call this week with the relevant team where I’ll loop you in.
+
+Please let me know:
+
+If any testing gaps need to be addressed
+
+What additional limitations or mitigations we should plan for
+
+Your estimated timeline or next steps for support or implementation engagement
+
+Thank you for your assistance. Looking forward to your respons
+
+-------------------------------
+
+ Clarification & Guidance on Granular Access Control (Employee vs Contact Directory)
+
+Dear Qualtrics Support Team,
+
+I’m reaching out to seek clarification and guidance following our recent sandbox testing of Granular Access Control, including both row-level (Employee Record Access Control) and column-level data access tagging.
+
+Key Observations from Testing:
+The Employee Directory (EX) is responsive to row-level access controls and column-level tagging. These configurations restrict import/view access based on user roles and data tags as expected.
+
+However, we found that these controls do not extend to:
+
+  The Contact Directory (CX) – i.e., customer records in CX are not affected by row-level restrictions.
+
+  Dashboard-level access or exports – users could still view and download aggregate data without restriction.
+
+Based on testing, only importing through the global employee directory is impacted. Users must be assigned to specific roles to import data when access control is turned on.
+
+  Concern: We currently have ~140 privileged users. Assigning roles manually for all of them and ensuring the same for any new users could become operationally heavy.
+
+Additionally, we observed that:
+
+  If a sensitive field (e.g., “Gender”) is tagged as restricted, imports containing that exact header are blocked.
+
+  Renaming the header (e.g., “Gender New”) allows import but creates unintended duplicate columns, potentially affecting downstream reporting or integrations.
+
+What We Need from You:
+We are not planning to implement this in production at this stage. However, before proceeding with next steps (internal discussions and planning), I need your input on the following:
+
+Could you confirm if our understanding is correct — that Contact Directory and dashboard access are not impacted by row-/column-level controls?
+
+Are there any additional limitations, exceptions, or configurations in row-/column-level control that we may have missed during testing?
+
+What are the best practices or workarounds to prevent issues like unintended duplicate fields during imports (e.g., due to sensitive field blocking)?
+
+As discussed earlier, you mentioned that control measures will be put in place for managing duplicates in the Contact Directory.
+
+Could you share what those control mechanisms are or will be?
+
+Once shared, I intend to schedule a session with our privileged users (those who frequently import contacts) to walk them through the expected process and these safeguards.
+
+Please let me know your availability so I can include you in that session.
+
+Given the recent duplicate cleanup effort (from ~800,000 down to 150,000 records), we want to sustain this hygiene.
+
+Do you have any insights or recommendations for preventing duplicate contacts at the point of import?
+
+Any visibility settings or automation available that could flag or stop duplicates?
+
+In summary, I’d appreciate:
+
+Your confirmation on the technical boundaries of granular access control
+
+Any missed points in our testing
+
+Your guidance on how best to move forward, especially around contact hygiene and process standardization
+
+Looking forward to your response and support in aligning the next steps with our stakeholders
+
+
+---------
+
+I’m following up on our discussion from last week regarding the ability to export dashboard user lists from Employee Experience (EX) and Customer Experience (CX) platforms—and the feasibility of automating this via API.
+
+🔍 Context & Challenge
+We previously queried whether dashboard user lists from both EX and CX could be exported via API rather than manually through the user interface.
+
+The requirement is urgent: our Request Access Control (RAC) expires within six months, and typical exceptions granted by the request team don’t extend beyond one or two months.
+
+Manual extraction, deduplication, and merging of dashboards user files (multiple platforms) is time-consuming and unsustainable on a daily basis.
+
+Key Requests
+We need clarity urgently to proceed with dashboard access management via the request platform:
+
+Feasibility of API-Based Export
+
+Can Qualtrics provide an API endpoint that exports a unified file for dashboard users from both EX and CX environments?
+
+Is there precedent or documentation supporting this type of automation? 
+qualtrics.com
++10
+qualtrics.com
++10
+qualtrics.com
++10
+
+Automated File Preparation & Role Merging
+If the API is feasible:
+
+Can we receive one merged file with unique user records across both platforms?
+
+Additionally, can dashboard role assignments be consolidated into one file column to simplify role-based provisioning and revocation processes?
+
+Survey Flow / API for Access Revocation via Survey
+
+We’d like to explore whether a survey-flow‑triggered API process can revoke or provision dashboard roles automatically (e.g., input a unique ID/“bread” value in a survey, triggering removal of access).
+
+This would reduce manual effort and streamline dashboard access management.
+
+Priority & Timeline
+This item is high priority. We need to confirm feasibility before proceeding with request-based dashboard provisioning.
+
+We need Qualtrics support to be actively involved in extracting, merging, and sharing these files.
+
+Timeliness here is critical due to the RAC expiration and reliance on manual processes.
+
+Action Needed
+Please confirm whether the above API-based solutions are feasible within Qualtrics.
+
+If feasible, can you share:
+
+Sample API endpoints or documentation
+
+Expected response formats (e.g. unified CSV/TSV output)
+
+Any limitations or prerequisites
+
+Let me know how soon you can get back to us—ideally this week—so we can schedule a call if needed and share the access control workflow with privileged users accordingly.
+
+Thank you for your attention and support. I look forward to your response.
+
+
+-----------------------
+
+
+
+Urgent: Investigation Required for Repeated Data Privacy Consent Prompts
+
+Dear Qualtrics Support Team,
+
+I’m writing to request your immediate support regarding an issue we identified related to the data privacy consent mechanism.
+
+Issue Summary:
+During our recent review, we noticed that certain users—over 100 individuals—have received multiple consent prompts on the same day, which is not aligned with the expected behavior. For some, the consent was logged more than 80 times within a one-month period, which indicates a serious deviation from intended functionality and negatively impacts user experience.
+
+Expected Behavior:
+As discussed in our last call, the ideal scenario is:
+
+Consent should be requested only once every six months.
+
+Even if the user accesses the platform via different browsers or after clearing cookies, they should not be prompted again within the six-month window.
+
+In our internal testing, this behavior held true for most cases; however, the exceptions observed in the Excel file indicate inconsistencies that warrant investigation.
+
+Request:
+Please investigate why certain users are being prompted multiple times for consent, even within a short span of time or on the same day.
+
+Check if there are known issues with cookie settings, browser behavior, or user identifiers that might cause consent to reset unexpectedly.
+
+Advise on how this issue can be mitigated or prevented going forward to ensure a smooth and compliant experience for users.
+
+Supporting Data:
+I have placed the Excel file with the observed patterns in our shared Interlinks folder at the following path:
+📂 [Insert actual path here]
+
+Kindly refer to it for examples of the repeated consent entries.
+
+Additional Request:
+To further our internal analysis, could you please:
+
+Share the most recent consent data (for the last six months), ideally with the following details:
+
+Consent timestamp
+
+User identifier (or hashed ID)
+
+Source (e.g., browser/platform/environment if available)
+
+This will help us determine if the pattern is continuing or expanding, and ensure compliance with privacy standards.
+
+Priority:
+We consider this issue high priority, given its potential impact on both user experience and data privacy obligations. A prompt response and fix would be appreciated.
+
+Thank you for your attention to this matter. Please let me know if you need any further context or if a call is needed to walk through the file.
+
+
+-----------
+
+
+
+
+Overview
+We recently reviewed business requirements with Microsoft Teams for enabling HR Experience Survey delivery and functionality. The response from the Microsoft Teams/Glenn team includes a mix of clear and unclear feasibility items.
+
+🧩 Key Observations from the Initial Review
+Requirement Area	Response Summary	Clarification Needed
+Customization (Fonts, Color, Style)	❌ Not supported. Only default branding options (e.g., logo) can be applied once and reused.	✳️ Confirm extent of branding possibilities.
+Randomization Features	❌ Block, event, and random assignment logic are not supported.	✅ Critical to clarify alternate mechanisms to preserve journey distribution logic (e.g., 11 journeys shown per user).
+Integration with Workday / HRDP	⚠️ No direct connector. API via SFTP possible.	✅ Feasibility, effort estimation, and replication for our use case need review.
+Real-time Test Case via ServiceNow	❌ Not supported.	✅ Need alternative approach or workaround discussion.
+Question Types	✅ Supports basic types: single select, multi-select, open text only.	✳️ Confirm if other formats (e.g., sliders) can be mimicked or adapted.
+Other Items (100+ Requirements)	Mixed responses: some are clear; many are ambiguous, incomplete, or imply additional effort.	✅ Require clarification from the Microsoft team directly.
+
+🗣️ Recommendation
+Propose a 1-hour clarification call with the Microsoft/Glenn team to:
+
+Walk through ambiguous or complex responses
+
+Identify effort level, feasibility, and support availability
+
+Decide on viable alternatives or mitigations
+
+Request Microsoft to come prepared with:
+
+Clarifications for all 100+ items
+
+Recommendations or known workarounds for gaps
+
+A plan for potential follow-up discussion, if needed
+
+📌 Risks Without Clarification
+Inability to implement event-based logic for surveys may directly impact user experience and survey design integrity.
+
+Integration feasibility and data flow assumptions remain unclear without technical input.
+
+Multiple “possible but unclear” answers delay decision-making on platform selection and design planning.
+
+------------------
+ hope you're doing well.
+
+Following our recent review of business requirements for enabling the HR Experience Survey via Microsoft Teams, I’d like to summarize where we currently stand and request a one-hour clarification call to address outstanding questions.
+
+🔍 Summary of Observations:
+While some responses from the Microsoft Teams team were clear (either feasible or not feasible), many items remain ambiguous and require further explanation. Out of 100+ items reviewed, a significant number need clarity on feasibility, effort required, and whether support from your side is possible.
+
+Key Points:
+Customization Limitations:
+Microsoft Teams does not support styling customization (e.g., font, color). Only default branding (such as logo placement) is supported globally and applied once across services.
+→ We’d like to confirm the full extent of what's customizable.
+
+Randomization Logic (Critical for HR Survey):
+Event-based or block randomization (used for showing 11 journeys per user) is not currently supported.
+→ We need to discuss how this can be handled or emulated.
+
+Integration with Workday / HRDP:
+No native connector exists, but integration is possible via API and SFTP.
+→ Clarification needed on feasibility and replication in our environment.
+
+ServiceNow Real-Time Test Case:
+Direct real-time integration was marked as not supported.
+→ What alternate methods can be considered?
+
+Question Types Support:
+Currently limited to single select, multi-select, and open text.
+→ We’d like to explore whether other formats (e.g., sliders) can be approximated.
+
+🗣️ Request:
+To proceed confidently, we request your support in scheduling a 1-hour clarification call where we can:
+
+Walk through the unclear or partial responses
+
+Understand feasibility and technical effort required
+
+Confirm if your team will be able to support the proposed work
+
+Discuss any workarounds or alternate solutions
+
+If needed, we are open to scheduling a follow-up session.
+
+⚠️ Why This Is Urgent:
+Without clarity, we may face risks such as:
+
+Inability to deliver an experience aligned with our survey logic
+
+Delayed decisions on platform and design
+
+Manual workarounds for unsupported features (e.g., dashboard logic, integrations)
+
+Your support in providing definitive answers will help us determine the next steps for implementation and planning.
+
+Please let us know your availability for the call this week or early next. We appreciate your continued support and collaboration.
+
+-------------------------
+
+Request for Access and Support for XM Discover Dashboard & Text Model Work
+
+Dear Qualtrics Support Team,
+
+I hope you're doing well.
+
+I wanted to reach out regarding the ongoing work in XM Discover. Due to some other high-priority tasks currently in progress, we will require an additional two weeks to complete the analysis and build of the text model.
+
+In the meantime, I would appreciate your support with the following:
+
+Edit Access Request:
+Could you please provide edit access to the XM Discover dashboard that was shared with me earlier? This will help me and my team contribute more effectively to the ongoing work.
+
+Team Member Access:
+I’d also like to request access for a few additional team members so they can support me in building the text model while I focus on other priorities. Here are their details:
+
+[Full Name 1] – [Email ID]
+
+[Full Name 2] – [Email ID]
+(Add or update names/emails as needed)
+
+Text Ticket Connector Feasibility:
+As per Alistair's suggestion, there may be a possibility of adding a text ticket connector to XM Discover. Could you please advise on the feasibility and steps involved?
+
+Availability for Sync:
+Lastly, would you be available for a 1-hour call next Thursday to review progress and work with us on finalizing the insight summary and any additional items where your support may be needed?
+
+Thank you again for your guidance and support so far. Looking forward to hearing from you
