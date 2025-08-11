@@ -1,3 +1,28 @@
+Dear [Cybersecurity Team],
+
+We have received your notification regarding the upcoming expiry of an SSO certificate by the end of August. As per the note, the certificate in question appears to be from the vendor → organization direction (in addition to the organization → vendor certificate, which we recently updated and embedded in the vendor’s platform).
+
+To investigate, we contacted our vendor (Qualtrics). After checking at their end, they confirmed they are not able to recollect or identify any existing process or record involving a certificate issued from their side to our organization for SSO purposes. They have reviewed possible configurations but found no matching reference in their systems.
+
+Given this, we request your help to:
+
+Backtrack the certificate details – when it was last updated, who was involved, and any related documentation or process records in our systems.
+
+Clarify the nature and purpose of this vendor → organization SSO certificate.
+
+Identify potential owners or stakeholders within the organization who might have handled the previous issuance or update.
+
+Advise on next steps to mitigate any risk from the expiry, especially if the vendor is unable to trace the certificate on their side.
+
+Recommend an approach to ensure service continuity and prevent disruption if the certificate expires without replacement.
+
+Since the expiry is approaching and the vendor currently cannot confirm the certificate details, we need a swift response to avoid potential SSO disruptions. Please let us know if you need additional inputs from the vendor or our team to expedite this.
+
+Thank you for your support and guidance on resolving this matter.
+
+-------------------------------
+
+
 
 Clarification on Granular (Row‑/Column‑Level) Access Control for Employee vs Contact Directories
 
