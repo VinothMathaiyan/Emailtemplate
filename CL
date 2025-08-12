@@ -1,9 +1,1 @@
-/* Ensures the entire survey container is mobile-friendly at small widths or higher zoom levels */
-@media screen and (max-width: 800px) {
-  .Skin .QuestionOuter, .Skin .Inner, .Skin .QuestionBody, .Skin .ChoiceStructure {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-  }
-}
+
