@@ -1,1 +1,15 @@
+Sure, let me break it down into clear points first.
 
+Zoom levels to be tested: 400%, 300%, 200%, 100%, and 75%.
+
+For each zoom level, check if the link completion (or any interactive element) is working as expected.
+
+Test this on both Chrome and Edge browsers to ensure consistency.
+
+Perform the select and unselect actions to verify if error messages appear correctly when needed.
+
+Check if all questions display properly, and ensure the progress bar functions as expected at each zoom level.
+
+Now, for the message to your team, you could say something like:
+
+"Hi team, can anyone help with accessibility testing? We need to verify link completion and error messages at different zoom levels (400%, 300%, 200%, 100%, 75%) on Chrome and Edge. We also need to check if the progress bar and questions display correctly, and verify error messages on select/unselect actions. Let me know if you have bandwidth to assist!"
