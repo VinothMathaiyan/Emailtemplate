@@ -1,15 +1,24 @@
-Project 1: Master Questionnaire Ownership
-We collaborated on developing and simplifying the master Excel questionnaire for all our surveys. Initially, I assisted with automating formatting tasks using Python. Over time, Lakshman took full ownership of updating the questionnaire and managing uploads to the enterprise architecture folder, streamlining the process and reducing dependency on me.
+Collaboration with Y – Key Projects
+1. HR Experience Survey
 
-Project 2: Training Survey & Dashboard
-On the mandatory training survey, we worked together on survey building, dashboard creation, and text analysis. At first, I provided support and guidance. Now, Lakshman handles most tasks independently, especially with our thorough documentation in place. There’s steady progress, especially on dashboards and accessibility.
+Contributed to free‑text analysis and dashboard creation
 
-Project 3: Your View Survey Dashboard Testing
-I set up the initial testing process and created detailed documentation. Lakshman now manages dashboard testing and improvements based on feedback. This has allowed us to onboard additional resources for faster turnaround and further reduced my direct involvement. This not only benefits Your View. He applied it for HR Experience too
+Outcome: Built familiarity with process; ready to take more ownership
 
-Project 4: Adoption of New Qualtrics Features
-We explored a new TextiQ Model building Qualtrics feature aimed at streamlining updates when new keywords are added for Raising Concerns. After testing, Lakshman took on coordination with the Qualtrics support team to address minor limitations and drive improvements. Even though the new feature isn’t perfect yet, it has already saved some time, and Lakshman is now driving this area forward.
+Improvement: Gained better understanding of accessibility best practices
 
-Project 5: MMR Project & CX Data Extraction
-We partnered on the MMR project, with Lakshman taking responsibility for key data extraction and documenting each step thoroughly. He is proactively exploring ways to extract CX participant data by referencing the Qualtrics knowledge base.
+2. Documentation of Text Analysis Workflow
 
+Creating end‑to‑end documentation for reusability and team collaboration
+
+Outcome: Will serve as a reference for other teams in similar projects
+
+Improvement: Moves us toward a more standardized process
+
+3. EU Survey Migration
+
+Supporting migration to new, accessible survey platform
+
+Outcome: Learning new standards; building readiness for greater responsibility
+
+Improvement: Provided reference materials to ensure smoother adoption
