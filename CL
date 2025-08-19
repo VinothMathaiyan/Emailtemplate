@@ -1,1 +1,102 @@
+Here’s how I’d structure the two tables.
+
+Table 1: Our Understanding (Internal View)
+Area	Question	CX Feasibility (Our View)	EX Feasibility (Our View)	In-Built Solution	Custom Solution Needed	Cost Impact (Y/N/Unknown)	Timeline (Est. by Us)	Notes
+User Extraction	Can we extract user lists at role level (Admin, Dashboard User, etc.)?	Not clear – seems limited to project-level	Same – tied to project ID, not global	Limited (project-based)	Likely yes, for global view	Unknown	Unknown	Concern: doc shows project-level only
+Automation of Extract	Can extraction be automated (e.g., scheduled export/API)?	Possibly via API	Possibly via API	Partial	Likely	Unknown	Needs Qualtrics validation	Unsure if CX & EX endpoints identical
+Integration for Provisioning	Can we provision user access to dashboards (CX & EX) automatically via HR Tech tool?	Unsure – may need integration hooks	Unsure – same as CX	Not available	Likely	Yes	3–6 months	Depends on HR Tech integration support
+Integration for Revocation	Can we revoke user access automatically (CX & EX)?	Unsure	Unsure	Not available	Likely	Yes	3–6 months	Revocation process is manual now
+Hybrid vs Full Automation	Is hybrid approach (part manual, part automated) more feasible at current endpoints?	Likely	Likely	Partially	Yes	Yes	Shorter	Hybrid seems more realistic than full automation right now
+Custom Engineering Needs	For role-level extraction + provisioning + revocation, where exactly do we need custom APIs/engineering?	TBD	TBD	No clear OOTB solution	Yes, likely	Yes	Unknown	Needs Qualtrics clarity
+Cost Involvement	Do these require additional Qualtrics licensing, engineering services, or partner engagement?	Unknown	Unknown	Maybe not for small extracts	Yes for automation	Yes	Variable	Must confirm explicitly
+Timelines	What is realistic timeline for building/implementing automation (CX & EX)?	Unknown	Unknown	–	Yes	Yes	TBD	Ask Qualtrics directly
+
+Table 2: For Qualtrics to Fill (Official View)
+Area	Question	CX Feasibility (Qualtrics View)	EX Feasibility (Qualtrics View)	In-Built Solution	Custom Solution Needed	Cost Impact (Y/N/Details)	Timeline (Qualtrics Est.)	Notes / Recommendations
+User Extraction	Can we extract user lists at role level (Admin, Dashboard User, etc.)?							
+Automation of Extract	Can extraction be automated (e.g., scheduled export/API)?							
+Integration for Provisioning	Can we provision user access to dashboards (CX & EX) automatically via HR Tech tool?							
+Integration for Revocation	Can we revoke user access automatically (CX & EX)?							
+Hybrid vs Full Automation	Is hybrid approach (part manual, part automated) more feasible at current endpoints?							
+Custom Engineering Needs	For role-level extraction + provisioning + revocation, where exactly do we need custom APIs/engineering?							
+Cost Involvement	Do these require additional Qualtrics licensing, engineering services, or partner engagement?							
+Timelines	What is realistic timeline for building/implementing automation (CX & EX)?							
+
+👉 With this, you can send one file with two tabs:
+
+Tab 1 (Our Understanding) → shows what we believe.
+
+Tab 2 (Qualtrics to Fill) → they validate, confirm feasibility, clarify where custom vs inbuilt, and add costs/timelines.
+
+Would you like me to prepare this as a ready-to-use Excel file (with two sheets and prefilled "Our Understanding") so you can directly send it to Qualtrics?
+
+
+
+
+
+
+
+
+Ask ChatGPT
+You said:
+I need to give you another response from the Qualtrics team because you are not clear with the CEX. This is what the response we received for CEX, and based on this, you revisit the table what you have shared. The dashboard and user access management side of things for the touchpoints being run in CEX is able to be fully automated using the solutions outlined in the architecture I sent previously. Regarding the EX dashboard access management, I'm still getting an overview of the endpoints because this is the earlier response, but the one I shared before was the recent response. So in this particular response, they have clearly mentioned that the touchpoints are available and they can do the full automation. And regarding the reporting requirement, this will require a custom build from our engineering. I'm starting the process to begin the scope, the requirements, and we'll let you know. But here they didn't specify is it a CEX or EX, what is the reporting requirements, how they can do it. And we are unsure about this one, even in this response. This may need a complete custom build as we do not have any public facing API endpoints that would allow for that level of reporting. And yeah, this is what you need to understand and check the checklist.
+
+
+ChatGPT said:
+Got it 👍 Thanks for clarifying with the additional response from Qualtrics. I now see the distinction:
+
+CEX (Customer Experience / CX) → They confirmed that dashboard + user access management for touchpoints can be fully automated with the endpoints already available.
+
+EX (Employee Experience) → Still under review; endpoints are not fully mapped yet.
+
+Reporting requirements → Qualtrics has not clarified whether it applies to CEX or EX. They only mentioned that it will likely require a custom build since no public API endpoints exist.
+
+Based on this, your checklist/table needs to capture:
+
+Feasibility (Inbuilt vs Custom vs Hybrid) per area (CX vs EX).
+
+Cost Implication (inbuilt = no cost, custom = cost involved).
+
+Automation Scope (full / partial / not possible).
+
+Integration for Provisioning & Revocation (CX vs EX).
+
+Reporting Requirements – clarification needed on whether it is CX or EX, and what exact reporting scope is required.
+
+Here’s a revised dual-table checklist (one for your internal understanding, one for Qualtrics team’s response).
+
+Table 1 – Our Understanding (Internal Draft Checklist)
+Area	Platform (CX/EX)	Requirement	Feasibility (Inbuilt / Custom / Hybrid)	Automation Scope	Provisioning & Revocation	Reporting Feasibility	Cost Impact	Timeline (Est.)
+User Extract at Role Level	CX	Extract full user list at role-level	Inbuilt (API endpoints exist)	Fully Automated	Supported via API	Not Applicable	No Additional Cost	Short-term
+User Extract at Role Level	EX	Extract full user list at role-level	TBD (endpoints review ongoing)	Unknown	TBD	Not Applicable	Unknown	TBD
+Dashboard Access – Provisioning	CX	Auto-provision roles to dashboards	Inbuilt	Fully Automated	Yes	Not Applicable	No Additional Cost	Short-term
+Dashboard Access – Provisioning	EX	Auto-provision roles to dashboards	TBD (endpoints under review)	Unknown	TBD	Not Applicable	Unknown	TBD
+Dashboard Access – Revocation	CX	Auto-revoke roles to dashboards	Inbuilt	Fully Automated	Yes	Not Applicable	No Additional Cost	Short-term
+Dashboard Access – Revocation	EX	Auto-revoke roles to dashboards	TBD (endpoints under review)	Unknown	TBD	Not Applicable	Unknown	TBD
+Reporting (User/Dashboard level)	CX or EX (Unclear)	Extract reporting data at role/dashboard level	No inbuilt API	Likely Custom Build	Possible via engineering build	Yes	Cost Involved (Custom)	Long-term
+
+Table 2 – For Qualtrics to Validate / Respond
+Area	Platform (CX/EX)	Requirement	Is it Feasible? (Yes/No)	If Yes → Inbuilt / Custom / Hybrid	Automation Scope (Full/Partial)	Provisioning & Revocation Support	Reporting Requirement Clarification	Cost Impact	Timeline (Est.)
+User Extract at Role Level	CX	Extract full user list at role-level							
+User Extract at Role Level	EX	Extract full user list at role-level							
+Dashboard Access – Provisioning	CX	Auto-provision roles to dashboards							
+Dashboard Access – Provisioning	EX	Auto-provision roles to dashboards							
+Dashboard Access – Revocation	CX	Auto-revoke roles to dashboards							
+Dashboard Access – Revocation	EX	Auto-revoke roles to dashboards							
+Reporting (User/Dashboard level)	CX or EX (?)	Extract reporting data at role/dashboard level					Please clarify: Is reporting required for CX or EX? What level of detail?		
+
+👉 This way:
+
+Table 1 captures your team’s current understanding (so you can validate later).
+
+Table 2 is a checklist for Qualtrics to confirm feasibility, approach (inbuilt/custom), costs, and timeline.
+
+Would you like me to expand Table 2 into a formal “questionnaire-style checklist” (like numbered questions under each area) so you can send it directly to Qualtrics in the RFI format? That way, they can answer in detail rather than only filling the table.
+
+
+
+
+
+
+
 
