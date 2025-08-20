@@ -1,3 +1,1 @@
-I’m encountering a strange issue and wanted to check if anyone else has faced something similar. When I upload a file that contains email addresses ending with “.co.uk” for example, after exporting the file back, some of these addresses get changed to “.com”. I’ve also noticed similar changes happening with names, like “Mano Leona” turning into “mano.desmasis”.
 
-Has anyone experienced this kind of data alteration after uploading and re-exporting files? I’m going to raise this with the team, but thought I’d check here first. Also, I’ve cross-checked all the imports, and they seem fine.
