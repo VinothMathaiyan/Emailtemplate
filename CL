@@ -1,7 +1,1 @@
-I’ve implemented the three-option multi-select consent specifically for China, where users must select all three to continue. For all other countries, the flow remains as-is without a consent requirement.
 
-Just to clarify, we’ve included an alert message in the question text to highlight that all three options must be selected to proceed. If none are selected, there's a default feature in the system that prompts the user to confirm whether they want to continue or skip.
-
-Because we can’t enable both skip logic and triggers simultaneously, this approach ensures the user experience is smooth without disabling the back button.
-
-Please let me know if the language or wording of the consent statement needs any adjustments or if there’s any feedback on the current setup before we proceed.
