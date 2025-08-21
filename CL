@@ -1,362 +1,73 @@
-Slide 1 – Option 1: Fully Manual
-Category	Details
-Request Handling	Requester raises access request in Request portal → dashboard names shown in dropdown → approval flows automatically to Line Manager and Business Owner.
-Provisioning Method	Manual provisioning by Colleague Listening Team in Qualtrics system. Roles assigned manually after approval.
-File Extraction (OneCert)	Required daily.
-Steps: extract from CX & EX → combine → convert to .txt → import.
-Time: ~ 8 hours/day.
-Automation Scope	None. Entire process is manual.
-Dependencies	- IAM team & Request team for form build
-- RTB team for IDSI name (confirmed within 5 days)
-- Tech team risk exception approvals
-- HR risk team for ORAC acceptance.
-Effort & Timelines	- File preparation: 8 hours/day.
-- Provisioning: 2–3 hrs per week per resource during releases.
-- Request team can deliver form logic in 3–5 weeks.
-- Can go live immediately after form build.
-Cost Impact	None (no integration / custom build).
-Reporting Capability	Not required / not available.
-Feasibility (EX vs CX)	Works, but high effort since both CX and EX exports must be combined daily.
-Pros	- Immediate implementability.
-- No external build cost.
-- Moves away from ServiceNow → centralized Request portal with automated approval flow.
-Cons / Pain Points	- Very resource intensive.
-- Not scalable with 18+ HR dashboards.
-- Risk for movers (SSO ensures leavers drop off, but movers retain access incorrectly).
-- Must raise exceptions & ORAC for risk acceptance.
-- Error prone due to heavy manual handling.
-
-Slide 2 – Option 2: Hybrid (Partial Automation)
-Category	Details
-Request Handling	Same as Fully Manual: Request portal + dropdown dashboards + Line Manager + Business Owner approvals.
-Provisioning Method	Manual provisioning by Colleague Listening Team (same as manual).
-File Extraction (OneCert)	Target for automation.
-- Extraction of user file automated via Qualtrics API or custom build.
-- Current status: Not feasible with standard Qualtrics API.
-- Would require custom engineering.
-Automation Scope	Partial – only OneCert file extraction automated. Provisioning remains manual.
-Dependencies	- IAM team & Request team (form).
-- RTB team (IDSI name).
-- Qualtrics Engineering Team for custom API solution.
-- MFT Team for SFTP connection (Qualtrics → DTU → IAM system).
-- Tech team approvals for risk & integration.
-Effort & Timelines	- File preparation effort: 0 (automated).
-- Provisioning effort: still manual (2–3 hrs/week per resource, spikes to 2–3 hrs/day during major releases).
-- Timeline: uncertain; 12–24 weeks depending on Qualtrics custom build feasibility.
-Cost Impact	High. Custom Qualtrics engineering + MFT integration build.
-Reporting Capability	Not currently available.
-Feasibility (EX vs CX)	- CX: extraction more feasible (global).
-- EX: complex, as roles are project-based, not global; requires project ID.
-Pros	- Removes daily 8-hour effort for OneCert file preparation.
-- Reduces manual workload and errors.
-- Known process (we already do manual extraction, only automation replaces it).
-Cons / Pain Points	- Still manual provisioning.
-- Custom build dependency on Qualtrics Engineering (no standard API).
-- High cost + long timelines.
-- Complexity higher for EX.
-- Multi-team dependency (Qualtrics, IAM, MFT, Tech).
-
-Slide 3 – Option 3: Fully Automated
-Category	Details
-Request Handling	Same as other options: Request portal with dropdown dashboards + automated Line Manager & Business Owner approvals.
-Provisioning Method	Fully automated via Qualtrics APIs integrated with Request + IAM system. No manual provisioning required.
-File Extraction (OneCert)	Not required – direct provisioning through API removes dependency on OneCert file.
-Automation Scope	End-to-end automation (request → approval → provisioning). Includes JML integration for automatic de-provisioning of movers/leavers.
-Dependencies	- IAM & Request team for form.
-- RTB team (IDSI name).
-- Qualtrics Engineering Team to confirm EX & CX provisioning feasibility.
-- Barclays Tech Team for integration enablement & feasibility check.
-Effort & Timelines	- Ongoing manual effort: minimal (only exception handling in case of failures).
-- Timeline: 3–6 months (integration build + testing).
-Cost Impact	Moderate – lower than hybrid since no SFTP/file transfer infra needed, but integration build still required.
-Reporting Capability	Can be embedded in Request system logs + Qualtrics API logs.
-Feasibility (EX vs CX)	- CX: provisioning feasible at global level.
-- EX: feasible but requires passing project ID. Further validation needed with Tech & Qualtrics.
-Pros	- Future-proof & scalable (works across all HR dashboards).
-- Eliminates manual file handling.
-- Eliminates manual provisioning.
-- JML ensures movers/leavers handled correctly.
-- Reduces errors + provides audit trail.
-Cons / Pain Points	- Integration feasibility must be validated (Tech + Qualtrics).
-- If APIs not viable, fallback is costly custom build.
-- Timeline longer (3–6 months).
-
-
-----
-Theme	Current Challenges	Limitations (Qualtrics Response)	Feasible Approach (Org Policy & Request Team)
-Scalability	Manual process for dashboard access across multiple HR products (18+) is not scalable.	API returns user details only at project level (not global) – making centralized management difficult.	Use Request system for centralized handling with dropdown of dashboards.
-Efficiency	High dependency on manual intervention; prone to delays.	No single API to fetch all dashboards users have access to across EX/CX.	Automating via Request forms with mapped approvers streamlines efficiency.
-Auditability	No proper logs or audit trail when managed manually.	Audit trail limited to project-specific API calls; lacks enterprise-wide traceability.	Request can automatically maintain approval logs and audit records.
-Access Management	Handling approvals separately in ServiceNow is fragmented.	API allows access provisioning at project level only, not at org/global level.	Request can integrate line manager approval automatically + designated approver workflow.
-Future-readiness	Current process will break at scale with new EX/CX use cases (Engagement, Exit, Learning, etc.).	Qualtrics APIs are not designed for global role-based provisioning.	Request team is positive about building a scalable form-based solution aligned with org standards.
-
----
-
-Slide 1 – Option 1: Fully Manual
-Request Handling & Approvals
-
-Requester raises access request in the Request portal.
-
-Selects the required dashboard from a dropdown list.
-
-Request flows through line manager approval → business owner approval.
-
-Request system is fully feasible — team confirmed 3–5 weeks to configure.
-
-Provisioning Method
-
-After approvals, request is passed to the Colleague Listening Team.
-
-Provisioning is performed manually in the Qualtrics system.
-
-Each role assignment is configured individually.
-
-File Extraction
-
-OneCert file generation is mandatory.
-
-Extract user details separately from CEX and EX platforms.
-
-Files must be manually combined, converted into .txt, and then imported.
-
-This process takes ~8 hours/day of dedicated effort.
-
-Automation Scope
-
-No automation possible.
-
-All steps, including file handling, provisioning, and approvals, are manual.
-
-Dependencies
-
-Request team for form creation.
-
-RTB team for generating new IDSI name (business justification needed, ~5 days).
-
-Exception handling → Tech team & HR risk team (ORAC submission).
-
-IAM File Delivery (Feasibility)
-
-Delivered manually; no automation in CEX or EX.
-
-Reporting Capability
-
-Not available in this model.
-
-Effort Required
-
-~8 hours/day for file extraction and provisioning.
-
-Additional time for exception handling.
-
-Highly resource-intensive and error-prone.
-
-Cost Impact
-
-No external build required.
-
-No direct financial cost, but high hidden operational cost due to FTE dependency.
-
-Timeline
-
-Immediate start possible after form build (3–5 weeks).
-
-No dependency on external teams beyond request & RTB.
-
-Pros
-
-Can be implemented immediately.
-
-Low/no external cost.
-
-Moves away from ServiceNow into standardized Request system.
-
-Cons / Pain Points
-
-Non-scalable approach.
-
-Very resource-intensive (8 hours/day).
-
-Risk of errors in manual file preparation.
-
-Movers (role changes) continue to hold dashboards post-transfer → risk accepted via ORAC.
-
-High dependency on exceptions and manual handling.
-
-Slide 2 – Option 2: Hybrid / Partially Automated
-Request Handling & Approvals
-
-Same process as Fully Manual:
-
-Dashboard selected via dropdown in Request form.
-
-Approvals via line manager + business owner.
-
-Request system logic confirmed feasible.
-
-Provisioning Method
-
-Provisioning still manual in the Qualtrics system.
-
-Colleague Listening Team applies the access changes.
-
-File Extraction
-
-Proposed automation of OneCert file (instead of daily manual prep).
-
-Would require Qualtrics engineering custom build, as no public APIs exist for EX/CEX user extract.
-
-Also requires SFTP setup: Qualtrics → DTU → IAM server.
-
-Dependencies include Qualtrics engineers + MFT team.
-
-Automation Scope
-
-Partial (limited only to file extraction).
-
-Provisioning remains manual.
-
-Dependencies
-
-Request team + RTB team (same as fully manual).
-
-Additional dependency:
-
-Qualtrics engineering for custom API/file extract solution.
-
-MFT team for file transfer pipeline (SFTP).
-
-IAM File Delivery (Feasibility)
-
-Uncertain — depends on custom build.
-
-No current support for automated extract from EX/CEX.
-
-Reporting Capability
-
-Not supported; would require additional custom engineering.
-
-Effort Required
-
-If file extract is automated → saves ~8 hours/day.
-
-Provisioning still manual → estimated 2–3 hours/week per product.
-
-During major HR Experience/YourView releases → ~2 hours/day for 10–15 days.
-
-Cost Impact
-
-High: Custom engineering from Qualtrics required.
-
-Additional cost for secure SFTP setup and ongoing support.
-
-Timeline
-
-Longer: 12–24 weeks (3–6 months) depending on Qualtrics engineering availability.
-
-Dependent on feasibility of API and SFTP connection.
-
-Pros
-
-Reduces significant workload by eliminating daily OneCert file preparation.
-
-Moves part of the process into automation.
-
-Reuses known steps and processes (file extract logic already understood).
-
-Cons / Pain Points
-
-Still resource-intensive due to manual provisioning.
-
-Custom engineering dependency → cost, timeline risk.
-
-Complex EX role/project structure makes extraction harder.
-
-Multiple team dependencies: Qualtrics, MFT, IAM, RTB.
-
-Not guaranteed feasible (Qualtrics has not committed APIs).
-
-Slide 3 – Option 3: Fully Automated
-Request Handling & Approvals
-
-Same front-end process: Request form with dropdown dashboards, approvals by line manager + business owner.
-
-Fully feasible within 3–5 weeks by Request team.
-
-Provisioning Method
-
-Fully automated provisioning via Qualtrics API integration.
-
-No manual intervention required once approvals are completed.
-
-File Extraction
-
-Not required (system integration bypasses OneCert files).
-
-Eliminates 8 hours/day manual task and SFTP dependency.
-
-Automation Scope
-
-Full automation: request, approval, provisioning, JML integration.
-
-Dependencies
-
-Request team (form build).
-
-RTB team (IDSI name creation).
-
-Qualtrics engineering + Organization Tech team for API enablement, feasibility, and integration build.
-
-Joint testing and validation required.
-
-IAM File Delivery (Feasibility)
-
-Not applicable (no file-based process).
-
-Reporting Capability
-
-May require custom build from Qualtrics (pending their scoping).
-
-Not available natively today.
-
-Effort Required
-
-Minimal ongoing effort.
-
-Only required in case of integration failures or incident handling.
-
-Cost Impact
-
-Moderate: API integration + coordination effort.
-
-Lower than hybrid (no SFTP/file pipeline setup).
-
-Higher than manual (custom development required).
-
-Timeline
-
-Estimated 3–6 months to design, test, and validate integration.
-
-Requires full alignment between internal Tech team and Qualtrics engineering.
-
-Pros
-
-Scalable and future-proof.
-
-No manual file handling or provisioning.
-
-Seamless integration with JML processes.
-
-Reduces risk (no movers retaining dashboards).
-
-Minimal FTE dependency.
-
-Cons / Pain Points
-
-High dependency on integration feasibility.
-
-If Qualtrics API cannot fully support EX project-level provisioning, solution may fail.
-
-Cost and complexity higher upfront.
-
-Longer lead time to deliver compared to manual option
+Qualtrics.SurveyEngine.addOnPageSubmit(function(type){
+    var checked = false;
+    // Replace QID1 with your actual Question ID
+    var qid = this.questionId;
+    var inputs = document.querySelectorAll("#" + qid + " input[type='checkbox'], #" + qid + " input[type='radio']");
+    for(var i = 0; i < inputs.length; i++) {
+        if(inputs[i].checked) {
+            checked = true;
+            break;
+        }
+    }
+    if(!checked){
+        // Remove any previous modal
+        var prevModal = document.getElementById("accessibleWarningModal");
+        if(prevModal) { prevModal.remove(); }
+
+        // Create accessible modal
+        var modal = document.createElement("div");
+        modal.id = "accessibleWarningModal";
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('tabindex', '-1');
+        modal.style.position = "fixed";
+        modal.style.top = "0";
+        modal.style.left = "0";
+        modal.style.width = "100vw";
+        modal.style.height = "100vh";
+        modal.style.background = "rgba(0,0,0,0.7)";
+        modal.style.display = "flex";
+        modal.style.justifyContent = "center";
+        modal.style.alignItems = "center";
+        modal.style.zIndex = "10000";
+
+        var content = document.createElement("div");
+        content.style.background = "white";
+        content.style.padding = "2em";
+        content.style.borderRadius = "10px";
+        content.style.maxWidth = "350px";
+        content.style.textAlign = "center";
+
+        var message = document.createElement("p");
+        message.innerText = "You have not selected any options. Are you sure you want to continue?";
+        message.tabIndex = 0;
+        content.appendChild(message);
+
+        var continueBtn = document.createElement("button");
+        continueBtn.innerText = "Yes, continue";
+        continueBtn.style.marginRight = "1em";
+        continueBtn.onclick = function(){
+            modal.remove();
+            Qualtrics.SurveyEngine.navClick(event, 'NextButton');
+        }
+        continueBtn.tabIndex = 0;
+        continueBtn.setAttribute('aria-label', 'Yes, continue');
+
+        var cancelBtn = document.createElement("button");
+        cancelBtn.innerText = "Go back";
+        cancelBtn.onclick = function(){
+            modal.remove();
+            inputs[0].focus();
+        }
+        cancelBtn.tabIndex = 0;
+        cancelBtn.setAttribute('aria-label', 'Go back');
+
+        content.appendChild(continueBtn);
+        content.appendChild(cancelBtn);
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+        modal.focus();
+
+        return false; // Prevent submission for now
+    }
+});
