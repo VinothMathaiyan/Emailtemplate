@@ -1,73 +1,7 @@
-Qualtrics.SurveyEngine.addOnPageSubmit(function(type){
-    var checked = false;
-    // Replace QID1 with your actual Question ID
-    var qid = this.questionId;
-    var inputs = document.querySelectorAll("#" + qid + " input[type='checkbox'], #" + qid + " input[type='radio']");
-    for(var i = 0; i < inputs.length; i++) {
-        if(inputs[i].checked) {
-            checked = true;
-            break;
-        }
-    }
-    if(!checked){
-        // Remove any previous modal
-        var prevModal = document.getElementById("accessibleWarningModal");
-        if(prevModal) { prevModal.remove(); }
+I’ve implemented the three-option multi-select consent specifically for China, where users must select all three to continue. For all other countries, the flow remains as-is without a consent requirement.
 
-        // Create accessible modal
-        var modal = document.createElement("div");
-        modal.id = "accessibleWarningModal";
-        modal.setAttribute('role', 'dialog');
-        modal.setAttribute('aria-modal', 'true');
-        modal.setAttribute('tabindex', '-1');
-        modal.style.position = "fixed";
-        modal.style.top = "0";
-        modal.style.left = "0";
-        modal.style.width = "100vw";
-        modal.style.height = "100vh";
-        modal.style.background = "rgba(0,0,0,0.7)";
-        modal.style.display = "flex";
-        modal.style.justifyContent = "center";
-        modal.style.alignItems = "center";
-        modal.style.zIndex = "10000";
+Just to clarify, we’ve included an alert message in the question text to highlight that all three options must be selected to proceed. If none are selected, there's a default feature in the system that prompts the user to confirm whether they want to continue or skip.
 
-        var content = document.createElement("div");
-        content.style.background = "white";
-        content.style.padding = "2em";
-        content.style.borderRadius = "10px";
-        content.style.maxWidth = "350px";
-        content.style.textAlign = "center";
+Because we can’t enable both skip logic and triggers simultaneously, this approach ensures the user experience is smooth without disabling the back button.
 
-        var message = document.createElement("p");
-        message.innerText = "You have not selected any options. Are you sure you want to continue?";
-        message.tabIndex = 0;
-        content.appendChild(message);
-
-        var continueBtn = document.createElement("button");
-        continueBtn.innerText = "Yes, continue";
-        continueBtn.style.marginRight = "1em";
-        continueBtn.onclick = function(){
-            modal.remove();
-            Qualtrics.SurveyEngine.navClick(event, 'NextButton');
-        }
-        continueBtn.tabIndex = 0;
-        continueBtn.setAttribute('aria-label', 'Yes, continue');
-
-        var cancelBtn = document.createElement("button");
-        cancelBtn.innerText = "Go back";
-        cancelBtn.onclick = function(){
-            modal.remove();
-            inputs[0].focus();
-        }
-        cancelBtn.tabIndex = 0;
-        cancelBtn.setAttribute('aria-label', 'Go back');
-
-        content.appendChild(continueBtn);
-        content.appendChild(cancelBtn);
-        modal.appendChild(content);
-        document.body.appendChild(modal);
-        modal.focus();
-
-        return false; // Prevent submission for now
-    }
-});
+Please let me know if the language or wording of the consent statement needs any adjustments or if there’s any feedback on the current setup before we proceed.
