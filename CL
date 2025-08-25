@@ -1,1 +1,37 @@
+Subject: Update on Dashboard Access Management – Request Portal Integration Feasibility
 
+Dear [Recipient / Team],
+
+As discussed in our earlier sessions, we are working towards aligning the Dashboard Access Management process with organizational standards by transitioning it into the Request Portal. I would like to provide you with an update on our progress and next steps.
+
+Current Status & Options Under Review
+
+We are evaluating three options for access management: fully manual, hybrid, and fully automated.
+
+Based on our analysis so far, hybrid automation is not feasible, as Qualtrics does not provide API endpoints to automate user feed exports.
+
+Fully manual provisioning remains possible. However, exporting the daily OneCert feed file for CX and EX is highly resource-intensive (estimated at ~1 FTE effort daily). To avoid this, we would need to explore exceptions:
+
+First through a Risk Issue Assessment Tool (RIET) process.
+
+If RIET is not sufficient, then an ORAC exception would be required.
+
+If an ORAC exception is mandated, we may not proceed with the Request Portal transition and instead continue with the current ServiceNow process.
+
+Our recommended path remains full automation, provided the feasibility check between Qualtrics and Request Portal integration confirms this is technically achievable. This option ensures scalability, compliance, and reduced manual overhead, but requires coordination between Qualtrics Engineering and Technology teams.
+
+Next Steps & Timeline
+
+We are currently conducting a feasibility assessment between Request Portal and Qualtrics integration, in partnership with IAM and Technology teams.
+
+Based on these findings, we will confirm whether full automation is viable or if we must adopt the manual process with exceptions.
+
+We will provide a detailed update on feasibility, risks, and our proposed approach by end of September.
+
+In the meantime, tomorrow’s scheduled call will be rescheduled to late September to align with the feasibility review outcomes. A placeholder invite will be shared shortly.
+
+Key Consideration
+
+Our goal remains to comply with access management standards while ensuring efficiency and scalability. However, if automation is not feasible and exception approvals (RIET/ORAC) are required but not granted, we will continue with the current ServiceNow setup for the next 12–18 months.
+
+Thank you for your continued support. We will keep you updated on progress and share the findings in September.
