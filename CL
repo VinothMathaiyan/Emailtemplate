@@ -1,103 +1,80 @@
-Unifying Colleague Listening with Qualtrics XM Discover
-Objective
+Email 1 – Proposal for XM Discover
 
-Create a single, trusted analytics layer for all 18+ HR colleague-listening programs (bi-annual YourView & HR Experience plus Always-On surveys like Onboarding, Exit, HR Case, Learning, Recruitment, etc.) so journey health, themes, and sentiment can be monitored in one place, with fewer manual steps and faster action.
+Subject: Proposal to Extend XM Discover Usage Across HR Journeys
 
-Why XM Discover
+Dear [Recipient],
 
-XM Discover (formerly Clarabridge) adds enterprise-grade conversational analytics to the Qualtrics platform—classifying sentiment, effort, emotion/ intensity and intent across unstructured feedback, at scale. It’s built around Connectors, Designer, and Studio for data ingestion, modeling, and insight delivery. 
-Qualtrics
-+4
-Qualtrics
-+4
-Qualtrics
-+4
+I would like to clarify that our proposal to use XM Discover is not limited to candidate surveys (hiring manager and new joiner feedback). We are bringing a broader perspective by extending it across key HR programs and journeys, including:
 
-Proposed Approach (How it would work)
+HR experience
 
-Ingest & unify data
-– Use the Qualtrics Inbound Connector to pull EX/CX survey responses into XM Discover projects (including open-text, comments, and key metadata like journey, BU, region, persona). Optionally use XM Discover Link (Inbound) to push data via REST with field mapping and transformations. 
-Qualtrics
-+2
-Qualtrics
-+2
+HR journey experience
 
-– (Future) Extend to additional listening points (e.g., email/chat transcripts, HR case notes) to enrich journey context when permissible.
+HR case experience
 
-Standardize the journey model
-– Define a common journey taxonomy (e.g., Hire → Onboard → Learn → Perform → Recognize → Leave) and map each response to a journey, stage, population, and sensitivity flags. Qualtrics provides native Employee Journey constructs that complement this design. 
-Qualtrics
-+1
+Recruitment, onboarding, learning, exit journeys
 
-Apply AI enrichments
-– Turn on Discover’s out-of-the-box Sentiment, Effort, and Emotional Intensity; add Emotion classification. Tune thresholds so exec views match HR context (e.g., stricter “negative” for safety/ethics topics). 
-Qualtrics
-+3
-Qualtrics
-+3
-Qualtrics
-+3
+Future external data sources (if required)
 
-Model themes & root causes
-– Build category models (topics like “Manager Support,” “Workload,” “Career Growth,” “Pay & Benefits,” “HR Case SLA,” “Tech Tools”) and use Discover’s ML topic modeling to cluster new issues. 
-Qualtrics
+This approach will help us identify real pain points, understand interconnections, and generate additional insights from a consolidated view in one place. XM Discover will enable us to:
 
-Surface insights & trigger action
-– Publish a single “Colleague Journey Lens” in Discover Studio with scorecards by journey, population, and BU; drill-downs to verbatims and drivers; watchlists and trend alerts.
-– Where action is needed, use the Qualtrics Outbound Connector to push events (e.g., escalate to HRBPs, create follow-ups in Qualtrics Workflows) enriched with Discover metrics. 
-Qualtrics
-+1
+Perform advanced text analysis across all HR products
 
-What stakeholders get (benefits)
+Identify trends and drivers
 
-One source of truth for journey health across all programs—no more hopping across 10+ dashboards. 
-Qualtrics
+Build a unified taxonomy and text model for HR products
 
-Deeper text intelligence than basic sentiment: see effort (how hard a process felt) and emotion/intensity to prioritize fixes with empathy. 
-Qualtrics
-+1
+Support future roadmap items, such as EA and conversational chat analysis
 
-Consistent taxonomy: the same themes and definitions across YourView, HR Experience, and Always-On surveys, improving comparability over time. 
-Qualtrics
+In summary, we are proposing that journey owners and stakeholders leverage XM Discover for broader HR insights rather than focusing only on recruitment.
 
-Faster time-to-insight: automated classification replaces manual coding; transformations handle messy fields on ingest. 
-Qualtrics
+Thank you for your time and support in reviewing this proposal.
 
-Actionability: push high-risk patterns straight into Qualtrics workflows (e.g., notify journey owners when negative effort spikes in “Onboarding → Tech Access”). 
-Qualtrics
+Best regards,
+[Your Name]
 
-Scales across EX & CX: same analytics layer for employee and service touchpoints when you’re ready, enabling outside-in and inside-out views. 
-Qualtrics
+Email 2 – Update on Current POC & Next Steps
 
-Guardrails & considerations (what to plan for)
+Subject: Update on POC and Next Steps for HR Text Model
 
-EX privacy & anonymity: configure role-based access, data minimization, and aggregation rules appropriate to HR use; verify that journey-level views uphold anonymity thresholds. (Qualtrics supports role-based access and separate EX constructs; enforce policy in model and dashboards.) 
-Qualtrics
-+1
+Dear Deji,
 
-Data prep & governance: agree metadata contracts (journey, segment, sensitivity), retention, and redaction for PII within verbatims before ingestion. 
-Qualtrics
+Thank you for your time last week – the session was very insightful. I wanted to share a quick update on the ongoing program:
 
-Model tuning: initial time is required to seed category models and calibrate sentiment/effort thresholds to HR language; plan periodic QA. 
-Qualtrics
+We are planning to close the current POC once approval is received.
 
-Scope creep: Discover is powerful; keep phase 1 focused (YourView + HR Experience + 2–3 Always-On programs) before expanding. 
-Qualtrics
+Next steps include building a consolidated view across HR products and updating the taxonomy.
 
-Phased path (high level)
+A single text model will be created to support HR journeys (recruitment, onboarding, learning, HR cases, exit).
 
-Phase 0 (POC now): Continue onboarding POC; validate sentiment/effort/emotion accuracy on Onboarding survey. 
-Qualtrics
-+1
+I may not be able to connect today due to another session. However, I will share my insights summary with the onboarding team next week, and I will also submit my questions and inputs to you by Friday evening or latest by Monday morning. This will give you at least a day to review before my call with Anthony on Tuesday.
 
-Phase 1 (Foundation): Stand up connectors for YourView & HR Experience; implement journey taxonomy; publish the unified Journey Lens. 
-Qualtrics
-+1
+Meanwhile, I’ll continue updating the text model and share progress with you.
 
-Phase 2 (Scale): Add Always-On programs; tune category models; wire outbound events to Workflows for proactive actions. 
-Qualtrics
+Thanks again for your support, and please take care.
 
-Phase 3 (Extend): Consider additional channels (e.g., HR case notes) where policy allows, to close the loop faster. 
-Qualtrics
+Best regards,
+[Your Name]
 
-Bottom line: XM Discover lets you consolidate all colleague-listening text into one governed, AI-powered analytics layer—bringing journey-level insights, sentiment/effort/emotion signals, and automated actions together so Journey Owners and Board Leads see issues sooner and fix them faster. 
+Email 3 – Tech Team Resource & Meeting Scheduling
+
+Subject: Coordination on Tech Resource Allocation and Meeting Scheduling
+
+Dear [Recipient],
+
+I have a call scheduled tomorrow with the tech team to confirm resource availability for our integration requirement. Based on that discussion, I will schedule a separate call to go through the exact requirement and feasibility for dashboard access management.
+
+To help with scheduling, could you please share your availability for the following slots?
+
+This week: Thursday, Friday
+
+Next week: Monday, Tuesday
+
+We will need about 30–45 minutes for this discussion, and I will also include the tech team to address feasibility questions directly.
+
+Unfortunately, due to my sessions after the weekly call, I may not be able to connect at the usual time, so it would be helpful if you could propose a convenient time in the above windows.
+
+Thank you for your flexibility and support.
+
+Best regards,
+[Your Name]
