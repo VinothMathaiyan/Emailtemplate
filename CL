@@ -1,37 +1,103 @@
-Subject: Update on Dashboard Access Management – Request Portal Integration Feasibility
+Unifying Colleague Listening with Qualtrics XM Discover
+Objective
 
-Dear [Recipient / Team],
+Create a single, trusted analytics layer for all 18+ HR colleague-listening programs (bi-annual YourView & HR Experience plus Always-On surveys like Onboarding, Exit, HR Case, Learning, Recruitment, etc.) so journey health, themes, and sentiment can be monitored in one place, with fewer manual steps and faster action.
 
-As discussed in our earlier sessions, we are working towards aligning the Dashboard Access Management process with organizational standards by transitioning it into the Request Portal. I would like to provide you with an update on our progress and next steps.
+Why XM Discover
 
-Current Status & Options Under Review
+XM Discover (formerly Clarabridge) adds enterprise-grade conversational analytics to the Qualtrics platform—classifying sentiment, effort, emotion/ intensity and intent across unstructured feedback, at scale. It’s built around Connectors, Designer, and Studio for data ingestion, modeling, and insight delivery. 
+Qualtrics
++4
+Qualtrics
++4
+Qualtrics
++4
 
-We are evaluating three options for access management: fully manual, hybrid, and fully automated.
+Proposed Approach (How it would work)
 
-Based on our analysis so far, hybrid automation is not feasible, as Qualtrics does not provide API endpoints to automate user feed exports.
+Ingest & unify data
+– Use the Qualtrics Inbound Connector to pull EX/CX survey responses into XM Discover projects (including open-text, comments, and key metadata like journey, BU, region, persona). Optionally use XM Discover Link (Inbound) to push data via REST with field mapping and transformations. 
+Qualtrics
++2
+Qualtrics
++2
 
-Fully manual provisioning remains possible. However, exporting the daily OneCert feed file for CX and EX is highly resource-intensive (estimated at ~1 FTE effort daily). To avoid this, we would need to explore exceptions:
+– (Future) Extend to additional listening points (e.g., email/chat transcripts, HR case notes) to enrich journey context when permissible.
 
-First through a Risk Issue Assessment Tool (RIET) process.
+Standardize the journey model
+– Define a common journey taxonomy (e.g., Hire → Onboard → Learn → Perform → Recognize → Leave) and map each response to a journey, stage, population, and sensitivity flags. Qualtrics provides native Employee Journey constructs that complement this design. 
+Qualtrics
++1
 
-If RIET is not sufficient, then an ORAC exception would be required.
+Apply AI enrichments
+– Turn on Discover’s out-of-the-box Sentiment, Effort, and Emotional Intensity; add Emotion classification. Tune thresholds so exec views match HR context (e.g., stricter “negative” for safety/ethics topics). 
+Qualtrics
++3
+Qualtrics
++3
+Qualtrics
++3
 
-If an ORAC exception is mandated, we may not proceed with the Request Portal transition and instead continue with the current ServiceNow process.
+Model themes & root causes
+– Build category models (topics like “Manager Support,” “Workload,” “Career Growth,” “Pay & Benefits,” “HR Case SLA,” “Tech Tools”) and use Discover’s ML topic modeling to cluster new issues. 
+Qualtrics
 
-Our recommended path remains full automation, provided the feasibility check between Qualtrics and Request Portal integration confirms this is technically achievable. This option ensures scalability, compliance, and reduced manual overhead, but requires coordination between Qualtrics Engineering and Technology teams.
+Surface insights & trigger action
+– Publish a single “Colleague Journey Lens” in Discover Studio with scorecards by journey, population, and BU; drill-downs to verbatims and drivers; watchlists and trend alerts.
+– Where action is needed, use the Qualtrics Outbound Connector to push events (e.g., escalate to HRBPs, create follow-ups in Qualtrics Workflows) enriched with Discover metrics. 
+Qualtrics
++1
 
-Next Steps & Timeline
+What stakeholders get (benefits)
 
-We are currently conducting a feasibility assessment between Request Portal and Qualtrics integration, in partnership with IAM and Technology teams.
+One source of truth for journey health across all programs—no more hopping across 10+ dashboards. 
+Qualtrics
 
-Based on these findings, we will confirm whether full automation is viable or if we must adopt the manual process with exceptions.
+Deeper text intelligence than basic sentiment: see effort (how hard a process felt) and emotion/intensity to prioritize fixes with empathy. 
+Qualtrics
++1
 
-We will provide a detailed update on feasibility, risks, and our proposed approach by end of September.
+Consistent taxonomy: the same themes and definitions across YourView, HR Experience, and Always-On surveys, improving comparability over time. 
+Qualtrics
 
-In the meantime, tomorrow’s scheduled call will be rescheduled to late September to align with the feasibility review outcomes. A placeholder invite will be shared shortly.
+Faster time-to-insight: automated classification replaces manual coding; transformations handle messy fields on ingest. 
+Qualtrics
 
-Key Consideration
+Actionability: push high-risk patterns straight into Qualtrics workflows (e.g., notify journey owners when negative effort spikes in “Onboarding → Tech Access”). 
+Qualtrics
 
-Our goal remains to comply with access management standards while ensuring efficiency and scalability. However, if automation is not feasible and exception approvals (RIET/ORAC) are required but not granted, we will continue with the current ServiceNow setup for the next 12–18 months.
+Scales across EX & CX: same analytics layer for employee and service touchpoints when you’re ready, enabling outside-in and inside-out views. 
+Qualtrics
 
-Thank you for your continued support. We will keep you updated on progress and share the findings in September.
+Guardrails & considerations (what to plan for)
+
+EX privacy & anonymity: configure role-based access, data minimization, and aggregation rules appropriate to HR use; verify that journey-level views uphold anonymity thresholds. (Qualtrics supports role-based access and separate EX constructs; enforce policy in model and dashboards.) 
+Qualtrics
++1
+
+Data prep & governance: agree metadata contracts (journey, segment, sensitivity), retention, and redaction for PII within verbatims before ingestion. 
+Qualtrics
+
+Model tuning: initial time is required to seed category models and calibrate sentiment/effort thresholds to HR language; plan periodic QA. 
+Qualtrics
+
+Scope creep: Discover is powerful; keep phase 1 focused (YourView + HR Experience + 2–3 Always-On programs) before expanding. 
+Qualtrics
+
+Phased path (high level)
+
+Phase 0 (POC now): Continue onboarding POC; validate sentiment/effort/emotion accuracy on Onboarding survey. 
+Qualtrics
++1
+
+Phase 1 (Foundation): Stand up connectors for YourView & HR Experience; implement journey taxonomy; publish the unified Journey Lens. 
+Qualtrics
++1
+
+Phase 2 (Scale): Add Always-On programs; tune category models; wire outbound events to Workflows for proactive actions. 
+Qualtrics
+
+Phase 3 (Extend): Consider additional channels (e.g., HR case notes) where policy allows, to close the loop faster. 
+Qualtrics
+
+Bottom line: XM Discover lets you consolidate all colleague-listening text into one governed, AI-powered analytics layer—bringing journey-level insights, sentiment/effort/emotion signals, and automated actions together so Journey Owners and Board Leads see issues sooner and fix them faster. 
