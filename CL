@@ -1,10 +1,1 @@
-Project Name	Description	Status
-UI Accessibility New Theme	Delivered with accessibility sign-off, improvements, positive design UAT feedback	Delivered past 2 weeks
-EMR CX Data Extraction	80% completed, finalizing with stakeholders, Q4 self-service approach	Complete next week if approved
-HR Experience APR Review	Meeting on 4th Sept to confirm dashboard, variance, and Q4 timeline	Planned this week
-Accessibility Documentation Session	Creating documentation and internal session on UX/accessibility, complete in 2 weeks	In progress, finish in 2 weeks
-HR Experience Response Doc	Clarifying 1-5 vs. Not Applicable, finalizing with Data team	Complete end of next week
-Mandatory Training Survey Task Card	Coordinating team for task card implementation, timeline updates	Chasing timeline, in progress
-Mandatory Training Retrospective	Planning Q4 retrospective, streamlining communication	Top priority next week
-Human-Centric Design LUMA Training	Completing assignments, applying principles in real work	Allocate time next week
 
