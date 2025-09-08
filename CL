@@ -1,3 +1,47 @@
+Purpose
+Align ownership and timeline for post‑RFI scoring, propose that governance and technical responsibilities (security, APIs, integrations) are owned by the Tech organization, and confirm attendees for vendor demos and Q&A.
+
+Agenda
+Confirm owner map by domain: Governance, Security/Privacy & DPIA, Integration/APIs, Data/Migration, Support/SLAs, Survey Build/Distribution, Analytics/Dashboards/AI, Globalization, Admin/Audit.
+
+Review the grouped granular requirements and user stories, and cross‑check assigned scorers to ensure segregation of duties and impartiality.
+
+Agree scoring mechanism and weights (priority × availability), and when scoring is applied (post vendor responses).
+
+Identify Tech attendees for supplier demos (incl. Glint 360), define Q&A participants, decision makers, reviewers, and final scorers by domain.
+
+Review key risks and dependencies (e.g., DPIA completion, Rox approval for OOB enablement, Copilot disabled in non‑prod, migration/export readiness, support SLAs) and assign follow‑ups.
+
+Confirm near‑term timeline: mid‑September vendor responses/demos; end‑October DPIA gate; December OOB enablement decision and activity breakdown.
+
+Requests ahead of the call
+Please nominate named Tech owners for Security/CSO, Integration/API, and Architecture to lead governance/technical items and attend demos/Q&A.
+
+Review the user‑story list and indicate any scoring owner changes or conflicts of interest to preserve impartiality.
+
+Validate availability for demo windows and the scoring workshop in the mid‑September window.
+
+Pre‑reads (attached/linked in invite)
+RFI pack and vendor follow‑up question list.
+
+RAID snapshot (risks, issues, assumptions, dependencies) and immediate task list with proposed owners.
+
+Requirement categories and user‑story mapping with draft scorer assignments.
+
+Expected outcomes
+Signed‑off scoring methodology, weights, and scorer/reviewer roster by domain.
+
+Confirmed Tech ownership for governance/security, API/integration, and architecture decisions with timelines for written approvals.
+
+Named attendees for supplier demos and Q&A, with dates tentatively reserved.
+
+Agreed actions to mitigate top risks and clear gating dependencies for the December OOB decision.
+
+RSVP
+Kindly confirm attendance and nominated owners by [DD Mon], and share any additional agenda items or constraints in advance
+
+-----
+
 Slide Deck Structure
 1. Context and Objective
 Current spend on Qualtrics: $2.2M annually.
