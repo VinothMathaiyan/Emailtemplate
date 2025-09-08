@@ -310,3 +310,68 @@ Align integration/API patterns with CTO/CSO as part of RFI pack 	CTO/CSO + Tech 
 Ensure cross‑BU reviewers and segregated scoring to avoid self‑scoring 	Program Sponsor + RFI Chair 	In progress
 
 ---------------
+
+
+Yes—below are additional risks, assumptions, dependencies, and issues to strengthen the survey tool requirements and RFI evaluation coverage, grounded in privacy/DPIA, SaaS procurement, and data residency best practices for employee data programs.
+
+Additional risks
+Expanding worker monitoring via engagement/360 without a completed DPIA could create high risk to workers’ rights and force rollbacks if challenged by Privacy or Legal.
+
+Data residency or cross‑border transfer misalignment (e.g., EU, UK, India) could block certain survey populations or require re‑architecting storage/processing flows late in the plan.
+
+Vendor lock‑in from proprietary data models/APIs may make exit migrations from Glint/Peakon costly, slow, and lossy in historical trend continuity.
+
+Unclear lawful basis and transparency for 360 feedback (performance vs. development) could raise fairness objections and reduce participation/compliance.
+
+Metadata/telemetry collection beyond stated purpose (e.g., behavioral analytics) could exceed necessity and breach data minimization expectations in DPIA.
+
+Reporting/analytics promises that rely on disabled AI features risk stakeholder dissatisfaction and erosion of trust in selection outcomes.
+
+Incomplete data mapping from Qualtrics exports (branch logic, embedded data, IDs) risks broken longitudinal reporting and erroneous insights.
+
+Support/SLA underperformance during global launches raises incident MTTR and survey window failures impacting statutory or business deadlines.
+
+Security model regressions (roles, scoping, API tokens) amid rapid enablement could widen access inadvertently to sensitive HR data.
+
+Change fatigue and survey overload without governance may depress response rates and bias sentiment results across business units.
+
+Additional assumptions
+Vendors will provide DPIA‑relevant artifacts (subprocessors, data flows, retention, encryption) in time to support the October privacy gate.
+
+Survey data storage/processing can be regionally pinned or controlled to satisfy residency and transfer restrictions for priority countries.
+
+Export formats (CSV/JSON) and APIs are sufficient to recreate key longitudinal metrics outside the vendor if needed for BAU reporting or exit.
+
+Workers will be informed about survey purposes and any monitoring‑adjacent processing before pilots begin, supporting transparency and fairness.
+
+360 feedback will be positioned as development‑oriented with confidentiality protections to mitigate bias and retaliation risks.
+
+The org can operate with Copilot disabled while still validating core analytics/dashboards for decision‑making during evaluation.
+
+Qualtrics tenant allows complete, timely export of item banks, display logic, response data, and IDs for mapping to target tools.
+
+Additional dependencies
+Finalized DPIA methodology, worker notice templates, and privacy sign‑offs ahead of any production exposure of employee data.
+
+Confirmed data residency/transfer posture (regions, SCCs, DPA, subprocessors) from vendors to unblock global scope.
+
+Contract clauses for data ownership, egress SLAs, and structured exit plans to reduce vendor lock‑in risk before committing.
+
+Vendor‑supplied data dictionaries, API specs, and schema lineage for accurate migration and analytics validation.
+
+Security architecture decisions (SSO, SCIM/HRIS sync, roles, API security) documented and approved by CTO/CSO.
+
+BU/HRBP capacity locked for demos, requirement validation, and scoring workshops to ensure impartial, cross‑functional evaluation.
+
+Additional issues
+Gaps in vendor DPAs/subprocessor lists or outdated privacy documentation slow DPIA review and extend the critical path.
+
+Ambiguity in ownership for 360 (Workday vs. Glint) risks duplicated rollouts and conflicting change management messages.
+
+Inconsistent requirement granularity across domains (Security vs. Survey Build) leads to uneven scoring and audit challenges.
+
+Lack of clear data retention and deletion policies per survey type (engagement vs. 360) causes compliance uncertainty in the DPIA.
+
+Missing worker communications (purpose, lawful basis, contact points) prior to pilots undermines trust and participation rates.
+
+No agreed export checks and reconciliation (row counts, IDs, logic) after migration test runs risks silent data loss in dashboards
