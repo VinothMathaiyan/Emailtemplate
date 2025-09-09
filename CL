@@ -1,421 +1,48 @@
-Purpose
-Align ownership and timeline for post‑RFI scoring, propose that governance and technical responsibilities (security, APIs, integrations) are owned by the Tech organization, and confirm attendees for vendor demos and Q&A.
+Here is a prompt template you can use with Copilot for replying to support tickets. This template tells Copilot to consult both the email subject, your comments, and a shared reference folder before drafting the response:[1][2][3]
 
-Agenda
-Confirm owner map by domain: Governance, Security/Privacy & DPIA, Integration/APIs, Data/Migration, Support/SLAs, Survey Build/Distribution, Analytics/Dashboards/AI, Globalization, Admin/Audit.
+***
 
-Review the grouped granular requirements and user stories, and cross‑check assigned scorers to ensure segregation of duties and impartiality.
+### Copilot Support Ticket Reply Prompt Template
 
-Agree scoring mechanism and weights (priority × availability), and when scoring is applied (post vendor responses).
+**Instruction to Copilot:**
+Draft a support ticket reply.
 
-Identify Tech attendees for supplier demos (incl. Glint 360), define Q&A participants, decision makers, reviewers, and final scorers by domain.
+**References and Inputs:**  
+- **Email Subject:** [Paste the subject line here]  
+  *Use this for searching the context and previous correspondence.*  
+- **Personal Note/Comments:** [Add your brief comments or additional points here]  
+  *These are specific points or context you want Copilot to include.*  
+- **Reference Material:** [Paste your Share Drive link here]  
+  *Copilot should refer to this folder for standard replies or related documentation.*
 
-Review key risks and dependencies (e.g., DPIA completion, Rox approval for OOB enablement, Copilot disabled in non‑prod, migration/export readiness, support SLAs) and assign follow‑ups.
+**Response Guidance:**  
+- Begin response using standard templates or resolutions from the linked reference material.
+- Customize and supplement the reply using my comments.
+- Ensure the reply is relevant to the subject line provided.
 
-Confirm near‑term timeline: mid‑September vendor responses/demos; end‑October DPIA gate; December OOB enablement decision and activity breakdown.
+***
 
-Requests ahead of the call
-Please nominate named Tech owners for Security/CSO, Integration/API, and Architecture to lead governance/technical items and attend demos/Q&A.
+### Example Prompt
 
-Review the user‑story list and indicate any scoring owner changes or conflicts of interest to preserve impartiality.
+Draft a support ticket reply.
 
-Validate availability for demo windows and the scoring workshop in the mid‑September window.
+- **Email Subject:** Access issue for survey portal  
+- **Personal Note/Comments:** User says issue started after yesterday’s update. Please mention we’re escalating to the IT team for quick resolution.  
+- **Reference Material:** [https://yourcompany.sharepoint.com/sharerepliesfolder]  
 
-Pre‑reads (attached/linked in invite)
-RFI pack and vendor follow‑up question list.
+Use standard reply templates from the reference material plus my comments, and address the issue in the email subject.
 
-RAID snapshot (risks, issues, assumptions, dependencies) and immediate task list with proposed owners.
+***
 
-Requirement categories and user‑story mapping with draft scorer assignments.
+**Tip:** Update the subject, your personal notes, and the Share Drive link in each prompt as needed. This ensures Copilot can compose accurate, efficient, and contextual responses.[2][3][1]
 
-Expected outcomes
-Signed‑off scoring methodology, weights, and scorer/reviewer roster by domain.
-
-Confirmed Tech ownership for governance/security, API/integration, and architecture decisions with timelines for written approvals.
-
-Named attendees for supplier demos and Q&A, with dates tentatively reserved.
-
-Agreed actions to mitigate top risks and clear gating dependencies for the December OOB decision.
-
-RSVP
-Kindly confirm attendance and nominated owners by [DD Mon], and share any additional agenda items or constraints in advance
-
------
-
-Slide Deck Structure
-1. Context and Objective
-Current spend on Qualtrics: $2.2M annually.
-
-Goal: Identify potential cost savings and efficiency by exploring Viva Glint and Workday Peakon (already enterprise-licensed).
-
-Approach: Evaluate features, compliance, implementation challenges, and alignment with business needs on a global scale.
-
-2. Tools in Scope
-Qualtrics (current state).
-
-Viva Glint (Microsoft ecosystem, Copilot integration, pending DPIA).
-
-Workday Peakon (part of Workday suite, native to HR lifecycle management).
-
-3. Comparison Table (High-Level)
-Criteria	Qualtrics (Current)	Viva Glint (Microsoft)	Workday Peakon
-Licensing Cost	$2.2M annual	Enterprise license already purchased	Enterprise license already purchased
-Core Strength	Mature, flexible, robust survey & analytics	Integrated with Microsoft suite & Copilot AI	Integrated with HR lifecycle in Workday
-Compliance (DPIA etc.)	Completed	Pending DPIA, must finish before go-live	Likely aligned with Workday compliance
-Migration Effort	Current base system, no migration needed	Need migration of existing surveys and historic data	Same—migration required
-Advanced Analytics & AI	Available, mature	Roadmap-driven, AI via Copilot	Roadmap-driven
-Global Scalability	Mature, proven	Supports MS ecosystem, global rollout depends on DPIA	Natural fit for global HR implementation
-Support & Maintenance	Vendor professional support	MS enterprise support ecosystem	Workday enterprise support
-Risk Factors	High licensing costs	DPIA pending, implementation feasibility	Integration alignment with Workday HR modules
-(This table should be built with more detailed scoring once RFI responses are finalized.)
-
-4. What We Have Done So Far
-Shared business requirements to Microsoft and Workday.
-
-Identified gaps in vendor responses (pending granular answers).
-
-Tech team recommended RFI process with scoring methodology.
-
-Drafting template with business requirements and vendor questions (to be reviewed by CDO, tech stakeholders, audit).
-
-Initiated alignment on functional requirements (employee journey, engagement, lifecycle, 360 feedback) and NFRs (security, scalability, data privacy, support).
-
-5. Next Steps / Approach
-Finalize Business Requirement Template with:
-
-Must Have, Good to Have, Nice to Have categories.
-
-Availability scoring (Fully available, Partially available, Not available).
-
-Weighted priorities (functional vs. non-functional).
-
-Evaluate vendor RFI responses using scoring & weighted approach.
-
-DPIA review for Viva Glint before Dec go-live.
-
-Risk assessment across migration, compliance, global adoption, and data security.
-
-Align with stakeholders (beyond HR: audit, global functions, CDO, CTO).
-
-6. Risks and Challenges
-Qualtrics: Cost unsustainable.
-
-Viva Glint: DPIA not completed, migration complexity, reliance on roadmap for AI/analytics.
-
-Workday Peakon: Deep dependency on Workday HR rollout and integration testing.
-
-Cross-cutting risks: Migration feasibility, advanced analytics roadmap, 24/7 support availability, alignment across global business units.
-
-Supporting Template for Vendor Questions
-Business Requirement Template
-Requirement Category	Specific Requirement	Priority (High/Med/Low)	Availability (Full / Partial / No)	Vendor Response	Notes / Gaps
-Functional	Multi-language surveys	High			
-Functional	360 feedback program	High			
-Functional	AI-driven analytics	Medium			
-Non-functional	GDPR/DPIA compliance	High			
-Non-functional	24/7 tech support globally	High			
-Non-functional	Data migration tools from Qualtrics	High			
-Risk Assessment Pointers
-Data Privacy: Viva Glint DPIA pending – critical to complete.
-
-Migration & Adoption: Moving from Qualtrics requires onboarding historic surveys/data.
-
-AI Enablement: Importance of roadmap clarity for analytics, dashboards, Copilot use case.
-
-Dependence on Functions: Internal audit, HR, global business units involvement mandatory
-
-
----------
-The RAID below is grouped by Risks, Issues, Dependencies, and Assumptions, with each entry including type, status, category, RAG, ownership, and linkages for traceability across workstreams (Glint, Peakon, Copilot, Qualtrics, Data Privacy, RFI/Scoring, Migration, Support) to match the program governance model.
-
-Status values use the lifecycle provided (New, Impact assessment, Planning, Implementation, Controlled, Triggered, Issue, Mitigated, No event, Rejected), and responses follow Avoid, Reduce, Transfer, Accept, and Contingency as instructed to maintain auditability and consistent handling across forums.
-
-Scoring fields (Probability, Impact Rating, Rating Score) are included to support weighted evaluation and weekly RAG review, with linked dependencies and issues for single-source of truth in JIRA and the RAID register.
-
-Scoring and weighting
-Use Probability in {Low=1, Medium=2, High=3} and Impact Rating in {Low=1, Medium=2, High=3}, then compute Rating Score = Probability × Impact to drive prioritization and escalation thresholds in the weekly forum.
-
-For RFI evaluation, apply requirement priority weights (Must/High=3, Should/Medium=2, Nice/Low=1) multiplied by vendor availability (Full=1, Partial=0.5, Not=0) to create a technical score, and align this scoring scheme with Tech and CDO in a documented decision so it’s defensible and repeatable.
-
-Maintain impartiality by mandating cross–business unit reviewers and separating requestors from scorers, with independent validation and clear ownership per criterion to avoid “marking their own work” risk in the RFI process.
-
-Governance and traceability
-Capture decisions from Tech (integration, API, security models, budget) as written artifacts, link them to the relevant risks/issues in RAID and to JIRA tickets, and tag reporting level (Executive/Sponsor/Program/Workstream/User story) to streamline escalations and audits.
-
-Enforce BU participation with named approvers and workload allocations in the RFI, and schedule a scoring-alignment workshop to lock weights, owners, categories, and the timing for when scoring is applied (after supplier response receipt).
-
-For compliance and privacy, run DPIA to completion before any production rollout, gate enablement with QA/compliance checklists, and log sign‑offs to mitigate rollback risk observed in prior Microsoft Forms experiences.
-
-Risks
-Risk ID	Workstream	Description	Risk type	Category	Response	Status	Probability	Impact	Score	RAG	Owner	Reporting	Mitigation/contingency	Linked deps
-R1 	Data Privacy / Viva Glint 	DPIA for Viva Glint not completed; may delay enablement and production rollout 	Threat 	Legal/Compliance/Privacy 	Reduce 	Impact assessment 	Medium 	High 	6 	Amber 	Data Privacy Lead 	Program 	Engage Data/EA to complete DPIA by Oct; block production until sign‑off 	D1 
-R2 	AI Governance / Copilot / Viva Glint 	Org directive to disable Copilot may conflict with Glint Copilot integration 	Threat 	Technical/Governance/Policy 	Avoid 	Impact assessment 	Medium 	Medium 	4 	Amber 	AI Governance Lead 	Workstream 	Default to disabling Copilot; permit only in non‑prod until governance alignment 	D2 
-R3 	Enablement / Delivery 	Implementation not current Tech priority; rollout may slip 	Threat 	Scheduling/Resources/PM 	Reduce 	Planning 	Medium 	High 	6 	Amber 	Tech Delivery Manager 	Program 	Keep OOB track; stage migrations post‑enable; request capacity via governance 	D3 
-R4 	Migration 	Historic survey/data migration from Qualtrics to Glint/Peakon is complex 	Threat 	Requirements/Technical/Data 	Reduce 	Impact assessment 	High 	High 	9 	Red 	Migration Lead 	Program 	Prioritize mapping/pilots; taskforce; program‑level success criteria 	D4 
-R5 	Analytics / Roadmap 	Need clarity on advanced analytics, dashboards, AI roadmaps for scoring 	Threat 	Technical/Decision Quality 	Reduce 	New 	Medium 	Medium 	4 	Amber 	Analytics PO 	Program 	Request roadmap in RFI; weight criteria; demos 	D5 
-R6 	Support & Operations 	24/7 tech support coverage and SLAs need confirmation 	Threat 	Operations/Support 	Transfer 	New 	Medium 	Medium 	4 	Amber 	Vendor Management 	Program 	Include SLAs/support model in RFI; negotiate 24/7 	D6 
-R7 	Governance / RFI 	Scoring methodology and ownership not aligned across teams 	Threat 	Decision Quality/Governance 	Reduce 	New 	High 	Medium 	6 	Amber 	RFI Chair (Tech+CDO) 	Program 	Define weighted matrix; alignment workshop; document in RFI pack 	D7 
-R8 	Stakeholder Engagement 	Risk of one team as sole driver without BU engagement 	Threat 	Organizational/Secondary Stakeholders 	Reduce 	New 	Medium 	Medium 	4 	Amber 	Program Sponsor 	Program 	Mandate BU reviewers; segregate duties; independent validation 	D8 
-R9 	Compliance / Quality 	Past Microsoft Forms issues signal compliance pitfalls if steps missed 	Threat 	Quality/Compliance 	Reduce 	Planning 	Medium 	Medium 	4 	Amber 	Compliance Lead 	Program 	Pre‑go‑live checklist; sign‑offs; QA gates 	D9 
-R10 	Configuration / Onboarding 	OOB enablement without proper setup/migration may not meet HR needs 	Threat 	Requirements/Quality 	Avoid 	Planning 	High 	Medium 	6 	Amber 	Configuration Lead 	Workstream 	Treat setup/migration as major taskforce; define acceptance criteria 	D4 
-R11 	Access & Approvals 	Director approval needed to share link/access to team 	Threat 	Approvals/Executive Support 	Transfer 	New 	Medium 	Low 	2 	Green 	Program Sponsor 	Program 	Submit approval pack; JIRA tracking; escalate if overdue 	D2 
-R12 	Procurement / Vendors 	Vendor RFI responses may be delayed or lack granularity 	Threat 	Procurement/External 	Reduce 	New 	Medium 	Medium 	4 	Amber 	Vendor Manager 	Program 	Response templates; Q&A rounds; enforce timelines 	D7 
-Issues
-Issue ID	Workstream	Title	Description	Impact	Severity	Priority	Status	RAG	Owner	Reporting	Linked risks	Due date
-I1 	Vendors (Glint/Peakon) 	Granular vendor answers pending 	Business requirements at granular level not fully answered; follow‑ups in progress 	Ambiguity in evaluation; delays in scoring 	Medium 	High 	Escalating 	Amber 	Vendor Manager 	Program 	R12, R7 	2025‑09‑20 
-I2 	Tech Architecture 	Written decisions from Tech not provided 	Need formal written decisions on integration/API/security/budget 	Blocks governance and risk mitigation; unclear constraints 	High 	Urgent 	New 	Red 	Enterprise Architecture Lead 	Program 	R7, R2 	2025‑09‑18 
-I3 	Governance / RFI 	Scoring responsibilities unclear 	Need alignment on categories, weights, and ownership; schedule call 	Inconsistent evaluation and auditability gaps 	Medium 	Medium 	New 	Amber 	RFI Chair (Tech+CDO) 	Program 	R7 	2025‑09‑16 
-I4 	Data Privacy / Viva Glint 	DPIA process initiation pending 	DPIA not completed for Viva Glint 	Blocks production rollout and may delay enablement 	High 	High 	New 	Amber 	Data Privacy Lead 	Program 	R1 	2025‑10‑31 
-I5 	Stakeholder Engagement 	Cross‑BU engagement limited 	Risk of one team being sole driver; need broad involvement and segregation of duties 	Bias and requirement gaps; rework later 	Medium 	High 	New 	Amber 	Program Sponsor 	Program 	R8 	2025‑09‑25 
-I6 	Tracking & Tooling 	JIRA tracking not established 	Need JIRA project, tickets, and traceability for decisions and status 	Transparency and auditability risks 	Low 	Medium 	New 	Green 	PMO 	Program 	R7 	2025‑09‑15 
-I7 	Access & Approvals 	Access provisioning to team pending 	Director approval required to share links and access 	Delays evaluation and enablement activities 	High 	High 	New 	Amber 	Program Sponsor 	Program 	R11 	2025‑09‑25 
-I8 	Configuration / Onboarding 	OOB enablement without migration plan 	OOB without setup/migration risks HR needs not being met 	Low adoption; rework 	Medium 	Medium 	New 	Amber 	Configuration Lead 	Workstream 	R10, R4 	2025‑12‑01 
-Dependencies
-Dep ID	Description	Type	Int/Ext	Status	Owner	Needed by	Linked	RAG
-D1 	DPIA completion for Viva Glint 	Mandatory 	Internal 	Agreement Pending 	Data Privacy Lead 	2025‑10‑31 	R1, I4 	Amber 
-D2 	Director approval to share link/access 	Mandatory 	Internal 	Requirement Analysis 	Program Sponsor 	2025‑09‑25 	R11, I7 	Green 
-D3 	Tech capacity allocation for enablement 	Mandatory 	Internal 	Agreement Pending 	Tech Delivery Manager 	2025‑11‑15 	R3 	Amber 
-D4 	Qualtrics data export and mapping for migration 	Mandatory 	Internal/External 	Agreement Pending 	Migration Lead 	2026‑01‑31 	R4, I8 	Red 
-D5 	Vendor analytics/AI roadmap details 	Discretionary 	External 	Agreement Pending 	Vendor Manager 	2025‑10‑15 	R5 	Amber 
-D6 	24/7 support model and SLAs 	Mandatory 	External 	Agreement Pending 	Vendor Manager 	2025‑11‑01 	R6 	Amber 
-D7 	Agreed weighted scoring and ownership 	Mandatory 	Internal 	Agreement Pending 	RFI Chair (Tech+CDO) 	2025‑09‑20 	R7, I3 	Amber 
-D8 	BU reviewers and independent validation 	Mandatory 	Internal 	Requirement Analysis 	Program Sponsor 	2025‑09‑25 	R8, I5 	Green 
-D9 	Compliance/QA checklist and sign‑offs 	Mandatory 	Internal 	New 	Compliance Lead 	2025‑11‑15 	R9 	Amber 
-Assumptions
-Asm ID	Assumption	Status	Owner	Reporting	Related risk	A/C	RAG
-A1 	Vendors will deliver RFI responses in agreed templates with sufficient granularity 	Analysis 	Vendor Manager 	Program 	R12 	Assumption 	Amber 
-A2 	Tech will provide written decisions on integration/API/security/budget 	New 	Enterprise Architecture Lead 	Program 	R7 	Assumption 	Red 
-A3 	Director approval to share access will be granted by needed date 	New 	Program Sponsor 	Program 	R11 	Assumption 	Green 
-A4 	AI features (Copilot) can be disabled in non‑prod without blocking evaluation 	Accepted 	AI Governance Lead 	Workstream 	R2 	Assumption 	Amber 
-A5 	Qualtrics data is exportable and mappable to target platforms 	Analysis 	Migration Lead 	Program 	R4 	Assumption 	Amber 
-RFI scoring template (use in the workbook)
-Requirement weight: Must/High=3, Should/Medium=2, Nice/Low=1, multiplied by vendor availability: Full=1, Partial=0.5, Not=0, producing a technical score per requirement and rollup per domain (security, privacy, analytics, HR programs, support, integration).
-
-Apply scoring only after supplier responses are received; assign owners per domain and maintain traceability in JIRA with a cross‑BU reviewer to avoid self‑scoring bias.
-
-Include analytics roadmap, dashboards, AI enablement, support SLAs, compliance/DPIA, and migration tooling as separate weighted categories to reflect non‑functional criticality alongside functional features.
-
-Operating cadence and tracking
-Create a JIRA epic “Colleague Listening RFI” with stories for DPIA, Scoring Method, Access Approvals, Vendor Responses, Migration Mapping, Support SLAs, and Compliance Checklist, and link each RAID row ID to the corresponding ticket for status roll‑ups and audit traceability.
-
-Use reporting levels in each ticket (Executive/Sponsor/Program/Workstream/User story) and publish a weekly RAID snapshot to the forum; mark RAG and escalate Red/Amber with actions and owners to drive decisions on timeline, scope, and gating criteria.
-
-Keep Copilot configuration decisions and any policy exceptions as written artifacts attached to the RAID and JIRA to remain aligned with the organization’s AI strategy and to prevent unmanaged feature exposure in production
-
---------
-
-Objective
-Identify a cost‑effective replacement for the current survey stack by validating Microsoft Viva Glint and Workday Peakon against final requirements while preserving critical programs (engagement, lifecycle, HR experience, 360) at global scale.
-
-Enable a minimal viable December release of Viva Glint as an out‑of‑box product pending approvals, with full utility unlocked by onboarding and migration in phased waves in 2026.
-
-Current status
-Detailed requirements shared with Microsoft; first‑level responses received; follow‑up questions expected mid‑September for closure on gaps and feasibility.
-
-RFI approved by CTO; released to Workday, Microsoft (Glint), and Qualtrics to drive structured scoring and auditability across functional and non‑functional requirements.
-
-December release scope
-Out‑of‑box enablement of Viva Glint for the colleague listening team subject to Director (Rox) approval and gating on DPIA completion for any production use.
-
-Scope guarded to non‑production evaluation where Copilot is disabled by policy; define which survey types and data classes are safe to run during the pilot window.
-
-Pilot: Glint 360
-Sophia to meet Rox with a pilot ask on Viva Glint 360; request Microsoft to share a GLINT 360 demo with the Talent team/HRBP to validate fit and adoption readiness at org scale.
-
-Cross‑check overlap with the existing Workday 360 framework to avoid duplication and confirm whether HRBP/Talent intend to proceed with Workday or Viva Glint for 360s.
-
-Requirements snapshot
-Programs in scope: colleague engagement, lifecycle/journey, HR experience, and 360; include advanced analytics, dashboards, AI enablement, global multi‑language, and 24×7 support as evaluation categories.
-
-Track availability per requirement as Fully/Partially/Not available and priority as Must/Should/Nice, to be multiplied by supplier responses for technical scoring.
-
-Open questions
-Vendor clarifications on analytics roadmaps, dashboards, AI features under Copilot restrictions, migration tooling from Qualtrics, and global support SLAs are due mid‑September; keep placeholders in the scoring until responses land.
-
-Validate safe non‑production configurations and named data elements with Privacy and Architecture before any pilot cycles or demo data seeding.
-
-RFI and ownership
-Name owners per vendor: Microsoft (Glint), Workday (Peakon), Qualtrics, with a central Vendor Manager coordinating timelines, Q&A rounds, and templated responses for consistency.
-
-Separate requestors from scorers with cross‑BU reviewers and independent validation to avoid “marking their own work” and ensure impartiality in final tallies.
-
-Tech/compliance checkpoints
-DPIA for Viva Glint is mandatory before any production rollout; engage Data/Enterprise Architects to complete by end‑October and gate production behind sign‑off.
-
-Align with CTO/CSO on integration patterns, APIs, security models, and budget in writing; attach artifacts to the RFI pack and track as JIRA decisions for audit.
-
-Risks and mitigations
-Copilot policy conflict limits AI features in Glint; default to disable in non‑prod and assess impact on analytics expectations with clear comms to stakeholders.
-
-OOB enablement without migration may not meet HR needs; treat setup/migration as a major taskforce, define acceptance criteria, and phase in historical data onboarding.
-
-Dependencies
-Director approval to provision access to the colleague listening team and to proceed with the pilot/demos; schedule and track as a blocking dependency.
-
-Qualtrics export/mapping readiness for migration scenarios; vendor roadmaps for analytics/AI; 24×7 support model and SLAs confirmed as part of evaluation.
-
-Timeline and milestones
-Mid‑September: vendors return follow‑up answers; schedule demo of GLINT 360 with Talent/HRBP; scoring workshop to lock weights and owners.
-
-End‑October: DPIA completion target; finalize RFI scoring and recommendations; confirm December enablement go/no‑go with gating criteria.
-
-Scoring proposal
-Technical score = Requirement Priority (Must=3, Should=2, Nice=1) × Vendor Availability (Full=1, Partial=0.5, Not=0), with separate weighted domains for Security/Privacy, Integration/APIs, Analytics/AI, Programs, Support, and Migration.
-
-Apply scoring only after supplier responses; publish scorer assignments, cross‑BU reviewers, and an audit trail in JIRA; maintain impartiality by segregating duties.
-
-Next steps
-Lock the one‑pager and circulate to the forum; schedule the scoring alignment call and the Microsoft GLINT 360 demo for Talent/HRBP; confirm pilot scope and data classes.
-
-Prepare the December enablement plan and RACI, including approvals, DPIA gate, configuration hardening (Copilot disabled), and a breakdown of activities with owners and dates.
-
-Decisions needed
-Approve December OOB enablement path subject to DPIA and access approvals; confirm pilot sponsorship and demo audience; endorse the scoring methodology and owner map.
-
-Confirm which 360 framework to prioritize (Workday vs. Viva Glint) post‑demo and vendor responses, and define the migration phasing from Qualtrics where applicable
-
-------------------------
-
-
-Here is a crisp one‑pager of bullet points summarizing what’s done, the proposed plan, requirement categories, dependencies, and next steps for the survey tool evaluation and December out‑of‑box enablement of Viva Glint.
-
-What’s done so far
-Shared granular business requirements with Microsoft and received first‑level responses; follow‑up answers expected mid‑September for closure on gaps.
-
-RFI approved and released to Microsoft (Glint), Workday (Peakon), and Qualtrics to enable structured, auditable comparison and scoring.
-
-Aligned that Copilot features must be disabled per org AI strategy during evaluation and any non‑production use.
-
-Proposed plan
-December enablement: turn on Viva Glint as an out‑of‑box product for the colleague listening team, gated by approvals and privacy requirements, while migration is phased post‑enablement.
-
-Run a pilot ask for Glint 360 with Talent/HRBP, and request Microsoft to demo 360 for stakeholder validation, while cross‑checking overlap with Workday’s 360 framework.
-
-Requirement categories
-Platform/Software Management, Security/Privacy/DPIA, Integration/API, Support/SLAs, Survey Build and Logic, Distribution, Data Collection/Consent/Retention, Analytics/Dashboards, AI enablement with Copilot disabled, Migration from Qualtrics, Globalization/Localization, Admin/Governance/Audit.
-
-Classify each requirement as Must/Should/Nice and mark availability as Full/Partial/Not, ready for weighted scoring across vendors.
-
-Dependencies and gates
-DPIA completion for Viva Glint is mandatory prior to any production use; engage Data/Enterprise Architects to complete by end‑October.
-
-Director (Rox) approval required to provision access and confirm December out‑of‑box enablement scope for the colleague listening team.
-
-Next steps and ownership
-Vendor engagement: confirm named owners for Microsoft, Workday, and Qualtrics, schedule demos (including Glint 360), and lock response timelines for follow‑ups.
-
-Stakeholder engagement: involve HRBP/Talent and cross‑BU reviewers, separating requestors from scorers to avoid “marking their own work” and to ensure impartiality.
-
-Scoring approach
-Compute technical score = Priority weight (Must/Should/Nice) × Availability (Full/Partial/Not), applied after vendor responses arrive, with scorer assignments and cross‑BU validation.
-
-Maintain separate weighted domains for Security/Privacy/DPIA, Integration/APIs, Analytics/AI, Programs (Engagement/Lifecycle/HR Experience/360), Support/SLAs, and Migration.
-
-Risks and issues to watch
-Copilot policy conflict limiting AI features in Glint; operate with Copilot disabled and clarify analytics expectations with stakeholders.
-
-Enabling out‑of‑box without migration risks utility; treat setup and migration as a taskforce with defined acceptance criteria and phased onboarding.
-
-Timeline markers
-Mid‑September: receive vendor follow‑up answers and run Glint 360 demo with Talent/HRBP; hold scoring alignment workshop to finalize weights/owners.
-
-End‑October: complete DPIA and confirm December enablement go/no‑go with gating criteria and documented tech/security decisions.
-
-Decisions needed
-Approve December out‑of‑box enablement subject to DPIA and Rox approvals, and endorse the weighted scoring method with named scorers and reviewers.
-
-Choose the 360 path to prioritize (Workday framework vs Viva Glint 360) post‑demo and vendor responses, and confirm migration phasing from Qualtrics.
-
-Emphasize for leaders: complete DPIA, secure Rox approval for the OOB December enablement, and confirm the 360 demo/pilot path with Talent/HRBP as immediate priorities
-
-------------------------
-
-
-ask description 	Owner 	Status 
-RFI released to Microsoft (Glint), Workday (Peakon), and Qualtrics 	Vendor Manager 	Done 
-Await vendor follow‑up responses (mid‑September) and close gaps 	Vendor Manager 	In progress 
-Categorize granular requirements (Platform, Security/Privacy/DPIA, Integration/API, Support/SLAs, Survey build, Distribution, Data/Consent, Analytics/AI, Migration, Globalization, Governance) 	Colleague Listening PMO + Domain Leads 	In progress 
-Align scoring method, weights, and scorer ownership; schedule workshop 	RFI Chair (Tech + CDO) 	Planned 
-Assign vendor engagement owners and lock demo dates (incl. Glint 360) 	Vendor Manager 	Planned 
-Run Glint 360 demo for Talent/HRBP and collect feedback 	Microsoft + Talent/HRBP 	Planned 
-Decide preferred 360 path (Workday framework vs Viva Glint 360) post‑demo 	HRBP/Talent + Program Sponsor 	Planned 
-Complete DPIA for Viva Glint (gate for any production use) 	Data Privacy Lead + Enterprise Architects 	Planned 
-Secure Director (Rox) approval for OOB enablement and access provisioning 	Program Sponsor 	Pending approval 
-Configure non‑production with Copilot disabled per policy 	AI Governance Lead + Tech Delivery 	Planned 
-Define safe survey types/data classes for pilot with Privacy/Architecture 	Data Privacy Lead + Enterprise Architects 	Planned 
-Provision access for colleague listening team to evaluate Glint 	Tech Delivery + Program Sponsor 	Planned 
-Prepare December OOB enablement plan and RACI (owners/dates/gates) 	Colleague Listening PMO 	Planned 
-Draft migration approach from Qualtrics (export/mapping, phasing) 	Migration Lead 	Planned 
-Confirm global 24×7 support model and SLAs with vendors 	Vendor Manager 	Planned 
-Capture Tech written decisions on integration, APIs, security models, budget 	Enterprise Architecture Lead 	Open 
-Track work in JIRA and publish weekly RAID snapshot to the forum 	PMO 	Ongoing 
-Prepare compliance/QA pre‑go‑live checklist and sign‑offs 	Compliance Lead 	Planned 
-Align integration/API patterns with CTO/CSO as part of RFI pack 	CTO/CSO + Tech Architects 	Planned 
-Ensure cross‑BU reviewers and segregated scoring to avoid self‑scoring 	Program Sponsor + RFI Chair 	In progress
-
----------------
-
-
-Yes—below are additional risks, assumptions, dependencies, and issues to strengthen the survey tool requirements and RFI evaluation coverage, grounded in privacy/DPIA, SaaS procurement, and data residency best practices for employee data programs.
-
-Additional risks
-Expanding worker monitoring via engagement/360 without a completed DPIA could create high risk to workers’ rights and force rollbacks if challenged by Privacy or Legal.
-
-Data residency or cross‑border transfer misalignment (e.g., EU, UK, India) could block certain survey populations or require re‑architecting storage/processing flows late in the plan.
-
-Vendor lock‑in from proprietary data models/APIs may make exit migrations from Glint/Peakon costly, slow, and lossy in historical trend continuity.
-
-Unclear lawful basis and transparency for 360 feedback (performance vs. development) could raise fairness objections and reduce participation/compliance.
-
-Metadata/telemetry collection beyond stated purpose (e.g., behavioral analytics) could exceed necessity and breach data minimization expectations in DPIA.
-
-Reporting/analytics promises that rely on disabled AI features risk stakeholder dissatisfaction and erosion of trust in selection outcomes.
-
-Incomplete data mapping from Qualtrics exports (branch logic, embedded data, IDs) risks broken longitudinal reporting and erroneous insights.
-
-Support/SLA underperformance during global launches raises incident MTTR and survey window failures impacting statutory or business deadlines.
-
-Security model regressions (roles, scoping, API tokens) amid rapid enablement could widen access inadvertently to sensitive HR data.
-
-Change fatigue and survey overload without governance may depress response rates and bias sentiment results across business units.
-
-Additional assumptions
-Vendors will provide DPIA‑relevant artifacts (subprocessors, data flows, retention, encryption) in time to support the October privacy gate.
-
-Survey data storage/processing can be regionally pinned or controlled to satisfy residency and transfer restrictions for priority countries.
-
-Export formats (CSV/JSON) and APIs are sufficient to recreate key longitudinal metrics outside the vendor if needed for BAU reporting or exit.
-
-Workers will be informed about survey purposes and any monitoring‑adjacent processing before pilots begin, supporting transparency and fairness.
-
-360 feedback will be positioned as development‑oriented with confidentiality protections to mitigate bias and retaliation risks.
-
-The org can operate with Copilot disabled while still validating core analytics/dashboards for decision‑making during evaluation.
-
-Qualtrics tenant allows complete, timely export of item banks, display logic, response data, and IDs for mapping to target tools.
-
-Additional dependencies
-Finalized DPIA methodology, worker notice templates, and privacy sign‑offs ahead of any production exposure of employee data.
-
-Confirmed data residency/transfer posture (regions, SCCs, DPA, subprocessors) from vendors to unblock global scope.
-
-Contract clauses for data ownership, egress SLAs, and structured exit plans to reduce vendor lock‑in risk before committing.
-
-Vendor‑supplied data dictionaries, API specs, and schema lineage for accurate migration and analytics validation.
-
-Security architecture decisions (SSO, SCIM/HRIS sync, roles, API security) documented and approved by CTO/CSO.
-
-BU/HRBP capacity locked for demos, requirement validation, and scoring workshops to ensure impartial, cross‑functional evaluation.
-
-Additional issues
-Gaps in vendor DPAs/subprocessor lists or outdated privacy documentation slow DPIA review and extend the critical path.
-
-Ambiguity in ownership for 360 (Workday vs. Glint) risks duplicated rollouts and conflicting change management messages.
-
-Inconsistent requirement granularity across domains (Security vs. Survey Build) leads to uneven scoring and audit challenges.
-
-Lack of clear data retention and deletion policies per survey type (engagement vs. 360) causes compliance uncertainty in the DPIA.
-
-Missing worker communications (purpose, lawful basis, contact points) prior to pilots undermines trust and participation rates.
-
-No agreed export checks and reconciliation (row counts, IDs, logic) after migration test runs risks silent data loss in dashboards
+[1](https://support.microsoft.com/en-us/topic/learn-about-copilot-prompts-f6c3b467-f07c-4db1-ae54-ffac96184dd5)
+[2](https://learn.microsoft.com/en-us/dynamics365/contact-center/use/use-copilot-email)
+[3](https://learn.microsoft.com/en-us/dynamics365/customer-service/administer/add-prompt-email-template)
+[4](https://m365.cloud.microsoft/copilot-prompts)
+[5](https://support.microsoft.com/en-us/office/draft-an-email-message-with-copilot-in-outlook-3eb1d053-89b8-491c-8a6e-746015238d9b)
+[6](https://www.youtube.com/watch?v=B2GYveBbB-k)
+[7](https://learn.microsoft.com/en-us/dynamics365/release-plan/2025wave1/service/dynamics365-customer-service/insert-copilot-prompts-email-templates)
+[8](https://www.youtube.com/watch?v=nCBz-OHy_rU)
+[9](https://learn.microsoft.com/en-us/copilot/security/prompting-tips)
+[10](https://adoption.microsoft.com/en-us/copilot/user-engagement-tools-and-templates/)
