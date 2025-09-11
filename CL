@@ -1,1 +1,124 @@
+ Score each item 1–5 based on availability (Available=5, Partial=3, Not available=1), weight by importance (e.g., High:Medium:Low ratio 3:2:1 normalized), then take the weighted average to get a 1–5 score for the “Survey build” category. This approach aligns with standard RFP weighted scoring and rubric anchors for “fully/partially/does not meet.”
 
+Mapping and weights
+Availability to score: Available → 5; Partial → 3; Not available → 1, reflecting “fully meets,” “partially meets,” and “does not meet” rubric anchors on a 1–5 scale.
+
+Importance to weight: Use a 3:2:1 ratio for High:Medium:Low, then normalize across the 7 features so weights sum to 1; this preserves relative importance per weighted-scoring best practice.
+
+Calculation formula
+Normalize per-item weights: If importance ratio units are 
+r
+i
+r 
+i
+ , item weight 
+w
+i
+=
+r
+i
+∑
+j
+r
+j
+w 
+i
+ = 
+∑ 
+j
+ r 
+j
+ 
+r 
+i
+ 
+ . For 3 High, 2 Medium, 2 Low, the total units are 
+3
+⋅
+3
++
+2
+⋅
+2
++
+2
+⋅
+1
+=
+15
+3⋅3+2⋅2+2⋅1=15. Thus each High = 
+3
+/
+15
+=
+0.20
+3/15=0.20, each Medium = 
+2
+/
+15
+≈
+0.1333
+2/15≈0.1333, each Low = 
+1
+/
+15
+≈
+0.0667
+1/15≈0.0667.
+
+Category score on 1–5: 
+SurveyBuild
+1
+–
+5
+=
+∑
+i
+=
+1
+7
+w
+i
+ 
+s
+i
+SurveyBuild 
+1–5
+ =∑ 
+i=1
+7
+ w 
+i
+ s 
+i
+ , where 
+s
+i
+∈
+{
+1
+,
+3
+,
+5
+}
+s 
+i
+ ∈{1,3,5} per availability mapping.
+
+Worked example table
+Scenario: 7 features under “Survey build”: 3 High (A, N, P), 2 Medium (A, P), 2 Low (A, A). “A=Available,” “P=Partial,” “N=Not available.”
+
+Feature	Importance	Availability	Individual score (1–5)	Weight	Weighted score
+H1	High 	A 	5 	0.20 	1.00 
+H2	High 	N 	1 	0.20 	0.20 
+H3	High 	P 	3 	0.20 	0.60 
+M1	Medium 	A 	5 	0.1333 	0.6667 
+M2	Medium 	P 	3 	0.1333 	0.4000 
+L1	Low 	A 	5 	0.0667 	0.3333 
+L2	Low 	A 	5 	0.0667 	0.3333 
+Combined Survey build (1–5) 	3.53 
+Notes
+The 1–5 anchors (“does not meet” to “fully meets/exceeds”) follow common RFP rubrics; using 5/3/1 for availability keeps scoring consistent and auditable.
+
+The 3:2:1 importance ratio is a simple, transparent way to reflect High/Medium/Low; any ratio is acceptable if normalized and documented in the scorecard
