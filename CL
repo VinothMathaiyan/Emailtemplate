@@ -1,124 +1,208 @@
- Score each item 1–5 based on availability (Available=5, Partial=3, Not available=1), weight by importance (e.g., High:Medium:Low ratio 3:2:1 normalized), then take the weighted average to get a 1–5 score for the “Survey build” category. This approach aligns with standard RFP weighted scoring and rubric anchors for “fully/partially/does not meet.”
 
-Mapping and weights
-Availability to score: Available → 5; Partial → 3; Not available → 1, reflecting “fully meets,” “partially meets,” and “does not meet” rubric anchors on a 1–5 scale.
+Colleague listening is being run by multiple HR and non‑HR teams using different tools and methods, leading to uncoordinated timing, inconsistent standards, and survey fatigue that depresses response rates; the program needs a simple, shared approach for approvals, standards, and communication (including blackout windows for major surveys) so teams can run compliant, high‑quality studies without overwhelming colleagues, while re‑energizing the community of practice to help everyone follow the same playbook.
 
-Importance to weight: Use a 3:2:1 ratio for High:Medium:Low, then normalize across the 7 features so weights sum to 1; this preserves relative importance per weighted-scoring best practice.
+Scope and goals
+Scope: All colleague‑listening activities (HR and non‑HR) using tools such as MS Forms, Viva, Qualtrics, etc.
 
-Calculation formula
-Normalize per-item weights: If importance ratio units are 
-r
-i
-r 
-i
- , item weight 
-w
-i
-=
-r
-i
-∑
-j
-r
-j
-w 
-i
- = 
-∑ 
-j
- r 
-j
- 
-r 
-i
- 
- . For 3 High, 2 Medium, 2 Low, the total units are 
-3
-⋅
-3
-+
-2
-⋅
-2
-+
-2
-⋅
-1
-=
-15
-3⋅3+2⋅2+2⋅1=15. Thus each High = 
-3
-/
-15
-=
-0.20
-3/15=0.20, each Medium = 
-2
-/
-15
-≈
-0.1333
-2/15≈0.1333, each Low = 
-1
-/
-15
-≈
-0.0667
-1/15≈0.0667.
+Primary goals:
 
-Category score on 1–5: 
-SurveyBuild
-1
-–
-5
-=
-∑
-i
-=
-1
-7
-w
-i
- 
-s
-i
-SurveyBuild 
-1–5
- =∑ 
-i=1
-7
- w 
-i
- s 
-i
- , where 
-s
-i
-∈
-{
-1
-,
-3
-,
-5
-}
-s 
-i
- ∈{1,3,5} per availability mapping.
+Increase response rates for colleague listening by reducing collisions and improving clarity/trust.
 
-Worked example table
-Scenario: 7 features under “Survey build”: 3 High (A, N, P), 2 Medium (A, P), 2 Low (A, A). “A=Available,” “P=Partial,” “N=Not available.”
+Ensure alignment with data privacy/consent and organization policy via an easy, consistent approval path.
 
-Feature	Importance	Availability	Individual score (1–5)	Weight	Weighted score
-H1	High 	A 	5 	0.20 	1.00 
-H2	High 	N 	1 	0.20 	0.20 
-H3	High 	P 	3 	0.20 	0.60 
-M1	Medium 	A 	5 	0.1333 	0.6667 
-M2	Medium 	P 	3 	0.1333 	0.4000 
-L1	Low 	A 	5 	0.0667 	0.3333 
-L2	Low 	A 	5 	0.0667 	0.3333 
-Combined Survey build (1–5) 	3.53 
-Notes
-The 1–5 anchors (“does not meet” to “fully meets/exceeds”) follow common RFP rubrics; using 5/3/1 for availability keeps scoring consistent and auditable.
+Coordinate timing with blackout windows for large programs (e.g., engagement survey) and promote them to all teams.
 
-The 3:2:1 importance ratio is a simple, transparent way to reflect High/Medium/Low; any ratio is acceptable if normalized and documented in the scorecard
+Reactivate the community of practice to drive consistent standards and shared ways of working (not just participation for its own sake).
+
+Rose (what’s working/strengths)
+There is an existing community of practice forum/channel that can be revived rather than built from scratch.
+
+The HR colleague listening team has strong research/privacy expertise that can be shared as internal guidance.
+
+Multiple tools are available, enabling teams to choose fit‑for‑purpose listening with minimal setup time.
+
+An assessment/go‑no‑go checkpoint already exists and can be refined to current policy (e.g., APAC revisions).
+
+Basic policy and DP contacts/processes exist; clearer guidance can make them easier to follow.
+
+Teams are motivated to listen to colleagues, which creates pull for simple, standardized ways of doing it.
+
+Thorn (challenges/risks)
+Some surveys are uncoordinated in timing and audience; there is no common calendar or clear visibility to prevent collisions.
+
+Standards are not consistently visible or understood across non‑HR teams (methods, consent, accessibility), creating variability.
+
+The community of practice is inactive, so peer help and quick answers are missing when teams need to ship.
+
+It is unclear which studies have followed the DP/consent approval process; governance signals are not obvious or easy to check.
+
+Communication to colleagues about why a survey is happening and how data is handled is inconsistent, which can lower trust and response.
+
+Fragmented tooling creates uneven experiences; without a clear minimum standard, quality varies by team and tool.
+
+Blackout windows for major programs are not broadly communicated, so overlapping surveys still happen.
+
+Bud (opportunities/ideas)
+Define and publish blackout windows for major surveys; add a simple pre‑check so teams see conflicts before launch.
+
+Refine the existing assessment/go‑no‑go tool to reflect updated APAC policy; add “what to fix” guidance when it’s a no‑go.
+
+Create a lightweight, single “front door” intake (5–10 fields) that routes requests, triggers the assessment, and confirms approvals.
+
+Publish a one‑page playbook per topic (methods, sampling, consent wording, accessibility checks, timing best practices).
+
+Stand up a shared question library and survey templates (e.g., pulse, onboarding, well‑being) with pre‑approved wording and consent.
+
+Reactivate the community with low‑friction formats: short virtual huddles, recorded micro‑sessions, and an async Q&A channel.
+
+Provide a communication kit (purpose script, invite/reminder templates, plain‑language privacy note) to boost trust and response.
+
+Plain‑language definitions and examples
+Survey front door (simple intake): A short form where a team submits basic details (objective, audience, timing, tool). It automatically checks blackout windows, initiates the assessment/go‑no‑go, and points to required consent language. Output: “Ready,” “Fix & resubmit,” or “Needs review,” plus links to the playbook.
+
+Blackout windows: Pre‑announced periods for big programs (e.g., engagement survey) when no other surveys go live to the same audiences. Communicated via calendar invites, a banner in the intake form, and a weekly reminder post.
+
+Playbook (one‑page examples):
+
+Methods mini‑guide: when to use pulse vs. longer studies; recommended item count and timing.
+
+Consent and privacy: approved consent text variants for each tool; where to store approvals.
+
+Accessibility checklist: must‑do items for Forms/Viva/Qualtrics (contrast, labels, keyboard flow).
+
+Timing best practices: invite/reminder cadence, optimal send days, blackout rules.
+
+Shared question library: Pre‑approved items for common topics with guidance on when to use which item, expected length, and optional logic. Benefits: consistent wording, fewer debates, faster builds, and better comparability over time.
+
+Communication kit: Ready‑to‑use invite templates (“why this matters,” time to complete), reminders (gentle, then final), and a plain‑language privacy note (“how we protect your data,” “who sees the results”). This increases clarity and trust, which supports higher response.
+
+Simplified “How might we” prompts (use directly in LUMA)
+How might we increase response rates by making every survey clearly useful, safe, and easy to complete?
+
+How might we prevent survey collisions with a simple blackout calendar that teams actually check?
+
+How might we make approvals so quick and clear that teams prefer the standard path over ad‑hoc workarounds?
+
+How might we help non‑HR teams follow methods, consent, and accessibility standards with one‑page guides?
+
+How might we re‑ignite the community of practice with short, practical formats that fit busy schedules?
+
+How might we give teams ready‑made questions and templates so builds are faster and more consistent?
+
+How might we provide immediate “fix‑to‑go” feedback when the assessment returns a no‑go
+
+
+
+
+
+
+
+
+
+
+
+
+
+----Here are 6 clear affinity clusters for the Rose–Bud–Thorn items, with rationale and grouped actions, ready to move into prioritization and action planning.
+
+Clustering overview
+Items from Rose–Bud–Thorn were grouped by similarity into themes to reduce complexity and build shared understanding, per the LUMA Affinity Clustering method.
+
+Each cluster below includes its purpose, the RBT items that belong in it, and immediate next steps to progress through convergent decision‑making.
+
+Governance and approvals
+Purpose: Ensure every study follows a simple, fast, and compliant path for consent, privacy, and policy alignment without adding friction to delivery.
+
+Items grouped:
+
+Refine the existing assessment/go‑no‑go tool to reflect updated APAC policy and produce “fix‑to‑go” guidance on no‑go outcomes.
+
+Establish one simple intake “front door” that triggers assessment, routes for approvals, and provides clear status (ready, fix, review).
+
+Publish required consent text by tool and link to DP documentation to make compliance the default.
+
+Clarify roles for approvers and SLAs so teams understand timelines and escalation paths.
+
+Immediate next steps: Map the current approval steps, remove duplicate checks, and pilot the intake + assessment flow with one non‑HR team.
+
+Timing and coordination
+Purpose: Prevent survey collisions that depress response rates by coordinating a shared calendar and blackout windows for major programs.
+
+Items grouped:
+
+Publish blackout windows for engagement and other major surveys and show them in the intake form and team calendars.
+
+Add an automated collision check in intake (audience + dates) with a simple conflict flag and alternative windows.
+
+Create a lightweight weekly bulletin highlighting approved launches and active surveys to maintain visibility.
+
+Define audience guardrails to reduce overlapping sends to the same groups within short time frames.
+
+Immediate next steps: Stand up the calendar, socialize blackout periods, and run a two‑cycle trial to measure collision reductions.
+
+Standards and templates
+Purpose: Make it easy for all teams to meet methods, privacy, and accessibility standards through concise playbooks, templates, and pre‑approved questions.
+
+Items grouped:
+
+One‑page playbooks: methods, sampling, consent wording, accessibility checks, and timing best practices by tool.
+
+Shared question library for common use cases (pulse, onboarding, well‑being) with guidance on when to use each item.
+
+Pre‑built survey templates with standard lengths and invite/reminder patterns to speed builds and ensure consistency.
+
+Accessibility mini‑checklist (labels, contrast, keyboard flow) applicable across Forms, Viva, Qualtrics.
+
+Immediate next steps: Publish v1 playbooks and a minimal library, then solicit async feedback in the community channel before v2.
+
+Communications and response boost
+Purpose: Improve colleague trust and clarity to raise response rates with consistent purpose messaging, privacy notes, and invite/reminder guidance.
+
+Items grouped:
+
+Communication kit: plain‑language purpose script, approved privacy note, and invite/reminder templates with optimal cadence.
+
+Standard footer explaining data handling, who sees results, and when actions will be shared back.
+
+Guidance for targeted reminders and short survey lengths to reduce fatigue and increase completions.
+
+Pre‑launch awareness posts during blackout periods for large programs to minimize competing sends.
+
+Immediate next steps: A/B test two invite variants and two reminder cadences on an upcoming pulse and track uplift.
+
+Community of practice reactivation
+Purpose: Restart knowledge sharing with low‑friction formats that match distributed teams and encourage consistent standards adoption.
+
+Items grouped:
+
+Monthly virtual micro‑sessions (20 minutes) recorded for on‑demand viewing, plus an async Q&A thread.
+
+“Show and tell” posts of recent launches (what worked, what to change) to normalize standards and celebrate reuse.
+
+Office‑hours rotation via chat for rapid questions about intake, approvals, and templates.
+
+Lightweight recognition of adopters (e.g., highlight teams using the playbook/library) to reinforce desired behaviors.
+
+Immediate next steps: Schedule two micro‑sessions, seed the Q&A channel with FAQs, and track engagement over the first quarter.
+
+Measurement and continuous improvement
+Purpose: Prove impact, sustain momentum, and guide iteration through a small set of meaningful metrics and visible reporting.
+
+Items grouped:
+
+Response rate and completion rate trends pre/post rollout of comms kit and standards.
+
+Collision count and survey volume during blackout windows vs. baseline.
+
+Approval compliance rate via intake + assessment logs, including time‑to‑approval.
+
+Reuse of templates and library items as a proxy for standard adoption.
+
+Immediate next steps: Stand up a simple dashboard and publish a monthly one‑pager in the community channel.
+
+How to proceed (in-session)
+Put each RBT sticky into one of the six clusters, then label sub‑themes if helpful and refine cluster names last, per LUMA guidance.
+
+Run quick dot‑voting to pick top 1–2 moves per cluster, then draft an action owner and 30‑day milestone for each selected item.
+
+R
