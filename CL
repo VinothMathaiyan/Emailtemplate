@@ -1,1 +1,16 @@
 
+Please reformat the Excel flow diagram with the following rules:
+
+1. MAIN TITLE (row 1): Dark navy background (#1F3864), white bold Arial 14pt text, center aligned horizontally and vertically, spanning full width.
+
+2. SECTION HEADERS ("Option A", "Option B"): Medium blue background (#2E5090), white bold Arial 11pt, center aligned.
+
+3. FLOW STEP BOXES (Service Now API, Power Automate, SharePoint, Microsoft Forms): Alternate between dark navy (#1F3864) and medium blue (#2E5090), white bold Arial 10pt, center aligned with wrap text. Row height = 35.
+
+4. CONNECTOR ARROWS: Place a ▼ arrow character in the center column of each flow. Color #4472C4, font size 14, bold, center aligned. Row height = 14. No background fill on arrow rows.
+
+5. CONNECTOR LABELS (e.g. "http connector", "Graph API"): Small italic Arial 9pt, color #666666, centered below each arrow, no background fill.
+
+6. NOTES PANEL: Yellow background (#FFF2CC), dark gold text (#7F6000), Arial 9pt, top-left aligned with wrap text.
+
+7. All boxes in Option A span columns B to H. All boxes in Option B span columns K to Q. Maintain consistent column widths of 4 for these ranges.
