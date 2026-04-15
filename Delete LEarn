@@ -1,0 +1,52 @@
+This work sits within the Colleague Listening Programme, specifically the Learning strand of the engagement lifecycle. The learning survey captures feedback across 20,000+ modules on Workday — covering digital, blended, and instructor-led (internal and external) programmes.
+
+Trigger conditions: course completion status = Completed AND track feedback = Yes. Each completed learning module generates a separate survey per colleague. A colleague completing 5 programmes receives 5 individual surveys.
+
+
+Qualtrics supports matrix questions. Glint is limited to: rating (single), multi-select, single-select, and one open-text field — four types total.
+
+
+Glint supports one record per colleague. Workday currently exports multiple rows per colleague (one per completed module). Data must be transposed to wide format (columns) before ingestion.
+
+Qualtrics supports loop-and-merge for repeating question sets. Glint requires display logic to replicate this behaviour — feasibility of this approach needs validation.
+
+
+Microsoft indicated pre-built templates and benchmarks are available in Glint. However, no learning-specific templates or benchmarks were found upon review of the platform.
+
+
+To support up to 5 learning programmes per colleague, the transposed file would require approximately 15+ columns per record: Learning 1–5 (programme name), Type 1–5 (digital / blended / instructor-led), Instructor type 1–5 (internal / external / blank).
+
+Delta file use case — key complexity
+The file is a rolling delta extract. The same colleague's record must be overwritten on each extract cycle:
+Day 1: colleague has 1 completion → 1 column populated, 14 blank.
+Day 2: colleague has 5 completions → all 5 sets populated, Day 1 record replaced.
+Day 3: colleague has 1 new completion → record resets to 1 populated, prior 5 cleared.
+Whether this rolling replacement is achievable via Workday or the Modus layer must be confirmed.
+Open questions — tech & data team
+•	Data transpose ownership: Workday currently exports multiple rows per colleague. Who is responsible for transposing these to wide-format columns — the Workday team or the Modus team?
+•	Delta file logic: Can the extract be configured to replace a colleague's record on each run (rolling overwrite), rather than appending rows? This needs a confirmed mechanism from the data team.
+•	Column/data field limits: With 15+ columns per colleague (and further columns from other active surveys in Glint), are there data field limits that would be breached? What is the mitigation?
+•	Display logic vs loop feasibility: Can Glint's display logic replicate the loop-and-merge behaviour needed to present programme-specific questions across up to 5 learning entries? Full setup feasibility check required.
+•	Multiple surveys by programme type: Is it technically feasible to run separate surveys for instructor-led, digital, and blended — each triggered by a separate file extract at different times? What is the colleague experience impact of multiple survey emails?
+•	HRDP data pipeline: The HR Data Platform (HRDP) currently has no learning data in Modus. If HRDP becomes the future source, what is the scope and resource requirement for Workday and HRDP teams to hydrate this data movement?
+•	Learning templates & benchmarks: Can Microsoft confirm whether Glint holds any learning-specific survey templates or benchmark data, beyond what is currently visible on the platform?
+
+
+Increased response rate via task cards
+
+Integration between Glint and Viva Connections would surface pending survey tasks directly to colleagues — including due dates — within their daily workflow. This could improve response rates for both the learning and mandatory training surveys. Currently under active exploration.
+ 
+
+One survey vs multiple surveys
+Design decision needed with the learning team: run one consolidated survey covering all programme types (handled via display logic), or separate surveys per type (digital / blended / instructor-led). Each has distinct implications for file management, scheduling, and colleague experience.
+
+ 
+•	Data / Modus team: Confirm transpose feasibility and delta file overwrite logic; clarify column field limits in Glint.
+•	Workday team: Confirm whether data transformation can be handled at source, or must be done downstream.
+•	Microsoft (Glint): Validate display logic as loop-and-merge substitute; confirm learning templates/benchmarks; assess multi-survey scheduling capability.
+•	Learning team: Align on survey design approach — consolidated vs programme-type split — and confirm colleague communication strategy for multiple survey notifications.
+•	HRDP workstream: Scope the effort to hydrate learning data into HRDP/Modus for future-state data flow.
+•	
+
+
+The delta file use case is the most nuanced point — the rolling overwrite behaviour (where Thursday's 5 records replace Wednesday's 1, and Friday's 1 replaces Thursday's 5) needs to be written up as a concrete use case document for the data team, as it's a non-trivial requirement.
