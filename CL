@@ -1,1 +1,13 @@
+In my Excel sheet, help me set up two types of icon boxes in column B and column C:
 
+1. GREEN TICK BOX (column B):
+   - Fill the cell background with GREEN color (RGB: 0, 176, 80)
+   - Place a white checkmark symbol (✔) centered in the cell
+   - Bold, white font, size 14
+
+2. RED CROSS BOX (column C):
+   - Fill the cell background with RED color (RGB: 255, 0, 0)
+   - Place a white X symbol (✘) centered in the cell
+   - Bold, white font, size 14
+
+Apply this formatting to rows 2 through 20. Make the cells square-shaped by setting row height to 30 and column width to 5.
