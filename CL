@@ -1,13 +1,42 @@
-In my Excel sheet, help me set up two types of icon boxes in column B and column C:
+Step 1 — Title banner
 
-1. GREEN TICK BOX (column B):
-   - Fill the cell background with GREEN color (RGB: 0, 176, 80)
-   - Place a white checkmark symbol (✔) centered in the cell
-   - Bold, white font, size 14
+Add a merged title row across all columns at the top saying "HR Experience Project Tracker" with a dark navy background and white bold Arial text.
 
-2. RED CROSS BOX (column C):
-   - Fill the cell background with RED color (RGB: 255, 0, 0)
-   - Place a white X symbol (✘) centered in the cell
-   - Bold, white font, size 14
+Step 2 — Workstream header rows
 
-Apply this formatting to rows 2 through 20. Make the cells square-shaped by setting row height to 30 and column width to 5.
+For every row where the Action Item column is blank, apply a light blue background (#D6E4F0) with dark navy bold text and merge it across all columns.
+
+Step 3 — Alternating row colours
+
+Apply alternating white and light grey (#F7F9FC) fill to all data rows except the header and workstream rows.
+
+Step 4 — Status colours
+
+Apply conditional formatting to the Status column so that: "Done" = green fill with dark green text, "In Progress" = amber fill with dark amber text, "To Do" = grey fill with grey text, "Blocked" = red fill with dark red text.
+
+Step 5 — Priority colours
+
+Apply conditional formatting to the Priority column so that "High" = bold red text, "Medium" = bold amber text, "Low" = bold green text.
+
+Step 6 — Gantt bars
+
+In the weekly date columns, highlight each cell blue if the date in that column's header falls between the Start and End date in the same row.
+
+Step 7 — Freeze panes
+
+Freeze the first three columns (Survey, Workstream, Action Item) so they stay visible when scrolling right.
+
+Step 8 — Column widths
+
+Set column widths: Action Item = 38, Owner = 22, Status = 14, Workstream = 22, Priority = 11, Start and End = 13. Auto-fit row heights.
+
+
+Honest heads-up about Excel Copilot:
+Copilot handles steps 1–5 and 7–8 well. Step 6 (the Gantt bars) is the hardest for it — if it struggles, use this manual fallback:
+
+Select your first Gantt column's data cells (e.g. I4:I50)
+Home → Conditional Formatting → New Rule → "Use a formula"
+Enter: =AND($G4<=I$3+4, $H4>=I$3)
+Set blue fill, then copy the rule across all Gantt columns
+
+That one step is genuinely easier done manually than through Copilot.
