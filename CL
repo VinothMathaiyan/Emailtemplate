@@ -31,12 +31,7 @@ Step 8 — Column widths
 Set column widths: Action Item = 38, Owner = 22, Status = 14, Workstream = 22, Priority = 11, Start and End = 13. Auto-fit row heights.
 
 
-Honest heads-up about Excel Copilot:
-Copilot handles steps 1–5 and 7–8 well. Step 6 (the Gantt bars) is the hardest for it — if it struggles, use this manual fallback:
-
-Select your first Gantt column's data cells (e.g. I4:I50)
-Home → Conditional Formatting → New Rule → "Use a formula"
-Enter: =AND($G4<=I$3+4, $H4>=I$3)
-Set blue fill, then copy the rule across all Gantt columns
-
-That one step is genuinely easier done manually than through Copilot.
+So your Copilot sequence is steps 1–5 and 7–8, then you manually do step 6 last (after all the other formatting is in place, so you're only selecting the Gantt range once).
+When you get to the manual step, the formula again is:
+=AND($G4<=I$3+4, $H4>=I$3)
+Just remember to apply it to all Gantt columns at once by selecting the full range (e.g. I4:U50) before creating the rule — that way one rule covers the whole grid and the column reference shifts automatically. Good luck!
