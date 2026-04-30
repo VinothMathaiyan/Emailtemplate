@@ -1,37 +1,42 @@
-Step 1 — Title banner
+Here are 3 prompt variations for each slide you can use in Copilot for PowerPoint:
 
-Add a merged title row across all columns at the top saying "HR Experience Project Tracker" with a dark navy background and white bold Arial text.
+Slide 1 – Interim Survey Plan: Platforms & Coverage
+Prompt 1 (Detailed layout):
 
-Step 2 — Workstream header rows
+Create a slide titled "Interim Survey Plan – July to December" with a dark navy header and three columns. Column 1 is labelled "Viva Glint" in teal and lists: New Joiner Survey, Hiring Manager Survey, Your View Survey (~1000+ participants, partial), HR Experience Survey (~1000+ participants, partial), Mandated Training Survey (Quarterly). Column 2 is labelled "Microsoft Forms" in blue and lists: Exit Survey (Female Colleagues), HR Case Survey, Learning Survey. Column 3 is labelled "Pulse" in green and lists: Speak-Up Survey, Team Satisfaction Feedback. Add a footer note: "Partial data from Viva Glint will be integrated into Qualtrics later in the year." Use card-style layout with icons next to each item.
 
-For every row where the Action Item column is blank, apply a light blue background (#D6E4F0) with dark navy bold text and merge it across all columns.
+Prompt 2 (Visual emphasis):
 
-Step 3 — Alternating row colours
+Design a professional slide called "Platforms & Coverage – July to December" using a three-column card layout. Each column represents a survey platform: Viva Glint (5 surveys including New Joiner, Hiring Manager, Your View, HR Experience, Mandated Training), Microsoft Forms (3 surveys: Exit, HR Case, Learning), and Pulse (2 surveys: Speak-Up, Team Satisfaction). Use distinct header colours per column, bullet points with small icons, and a muted italic footer about Qualtrics integration.
 
-Apply alternating white and light grey (#F7F9FC) fill to all data rows except the header and workstream rows.
+Prompt 3 (Concise tone):
 
-Step 4 — Status colours
-
-Apply conditional formatting to the Status column so that: "Done" = green fill with dark green text, "In Progress" = amber fill with dark amber text, "To Do" = grey fill with grey text, "Blocked" = red fill with dark red text.
-
-Step 5 — Priority colours
-
-Apply conditional formatting to the Priority column so that "High" = bold red text, "Medium" = bold amber text, "Low" = bold green text.
-
-Step 6 — Gantt bars
-
-In the weekly date columns, highlight each cell blue if the date in that column's header falls between the Start and End date in the same row.
-
-Step 7 — Freeze panes
-
-Freeze the first three columns (Survey, Workstream, Action Item) so they stay visible when scrolling right.
-
-Step 8 — Column widths
-
-Set column widths: Action Item = 38, Owner = 22, Status = 14, Workstream = 22, Priority = 11, Start and End = 13. Auto-fit row heights.
+Slide titled "Interim Survey Plan (Jul–Dec) – Platforms & Coverage". Three-column layout. Viva Glint column: 5 surveys listed with partial data notes. Microsoft Forms column: 3 surveys. Pulse column: 2 surveys. Style with coloured column headers, clean white cards per survey item, and a light grey footer note about Qualtrics integration later in the year.
 
 
-So your Copilot sequence is steps 1–5 and 7–8, then you manually do step 6 last (after all the other formatting is in place, so you're only selecting the Gantt range once).
-When you get to the manual step, the formula again is:
-=AND($G4<=I$3+4, $H4>=I$3)
-Just remember to apply it to all Gantt columns at once by selecting the full range (e.g. I4:U50) before creating the rule — that way one rule covers the whole grid and the column reference shifts automatically. Good luck!
+Slide 2 – Viva Glint: Survey Cadence & File Imports
+Prompt 1 (Detailed layout):
+
+Create a slide titled "Viva Glint – Survey Cadence & File Imports". Divide content into three sections. Section 1 (teal header): "Daily Activities" – New Joiner Survey daily flat file import, Hiring Manager Survey daily flat file import, Leavers File daily import, Headcount File daily refresh. Section 2 (blue header): "One-Time / Scheduled" – Your View Survey in September, HR Experience Survey in November, Data Science Team data as one-time import. Section 3 (amber highlight bar): "Quarterly – Mandated Training Survey, 2 cycles". Add a footer: "All surveys rely on flat file imports for processing and deployment."
+
+Prompt 2 (Visual emphasis):
+
+Design a slide on Viva Glint survey cadence. Use a two-column layout for Daily and One-Time activities. Left column (teal): four bullet points showing daily flat file imports for surveys and HR files. Right column (blue): three rows showing scheduled surveys with date badges (September, November, One-time). Below both columns, add a full-width amber callout box for the Quarterly Mandated Training Survey. End with a warning footer about flat file dependency.
+
+Prompt 3 (Concise tone):
+
+Slide: "Viva Glint – Survey Cadence & File Imports". Two columns: left shows daily import activities (4 items), right shows one-time/scheduled activities (3 items with month labels). Below, a highlighted row for the quarterly training survey. Footer warning: all surveys use flat file imports. Use teal, blue, and amber accents with icons for each section header.
+
+
+Slide 3 – Data Requirements & Key Ask
+Prompt 1 (Detailed layout):
+
+Create a slide titled "Data Requirements to Support Interim Design". Use a three-column flow layout with arrows between columns. Column 1 (red header – "Current Challenges"): Multiple files received separately causing complex imports; repeated addition of required fields is time-consuming; risk of inconsistency and delays. Column 2 (teal header – "Proposed Solution / Ask"): Extract data from Workday; combine into one consolidated daily file; share via OneDrive or SharePoint, password protected. Column 3 (split into two cards): Top card in teal – "Operational Expectation": file delivery before 6AM UK time, Colleague Listening Team to validate and import. Bottom card in green – "Outcome": streamlined process, reduced manual effort, improved consistency. Add a branded footer with team name.
+
+Prompt 2 (Visual emphasis):
+
+Design a three-step process slide on data requirements. Step 1 (red): show three pain points about fragmented file imports. Step 2 (teal, centre): show three solution points including Workday extraction and SharePoint sharing. Step 3 (right, split): top section for operational SLA (6AM UK delivery, validation) and bottom section for expected outcomes (efficiency, consistency). Use directional arrows between steps, coloured section headers with icons, and a subtle footer.
+
+Prompt 3 (Concise tone):
+
+Slide: "Data Requirements to Support Interim Design". Three columns connected by arrows. Left (red): current challenges – fragmented files, manual effort, inconsistency risk. Middle (teal): proposed solution – Workday extract, single consolidated daily file, secure SharePoint sharing. Right (split into two stacked cards): operational expectations (6AM delivery, team validates and imports) and outcomes (streamlined, reduced effort, reliable data). Clean professional style with icons and a footer crediting the Colleague Listening Team.
