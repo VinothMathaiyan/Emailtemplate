@@ -1,19 +1,169 @@
+Create a single PowerPoint slide showing the interim EMRS Microsoft Survey Ecosystem solution while MODIS is not yet available for the Glint automated flow.
+Title: EMRS / Microsoft Survey Ecosystem – Interim SolutionCreate a single PowerPoint slide showing the interim EMRS Microsoft Survey Ecosystem solution while MODIS is not yet available for the Glint automated flow.
+Title: EMRS / Microsoft Survey Ecosystem – Interim Solution
+Slide Design & Layout:
 
-Create a single wide-format slide titled "EMRS / Microsoft Survey Ecosystem – Actual Solution" with a dark navy title bar and "CONFIDENTIAL" right-aligned.
-The slide has a dark navy "SOURCE SYSTEMS" column on the left containing two boxes: Workday (blue) and ServiceNow (green).
-To the right, show 4 horizontal swimlane flows with left-to-right arrows, each on a lightly tinted background:
-1. Microsoft Forms Flow (light blue lane):
-Workday Connector + ServiceNow Connector → Power Automate (Extracts data) → SharePoint List (Survey population & trigger data) → Power Automate (Distributes survey link) → Microsoft Forms (Survey response & reporting)
-Note: Power Automate has dual roles — (a) Extracts source data into SharePoint List (b) Distributes Microsoft Forms survey link
-Surveys: HR Case Survey | Learning Survey
-2. Glint Automated Flow (light purple lane):
-MODIS (Data middleware) → Glint (Distribute survey & reporting) → Glint Platform (Dashboard & Reporting)
-Surveys: Hiring Manager Survey | New Joiner Survey
-3. Glint Manual Import Flow (light amber lane):
-Manual Extract (Workday / Other) → Data Science Team (Process, validate & prepare file) → Manual Import to Glint → Glint Platform (Dashboard & Reporting)
-Surveys: HR Experience | Your View | Mandatory Training
-4. Pulse Flow (light orange lane):
-Workday Connector → Manual Import to Pulse → Pulse Platform (Dashboard & Reporting)
-At the bottom, add a dark green governance band spanning the full width with 6 equal sections:
-DPIA | Privacy | Anonymity Thresholds | Data Ownership | Access Controls | Data Validation
-Use a clean professional style with colored boxes, directional arrows between steps, and minimal text. Color-code each flow distinctly: blue for Microsoft Forms, purple for Glint, amber/brown for Glint Manual, orange for Pulse.
+Slide size: 16x9 widescreen
+Background: off-white (#F8FAFC)
+Dark navy header bar (#1B2A4A) spanning full width at the top, with the title in white bold text (15pt)
+An amber badge (#D97706) in the top-right corner of the header labeled "INTERIM MODEL" in small white bold text
+Four equal-width vertical columns side by side, each with a colored header bar and a light-tinted background panel behind the flow boxes
+Downward arrows between each step in a column, colored to match the column's theme color
+All flow boxes are white or lightly tinted rectangles with a subtle drop shadow and thin border
+
+Column 1 – MS Forms Flow (unchanged)
+
+Header bar color: Blue (#1E5FAD), white text
+Column background tint: Light blue (#DBEAFE)
+Arrow color: Blue
+Steps (top to bottom with downward arrows between each):
+
+Source: Workday & ServiceNow
+Workday / ServiceNow Connector
+Power Automate extracts → SharePoint List
+SharePoint List (survey population)
+Power Automate distributes survey link
+OUTPUT: MS Forms Response / Reporting (light blue tinted box)
+
+
+
+Column 2 – Interim Glint Flow (MODIS unavailable)
+
+Header bar color: Red (#C0392B), white text
+Column background tint: Light orange (#FFEDD5)
+Arrow color: Red
+At the very top of the column, add a red-bordered warning box with text: "⚠ MODIS not currently available"
+Steps (with downward arrows between each):
+
+Team combines data into single file
+Colleague Listening / survey team provides file
+Manual import into Glint daily by 6:00 AM UK (amber/yellow tinted box)
+Glint distributes: Hiring Mgr & New Joiner surveys (amber/yellow tinted box)
+OUTPUT: Glint survey distribution / dashboard (light orange tinted box)
+
+
+
+Column 3 – Glint Manual Import (existing model)
+
+Header bar color: Teal (#0E7C86), white text
+Column background tint: Light teal (#CCFBF1)
+Arrow color: Teal
+Steps (with downward arrows between each):
+
+Source: Workday / other colleague data
+Data Science team: process, validate, prepare (teal tinted box)
+Final file manually imported into Glint (teal tinted box)
+Surveys: HR Experience, Your View, Mandatory Training
+OUTPUT: Glint survey distribution / dashboard (light teal tinted box)
+
+
+
+Column 4 – Pulse Flow
+
+Header bar color: Dark gray (#334155), white text
+Column background tint: Light indigo (#EEF2FF)
+Arrow color: Dark gray
+Steps (with downward arrows between each):
+
+Source: Workday / Workday Connector
+Data prepared & manually imported
+OUTPUT: Pulse survey distribution / dashboard (light indigo tinted box)
+
+
+
+Callout Box (below the columns, left-aligned):
+
+Background: light yellow (#FFFBEB), amber left accent bar (#D97706), amber border
+Text: "⚑ Interim Change: MODIS automated feed is replaced by a daily combined file import into Glint until the MODIS integration is available."
+Label "Interim Change:" in bold amber, rest of text in dark gray
+
+Power Automate Note Box (bottom right, next to callout):
+
+Light gray background (#F1F5F9), thin gray border
+Bold blue heading: "Power Automate roles:"
+Body text: "a) Extract Workday/ServiceNow → SPO List" and "b) Distribute MS Forms link from SPO List"
+
+Use a clean, professional, executive-friendly layout. Highlight the interim Glint workaround clearly with warm/amber tones, while keeping the Microsoft Forms flow in blue and the existing manual Glint flows in teal. All columns should be visually balanced with consistent spacing, font sizes (7.5–9pt for body, 8.5pt bold for column headers), and aligned arrow indicators between steps.
+Slide Design & Layout:
+
+Slide size: 16x9 widescreen
+Background: off-white (#F8FAFC)
+Dark navy header bar (#1B2A4A) spanning full width at the top, with the title in white bold text (15pt)
+An amber badge (#D97706) in the top-right corner of the header labeled "INTERIM MODEL" in small white bold text
+Four equal-width vertical columns side by side, each with a colored header bar and a light-tinted background panel behind the flow boxes
+Downward arrows between each step in a column, colored to match the column's theme color
+All flow boxes are white or lightly tinted rectangles with a subtle drop shadow and thin border
+
+Column 1 – MS Forms Flow (unchanged)
+
+Header bar color: Blue (#1E5FAD), white text
+Column background tint: Light blue (#DBEAFE)
+Arrow color: Blue
+Steps (top to bottom with downward arrows between each):
+
+Source: Workday & ServiceNow
+Workday / ServiceNow Connector
+Power Automate extracts → SharePoint List
+SharePoint List (survey population)
+Power Automate distributes survey link
+OUTPUT: MS Forms Response / Reporting (light blue tinted box)
+
+
+
+Column 2 – Interim Glint Flow (MODIS unavailable)
+
+Header bar color: Red (#C0392B), white text
+Column background tint: Light orange (#FFEDD5)
+Arrow color: Red
+At the very top of the column, add a red-bordered warning box with text: "⚠ MODIS not currently available"
+Steps (with downward arrows between each):
+
+Team combines data into single file
+Colleague Listening / survey team provides file
+Manual import into Glint daily by 6:00 AM UK (amber/yellow tinted box)
+Glint distributes: Hiring Mgr & New Joiner surveys (amber/yellow tinted box)
+OUTPUT: Glint survey distribution / dashboard (light orange tinted box)
+
+
+
+Column 3 – Glint Manual Import (existing model)
+
+Header bar color: Teal (#0E7C86), white text
+Column background tint: Light teal (#CCFBF1)
+Arrow color: Teal
+Steps (with downward arrows between each):
+
+Source: Workday / other colleague data
+Data Science team: process, validate, prepare (teal tinted box)
+Final file manually imported into Glint (teal tinted box)
+Surveys: HR Experience, Your View, Mandatory Training
+OUTPUT: Glint survey distribution / dashboard (light teal tinted box)
+
+
+
+Column 4 – Pulse Flow
+
+Header bar color: Dark gray (#334155), white text
+Column background tint: Light indigo (#EEF2FF)
+Arrow color: Dark gray
+Steps (with downward arrows between each):
+
+Source: Workday / Workday Connector
+Data prepared & manually imported
+OUTPUT: Pulse survey distribution / dashboard (light indigo tinted box)
+
+
+
+Callout Box (below the columns, left-aligned):
+
+Background: light yellow (#FFFBEB), amber left accent bar (#D97706), amber border
+Text: "⚑ Interim Change: MODIS automated feed is replaced by a daily combined file import into Glint until the MODIS integration is available."
+Label "Interim Change:" in bold amber, rest of text in dark gray
+
+Power Automate Note Box (bottom right, next to callout):
+
+Light gray background (#F1F5F9), thin gray border
+Bold blue heading: "Power Automate roles:"
+Body text: "a) Extract Workday/ServiceNow → SPO List" and "b) Distribute MS Forms link from SPO List"
+
+Use a clean, professional, executive-friendly layout. Highlight the interim Glint workaround clearly with warm/amber tones, while keeping the Microsoft Forms flow in blue and the existing manual Glint flows in teal. All columns should be visually balanced with consistent spacing, font sizes (7.5–9pt for body, 8.5pt bold for column headers), and aligned arrow indicators between steps.
