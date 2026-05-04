@@ -1,1 +1,19 @@
 
+Create a single wide-format slide titled "EMRS / Microsoft Survey Ecosystem – Actual Solution" with a dark navy title bar and "CONFIDENTIAL" right-aligned.
+The slide has a dark navy "SOURCE SYSTEMS" column on the left containing two boxes: Workday (blue) and ServiceNow (green).
+To the right, show 4 horizontal swimlane flows with left-to-right arrows, each on a lightly tinted background:
+1. Microsoft Forms Flow (light blue lane):
+Workday Connector + ServiceNow Connector → Power Automate (Extracts data) → SharePoint List (Survey population & trigger data) → Power Automate (Distributes survey link) → Microsoft Forms (Survey response & reporting)
+Note: Power Automate has dual roles — (a) Extracts source data into SharePoint List (b) Distributes Microsoft Forms survey link
+Surveys: HR Case Survey | Learning Survey
+2. Glint Automated Flow (light purple lane):
+MODIS (Data middleware) → Glint (Distribute survey & reporting) → Glint Platform (Dashboard & Reporting)
+Surveys: Hiring Manager Survey | New Joiner Survey
+3. Glint Manual Import Flow (light amber lane):
+Manual Extract (Workday / Other) → Data Science Team (Process, validate & prepare file) → Manual Import to Glint → Glint Platform (Dashboard & Reporting)
+Surveys: HR Experience | Your View | Mandatory Training
+4. Pulse Flow (light orange lane):
+Workday Connector → Manual Import to Pulse → Pulse Platform (Dashboard & Reporting)
+At the bottom, add a dark green governance band spanning the full width with 6 equal sections:
+DPIA | Privacy | Anonymity Thresholds | Data Ownership | Access Controls | Data Validation
+Use a clean professional style with colored boxes, directional arrows between steps, and minimal text. Color-code each flow distinctly: blue for Microsoft Forms, purple for Glint, amber/brown for Glint Manual, orange for Pulse.
