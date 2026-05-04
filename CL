@@ -1,1 +1,139 @@
 
+Here's the complete, copy-paste-ready prompt for Microsoft Copilot:
+
+PROMPT:
+
+Create a single PowerPoint slide titled "Colleague Listening Surveys — Full Ecosystem" with the following exact design:
+
+SLIDE SETUP
+
+Slide size: Widescreen 16:9 (13.3" × 7.5")
+Background color: Off-white #F4F6FA
+
+
+HEADER BAR (full width, top of slide)
+
+Full-width rectangle, height ~0.78", color: #0F1F3D (dark navy)
+Below header: thin teal accent stripe, height ~0.05", color: #0E7C86
+Title text inside header: "Colleague Listening Surveys — Full Ecosystem"
+
+Font: Calibri, 22pt, Bold, White, vertically centered
+
+
+Top-right badge (inside header area): rectangle, color #DC2626 (red), size ~2.55" × 0.54"
+
+Badge text: "Proposed Final Design Solution", 9.5pt, Bold, White, centered
+
+
+
+
+LEFT SIDEBAR — Source Systems
+
+Rectangle panel, color: #1B3461 (navy mid), positioned on left side, ~1.55" wide × 5.85" tall
+Header text inside panel: "SOURCE SYSTEMS", 10pt, Bold, White, centered
+Two cards inside the panel:
+
+Workday card — color #1D4ED8 (blue), text: "Workday", 9.5pt Bold White, with a database icon (🗄️) in white
+ServiceNow card — color #15803D (green), text: "ServiceNow", 9.5pt Bold White, with a settings/gear icon (⚙️) in white
+
+
+From each card, draw a dashed gray arrow (#94A3B8) pointing right into each flow row
+
+
+FLOW ROWS — 4 horizontal rows, each with:
+
+A colored background panel (light tint) with a bold left accent bar
+A colored pill label on the top-left of each row
+Step cards inside, connected by slim colored arrows with arrowheads
+Italic survey label text at the bottom of each row
+
+
+ROW 1 — Microsoft Forms Flow
+
+Row background tint: #DBEAFE (light blue), left accent bar: #1E5FAD (blue)
+Row label pill: "Microsoft Forms Flow", color #1E5FAD, white text, 8pt bold
+Tag badge next to label: "UNCHANGED", color #16A34A (green), white text, 7pt bold
+Arrow color between cards: #1E5FAD
+Survey label (italic, blue): "Surveys: HR Case Survey | Learning Survey"
+6 step cards (left to right), each white with blue left accent #1E5FAD and blue border:
+
+🗄️ Icon + "Workday Connector / API"
+⚙️ Icon + "ServiceNow Connector"
+☁️ Icon + "Extract Data (Power Automate)"
+📋 Icon + "Scheduled Triggers (SharePoint List)"
+🔗 Icon + "Distribution (Power Automate)"
+📄 Icon + "Microsoft Forms (Responses & Reports)"
+
+
+
+
+ROW 2 — Glint Automated Flow
+
+Row background tint: #EDE9FE (light purple), left accent bar: #5B21B6 (purple)
+Row label pill: "Glint Automated Flow", color #5B21B6, white text, 8pt bold
+No tag badge
+Arrow color between cards: #5B21B6
+Survey label (italic, purple): "Surveys: Hiring Manager Survey | New Joiner Survey"
+3 step cards, each white with purple left accent #5B21B6 and purple border:
+
+🔄 Icon + "MODIS (Data Middleware)"
+👥 Icon + "Glint (Distribute Survey)"
+📊 Icon + "Glint Platform (Dashboard & Reporting)"
+
+
+
+
+ROW 3 — Glint Manual Import Flow
+
+Row background tint: #CCFBF1 (light teal), left accent bar: #0E7C86 (teal)
+Row label pill: "Glint Manual Import Flow", color #0E7C86, white text, 8pt bold
+No tag badge
+Arrow color between cards: #0E7C86
+Survey label (italic, teal): "Surveys: HR Experience | Your View | Mandatory Training"
+4 step cards, each white with teal left accent #0E7C86 and teal border:
+
+🗄️ Icon + "Manual Extract (Workday / Other)"
+👤 Icon + "Data Science Team (Process & Validate)"
+☁️ Icon + "Manual Import & Distribute (Glint)"
+📊 Icon + "Glint Platform (Dashboard & Reporting)"
+
+
+
+
+ROW 4 — Pulse Flow
+
+Row background tint: #FFEDD5 (light coral/orange), left accent bar: #C2410C (coral)
+Row label pill: "Pulse Flow", color #C2410C, white text, 8pt bold
+Tag badge next to label: "TBD", color #DC2626 (red), white text, 7pt bold
+Arrow color between cards: #C2410C
+Survey label (italic, coral): "Surveys: Manager Led Surveys (Team Effectiveness)"
+2 step cards, each white with coral left accent #C2410C and coral border:
+
+☁️ Icon + "Manual Import (to Pulse)"
+📈 Icon + "Pulse Platform (Dashboard & Reporting)"
+
+
+
+
+STEP CARD DESIGN (applies to all rows)
+
+Each card: white fill #FFFFFF, thin colored border (matching row color), subtle drop shadow
+Left side: thin colored accent bar (~0.05" wide, matching row color)
+Left side of card: small icon in row's theme color
+Right side of card: text label, 7.2pt, dark #1E293B, left-aligned, wrapped
+Cards connected by slim arrows with arrowheads, color matching the row
+
+
+FOOTER NOTE BOX (bottom-left)
+
+Rectangle, background #EFF6FF, blue border #1E5FAD, blue left accent bar
+Text: "Note — Power Automate roles:" (bold blue #1E5FAD) followed by "(a) Extract data to SharePoint List | (b) Distribute Microsoft Forms survey link" (dark gray #1E293B), 7.5pt
+
+FOOTER BRANDING (bottom-right)
+
+Rectangle, color #0F1F3D (navy)
+Text: "BARCLAYS", 11pt, Bold, White, centered, letter-spacing wide
+Below center: small italic text "Restricted — Internal", 6.5pt, gray #64748B
+
+
+Use a clean, executive-friendly layout. Every row must be visually distinct through its unique color family. All cards must have icons, colored left accents, and drop shadows. Arrows between steps must be slim and directional with arrowheads. No plain text-only rows.
